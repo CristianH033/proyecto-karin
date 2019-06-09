@@ -174,7 +174,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        // Pluralización para modelos en español
+        App\Providers\SpanishPluralizerServiceProvider::class,
     ],
 
     /*
