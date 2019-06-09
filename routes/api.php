@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  * @Date: 2019-06-08 19:49:27
  * @Desc: Creación dínamica de rutas para acceder a los recursos a través de una API.
  */
-Route::resources([
+Route::apiResources([
     'personas' => 'PersonaController',
     'paises' => 'PaisController',
     'estados' => 'EstadoController',
