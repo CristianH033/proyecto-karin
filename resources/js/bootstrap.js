@@ -1,4 +1,18 @@
 /**
+ * Función que se ejecuta cuando la página esté completamente cargada
+ * y aplica transición "fade-out" al "splash" y remueve el elemento posteriormente
+ */
+document.addEventListener("DOMContentLoaded", () => {
+    let splash = document.querySelector("#splash-loading");
+    let SplashListener = function() {
+        splash.removeEventListener('transitionend', SplashListener, false);
+        splash.remove();
+    };
+    splash.addEventListener('transitionend', SplashListener);
+    splash.classList.add('cargado');
+});
+
+/**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.

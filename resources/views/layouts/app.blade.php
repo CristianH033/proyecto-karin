@@ -10,6 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 </head>
 <body>
+    @include('partials.splash')
     <div id="karim-app"></div>
 
     <!-- Styles -->
