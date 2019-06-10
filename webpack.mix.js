@@ -11,5 +11,15 @@ const mix = require('laravel-mix');
  |
  */
 
+/**
+ * Opciones de WebPack
+ */
+mix.options({
+    hmrOptions: {
+        // Establecer el dominio para HMR
+        host: process.env.MIX_HMR_HOST
+    }
+});
+
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
