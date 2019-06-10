@@ -17,9 +17,9 @@ require('./bootstrap');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-import Vue from "vue"
-import router from "./routes"
-import store from './store'
+import Vue from 'vue'
+import router from '@js/routes'
+import store from '@js/store'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27,7 +27,7 @@ import store from './store'
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import App from "./App.vue";
+import App from '@js/App.vue';
 
 new Vue({
     router: router,

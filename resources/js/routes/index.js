@@ -2,9 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // Importar componentes de páginas
-import Home from '../pages/Home.vue';
-import Contact from '../pages/Contact.vue';
-import About from '../pages/About.vue';
+import Home from '@js/pages/Home.vue';
+import Contact from '@js/pages/Contact.vue';
+import About from '@js/pages/About.vue';
 
 Vue.use(Router);
 

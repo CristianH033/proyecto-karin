@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+require('laravel-mix-alias');
 
 /*
  |--------------------------------------------------------------------------
@@ -10,6 +11,14 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
+
+/**
+ * Alias dedirectorios para WebPack
+ */
+mix.alias({
+    '@js': '/resources/js',
+    '@sass': '/resources/sass',
+});
 
 /**
  * Opciones de WebPack
