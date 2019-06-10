@@ -18,6 +18,7 @@ require('./bootstrap');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 import Vue from "vue"
+import router from "./routes"
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -28,5 +29,6 @@ import Vue from "vue"
 import App from "./App.vue";
 
 new Vue({
+    router: router,
     render: h => h(App)
 }).$mount('#karim-app');
