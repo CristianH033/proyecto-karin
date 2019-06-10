@@ -19,6 +19,7 @@ require('./bootstrap');
 
 import Vue from "vue"
 import router from "./routes"
+import store from './store'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,5 +31,6 @@ import App from "./App.vue";
 
 new Vue({
     router: router,
+    store: store,
     render: h => h(App)
 }).$mount('#karim-app');
