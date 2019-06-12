@@ -13,8 +13,17 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+/**
+ * Controladores que se encuentran dentro de la carpeta API\Auh
+ */
+Route::namespace('API\Auth')->group(function () {
+    Route::get('user', 'LoginController@getCurrentUser')->name('auth.user');
+    Route::post('login', 'LoginController@login')->name('login');
+    Route::post('register', 'RegisterController@register')->name('register');
+    Route::post('logout', 'LoginController@logout')->name('logout');
+    Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('requestResetPasswordEmail');
+    Route::post('password/reset', 'ResetPasswordController@reset')->name('resetPassword');
+    Route::post('validate-pwdreset-token', 'ResetPasswordController@checkValidToken')->name('checkPasswordResetToken');
 });
 
 /**

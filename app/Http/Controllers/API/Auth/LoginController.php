@@ -85,8 +85,8 @@ class LoginController extends Controller
 
         return response()->json([
             'token' => $token,
-            'user' => $user,
-            'status' => 200
+            // 'user' => $user,
+            // 'status' => 200
         ]);
     }
 
@@ -98,9 +98,6 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        // sleep(5);
-        // $bearerToken = $request->bearerToken();
-        // $token = $request->user()->tokens->find($bearerToken);
         $token = $request->user()->token();
         $token->revoke();
         // $this->guard()->logout();
