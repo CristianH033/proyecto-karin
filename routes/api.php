@@ -32,17 +32,5 @@ Route::namespace('API\Auth')->group(function () {
  * @Desc: Creación dínamica de rutas para acceder a los recursos a través de una API.
  */
 Route::apiResources([
-    'personas' => 'PersonaController',
-    'paises' => 'PaisController',
-    'estados' => 'EstadoController',
-    'ciudades' => 'CiudadController',
-    'sucursales' => 'SucursalController',
-    'proveedores' => 'ProveedorController',
-    'clientes' => 'ClienteController',
-    'cargos' => 'CargoController',
-    'funcionarios' => 'FuncionarioController',
-    'dispositivos' => 'DispositivoController',
-    'etiquetas' => 'EtiquetaController',
-    'reportes' => 'ReporteController',
-    'contratos' => 'ContratoController'
+    
 ]);
