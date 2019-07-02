@@ -19,10 +19,26 @@ class SpanishPluralizerServiceProvider extends ServiceProvider
          */
         Inflector::rules('plural', [
             'irregular' => [
-                'pais' => 'paises',
-                'ciudad' => 'ciudades',
-                'sucursal' => 'sucursales',
-                'proveedor' => 'proveedores',
+                "cliente" => "clientes",
+                "contrato" => "contratos",
+                "proovedor" => "proovedores",
+                "producto" => "productos",
+                "servicio" => "servicios",
+                "tipo" => "tipos",
+                "dispositivo" => "dispositivos",
+                "modelo" => "modelos",
+                "estacion" => "estaciones",
+                "trabajo" => "trabajos",
+                "sede" => "sedes",
+                "funcionario" => "funcionarios",
+                "ciudad" => "ciudades",
+                "estado" => "estados",
+                "pais" => "paises",
+                "cargo" => "cargos",
+                "personas" => "personas",
+                "sucursal" => "sucursales",
+                "operador" => "operadores",
+                "incidencia" => "incidencias",
             ]
         ]);
     }
