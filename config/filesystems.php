@@ -55,6 +55,16 @@ return [
             'visibility' => 'public',
         ],
 
+        'imagenes' => [
+            'driver' => 'local',
+            'root' => storage_path('app/imagenes'),
+        ],
+
+        'contratos' => [
+            'driver' => 'local',
+            'root' => storage_path('app/contratos'),
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
