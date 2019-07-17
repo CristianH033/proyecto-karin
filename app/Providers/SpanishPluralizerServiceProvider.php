@@ -39,6 +39,7 @@ class SpanishPluralizerServiceProvider extends ServiceProvider
                 "sucursal" => "sucursales",
                 "operador" => "operadores",
                 "incidencia" => "incidencias",
+                "inventario" => "inventarios",
             ]
         ]);
     }
