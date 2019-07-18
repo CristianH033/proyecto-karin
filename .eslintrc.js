@@ -20,6 +20,8 @@ module.exports = {
         "vue"
     ],
     "rules": {
+        'vue/singleline-html-element-content-newline': 'off',
+        'vue/multiline-html-element-content-newline': 'off',
         "no-console": "off",
         "vue/html-indent": [
             "error", 4
