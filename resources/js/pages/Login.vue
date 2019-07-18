@@ -1,13 +1,13 @@
 <template>
     <form method="POST" @submit.prevent="login">
-        <input type="email" name="email" v-model="email" id>
-        <input type="password" name="password" v-model="password" id>
+        <input v-model="email" type="email" name="email">
+        <input v-model="password" type="password" name="password">
         <button type="submit">Entrar</button>
     </form>
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 export default {
     data() {
         return {
@@ -16,18 +16,24 @@ export default {
             password: null
         };
     },
+    mounted(){
+
+    },
     methods: {
         login() {
-            axios.post("api/login", {
-                email: this.email,
-                password: this.password
-            })
-            .then(function(response) {
-                console.log(response);
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
+            console.log(this.$route.query.redirect);
+            this.$store.commit('setAuth', true)
+            this.$router.push(this.$route.query.redirect)
+            // axios.post("api/login", {
+                // email: this.email,
+                // password: this.password
+            // })
+            // .then(function(response) {
+                // console.log(response);
+            // })
+            // .catch(function(error) {
+                // console.log(error);
+            // });
         }
     }
 };

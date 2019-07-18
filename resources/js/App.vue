@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Karim App</h1>
+        <h1>Keemble App Logged: {{ auth }}</h1>
         <span>Dato desde APP: {{ dato }}</span>
         <nav>
             <router-link :to="{ name: 'home' }">Inicio|</router-link>
@@ -19,6 +19,9 @@ export default {
         return {};
     },
     computed: {
+        auth(){
+            return this.$store.getters.getAuth;
+        },
         dato(){
             return this.$store.getters.getDato;
         }
