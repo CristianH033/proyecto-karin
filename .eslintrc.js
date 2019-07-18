@@ -22,6 +22,11 @@ module.exports = {
     "rules": {
         'vue/singleline-html-element-content-newline': 'off',
         'vue/multiline-html-element-content-newline': 'off',
+        "vue/max-attributes-per-line": [
+            "error", {
+                "singleline": 4
+            }
+        ],
         "no-console": "off",
         "vue/html-indent": [
             "error", 4
