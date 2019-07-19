@@ -29,6 +29,9 @@ import store from '@js/store'
 
 import App from '@js/App.vue';
 
+// Bus para eventos globales
+Vue.prototype.$globalEvent = new Vue();
+
 new Vue({
     router: router,
     store: store,
