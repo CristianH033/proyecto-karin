@@ -23,7 +23,11 @@ export default {
         login() {
             console.log(this.$route.query.redirect);
             this.$store.commit('setAuth', true)
-            this.$router.push(this.$route.query.redirect)
+            if(this.$route.query.redirect){
+                this.$router.push(this.$route.query.redirect)
+            }else{
+                this.$router.push({name: 'home'})
+            }
             // axios.post("api/login", {
                 // email: this.email,
                 // password: this.password
