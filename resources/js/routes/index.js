@@ -5,17 +5,17 @@ import store from '@js/store'
 // Importar componentes de páginas
 
 // Componenes de DashBoard
-const DashBoardLayout = () => import(/* webpackChunkName: "DashBoardLayout" */ '@js/layouts/DashBoardLayout.vue');
-const Home = () => import(/* webpackChunkName: "Home" */ '@js/pages/Home.vue');
-const Contact = () => import(/* webpackChunkName: "Contact" */ '@js/pages/Contact.vue');
-const About = () => import(/* webpackChunkName: "About" */ '@js/pages/About.vue');
+const DashBoardLayout = () => import(/* webpackChunkName: "js/layouts/DashBoardLayout" */ '@js/layouts/DashBoardLayout.vue');
+const Home = () => import(/* webpackChunkName: "js/pages/Home" */ '@js/pages/Home.vue');
+const Contact = () => import(/* webpackChunkName: "js/pages/Contact" */ '@js/pages/Contact.vue');
+const About = () => import(/* webpackChunkName: "js/pages/About" */ '@js/pages/About.vue');
 
 // Componenes de Autenticacion
-const AuthLayout = () => import(/* webpackChunkName: "AuthLayout" */ '@js/layouts/AuthLayout.vue');
-const Login = () => import(/* webpackChunkName: "Login" */ '@js/pages/Login.vue');
-const Register = () => import(/* webpackChunkName: "Register" */ '@js/pages/Register.vue');
-const RequestResetPassword = () => import(/* webpackChunkName: "RequestResetPassword" */ '@js/pages/RequestResetPassword.vue');
-const ResetPassword = () => import(/* webpackChunkName: "ResetPassword" */ '@js/pages/ResetPassword.vue');
+const AuthLayout = () => import(/* webpackChunkName: "js/layouts/AuthLayout" */ '@js/layouts/AuthLayout.vue');
+const Login = () => import(/* webpackChunkName: "js/pages/Login" */ '@js/pages/Login.vue');
+const Register = () => import(/* webpackChunkName: "js/pages/Register" */ '@js/pages/Register.vue');
+const RequestResetPassword = () => import(/* webpackChunkName: "js/pages/RequestResetPassword" */ '@js/pages/RequestResetPassword.vue');
+const ResetPassword = () => import(/* webpackChunkName: "js/pages/ResetPassword" */ '@js/pages/ResetPassword.vue');
 
 Vue.use(Router);
 
