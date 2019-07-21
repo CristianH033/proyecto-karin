@@ -15,7 +15,11 @@ class CreateCiudadesTable extends Migration
     {
         Schema::create('ciudades', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('estado_id')->unsigned();
+            $table->string('nombre');
             $table->timestamps();
+            // Llave foranea
+            $table->foreign('estado_id')->references('id')->on('estados')->onDelete('cascade');
         });
     }
 

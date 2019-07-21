@@ -15,7 +15,15 @@ class CreatePersonasTable extends Migration
     {
         Schema::create('personas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('user_id')->unsigned()->unique();
+            $table->string('primer_nombre');
+            $table->string('segundo_nombre')->nullable();
+            $table->string('primer_apellido');
+            $table->string('segundo_apellido')->nullable();
+            $table->date('fecha_nacimiento')->nullable();
             $table->timestamps();
+            // Llaves foraneas
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -15,7 +15,11 @@ class CreateEstadosTable extends Migration
     {
         Schema::create('estados', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('pais_id')->unsigned();
+            $table->string('nombre');
             $table->timestamps();
+            // llave foranea
+            $table->foreign('pais_id')->references('id')->on('paises')->onDelete('cascade');
         });
     }
 

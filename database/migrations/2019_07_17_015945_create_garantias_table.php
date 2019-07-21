@@ -15,7 +15,14 @@ class CreateGarantiasTable extends Migration
     {
         Schema::create('garantias', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('contrato_id')->unsigned();
+            $table->string('nombre');
+            $table->text('descripcion')->nullable();
+            $table->date('fecha_inicio');
+            $table->date('fecha_fin');
             $table->timestamps();
+            // Llaves foraneas
+            $table->foreign('contrato_id')->references('id')->on('contratos')->onDelete('cascade');
         });
     }
 

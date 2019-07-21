@@ -15,7 +15,14 @@ class CreateSedesTable extends Migration
     {
         Schema::create('sedes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('cliente_id')->unsigned();
+            $table->bigInteger('ciudad_id')->unsigned();
+            $table->string('nombre');
+            $table->string('direccion');
             $table->timestamps();
+            // Llaves foraneas
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
+            $table->foreign('ciudad_id')->references('id')->on('ciudades')->onDelete('cascade');
         });
     }
 

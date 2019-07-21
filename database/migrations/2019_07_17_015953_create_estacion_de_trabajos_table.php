@@ -15,7 +15,11 @@ class CreateEstacionDeTrabajosTable extends Migration
     {
         Schema::create('estacion_de_trabajos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('sede_id')->unsigned();
+            $table->string('ubicacion');
             $table->timestamps();
+            // Llaves foraneas
+            $table->foreign('sede_id')->references('id')->on('sedes')->onDelete('cascade');
         });
     }
 
