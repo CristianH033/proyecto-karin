@@ -5,13 +5,15 @@ import store from '@js/store'
 // Importar componentes de páginas
 
 // Componenes de DashBoard
-const DashBoardLayout = () => import(/* webpackChunkName: "js/layouts/DashBoardLayout" */ '@js/layouts/DashBoardLayout.vue');
+import DashBoardLayout from '@js/layouts/DashBoardLayout.vue'
+// const DashBoardLayout = () => import(/* webpackChunkName: "js/layouts/DashBoardLayout" */ '@js/layouts/DashBoardLayout.vue');
 const Home = () => import(/* webpackChunkName: "js/pages/Home" */ '@js/pages/Home.vue');
 const Contact = () => import(/* webpackChunkName: "js/pages/Contact" */ '@js/pages/Contact.vue');
 const About = () => import(/* webpackChunkName: "js/pages/About" */ '@js/pages/About.vue');
 
 // Componenes de Autenticacion
-const AuthLayout = () => import(/* webpackChunkName: "js/layouts/AuthLayout" */ '@js/layouts/AuthLayout.vue');
+import AuthLayout from '@js/layouts/AuthLayout.vue'
+// const AuthLayout = () => import(/* webpackChunkName: "js/layouts/AuthLayout" */ '@js/layouts/AuthLayout.vue');
 const Login = () => import(/* webpackChunkName: "js/pages/Login" */ '@js/pages/Login.vue');
 const Register = () => import(/* webpackChunkName: "js/pages/Register" */ '@js/pages/Register.vue');
 const RequestResetPassword = () => import(/* webpackChunkName: "js/pages/RequestResetPassword" */ '@js/pages/RequestResetPassword.vue');
