@@ -1,8 +1,5 @@
 <template>
-    <div>
-        <h1>Marco Principal</h1>
-        <router-view />
-    </div>
+    <router-view />
 </template>
 
 <script>
@@ -15,11 +12,11 @@ export default {
     computed: {},
     created() {},
     mounted() {
-        this.$globalEvent.$on('logged-in');
-        this.$eventHub.$emit('logged-in');
+        // this.$globalEvent.$on('logged-in');
+        // this.$globalEvent.$emit('logged-in');
     },
     beforeDestroy() {
-        this.$eventHub.$off('logged-in');
+        // this.$globalEvent.$off('logged-in');
     },
     methods: {},
 };

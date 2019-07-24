@@ -1,18 +1,19 @@
 <template>
     <div>
-        <h1>Keemble App</h1>
         <h2>Auth Layout - Logged: {{ auth }}</h2>
         <span>Dato desde APP: {{ dato }}</span>
         <nav>
             <router-link :to="{ name: 'login' }">Login|</router-link>
             <router-link :to="{ name: 'register' }">Registro|</router-link>
-            <router-link :to="{ name: 'request-password-reset' }">Reset Pwd</router-link>
+            <router-link :to="{ name: 'request-password-reset' }">Recuperar Password|</router-link>
+            <router-link :to="{ name: 'reset-password' }">Restablecer Password</router-link>
         </nav>
         <router-view />
     </div>
 </template>
 
 <script>
+let unregisterBeforeEach, unregisterBeforeResolve;
 export default {
     name: "Auth",
     components: {},
@@ -28,8 +29,22 @@ export default {
         }
     },
     created() {},
-    mounted() {},
-    methods: {}
+    mounted() {
+        unregisterBeforeEach = this.$router.beforeEach((to, from, next) => {
+            console.log("Ruta solicitada en AuthLayout");
+            next();
+        });
+        unregisterBeforeResolve = this.$router.beforeResolve((to, from, next) => {
+            console.log("Ruta resuelta en AuthLayout")
+            next();
+        });
+    },
+    beforeDestroy(){
+        console.log("destruido")
+        unregisterBeforeEach()
+        unregisterBeforeResolve()
+    },
+    methods: {},
 }
 </script>
 

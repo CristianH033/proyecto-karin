@@ -1,33 +1,29 @@
 <template>
-    <form method="POST" @submit.prevent="register">
-        <input v-model="email" type="email" name="email">
-        <input v-model="password" type="password" name="password">
-        <input v-model="confirmPassword" type="password" name="confirm-password">
-        <button type="submit">Registrarse</button>
-    </form>
+    <register-form />
 </template>
 
 <script>
+import LoadingComponent from '@js/components/LoadingComponent.vue'
+import ErrorComponent from '@js/components/ErrorComponent.vue'
+
+const RegisterForm = () => ({
+    component: import( /* webpackChunkName: "js/components/RegisterForm" */ '@js/components/RegisterForm.vue'),
+    loading: LoadingComponent,
+    error: ErrorComponent,
+    delay: 0,
+})
+
 export default {
-    data() {
-        return {
-            errors: [],
-            email: null,
-            password: null,
-            confirmPassword: null
-        };
+    components: {
+        RegisterForm
     },
-    mounted(){},
-    methods: {
-        register() {
-            console.log(this.$route.query.redirect);
-            this.$store.commit('setAuth', true)
-            this.$router.push(this.$route.query.redirect)
-        }
-    }
+    data() {
+        return {};
+    },
+    mounted() {},
+    methods: {}
 };
 </script>
 
 <style>
-
 </style>

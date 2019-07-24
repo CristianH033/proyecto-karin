@@ -1,17 +1,29 @@
 <template>
-    <form method="POST" @submit.prevent="register">
-        <input v-model="password" type="password" name="password">
-        <input v-model="confirmPassword" type="password" name="confirm-password">
-        <button type="submit">Reestablecer contraseña</button>
-    </form>
+    <reset-password-form />
 </template>
 
 <script>
-export default {
+import LoadingComponent from '@js/components/LoadingComponent.vue'
+import ErrorComponent from '@js/components/ErrorComponent.vue'
 
-}
+const ResetPasswordForm = () => ({
+    component: import( /* webpackChunkName: "js/components/ResetPasswordForm" */ '@js/components/ResetPasswordForm.vue'),
+    loading: LoadingComponent,
+    error: ErrorComponent,
+    delay: 0,
+})
+
+export default {
+    components: {
+        ResetPasswordForm
+    },
+    data() {
+        return {};
+    },
+    mounted() {},
+    methods: {}
+};
 </script>
 
 <style>
-
 </style>

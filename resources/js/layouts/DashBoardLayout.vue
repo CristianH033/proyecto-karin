@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h1>Keemble App</h1>
         <h2>Dashboard Layout - Logged: {{ auth }}</h2>
         <span>Dato desde APP: {{ dato }}</span>
         <nav>
@@ -14,6 +13,7 @@
 </template>
 
 <script>
+let unregisterBeforeEach, unregisterBeforeResolve;
 export default {
     name: "Dashboard",
     components: {},
@@ -29,7 +29,21 @@ export default {
         }
     },
     created() {},
-    mounted() {},
+    mounted() {
+        unregisterBeforeEach = this.$router.beforeEach((to, from, next) => {
+            console.log("Ruta solicitada en DashBoardLayout");
+            next();
+        });
+        unregisterBeforeResolve = this.$router.beforeResolve((to, from, next) => {
+            console.log("Ruta resuelta en DashBoardLayout")
+            next();
+        });
+    },
+    beforeDestroy(){
+        console.log("destruido")
+        unregisterBeforeEach()
+        unregisterBeforeResolve()
+    },
     methods: {
         salir(){
             this.$store.commit('setAuth', false)

@@ -1,26 +1,29 @@
 <template>
-    <form method="POST" @submit.prevent="enviar">
-        <input type="email" name="email">
-        <button type="submit">Enviar</button>
-    </form>
+    <recovery-password-form />
 </template>
 
 <script>
+import LoadingComponent from '@js/components/LoadingComponent.vue'
+import ErrorComponent from '@js/components/ErrorComponent.vue'
+
+const RecoveryPasswordForm = () => ({
+    component: import( /* webpackChunkName: "js/components/RecoveryPasswordForm" */ '@js/components/RecoveryPasswordForm.vue'),
+    loading: LoadingComponent,
+    error: ErrorComponent,
+    delay: 0,
+})
+
 export default {
-    data() {
-        return {
-            email: null,
-        };
+    components: {
+        RecoveryPasswordForm
     },
-    mounted(){},
-    methods: {
-        enviar(){
-            
-        }
-    }
-}
+    data() {
+        return {};
+    },
+    mounted() {},
+    methods: {}
+};
 </script>
 
 <style>
-
 </style>

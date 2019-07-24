@@ -1,108 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import store from '@js/store'
-
-// Importar componentes de páginas
-
-// Componenes de DashBoard
-import DashBoardLayout from '@js/layouts/DashBoardLayout.vue'
-// const DashBoardLayout = () => import(/* webpackChunkName: "js/layouts/DashBoardLayout" */ '@js/layouts/DashBoardLayout.vue');
-const Home = () => import(/* webpackChunkName: "js/pages/Home" */ '@js/pages/Home.vue');
-const Contact = () => import(/* webpackChunkName: "js/pages/Contact" */ '@js/pages/Contact.vue');
-const About = () => import(/* webpackChunkName: "js/pages/About" */ '@js/pages/About.vue');
-
-// Componenes de Autenticacion
-import AuthLayout from '@js/layouts/AuthLayout.vue'
-// const AuthLayout = () => import(/* webpackChunkName: "js/layouts/AuthLayout" */ '@js/layouts/AuthLayout.vue');
-const Login = () => import(/* webpackChunkName: "js/pages/Login" */ '@js/pages/Login.vue');
-const Register = () => import(/* webpackChunkName: "js/pages/Register" */ '@js/pages/Register.vue');
-const RequestResetPassword = () => import(/* webpackChunkName: "js/pages/RequestResetPassword" */ '@js/pages/RequestResetPassword.vue');
-const ResetPassword = () => import(/* webpackChunkName: "js/pages/ResetPassword" */ '@js/pages/ResetPassword.vue');
+import routes from '@js/routes/routes.js'
 
 Vue.use(Router);
 
 let router = new Router({
-    routes: [{
-        path: '/',
-        name: 'auth',
-        component: AuthLayout,
-        meta: {
-            guest: true
-        },
-        children: [{
-            path: '/',
-            redirect: { name: 'login' }
-        },
-        {
-            path: '/login',
-            name: 'login',
-            component: Login,
-            meta: {
-                guest: true
-            }
-        },
-        {
-            path: '/register',
-            name: 'register',
-            component: Register,
-            meta: {
-                guest: true
-            }
-        },
-        {
-            path: '/request-password-reset',
-            name: 'request-password-reset',
-            component: RequestResetPassword,
-            meta: {
-                guest: true
-            }
-        },
-        {
-            path: '/reset-password',
-            name: 'reset-password',
-            component: ResetPassword,
-            meta: {
-                guest: true
-            }
-        },
-        ]
-    },
-    {
-        path: '/',
-        name: 'dashboard',
-        component: DashBoardLayout,
-        meta: {
-            guest: true
-        },
-        children: [{
-            path: '/home',
-            name: 'home',
-            component: Home,
-            meta: {
-                requiresAuth: true
-            }
-        },
-        {
-            path: '/contact',
-            name: 'contact',
-            component: Contact,
-            meta: {
-                requiresAuth: true
-            }
-        },
-        {
-            path: '/about',
-            name: 'about',
-            component: About,
-            meta: {
-                requiresAuth: true
-            }
-        }
-        ]
-    },
-    ]
+    routes: routes
 });
 
+// Función antes de cargar la ruta
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
         if (store.getters.getAuth == false) {
@@ -123,5 +30,11 @@ router.beforeEach((to, from, next) => {
         next()
     }
 });
+
+// // Función después de cargar la ruta
+// router.beforeResolve((to, from, next) => {
+//     console.log("Ruta resuelta")
+//     next()
+// });
 
 export default router
