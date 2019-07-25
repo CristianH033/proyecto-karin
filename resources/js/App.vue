@@ -1,7 +1,5 @@
 <template>
-    <transition name="fade">
-        <router-view />
-    </transition>
+    <router-view />
 </template>
 
 <script>
@@ -14,11 +12,24 @@ export default {
     computed: {},
     created() {},
     mounted() {
-        // this.$globalEvent.$on('logged-in');
-        // this.$globalEvent.$emit('logged-in');
+        // Evento global (login)
+        this.$globalEvent.$on("logged-in", () => {
+            this.$store.commit("setAuth", true);
+            if (this.$route.query.redirect) {
+                this.$router.push(this.$route.query.redirect);
+            } else {
+                this.$router.push({ name: "home" });
+            }
+        });
+        // Evento global (logout)
+        this.$globalEvent.$on("logged-out", () => {
+            this.$store.commit("setAuth", false);
+            this.$router.push({ name: "login" });
+        });
     },
     beforeDestroy() {
-        // this.$globalEvent.$off('logged-in');
+        this.$globalEvent.$off("logged-in");
+        this.$globalEvent.$off("logged-out");
     },
     methods: {}
 };
@@ -28,11 +39,4 @@ export default {
 </style>
 
 <style lang="scss" scoped>
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 0.5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    opacity: 0;
-}
 </style>

@@ -1,17 +1,22 @@
 <template>
-    <div class="layout-container">
-        <h2>Auth Layout - Logged: {{ auth }}</h2>
-        <span>Dato desde APP: {{ dato }}</span>
-        <nav>
-            <router-link :to="{ name: 'login' }">Login|</router-link>
-            <router-link :to="{ name: 'register' }">Registro|</router-link>
-            <router-link :to="{ name: 'request-password-reset' }">Recuperar Password|</router-link>
-            <router-link :to="{ name: 'reset-password' }">Restablecer Password</router-link>
-        </nav>
-        <transition name="auth-ly-fade" mode="out-in">
-            <router-view />
-        </transition>
-    </div>
+    <transition appear name="auth">
+        <div class="layout-container container-fluid">
+            <h2>Auth Layout - Logged: {{ auth }}</h2>
+            <nav>
+                <router-link :to="{ name: 'login' }">Login|</router-link>
+                <router-link :to="{ name: 'register' }">Registro|</router-link>
+                <router-link :to="{ name: 'request-password-reset' }">Recuperar Password|</router-link>
+                <router-link :to="{ name: 'reset-password' }">Restablecer Password</router-link>
+            </nav>
+            <div class="row justify-content-center">
+                <div class="col col-lg-4 col-md-6">
+                    <transition name="auth-ly-fade" mode="out-in">
+                        <router-view />
+                    </transition>
+                </div>
+            </div>
+        </div>
+    </transition>
 </template>
 
 <script>
@@ -25,9 +30,6 @@ export default {
     computed: {
         auth() {
             return this.$store.getters.getAuth;
-        },
-        dato() {
-            return this.$store.getters.getDato;
         }
     },
     created() {},
@@ -60,13 +62,26 @@ $blue: #002a46;
 $white: white;
 
 .layout-container {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     top: 0px;
     left: 0px;
     background-color: $blue;
-    color: $white;
+    z-index: 99;
+    will-change: transform;
+    transition: transform 0.7;
+    // color: $white;
+}
+
+.auth-enter-active,
+.auth-leave-active {
+    transition: transform 0.7s;
+    transition-delay: 0s;
+}
+// .auth-enter,
+.auth-leave-to {
+    transform: translateY(-100%);
 }
 
 .auth-ly-fade-enter-active,
@@ -74,7 +89,8 @@ $white: white;
     transition: opacity 0.3s, transform 0.3s;
 }
 
-.auth-ly-fade-enter, .auth-ly-fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.auth-ly-fade-enter,
+.auth-ly-fade-leave-to {
     opacity: 0;
     transform: translateY(-10px);
 }

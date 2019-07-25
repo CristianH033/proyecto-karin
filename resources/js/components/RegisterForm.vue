@@ -20,9 +20,7 @@ export default {
     mounted() {},
     methods: {
         register() {
-            console.log(this.$route.query.redirect);
-            this.$store.commit("setAuth", true);
-            this.$router.push(this.$route.query.redirect);
+            this.$globalEvent.$emit("logged-in");
         }
     }
 };
