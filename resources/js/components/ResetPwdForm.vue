@@ -1,7 +1,7 @@
 <template>
     <form method="POST" @submit.prevent="reset">
-        <input v-model="password" type="password" name="password">
-        <input v-model="confirmPassword" type="password" name="confirm-password">
+        <input v-model="password" type="password" name="password" />
+        <input v-model="confirmPassword" type="password" name="confirm-password" />
         <button type="submit">Reestablecer contraseña</button>
     </form>
 </template>
@@ -15,14 +15,12 @@ export default {
             confirmPassword: null
         };
     },
-    mounted(){},
+    mounted() {},
     methods: {
-        reset() {
-        }
+        reset() {}
     }
-}
+};
 </script>
 
 <style>
-
 </style>

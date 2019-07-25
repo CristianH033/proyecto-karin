@@ -1,7 +1,7 @@
 <style scoped>
-    .action-link {
-        cursor: pointer;
-    }
+.action-link {
+    cursor: pointer;
+}
 </style>
 
 <template>
@@ -9,22 +9,25 @@
         <div>
             <div class="card card-default">
                 <div class="card-header">
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span>
-                            Personal Access Tokens
-                        </span>
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center;"
+                    >
+                        <span>Personal Access Tokens</span>
 
-                        <a class="action-link" tabindex="-1" @click="showCreateTokenForm">
-                            Create New Token
-                        </a>
+                        <a
+                            class="action-link"
+                            tabindex="-1"
+                            @click="showCreateTokenForm"
+                        >Create New Token</a>
                     </div>
                 </div>
 
                 <div class="card-body">
                     <!-- No Tokens Notice -->
-                    <p class="mb-0" v-if="tokens.length === 0">
-                        You have not created any personal access tokens.
-                    </p>
+                    <p
+                        class="mb-0"
+                        v-if="tokens.length === 0"
+                    >You have not created any personal access tokens.</p>
 
                     <!-- Personal Access Tokens -->
                     <table class="table table-borderless mb-0" v-if="tokens.length > 0">
@@ -38,15 +41,11 @@
                         <tbody>
                             <tr v-for="token in tokens">
                                 <!-- Client Name -->
-                                <td style="vertical-align: middle;">
-                                    {{ token.name }}
-                                </td>
+                                <td style="vertical-align: middle;">{{ token.name }}</td>
 
                                 <!-- Delete Button -->
                                 <td style="vertical-align: middle;">
-                                    <a class="action-link text-danger" @click="revoke(token)">
-                                        Delete
-                                    </a>
+                                    <a class="action-link text-danger" @click="revoke(token)">Delete</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -60,22 +59,25 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">
-                            Create Token
-                        </h4>
+                        <h4 class="modal-title">Create Token</h4>
 
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-hidden="true"
+                        >&times;</button>
                     </div>
 
                     <div class="modal-body">
                         <!-- Form Errors -->
                         <div class="alert alert-danger" v-if="form.errors.length > 0">
-                            <p class="mb-0"><strong>Whoops!</strong> Something went wrong!</p>
-                            <br>
+                            <p class="mb-0">
+                                <strong>Whoops!</strong> Something went wrong!
+                            </p>
+                            <br />
                             <ul>
-                                <li v-for="error in form.errors">
-                                    {{ error }}
-                                </li>
+                                <li v-for="error in form.errors">{{ error }}</li>
                             </ul>
                         </div>
 
@@ -86,7 +88,13 @@
                                 <label class="col-md-4 col-form-label">Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="create-token-name" type="text" class="form-control" name="name" v-model="form.name">
+                                    <input
+                                        id="create-token-name"
+                                        type="text"
+                                        class="form-control"
+                                        name="name"
+                                        v-model="form.name"
+                                    />
                                 </div>
                             </div>
 
@@ -98,11 +106,12 @@
                                     <div v-for="scope in scopes">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox"
+                                                <input
+                                                    type="checkbox"
                                                     @click="toggleScope(scope.id)"
-                                                    :checked="scopeIsAssigned(scope.id)">
-
-                                                    {{ scope.id }}
+                                                    :checked="scopeIsAssigned(scope.id)"
+                                                />
+                                                {{ scope.id }}
                                             </label>
                                         </div>
                                     </div>
@@ -115,9 +124,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
-                        <button type="button" class="btn btn-primary" @click="store">
-                            Create
-                        </button>
+                        <button type="button" class="btn btn-primary" @click="store">Create</button>
                     </div>
                 </div>
             </div>
@@ -128,11 +135,14 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">
-                            Personal Access Token
-                        </h4>
+                        <h4 class="modal-title">Personal Access Token</h4>
 
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-hidden="true"
+                        >&times;</button>
                     </div>
 
                     <div class="modal-body">
@@ -155,144 +165,148 @@
 </template>
 
 <script>
-    export default {
-        /*
-         * The component's data.
-         */
-        data() {
-            return {
-                accessToken: null,
+export default {
+    /*
+     * The component's data.
+     */
+    data() {
+        return {
+            accessToken: null,
 
-                tokens: [],
+            tokens: [],
+            scopes: [],
+
+            form: {
+                name: "",
                 scopes: [],
-
-                form: {
-                    name: '',
-                    scopes: [],
-                    errors: []
-                }
-            };
-        },
-
-        /**
-         * Prepare the component (Vue 1.x).
-         */
-        ready() {
-            this.prepareComponent();
-        },
-
-        /**
-         * Prepare the component (Vue 2.x).
-         */
-        mounted() {
-            this.prepareComponent();
-        },
-
-        methods: {
-            /**
-             * Prepare the component.
-             */
-            prepareComponent() {
-                this.getTokens();
-                this.getScopes();
-
-                $('#modal-create-token').on('shown.bs.modal', () => {
-                    $('#create-token-name').focus();
-                });
-            },
-
-            /**
-             * Get all of the personal access tokens for the user.
-             */
-            getTokens() {
-                axios.get('/oauth/personal-access-tokens')
-                        .then(response => {
-                            this.tokens = response.data;
-                        });
-            },
-
-            /**
-             * Get all of the available scopes.
-             */
-            getScopes() {
-                axios.get('/oauth/scopes')
-                        .then(response => {
-                            this.scopes = response.data;
-                        });
-            },
-
-            /**
-             * Show the form for creating new tokens.
-             */
-            showCreateTokenForm() {
-                $('#modal-create-token').modal('show');
-            },
-
-            /**
-             * Create a new personal access token.
-             */
-            store() {
-                this.accessToken = null;
-
-                this.form.errors = [];
-
-                axios.post('/oauth/personal-access-tokens', this.form)
-                        .then(response => {
-                            this.form.name = '';
-                            this.form.scopes = [];
-                            this.form.errors = [];
-
-                            this.tokens.push(response.data.token);
-
-                            this.showAccessToken(response.data.accessToken);
-                        })
-                        .catch(error => {
-                            if (typeof error.response.data === 'object') {
-                                this.form.errors = _.flatten(_.toArray(error.response.data.errors));
-                            } else {
-                                this.form.errors = ['Something went wrong. Please try again.'];
-                            }
-                        });
-            },
-
-            /**
-             * Toggle the given scope in the list of assigned scopes.
-             */
-            toggleScope(scope) {
-                if (this.scopeIsAssigned(scope)) {
-                    this.form.scopes = _.reject(this.form.scopes, s => s == scope);
-                } else {
-                    this.form.scopes.push(scope);
-                }
-            },
-
-            /**
-             * Determine if the given scope has been assigned to the token.
-             */
-            scopeIsAssigned(scope) {
-                return _.indexOf(this.form.scopes, scope) >= 0;
-            },
-
-            /**
-             * Show the given access token to the user.
-             */
-            showAccessToken(accessToken) {
-                $('#modal-create-token').modal('hide');
-
-                this.accessToken = accessToken;
-
-                $('#modal-access-token').modal('show');
-            },
-
-            /**
-             * Revoke the given token.
-             */
-            revoke(token) {
-                axios.delete('/oauth/personal-access-tokens/' + token.id)
-                        .then(response => {
-                            this.getTokens();
-                        });
+                errors: []
             }
+        };
+    },
+
+    /**
+     * Prepare the component (Vue 1.x).
+     */
+    ready() {
+        this.prepareComponent();
+    },
+
+    /**
+     * Prepare the component (Vue 2.x).
+     */
+    mounted() {
+        this.prepareComponent();
+    },
+
+    methods: {
+        /**
+         * Prepare the component.
+         */
+        prepareComponent() {
+            this.getTokens();
+            this.getScopes();
+
+            $("#modal-create-token").on("shown.bs.modal", () => {
+                $("#create-token-name").focus();
+            });
+        },
+
+        /**
+         * Get all of the personal access tokens for the user.
+         */
+        getTokens() {
+            axios.get("/oauth/personal-access-tokens").then(response => {
+                this.tokens = response.data;
+            });
+        },
+
+        /**
+         * Get all of the available scopes.
+         */
+        getScopes() {
+            axios.get("/oauth/scopes").then(response => {
+                this.scopes = response.data;
+            });
+        },
+
+        /**
+         * Show the form for creating new tokens.
+         */
+        showCreateTokenForm() {
+            $("#modal-create-token").modal("show");
+        },
+
+        /**
+         * Create a new personal access token.
+         */
+        store() {
+            this.accessToken = null;
+
+            this.form.errors = [];
+
+            axios
+                .post("/oauth/personal-access-tokens", this.form)
+                .then(response => {
+                    this.form.name = "";
+                    this.form.scopes = [];
+                    this.form.errors = [];
+
+                    this.tokens.push(response.data.token);
+
+                    this.showAccessToken(response.data.accessToken);
+                })
+                .catch(error => {
+                    if (typeof error.response.data === "object") {
+                        this.form.errors = _.flatten(
+                            _.toArray(error.response.data.errors)
+                        );
+                    } else {
+                        this.form.errors = [
+                            "Something went wrong. Please try again."
+                        ];
+                    }
+                });
+        },
+
+        /**
+         * Toggle the given scope in the list of assigned scopes.
+         */
+        toggleScope(scope) {
+            if (this.scopeIsAssigned(scope)) {
+                this.form.scopes = _.reject(this.form.scopes, s => s == scope);
+            } else {
+                this.form.scopes.push(scope);
+            }
+        },
+
+        /**
+         * Determine if the given scope has been assigned to the token.
+         */
+        scopeIsAssigned(scope) {
+            return _.indexOf(this.form.scopes, scope) >= 0;
+        },
+
+        /**
+         * Show the given access token to the user.
+         */
+        showAccessToken(accessToken) {
+            $("#modal-create-token").modal("hide");
+
+            this.accessToken = accessToken;
+
+            $("#modal-access-token").modal("show");
+        },
+
+        /**
+         * Revoke the given token.
+         */
+        revoke(token) {
+            axios
+                .delete("/oauth/personal-access-tokens/" + token.id)
+                .then(response => {
+                    this.getTokens();
+                });
         }
     }
+};
 </script>

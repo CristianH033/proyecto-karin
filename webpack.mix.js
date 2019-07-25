@@ -1,5 +1,5 @@
-const mix = require('laravel-mix');
-require('laravel-mix-alias');
+const mix = require("laravel-mix");
+require("laravel-mix-alias");
 
 /*
  |--------------------------------------------------------------------------
@@ -16,8 +16,11 @@ require('laravel-mix-alias');
  * Alias dedirectorios para WebPack
  */
 mix.alias({
-    '@js': '/resources/js',
-    '@sass': '/resources/sass',
+    "@js": "/resources/js",
+    "@components": "/resources/js/components",
+    "@layouts": "/resources/js/layouts",
+    "@pages": "/resources/js/pages",
+    "@sass": "/resources/sass"
 });
 
 /**
@@ -30,5 +33,4 @@ mix.options({
     }
 });
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix.js("resources/js/app.js", "public/js").sass("resources/sass/app.scss", "public/css");

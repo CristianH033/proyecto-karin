@@ -3,15 +3,17 @@
 </template>
 
 <script>
-import LoadingComponent from '@js/components/LoadingComponent.vue'
-import ErrorComponent from '@js/components/ErrorComponent.vue'
+import LoadingComponent from "@js/components/LoadingComponent.vue";
+import ErrorComponent from "@js/components/ErrorComponent.vue";
 
 const LoginForm = () => ({
-    component: import( /* webpackChunkName: "js/components/LoginForm" */ '@js/components/LoginForm.vue'),
+    component: import(
+        /* webpackChunkName: "js/components/LoginForm" */ "@js/components/LoginForm.vue"
+    ),
     loading: LoadingComponent,
     error: ErrorComponent,
-    delay: 0,
-})
+    delay: 0
+});
 
 export default {
     components: {

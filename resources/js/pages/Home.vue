@@ -10,23 +10,22 @@
 
 <script>
 export default {
-    name: 'Home',
+    name: "Home",
     computed: {
-        dato(){
+        dato() {
             return this.$store.getters.getDato;
         }
     },
     methods: {
-        mas(){
-            this.$store.commit('incrementDato');
+        mas() {
+            this.$store.commit("incrementDato");
         },
-        menos(){
-            this.$store.commit('decrementDato');
-        },
+        menos() {
+            this.$store.commit("decrementDato");
+        }
     }
-}
+};
 </script>
 
 <style>
-
 </style>

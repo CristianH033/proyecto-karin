@@ -3,15 +3,17 @@
 </template>
 
 <script>
-import LoadingComponent from '@js/components/LoadingComponent.vue'
-import ErrorComponent from '@js/components/ErrorComponent.vue'
+import LoadingComponent from "@components/LoadingComponent.vue";
+import ErrorComponent from "@components/ErrorComponent.vue";
 
 const RecoveryPasswordForm = () => ({
-    component: import( /* webpackChunkName: "js/components/RecoveryPasswordForm" */ '@js/components/RecoveryPasswordForm.vue'),
+    component: import(
+        /* webpackChunkName: "js/components/RecoveryPwd" */ "@components/RecoveryPwdForm.vue"
+    ),
     loading: LoadingComponent,
     error: ErrorComponent,
-    delay: 0,
-})
+    delay: 0
+});
 
 export default {
     components: {

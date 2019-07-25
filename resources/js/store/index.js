@@ -1,13 +1,13 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import VuexPersist from 'vuex-persist'
+import Vue from "vue";
+import Vuex from "vuex";
+import VuexPersist from "vuex-persist";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const vuexPersist = new VuexPersist({
-    key: 'my-app',
+    key: "my-app",
     storage: localStorage
-})
+});
 
 export default new Vuex.Store({
     state: {
@@ -34,10 +34,8 @@ export default new Vuex.Store({
         },
         decrementDato(state) {
             state.dato--;
-        },
+        }
     },
-    actions: {
-
-    },
+    actions: {},
     plugins: [vuexPersist.plugin]
-})
+});

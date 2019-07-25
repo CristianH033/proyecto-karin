@@ -5,7 +5,7 @@
         <h3>Cambiar dato desde About</h3>
         <button @click="menos">-2</button>
         <button @click="mas">+2</button>
-        <input type="number" :value="dato" @input="setDato">
+        <input type="number" :value="dato" @input="setDato" />
     </div>
 </template>
 
@@ -24,8 +24,8 @@ export default {
         menos() {
             this.$store.commit("setDato", this.dato - 1);
         },
-        setDato(e){
-            this.$store.commit('setDato', e.target.value)
+        setDato(e) {
+            this.$store.commit("setDato", e.target.value);
         }
     }
 };

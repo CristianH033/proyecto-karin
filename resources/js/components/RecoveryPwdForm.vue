@@ -1,6 +1,6 @@
 <template>
     <form method="POST" @submit.prevent="enviar">
-        <input type="email" name="email">
+        <input type="email" name="email" />
         <button type="submit">Enviar</button>
     </form>
 </template>
@@ -9,18 +9,15 @@
 export default {
     data() {
         return {
-            email: null,
+            email: null
         };
     },
-    mounted(){},
+    mounted() {},
     methods: {
-        enviar(){
-
-        }
+        enviar() {}
     }
-}
+};
 </script>
 
 <style>
-
 </style>

@@ -4,7 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require("./bootstrap");
 
 /**
  * The following block of code may be used to automatically register your
@@ -17,9 +17,9 @@ require('./bootstrap');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-import Vue from 'vue'
-import router from '@js/routes'
-import store from '@js/store'
+import Vue from "vue";
+import router from "@js/routes";
+import store from "@js/store";
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27,7 +27,7 @@ import store from '@js/store'
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import App from '@js/App.vue';
+import App from "@js/App.vue";
 
 // Bus para eventos globales
 Vue.prototype.$globalEvent = new Vue();
@@ -36,4 +36,4 @@ new Vue({
     router: router,
     store: store,
     render: h => h(App)
-}).$mount('#karim-app');
+}).$mount("#karim-app");

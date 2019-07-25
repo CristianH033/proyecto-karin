@@ -21,10 +21,10 @@ export default {
         return {};
     },
     computed: {
-        auth(){
+        auth() {
             return this.$store.getters.getAuth;
         },
-        dato(){
+        dato() {
             return this.$store.getters.getDato;
         }
     },
@@ -34,25 +34,37 @@ export default {
             console.log("Ruta solicitada en DashBoardLayout");
             next();
         });
-        unregisterBeforeResolve = this.$router.beforeResolve((to, from, next) => {
-            console.log("Ruta resuelta en DashBoardLayout")
-            next();
-        });
+        unregisterBeforeResolve = this.$router.beforeResolve(
+            (to, from, next) => {
+                console.log("Ruta resuelta en DashBoardLayout");
+                next();
+            }
+        );
     },
-    beforeDestroy(){
-        console.log("destruido")
-        unregisterBeforeEach()
-        unregisterBeforeResolve()
+    beforeDestroy() {
+        console.log("destruido");
+        unregisterBeforeEach();
+        unregisterBeforeResolve();
     },
     methods: {
-        salir(){
-            this.$store.commit('setAuth', false)
-            this.$router.push({name: 'login'})
+        salir() {
+            this.$store.commit("setAuth", false);
+            this.$router.push({ name: "login" });
         }
     }
-}
+};
 </script>
 
 <style>
-
 </style>
+
+<style lang="scss" scoped>
+.layout-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+}
+</style>
+
