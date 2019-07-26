@@ -10,6 +10,13 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "@fortawesome/fontawesome": "^1.1.8",
+        "@fortawesome/fontawesome-free": "^5.9.0",
+        "@fortawesome/fontawesome-free-brands": "^5.0.13",
+        "@fortawesome/fontawesome-free-solid": "^5.0.13",
+        "@fortawesome/free-brands-svg-icons": "^5.9.0",
+        "@fortawesome/free-regular-svg-icons": "^5.9.0",
+        "@fortawesome/free-solid-svg-icons": "^5.9.0",
         "babel-eslint": "^10.0.2",
         "cross-env": "^5.2",
         "eslint": "^6.1.0",
