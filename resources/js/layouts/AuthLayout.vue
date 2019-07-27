@@ -1,5 +1,5 @@
 <template>
-    <transition appear name="auth">
+    <transition appear="false" name="auth">
         <div class="layout-container container-fluid">
             <h2>Auth Layout - Logged: {{ auth }}</h2>
             <nav>
@@ -58,7 +58,7 @@ export default {
 </style>
 
 <style lang="scss" scoped>
-$blue: #002a46;
+$bg: #2d2d2d;
 $white: white;
 
 .layout-container {
@@ -67,8 +67,8 @@ $white: white;
     height: 100%;
     top: 0px;
     left: 0px;
-    background-color: $blue;
-    z-index: 99;
+    background-color: $bg;
+    z-index: 100;
     will-change: transform;
     transition: transform 0.7;
     // color: $white;
@@ -79,7 +79,7 @@ $white: white;
     transition: transform 0.7s;
     transition-delay: 0s;
 }
-// .auth-enter,
+.auth-enter,
 .auth-leave-to {
     transform: translateY(-100%);
 }
