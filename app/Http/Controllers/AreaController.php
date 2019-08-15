@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\EstacionDeTrabajo;
+use App\Area;
 use Illuminate\Http\Request;
 
-class EstacionDeTrabajoController extends Controller
+class AreaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class EstacionDeTrabajoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\EstacionDeTrabajo  $estacionDeTrabajo
+     * @param  \App\Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function show(EstacionDeTrabajo $estacionDeTrabajo)
+    public function show(Area $area)
     {
         //
     }
@@ -52,10 +52,10 @@ class EstacionDeTrabajoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\EstacionDeTrabajo  $estacionDeTrabajo
+     * @param  \App\Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function edit(EstacionDeTrabajo $estacionDeTrabajo)
+    public function edit(Area $area)
     {
         //
     }
@@ -64,10 +64,10 @@ class EstacionDeTrabajoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\EstacionDeTrabajo  $estacionDeTrabajo
+     * @param  \App\Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EstacionDeTrabajo $estacionDeTrabajo)
+    public function update(Request $request, Area $area)
     {
         //
     }
@@ -75,10 +75,10 @@ class EstacionDeTrabajoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\EstacionDeTrabajo  $estacionDeTrabajo
+     * @param  \App\Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EstacionDeTrabajo $estacionDeTrabajo)
+    public function destroy(Area $area)
     {
         //
     }

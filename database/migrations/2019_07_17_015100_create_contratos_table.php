@@ -21,8 +21,8 @@ class CreateContratosTable extends Migration
             $table->timestamps();
             // Llave Foranea
             $table->foreign('tipo_contrato_id')->references('id')->on('tipo_contratos')->onDelete('cascade');
-            $table->foreign('proovedor_id')->references('id')->on('proovedores')->onDelete('cascade');
-            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
+            $table->foreign('proovedor_id')->references('id')->on('terceros')->onDelete('cascade');
+            $table->foreign('cliente_id')->references('id')->on('terceros')->onDelete('cascade');
         });
     }
 

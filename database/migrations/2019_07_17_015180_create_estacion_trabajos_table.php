@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProovedoresTable extends Migration
+class CreateEstacionTrabajosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateProovedoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('proovedores', function (Blueprint $table) {
+        Schema::create('estacion_trabajos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre');
+            $table->bigInteger('sede_id')->unsigned();
+            $table->string('ubicacion');
             $table->timestamps();
+            // Llaves foraneas
+            $table->foreign('sede_id')->references('id')->on('sedes')->onDelete('cascade');
         });
     }
 
@@ -27,6 +30,6 @@ class CreateProovedoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('proovedores');
+        Schema::dropIfExists('estacion_trabajos');
     }
 }

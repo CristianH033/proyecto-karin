@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Proovedor;
+use App\TipoDispositivo;
 use Illuminate\Http\Request;
 
-class ProovedorController extends Controller
+class TipoDispositivoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ProovedorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Proovedor  $proovedor
+     * @param  \App\TipoDispositivo  $tipoDispositivo
      * @return \Illuminate\Http\Response
      */
-    public function show(Proovedor $proovedor)
+    public function show(TipoDispositivo $tipoDispositivo)
     {
         //
     }
@@ -52,10 +52,10 @@ class ProovedorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Proovedor  $proovedor
+     * @param  \App\TipoDispositivo  $tipoDispositivo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Proovedor $proovedor)
+    public function edit(TipoDispositivo $tipoDispositivo)
     {
         //
     }
@@ -64,10 +64,10 @@ class ProovedorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Proovedor  $proovedor
+     * @param  \App\TipoDispositivo  $tipoDispositivo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Proovedor $proovedor)
+    public function update(Request $request, TipoDispositivo $tipoDispositivo)
     {
         //
     }
@@ -75,10 +75,10 @@ class ProovedorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Proovedor  $proovedor
+     * @param  \App\TipoDispositivo  $tipoDispositivo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Proovedor $proovedor)
+    public function destroy(TipoDispositivo $tipoDispositivo)
     {
         //
     }

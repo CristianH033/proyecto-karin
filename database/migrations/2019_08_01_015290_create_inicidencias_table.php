@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEstacionDeTrabajosTable extends Migration
+class CreateInicidenciasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateEstacionDeTrabajosTable extends Migration
      */
     public function up()
     {
-        Schema::create('estacion_de_trabajos', function (Blueprint $table) {
+        Schema::create('inicidencias', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('sede_id')->unsigned();
-            $table->string('ubicacion');
             $table->timestamps();
-            // Llaves foraneas
-            $table->foreign('sede_id')->references('id')->on('sedes')->onDelete('cascade');
         });
     }
 
@@ -30,6 +26,6 @@ class CreateEstacionDeTrabajosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('estacion_de_trabajos');
+        Schema::dropIfExists('inicidencias');
     }
 }
