@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa3a193839f711b12045a21d12df82a3",
+    "content-hash": "38f4642066177536ab6f06e24f63f4b0",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -1090,6 +1090,49 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "laravel-frontend-presets/vuetify",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-frontend-presets/laravel-vuetify.git",
+                "reference": "b9ea37c087ee2a44ff11a89b438c9506a5b71023"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-frontend-presets/laravel-vuetify/zipball/b9ea37c087ee2a44ff11a89b438c9506a5b71023",
+                "reference": "b9ea37c087ee2a44ff11a89b438c9506a5b71023",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^5.7",
+                "laravel/passport": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelFrontendPresets\\Vuetify\\VuetifyPresetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelFrontendPresets\\Vuetify\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Laravel 5.5+ Front-end preset for vuetify",
+            "keywords": [
+                "laravel",
+                "preset",
+                "vuetify"
+            ],
+            "time": "2018-10-17T09:36:42+00:00"
         },
         {
             "name": "laravel/framework",
