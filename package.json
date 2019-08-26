@@ -25,6 +25,9 @@
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
+    "@mdi/font": "^4.1.95",
+    "@mdi/js": "^4.1.95",
+    "@mdi/svg": "^4.1.95",
     "axios": "^0.19",
     "laravel-echo": "^1.5.4",
     "lodash": "^4.17.15",
