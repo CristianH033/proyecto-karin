@@ -12,7 +12,7 @@ let router = new Router({
 // Función antes de cargar la ruta
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
-        if (store.getters.getAuth == false) {
+        if (!store.getters.fakeLogged === true) {
             next({
                 name: "login",
                 query: { redirect: to.fullPath }
@@ -21,7 +21,7 @@ router.beforeEach((to, from, next) => {
             next();
         }
     } else if (to.matched.some(record => record.meta.guest)) {
-        if (store.getters.getAuth == false) {
+        if (!store.getters.fakeLogged === true) {
             next();
         } else {
             next({ name: "home" });

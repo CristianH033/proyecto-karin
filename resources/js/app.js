@@ -6,20 +6,18 @@
 
 require("./bootstrap");
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-
 import Vue from "vue";
+// Router
 import router from "@js/routes";
+// Store
 import store from "@js/store";
+// Vuetify
+import vuetify from "@plugins/vuetify";
+// Componente principal
+import App from "@js/App.vue";
+
+// Bus para eventos globales
+Vue.prototype.$globalEvent = new Vue();
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27,13 +25,9 @@ import store from "@js/store";
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import App from "@js/App.vue";
-
-// Bus para eventos globales
-Vue.prototype.$globalEvent = new Vue();
-
 new Vue({
-    router: router,
-    store: store,
-    render: h => h(App)
-}).$mount("#karim-app");
+  router: router,
+  store: store,
+  vuetify,
+  render: h => h(App)
+}).$mount("#keemble-app");

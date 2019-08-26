@@ -1,63 +1,127 @@
 <template>
-    <transition name="dashboard">
-        <div>
-            <h2>Dashboard Layout - Logged: {{ auth }}</h2>
-            <span>Dato desde APP: {{ dato }}</span>
-            <nav>
-                <router-link :to="{ name: 'home' }">Inicio|</router-link>
-                <router-link :to="{ name: 'contact' }">Contacto|</router-link>
-                <router-link :to="{ name: 'about' }">Acerca de nosotros</router-link>
-                <form action method="post" @submit.prevent="salir">
-                    <button type="submit">Salir</button>
-                </form>
-            </nav>
-            <router-view />
+  <v-app id="kemble-app" app>
+    <v-app-bar app clipped-left fixed elevate-on-scroll>
+      <v-toolbar-title style="width: 300px">
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+        <v-icon>mdi-paw</v-icon>
+        <span class="hidden-sm-and-down">Keemble</span>
+      </v-toolbar-title>
+      <v-text-field
+        flat
+        solo-inverted
+        hide-details
+        prepend-inner-icon="mdi-magnify"
+        label="Search"
+        class="hidden-sm-and-down"
+      ></v-text-field>
+      <div class="flex-grow-1" />
+      <v-btn icon>
+        <v-icon>mdi-apps</v-icon>
+      </v-btn>
+      <v-btn icon>
+        <v-icon>mdi-bell</v-icon>
+      </v-btn>
+      <v-btn icon large>
+        <v-avatar size="32px" item>
+          <v-icon>mdi-account-circle</v-icon>
+        </v-avatar>
+      </v-btn>
+    </v-app-bar>
+    <v-navigation-drawer v-model="drawer" app clipped>
+      <v-list dense rounded>
+        <v-list-item-group color="primary">
+          <v-list-item :to="{name: 'home'}">
+            <v-list-item-action>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Inicio</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-divider dark class="my-4"></v-divider>
+          <v-list-item :to="{name: 'devices'}">
+            <v-list-item-action>
+              <v-icon>mdi-devices</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Dispositivos</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item :to="{name: 'headquarters'}">
+            <v-list-item-action>
+              <v-icon>mdi-home-city</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Sedes</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-divider dark class="my-4"></v-divider>
+          <v-list-item :to="{name: 'about'}">
+            <v-list-item-action>
+              <v-icon>mdi-information-outline</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>Acerca de nosotros</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+      <template v-slot:append>
+        <div class="pa-2">
+          <v-btn block @click="salir">Salir</v-btn>
         </div>
-    </transition>
+      </template>
+    </v-navigation-drawer>
+    <v-content>
+      <v-container fluid>
+        <transition name="fade-transition" mode="out-in">
+          <router-view></router-view>
+        </transition>
+      </v-container>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
 let unregisterBeforeEach, unregisterBeforeResolve;
 export default {
-    name: "Dashboard",
-    components: {},
-    data: function() {
-        return {};
+  name: "Dashboard",
+  components: {},
+  data: function() {
+    return {
+      drawer: null
+    };
+  },
+  computed: {
+    auth() {
+      return this.$store.getters.getAuth;
     },
-    computed: {
-        auth() {
-            return this.$store.getters.getAuth;
-        },
-        dato() {
-            return this.$store.getters.getDato;
-        }
-    },
-    created() {},
-    mounted() {
-        // Eventos de rutas
-        // Ruta resuelta
-        unregisterBeforeEach = this.$router.beforeEach((to, from, next) => {
-            console.log("Ruta solicitada en DashBoardLayout");
-            next();
-        });
-        // Ruta solicitada
-        unregisterBeforeResolve = this.$router.beforeResolve(
-            (to, from, next) => {
-                console.log("Ruta resuelta en DashBoardLayout");
-                next();
-            }
-        );
-    },
-    beforeDestroy() {
-        // Desvincular el evento de rutas
-        unregisterBeforeEach();
-        unregisterBeforeResolve();
-    },
-    methods: {
-        salir() {
-            this.$globalEvent.$emit("logged-out");
-        }
+    dato() {
+      return this.$store.getters.getDato;
     }
+  },
+  created() {},
+  mounted() {
+    // Eventos de rutas
+    unregisterBeforeEach = this.$router.beforeEach((to, from, next) => {
+      // Ruta solicitada
+      next();
+    });
+    unregisterBeforeResolve = this.$router.beforeResolve((to, from, next) => {
+      // Ruta resuelta
+      next();
+    });
+  },
+  beforeDestroy() {
+    // Desvincular el evento de rutas
+    unregisterBeforeEach();
+    unregisterBeforeResolve();
+  },
+  methods: {
+    salir() {
+      this.$globalEvent.$emit("logged-out");
+    }
+  }
 };
 </script>
 
@@ -66,25 +130,25 @@ export default {
 
 <style lang="scss" scoped>
 .layout-container {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    left: 0px;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
 }
 
 .dashboard-leave-active {
-    // transition: opacity 0.7s;
-    transition-delay: 0s;
+  // transition: opacity 0.7s;
+  transition-delay: 0s;
 }
 .dashboard-enter-active {
-    // transition: opacity 0.7s;
-    transition-delay: 0s;
+  // transition: opacity 0.7s;
+  transition-delay: 0s;
 }
 // .dashboard-enter,
 .dashboard-leave-to {
-    // opacity: 0;
-    transition-delay: .7s;
+  // opacity: 0;
+  transition-delay: 0.7s;
 }
 </style>
 

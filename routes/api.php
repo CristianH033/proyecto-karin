@@ -61,3 +61,7 @@ Route::name('api.')->group(function(){
         'tipos de servicios' => 'TipoServicioController',
     ]);
 });
+
+Route::group(['prefix'=>'v1','middleware' => 'auth:api'], function() {
+	Route::put('/user', 'LoggedUserController@update');
+});

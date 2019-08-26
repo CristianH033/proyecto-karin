@@ -1,5 +1,5 @@
 <template>
-    <recovery-password-form />
+  <recovery-password-form />
 </template>
 
 <script>
@@ -7,23 +7,23 @@ import LoadingComponent from "@components/LoadingComponent.vue";
 import ErrorComponent from "@components/ErrorComponent.vue";
 
 const RecoveryPasswordForm = () => ({
-    component: import(
-        /* webpackChunkName: "js/components/RecoveryPwd" */ "@components/RecoveryPwdForm.vue"
-    ),
-    loading: LoadingComponent,
-    error: ErrorComponent,
-    delay: 0
+  component: import(
+    /* webpackChunkName: "js/components/RecoveryPwd" */ "@components/RecoveryPwdForm.vue"
+  ),
+  loading: LoadingComponent,
+  error: ErrorComponent,
+  delay: 0
 });
 
 export default {
-    components: {
-        RecoveryPasswordForm
-    },
-    data() {
-        return {};
-    },
-    mounted() {},
-    methods: {}
+  components: {
+    RecoveryPasswordForm
+  },
+  data() {
+    return {};
+  },
+  mounted() {},
+  methods: {}
 };
 </script>
 

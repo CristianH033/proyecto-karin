@@ -1,5 +1,11 @@
 const mix = require("laravel-mix");
+require('laravel-mix-bundle-analyzer');
 require("laravel-mix-alias");
+
+if (!mix.inProduction()) {
+    // mix.bundleAnalyzer();
+}
+
 
 /*
  |--------------------------------------------------------------------------
@@ -16,21 +22,27 @@ require("laravel-mix-alias");
  * Alias dedirectorios para WebPack
  */
 mix.alias({
-    "@js": "/resources/js",
-    "@components": "/resources/js/components",
-    "@layouts": "/resources/js/layouts",
-    "@pages": "/resources/js/pages",
-    "@sass": "/resources/sass"
+  "@components": "/resources/js/components",
+  "@plugins": "/resources/js/plugins",
+  "@layouts": "/resources/js/layouts",
+  "@routes": "/resources/js/routes",
+  "@store": "/resources/js/store",
+  "@utils": "/resources/js/utils",
+  "@pages": "/resources/js/pages",
+  "@fonts": "/resources/fonts",
+  "@api": "/resources/js/api",
+  "@sass": "/resources/sass",
+  "@js": "/resources/js"
 });
 
 /**
  * Opciones de WebPack
  */
 mix.options({
-    hmrOptions: {
-        // Establecer el dominio para HMR
-        host: process.env.MIX_HMR_HOST
-    }
+  hmrOptions: {
+    // Establecer el dominio para HMR
+    host: process.env.MIX_HMR_HOST
+  }
 });
 
 mix.js("resources/js/app.js", "public/js").sass("resources/sass/app.scss", "public/css");

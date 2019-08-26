@@ -1,41 +1,27 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import VuexPersist from "vuex-persist";
+import auth from "./modules/auth";
+import fakeAuth from "./modules/fake-auth";
+import snackbar from "./modules/snackbar";
+import users from "./modules/users";
 
 Vue.use(Vuex);
 
 const vuexPersist = new VuexPersist({
-    key: "my-app",
-    storage: localStorage
+  key: "keemble-app",
+  storage: localStorage
 });
 
+const debug = process.env.NODE_ENV !== "production";
+
 export default new Vuex.Store({
-    state: {
-        auth: false,
-        dato: 0
-    },
-    getters: {
-        getAuth: state => {
-            return state.auth;
-        },
-        getDato: state => {
-            return Number(state.dato);
-        }
-    },
-    mutations: {
-        setAuth(state, valor) {
-            state.auth = valor;
-        },
-        setDato(state, dato) {
-            state.dato = dato;
-        },
-        incrementDato(state) {
-            state.dato++;
-        },
-        decrementDato(state) {
-            state.dato--;
-        }
-    },
-    actions: {},
-    plugins: [vuexPersist.plugin]
+  modules: {
+    auth,
+    fakeAuth,
+    snackbar,
+    users
+  },
+  strict: debug,
+  plugins: [vuexPersist.plugin]
 });
