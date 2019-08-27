@@ -6,7 +6,7 @@
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
           <v-btn icon large v-on="on">
-            <v-icon>mdi-code-tags</v-icon>
+            <v-icon>mdi-paw</v-icon>
           </v-btn>
         </template>
         <span>Source</span>

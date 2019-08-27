@@ -17,12 +17,10 @@ export default {
   mounted() {
     // Evento global (login)
     this.$globalEvent.$on("logged-in", () => {
-      this.$store.dispatch(actions.FAKE_LOGIN).then(() => {
-        let route = this.$route.query.redirect
-          ? this.$route.query.redirect
-          : { name: "home" };
-        this.$router.push(route);
-      });
+      let route = this.$route.query.redirect
+        ? this.$route.query.redirect
+        : { name: "home" };
+      this.$router.push(route);
     });
     // Evento global (logout)
     this.$globalEvent.$on("logged-out", () => {
