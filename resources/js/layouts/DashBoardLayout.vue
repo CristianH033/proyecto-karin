@@ -19,9 +19,14 @@
         <v-icon>mdi-apps</v-icon>
       </v-btn>
       <v-btn icon>
-        <v-icon>mdi-bell</v-icon>
+        <v-badge overlap class="align-self-center">
+          <template v-slot:badge>
+            <span>5</span>
+          </template>
+          <v-icon>mdi-bell</v-icon>
+        </v-badge>
       </v-btn>
-      <v-btn icon large>
+      <v-btn icon large @click.stop="userDrawer = !userDrawer">
         <v-avatar size="32px" item>
           <v-icon>mdi-account-circle</v-icon>
         </v-avatar>
@@ -30,7 +35,7 @@
     <v-navigation-drawer v-model="drawer" app clipped>
       <v-list dense rounded>
         <v-list-item-group color="primary">
-          <v-list-item :to="{name: 'home'}">
+          <v-list-item :to="{ name: 'home' }">
             <v-list-item-action>
               <v-icon>mdi-home</v-icon>
             </v-list-item-action>
@@ -39,7 +44,7 @@
             </v-list-item-content>
           </v-list-item>
           <v-divider dark class="my-4"></v-divider>
-          <v-list-item :to="{name: 'devices'}">
+          <v-list-item :to="{ name: 'devices' }">
             <v-list-item-action>
               <v-icon>mdi-devices</v-icon>
             </v-list-item-action>
@@ -47,7 +52,7 @@
               <v-list-item-title>Dispositivos</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-          <v-list-item :to="{name: 'headquarters'}">
+          <v-list-item :to="{ name: 'headquarters' }">
             <v-list-item-action>
               <v-icon>mdi-home-city</v-icon>
             </v-list-item-action>
@@ -56,7 +61,7 @@
             </v-list-item-content>
           </v-list-item>
           <v-divider dark class="my-4"></v-divider>
-          <v-list-item :to="{name: 'about'}">
+          <v-list-item :to="{ name: 'about' }">
             <v-list-item-action>
               <v-icon>mdi-information-outline</v-icon>
             </v-list-item-action>
@@ -65,6 +70,32 @@
             </v-list-item-content>
           </v-list-item>
         </v-list-item-group>
+      </v-list>
+      <template v-slot:append>
+        <div class="pa-2">
+          <v-btn block @click="salir">Salir</v-btn>
+        </div>
+      </template>
+    </v-navigation-drawer>
+    <v-navigation-drawer v-model="userDrawer" absolute temporary right>
+      <v-list-item>
+        <v-list-item-avatar>
+          <v-img></v-img>
+        </v-list-item-avatar>
+        <v-list-item-content>
+          <v-list-item-title>Cristian Home</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      <v-divider></v-divider>
+      <v-list dense>
+        <v-list-item v-for="item in items" :key="item.title" link>
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
       <template v-slot:append>
         <div class="pa-2">
@@ -89,7 +120,12 @@ export default {
   components: {},
   data: function() {
     return {
-      drawer: null
+      drawer: null,
+      userDrawer: null,
+      items: [
+        { title: "Home", icon: "mdi-view-dashboard" },
+        { title: "About", icon: "mdi-forum" }
+      ]
     };
   },
   computed: {
