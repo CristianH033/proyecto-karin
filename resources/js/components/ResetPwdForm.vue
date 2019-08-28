@@ -13,7 +13,7 @@
       </v-tooltip>
     </v-toolbar>
     <v-card-text>
-      <v-form>
+      <v-form :novalidate="false">
         <v-text-field
           id="password"
           v-model="password"

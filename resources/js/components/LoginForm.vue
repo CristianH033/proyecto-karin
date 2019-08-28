@@ -1,6 +1,6 @@
 <template>
   <v-card class="elevation-12">
-    <v-form v-model="valid" @submit.prevent="login">
+    <v-form v-model="valid" :novalidate="false" @submit.prevent="login">
       <v-toolbar color="primary" dark flat>
         <v-toolbar-title>Iniciar sesión</v-toolbar-title>
         <v-spacer />
@@ -20,7 +20,7 @@
           label="Usuario"
           name="login"
           prepend-icon="mdi-account"
-          type="e-mail"
+          type="email"
           :rules="['Required']"
           autofocus
           required
@@ -33,6 +33,7 @@
           name="password"
           prepend-icon="mdi-lock"
           type="password"
+          required
         />
       </v-card-text>
       <v-card-actions>
@@ -66,7 +67,7 @@ export default {
         .then(response => {
           console.log(response);
         })
-        .catch((e) => {
+        .catch(e => {
           console.log(e);
         })
         .then(() => {
