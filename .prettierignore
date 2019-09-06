@@ -1,40 +1,35 @@
-# Exclude everything by default
+# Excluir todo por defecto
 # /**/*
 
-# Include all folders
+# Incluir todas las carpetas
 !/**/*/
 
-# But exclude node_modules folders anywhere
+# Excluir node_modules
 /node_modules/
 
-# But exclude vendor folders anywhere
+# Excluir vendor
 /vendor/
 
-# But exclude public folders anywhere
+# Excluir public
 /public/
+
+# Excluir storage
 /storage/
+
+# Excluir todos los archivos
+*.*
+
+# Incluir archivos a formatear
+!*.html
+!*.js
+!*.css
+!*.scss
+!*.json
+!*.vue
+!*.jsx
+!*.php
 
 # Include specific file extensions if they appear under a "src" folder
 # !/*/*/src/**/*.ts
 # !/*/*/src/**/*.tsx
 # !/*/*/config/**/*.json
-
-# Exclude the common folder
-# /common
-
-*.editorconfig
-*.env
-*.env.example
-*.eslintignore
-*.gitattributes
-*.prettierignore
-*.xml
-*.key
-*.sqlite
-*.db
-*.gitignore
-*.eot
-*.ttf
-*.woff
-*.woff2
-/resources/fonts/**/*.svg
