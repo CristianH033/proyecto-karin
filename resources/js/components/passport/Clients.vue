@@ -8,16 +8,22 @@
   <div>
     <div class="card card-default">
       <div class="card-header">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div
+          style="display: flex; justify-content: space-between; align-items: center;"
+        >
           <span>OAuth Clients</span>
 
-          <a class="action-link" tabindex="-1" @click="showCreateClientForm">Create New Client</a>
+          <a class="action-link" tabindex="-1" @click="showCreateClientForm">
+            Create New Client
+          </a>
         </div>
       </div>
 
       <div class="card-body">
         <!-- Current Clients -->
-        <p class="mb-0" v-if="clients.length === 0">You have not created any OAuth clients.</p>
+        <p class="mb-0" v-if="clients.length === 0">
+          You have not created any OAuth clients.
+        </p>
 
         <table class="table table-borderless mb-0" v-if="clients.length > 0">
           <thead>
@@ -45,12 +51,16 @@
 
               <!-- Edit Button -->
               <td style="vertical-align: middle;">
-                <a class="action-link" tabindex="-1" @click="edit(client)">Edit</a>
+                <a class="action-link" tabindex="-1" @click="edit(client)">
+                  Edit
+                </a>
               </td>
 
               <!-- Delete Button -->
               <td style="vertical-align: middle;">
-                <a class="action-link text-danger" @click="destroy(client)">Delete</a>
+                <a class="action-link text-danger" @click="destroy(client)">
+                  Delete
+                </a>
               </td>
             </tr>
           </tbody>
@@ -59,20 +69,33 @@
     </div>
 
     <!-- Create Client Modal -->
-    <div class="modal fade" id="modal-create-client" tabindex="-1" role="dialog">
+    <div
+      class="modal fade"
+      id="modal-create-client"
+      tabindex="-1"
+      role="dialog"
+    >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h4 class="modal-title">Create Client</h4>
 
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+            >
+              &times;
+            </button>
           </div>
 
           <div class="modal-body">
             <!-- Form Errors -->
             <div class="alert alert-danger" v-if="createForm.errors.length > 0">
               <p class="mb-0">
-                <strong>Whoops!</strong> Something went wrong!
+                <strong>Whoops!</strong>
+                Something went wrong!
               </p>
               <br />
               <ul>
@@ -95,7 +118,9 @@
                     v-model="createForm.name"
                   />
 
-                  <span class="form-text text-muted">Something your users will recognize and trust.</span>
+                  <span class="form-text text-muted">
+                    Something your users will recognize and trust.
+                  </span>
                 </div>
               </div>
 
@@ -112,7 +137,9 @@
                     v-model="createForm.redirect"
                   />
 
-                  <span class="form-text text-muted">Your application's authorization callback URL.</span>
+                  <span class="form-text text-muted">
+                    Your application's authorization callback URL.
+                  </span>
                 </div>
               </div>
             </form>
@@ -120,9 +147,17 @@
 
           <!-- Modal Actions -->
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
 
-            <button type="button" class="btn btn-primary" @click="store">Create</button>
+            <button type="button" class="btn btn-primary" @click="store">
+              Create
+            </button>
           </div>
         </div>
       </div>
@@ -135,14 +170,22 @@
           <div class="modal-header">
             <h4 class="modal-title">Edit Client</h4>
 
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+            >
+              &times;
+            </button>
           </div>
 
           <div class="modal-body">
             <!-- Form Errors -->
             <div class="alert alert-danger" v-if="editForm.errors.length > 0">
               <p class="mb-0">
-                <strong>Whoops!</strong> Something went wrong!
+                <strong>Whoops!</strong>
+                Something went wrong!
               </p>
               <br />
               <ul>
@@ -165,7 +208,9 @@
                     v-model="editForm.name"
                   />
 
-                  <span class="form-text text-muted">Something your users will recognize and trust.</span>
+                  <span class="form-text text-muted">
+                    Something your users will recognize and trust.
+                  </span>
                 </div>
               </div>
 
@@ -182,7 +227,9 @@
                     v-model="editForm.redirect"
                   />
 
-                  <span class="form-text text-muted">Your application's authorization callback URL.</span>
+                  <span class="form-text text-muted">
+                    Your application's authorization callback URL.
+                  </span>
                 </div>
               </div>
             </form>
@@ -190,9 +237,17 @@
 
           <!-- Modal Actions -->
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
 
-            <button type="button" class="btn btn-primary" @click="update">Save Changes</button>
+            <button type="button" class="btn btn-primary" @click="update">
+              Save Changes
+            </button>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ use App\Modelo;
 use Faker\Generator as Faker;
 
 $factory->define(Modelo::class, function (Faker $faker) {
-    return [
-        //
+  return [
+      //
     ];
 });

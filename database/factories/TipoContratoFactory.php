@@ -6,7 +6,7 @@ use App\TipoContrato;
 use Faker\Generator as Faker;
 
 $factory->define(TipoContrato::class, function (Faker $faker) {
-    return [
-        //
+  return [
+      //
     ];
 });

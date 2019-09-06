@@ -6,34 +6,41 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreatePersonasTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('personas', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned()->unique();
-            $table->string('primer_nombre');
-            $table->string('segundo_nombre')->nullable();
-            $table->string('primer_apellido');
-            $table->string('segundo_apellido')->nullable();
-            $table->date('fecha_nacimiento')->nullable();
-            $table->timestamps();
-            // Llaves foraneas
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-        });
-    }
+  /**
+   * Run the migrations.
+   *
+   * @return void
+   */
+  public function up()
+  {
+    Schema::create('personas', function (Blueprint $table) {
+      $table->bigIncrements('id');
+      $table
+        ->bigInteger('user_id')
+        ->unsigned()
+        ->unique();
+      $table->string('primer_nombre');
+      $table->string('segundo_nombre')->nullable();
+      $table->string('primer_apellido');
+      $table->string('segundo_apellido')->nullable();
+      $table->date('fecha_nacimiento')->nullable();
+      $table->timestamps();
+      // Llaves foraneas
+      $table
+        ->foreign('user_id')
+        ->references('id')
+        ->on('users')
+        ->onDelete('cascade');
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('personas');
-    }
+  /**
+   * Reverse the migrations.
+   *
+   * @return void
+   */
+  public function down()
+  {
+    Schema::dropIfExists('personas');
+  }
 }

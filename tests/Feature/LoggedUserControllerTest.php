@@ -14,29 +14,29 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
  */
 class LoggedUserControllerTest extends TestCase
 {
-    use RefreshDatabase;
+  use RefreshDatabase;
 
-    /** @test */
-    public function user_can_update_his_own_info()
-    {
-        $user = factory(User::class)->create();
-        $this->actingAs($user,'api');
+  /** @test */
+  public function user_can_update_his_own_info()
+  {
+    $user = factory(User::class)->create();
+    $this->actingAs($user, 'api');
 
-        $response = $this->json('PUT','api/v1/user', [
-            'email' => 'pepepardo@jeans.com',
-            'name' => 'Pepe Pardo Jeans'
-        ]);
+    $response = $this->json('PUT', 'api/v1/user', [
+      'email' => 'pepepardo@jeans.com',
+      'name' => 'Pepe Pardo Jeans'
+    ]);
 
-        $response->assertSuccessful();
+    $response->assertSuccessful();
 
-        $response->assertJson([
-            'email' => 'pepepardo@jeans.com',
-            'name' => 'Pepe Pardo Jeans',
-        ]);
+    $response->assertJson([
+      'email' => 'pepepardo@jeans.com',
+      'name' => 'Pepe Pardo Jeans'
+    ]);
 
-        $user = User::find($user->id);
+    $user = User::find($user->id);
 
-        $this->assertEquals('Pepe Pardo Jeans',$user->name);
-        $this->assertEquals('pepepardo@jeans.com',$user->email);
-    }
+    $this->assertEquals('Pepe Pardo Jeans', $user->name);
+    $this->assertEquals('pepepardo@jeans.com', $user->email);
+  }
 }

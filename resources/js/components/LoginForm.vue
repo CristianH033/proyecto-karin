@@ -37,9 +37,13 @@
         />
       </v-card-text>
       <v-card-actions>
-        <v-btn text :to="{ name: 'register' }" color="primary">Registrarse</v-btn>
+        <v-btn text :to="{ name: 'register' }" color="primary">
+          Registrarse
+        </v-btn>
         <v-spacer />
-        <v-btn type="submit" color="primary" :loading="loading">Iniciar sesión</v-btn>
+        <v-btn type="submit" color="primary" :loading="loading">
+          Iniciar sesión
+        </v-btn>
       </v-card-actions>
     </v-form>
   </v-card>

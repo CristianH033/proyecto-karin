@@ -28,12 +28,16 @@
 
                 <!-- Scopes -->
                 <td style="vertical-align: middle;">
-                  <span v-if="token.scopes.length > 0">{{ token.scopes.join(', ') }}</span>
+                  <span v-if="token.scopes.length > 0">
+                    {{ token.scopes.join(", ") }}
+                  </span>
                 </td>
 
                 <!-- Revoke Button -->
                 <td style="vertical-align: middle;">
-                  <a class="action-link text-danger" @click="revoke(token)">Revoke</a>
+                  <a class="action-link text-danger" @click="revoke(token)">
+                    Revoke
+                  </a>
                 </td>
               </tr>
             </tbody>

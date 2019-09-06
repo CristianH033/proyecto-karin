@@ -1,7 +1,7 @@
-import * as types from '../../mutation-types'
+import * as types from "../../mutation-types";
 
 export default {
-  [ types.FAKE_LOGGED ] (state, logged) {
-    state.fakeLogged = logged
+  [types.FAKE_LOGGED](state, logged) {
+    state.fakeLogged = logged;
   }
-}
+};

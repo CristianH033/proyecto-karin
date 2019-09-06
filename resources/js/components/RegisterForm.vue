@@ -40,7 +40,7 @@
       </v-form>
     </v-card-text>
     <v-card-actions>
-      <v-btn text :to="{name: 'login'}" color="primary">Iniciar sesión</v-btn>
+      <v-btn text :to="{ name: 'login' }" color="primary">Iniciar sesión</v-btn>
       <v-spacer />
       <v-btn color="primary">Registrarse</v-btn>
     </v-card-actions>
@@ -66,5 +66,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

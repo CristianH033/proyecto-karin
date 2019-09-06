@@ -12,14 +12,14 @@ use Illuminate\Http\Request;
  */
 class LoggedUserController extends Controller
 {
-    /**
-     * Update user.
-     * @param Request $request
-     * @return \App\User|null
-     */
-    public function update(Request $request)
-    {
-        Auth::user()->update($request->only(['name','email']));
-        return Auth::user();
-    }
+  /**
+   * Update user.
+   * @param Request $request
+   * @return \App\User|null
+   */
+  public function update(Request $request)
+  {
+    Auth::user()->update($request->only(['name', 'email']));
+    return Auth::user();
+  }
 }

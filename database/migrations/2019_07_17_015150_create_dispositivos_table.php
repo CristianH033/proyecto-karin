@@ -6,29 +6,33 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateDispositivosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('dispositivos', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('tipo_dispositivo_id');
-            $table->string('nombre');
-            $table->timestamps();
-            $table->foreign('tipo_dispositivo_id')->references('id')->on('tipo_dispositivos')->onDelete('cascade');
-        });
-    }
+  /**
+   * Run the migrations.
+   *
+   * @return void
+   */
+  public function up()
+  {
+    Schema::create('dispositivos', function (Blueprint $table) {
+      $table->bigIncrements('id');
+      $table->unsignedBigInteger('tipo_dispositivo_id');
+      $table->string('nombre');
+      $table->timestamps();
+      $table
+        ->foreign('tipo_dispositivo_id')
+        ->references('id')
+        ->on('tipo_dispositivos')
+        ->onDelete('cascade');
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('dispositivos');
-    }
+  /**
+   * Reverse the migrations.
+   *
+   * @return void
+   */
+  public function down()
+  {
+    Schema::dropIfExists('dispositivos');
+  }
 }

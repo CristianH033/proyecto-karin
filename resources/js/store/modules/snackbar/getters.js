@@ -4,4 +4,4 @@ export default {
   snackbarText: state => state.text,
   snackbarSubtext: state => state.subText,
   snackbarTimeout: state => state.timeout
-}
+};

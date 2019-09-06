@@ -6,29 +6,29 @@ import routes from "@js/routes/routes.js";
 Vue.use(Router);
 
 let router = new Router({
-    routes: routes
+  routes: routes
 });
 
 // Función antes de cargar la ruta
 router.beforeEach((to, from, next) => {
-    if (to.matched.some(record => record.meta.requiresAuth)) {
-        if (!store.getters.fakeLogged === true) {
-            next({
-                name: "login",
-                query: { redirect: to.fullPath }
-            });
-        } else {
-            next();
-        }
-    } else if (to.matched.some(record => record.meta.guest)) {
-        if (!store.getters.fakeLogged === true) {
-            next();
-        } else {
-            next({ name: "home" });
-        }
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!store.getters.fakeLogged === true) {
+      next({
+        name: "login",
+        query: { redirect: to.fullPath }
+      });
     } else {
-        next();
+      next();
     }
+  } else if (to.matched.some(record => record.meta.guest)) {
+    if (!store.getters.fakeLogged === true) {
+      next();
+    } else {
+      next({ name: "home" });
+    }
+  } else {
+    next();
+  }
 });
 
 // // Función después de cargar la ruta

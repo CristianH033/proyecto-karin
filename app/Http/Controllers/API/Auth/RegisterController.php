@@ -13,7 +13,7 @@ use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Register Controller
     |--------------------------------------------------------------------------
@@ -24,92 +24,91 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+  use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/';
+  /**
+   * Where to redirect users after registration.
+   *
+   * @var string
+   */
+  protected $redirectTo = '/';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest:api');
+  /**
+   * Create a new controller instance.
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+    $this->middleware('guest:api');
+  }
+
+  /**
+   * Handle a registration request for the application.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @return \Illuminate\Http\Response
+   */
+  public function register(Request $request)
+  {
+    // Convertir el campo correo en minusculas
+    if ($request->has('email')) {
+      $request->merge(array('email' => strtolower($request->email)));
     }
 
-    /**
-     * Handle a registration request for the application.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function register(Request $request)
-    {
-        // Convertir el campo correo en minusculas
-        if ($request->has('email')) {
-            $request->merge(array('email' => strtolower($request->email) ));
-        }
-        
-        $this->validator($request->all())->validate();
+    $this->validator($request->all())->validate();
 
-        event(new Registered($user = $this->create($request->all())));
+    event(new Registered(($user = $this->create($request->all()))));
 
-        $this->guard()->login($user);
+    $this->guard()->login($user);
 
-        $token = $user->createToken('Karim-APP')->accessToken;
+    $token = $user->createToken('Karim-APP')->accessToken;
 
-        return response()->json([
-            'token' => $token,
-            'user' => $user,
-            'status' => 200
-        ]);
-    }
+    return response()->json([
+      'token' => $token,
+      'user' => $user,
+      'status' => 200
+    ]);
+  }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
-    }
+  /**
+   * Get a validator for an incoming registration request.
+   *
+   * @param  array  $data
+   * @return \Illuminate\Contracts\Validation\Validator
+   */
+  protected function validator(array $data)
+  {
+    return Validator::make($data, [
+      'name' => 'required|string|max:255',
+      'email' => 'required|string|email|max:255|unique:users',
+      'password' => 'required|string|min:6|confirmed'
+    ]);
+  }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-    }
+  /**
+   * Create a new user instance after a valid registration.
+   *
+   * @param  array  $data
+   * @return \App\User
+   */
+  protected function create(array $data)
+  {
+    return User::create([
+      'name' => $data['name'],
+      'email' => $data['email'],
+      'password' => Hash::make($data['password'])
+    ]);
+  }
 
-    /**
-     * The user has been registered.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  mixed  $user
-     * @return mixed
-     */
-    protected function registered(Request $request, $user)
-    {
-
-    }
+  /**
+   * The user has been registered.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @param  mixed  $user
+   * @return mixed
+   */
+  protected function registered(Request $request, $user)
+  {
+  }
 }

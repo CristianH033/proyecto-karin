@@ -2,17 +2,31 @@
 
 // Componenes de DashBoard
 import DashBoardLayout from "@layouts/DashBoardLayout.vue";
-const HomePage = () => import(/* webpackChunkName: "js/pages/HomePage" */ "@pages/Home.vue");
-const DevicesPage = () => import(/* webpackChunkName: "js/pages/DevicesPage" */ "@pages/Devices.vue");
-const HeadQuartersPage = () => import(/* webpackChunkName: "js/pages/HeadQuartersPage" */ "@pages/HeadQuarters.vue");
-const AboutPage = () => import(/* webpackChunkName: "js/pages/AboutPage" */ "@pages/About.vue");
+const HomePage = () =>
+  import(/* webpackChunkName: "js/pages/HomePage" */ "@pages/Home.vue");
+const DevicesPage = () =>
+  import(/* webpackChunkName: "js/pages/DevicesPage" */ "@pages/Devices.vue");
+const HeadQuartersPage = () =>
+  import(
+    /* webpackChunkName: "js/pages/HeadQuartersPage" */ "@pages/HeadQuarters.vue"
+  );
+const AboutPage = () =>
+  import(/* webpackChunkName: "js/pages/AboutPage" */ "@pages/About.vue");
 
 // Componenes de Autenticacion
 import AuthLayout from "@layouts/AuthLayout.vue";
-const LoginPage = () => import(/* webpackChunkName: "js/pages/LoginPage" */ "@pages/Login.vue");
-const RegisterPage = () => import(/* webpackChunkName: "js/pages/RegisterPage" */ "@pages/Register.vue");
-const RecoveryPasswordPage = () => import(/* webpackChunkName: "js/pages/RecoveryPasswordPage" */ "@pages/RecoveryPassword.vue");
-const ResetPasswordPage = () => import(/* webpackChunkName: "js/pages/ResetPasswordPage" */ "@pages/ResetPassword.vue");
+const LoginPage = () =>
+  import(/* webpackChunkName: "js/pages/LoginPage" */ "@pages/Login.vue");
+const RegisterPage = () =>
+  import(/* webpackChunkName: "js/pages/RegisterPage" */ "@pages/Register.vue");
+const RecoveryPasswordPage = () =>
+  import(
+    /* webpackChunkName: "js/pages/RecoveryPasswordPage" */ "@pages/RecoveryPassword.vue"
+  );
+const ResetPasswordPage = () =>
+  import(
+    /* webpackChunkName: "js/pages/ResetPasswordPage" */ "@pages/ResetPassword.vue"
+  );
 
 const routes = [
   {

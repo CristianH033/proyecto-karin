@@ -12,7 +12,7 @@ use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
  */
 class ForgotPasswordController extends Controller
 {
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Password Reset Controller
     |--------------------------------------------------------------------------
@@ -23,27 +23,27 @@ class ForgotPasswordController extends Controller
     |
     */
 
-    use SendsPasswordResetEmails;
+  use SendsPasswordResetEmails;
 
-    /**
-     * Display the form to request a password reset link.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function showLinkRequestForm()
-    {
-        return view('welcome', [
-            'action' => 'request_new_password'
-        ]);
-    }
+  /**
+   * Display the form to request a password reset link.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function showLinkRequestForm()
+  {
+    return view('welcome', [
+      'action' => 'request_new_password'
+    ]);
+  }
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+  /**
+   * Create a new controller instance.
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+    $this->middleware('guest');
+  }
 }

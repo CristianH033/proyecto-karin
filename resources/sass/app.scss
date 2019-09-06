@@ -1,11 +1,13 @@
 /** Roboto Font **/
-@import 'fonts/roboto.scss';
+@import "fonts/roboto.scss";
 /** Vuetify **/
-@import '~vuetify/dist/vuetify.min.css';
+@import "~vuetify/dist/vuetify.min.css";
 /** Material Design Icons **/
-@import '~@mdi/font/css/materialdesignicons.css';
+@import "~@mdi/font/css/materialdesignicons.css";
 
-[v-cloak] > * { display:none; }
+[v-cloak] > * {
+  display: none;
+}
 [v-cloak]::before {
   content: " ";
   display: block;
@@ -18,14 +20,14 @@
 }
 
 .pace .pace-progress {
-  background: #0D47A1;
+  background: #0d47a1;
 }
 
 .pace .pace-progress-inner {
-  box-shadow: 0 0 10px #0D47A1, 0 0 5px #0D47A1;
+  box-shadow: 0 0 10px #0d47a1, 0 0 5px #0d47a1;
 }
 
 .pace .pace-activity {
-  border-top-color: #0D47A1;
-  border-left-color: #0D47A1;
+  border-top-color: #0d47a1;
+  border-left-color: #0d47a1;
 }

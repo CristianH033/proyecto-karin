@@ -6,7 +6,7 @@ use App\Operador;
 use Faker\Generator as Faker;
 
 $factory->define(Operador::class, function (Faker $faker) {
-    return [
-        //
+  return [
+      //
     ];
 });

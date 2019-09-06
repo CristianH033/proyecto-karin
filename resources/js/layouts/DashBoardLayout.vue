@@ -161,8 +161,7 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
 
 <style lang="scss" scoped>
 .layout-container {
@@ -187,4 +186,3 @@ export default {
   transition-delay: 0.7s;
 }
 </style>
-

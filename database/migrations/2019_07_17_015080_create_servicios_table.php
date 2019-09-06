@@ -6,30 +6,34 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateServiciosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('servicios', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('tipo_servicio_id')->unsigned();
-            $table->string('nombre');
-            $table->timestamps();
-            // Llave foranea
-            $table->foreign('tipo_servicio_id')->references('id')->on('tipo_servicios')->onDelete('cascade');
-        });
-    }
+  /**
+   * Run the migrations.
+   *
+   * @return void
+   */
+  public function up()
+  {
+    Schema::create('servicios', function (Blueprint $table) {
+      $table->bigIncrements('id');
+      $table->bigInteger('tipo_servicio_id')->unsigned();
+      $table->string('nombre');
+      $table->timestamps();
+      // Llave foranea
+      $table
+        ->foreign('tipo_servicio_id')
+        ->references('id')
+        ->on('tipo_servicios')
+        ->onDelete('cascade');
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('servicios');
-    }
+  /**
+   * Reverse the migrations.
+   *
+   * @return void
+   */
+  public function down()
+  {
+    Schema::dropIfExists('servicios');
+  }
 }

@@ -9,8 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers as OriginalRegistersUsers;
 
 trait RegistersUsers
 {
-    use OriginalRegistersUsers;
+  use OriginalRegistersUsers;
 
-    /* Sobre escribir logica original del trait */
-
+  /* Sobre escribir logica original del trait */
 }

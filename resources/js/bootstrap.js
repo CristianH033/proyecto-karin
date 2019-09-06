@@ -5,8 +5,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   let splash = document.querySelector("#splash-loading");
   let SplashListener = function() {
-      splash.removeEventListener("transitionend", SplashListener, false);
-      splash.remove();
+    splash.removeEventListener("transitionend", SplashListener, false);
+    splash.remove();
   };
   splash.addEventListener("transitionend", SplashListener);
   splash.classList.add("cargado");
@@ -33,12 +33,15 @@ let token = document.head.querySelector('meta[name="csrf-token"]');
 if (token) {
   window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
 } else {
-  console.error("CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token");
+  console.error(
+    "CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token"
+  );
 }
 
 let userHeader = document.head.querySelector('meta[name="user"]');
 window.user = null;
-if (userHeader) if (userHeader.content) window.user = JSON.parse(userHeader.content);
+if (userHeader)
+  if (userHeader.content) window.user = JSON.parse(userHeader.content);
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
