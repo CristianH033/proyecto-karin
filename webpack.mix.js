@@ -41,7 +41,8 @@ mix.alias({
 mix.options({
   hmrOptions: {
     // Establecer el dominio para HMR
-    host: process.env.MIX_HMR_HOST
+    host: process.env.MIX_HMR_HOST,
+    port: 8080
   }
 });
 
