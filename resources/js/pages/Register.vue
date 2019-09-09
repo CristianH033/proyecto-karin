@@ -8,7 +8,7 @@ import ErrorComponent from "@js/components/ErrorComponent.vue";
 
 const RegisterForm = () => ({
   component: import(
-    /* webpackChunkName: "js/components/RegisterForm" */ "@js/components/RegisterForm.vue"
+    /* webpackChunkName: "js/components/auth/RegisterForm" */ "@js/components/auth/RegisterForm.vue"
   ),
   loading: LoadingComponent,
   error: ErrorComponent,

@@ -45,6 +45,11 @@ mix.options({
   }
 });
 
+/**
+ * Configuraciones de WebPack
+ */
+mix.webpackConfig({});
+
 mix
   .js("resources/js/app.js", "public/js")
   .sass("resources/sass/app.scss", "public/css");
