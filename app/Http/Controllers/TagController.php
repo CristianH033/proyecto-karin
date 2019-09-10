@@ -16,7 +16,7 @@ class TagController extends Controller
    */
   public function index()
   {
-    //
+    return new TagCollection(Tag::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class TagController extends Controller
    */
   public function show(Tag $tag)
   {
-    //
+    return new TagResource($tag);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class TagController extends Controller
    */
   public function destroy(Tag $tag)
   {
-    //
+    $tag->delete();
   }
 }

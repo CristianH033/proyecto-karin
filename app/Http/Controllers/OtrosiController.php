@@ -16,7 +16,7 @@ class OtrosiController extends Controller
    */
   public function index()
   {
-    //
+    return new OtrosiCollection(Otrosi::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class OtrosiController extends Controller
    */
   public function show(Otrosi $otrosi)
   {
-    //
+    return new OtrosiResource($otrosi);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class OtrosiController extends Controller
    */
   public function destroy(Otrosi $otrosi)
   {
-    //
+    $otrosi->delete();
   }
 }

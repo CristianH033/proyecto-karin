@@ -16,7 +16,7 @@ class TipoDispositivoController extends Controller
    */
   public function index()
   {
-    //
+    return new TipoDispositivoCollection(TipoDispositivo::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class TipoDispositivoController extends Controller
    */
   public function show(TipoDispositivo $tipoDispositivo)
   {
-    //
+    return new TipoDispositivoResource($tipoDispositivo);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class TipoDispositivoController extends Controller
    */
   public function destroy(TipoDispositivo $tipoDispositivo)
   {
-    //
+    $tipoDispositivo->delete();
   }
 }

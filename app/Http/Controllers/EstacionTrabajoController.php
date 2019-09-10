@@ -16,7 +16,7 @@ class EstacionTrabajoController extends Controller
    */
   public function index()
   {
-    //
+    return new EstacionTrabajoCollection(EstacionTrabajo::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class EstacionTrabajoController extends Controller
    */
   public function show(EstacionTrabajo $estacionTrabajo)
   {
-    //
+    return new EstacionTrabajoResource($estacionTrabajo);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class EstacionTrabajoController extends Controller
    */
   public function destroy(EstacionTrabajo $estacionTrabajo)
   {
-    //
+    $estacionTrabajo->delete();
   }
 }

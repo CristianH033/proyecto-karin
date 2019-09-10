@@ -16,7 +16,7 @@ class TipoContratoController extends Controller
    */
   public function index()
   {
-    //
+    return new TipoContratoCollection(TipoContrato::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class TipoContratoController extends Controller
    */
   public function show(TipoContrato $tipoContrato)
   {
-    //
+    return new TipoContratoResource($tipoContrato);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class TipoContratoController extends Controller
    */
   public function destroy(TipoContrato $tipoContrato)
   {
-    //
+    $tipoContrato->delete();
   }
 }

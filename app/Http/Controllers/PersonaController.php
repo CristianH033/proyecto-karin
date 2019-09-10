@@ -16,7 +16,7 @@ class PersonaController extends Controller
    */
   public function index()
   {
-    //
+    return new PersonaCollection(Persona::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class PersonaController extends Controller
    */
   public function show(Persona $persona)
   {
-    //
+    return new PersonaResource($persona);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class PersonaController extends Controller
    */
   public function destroy(Persona $persona)
   {
-    //
+    $persona->delete();
   }
 }

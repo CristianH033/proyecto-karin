@@ -16,7 +16,7 @@ class FuncionarioController extends Controller
    */
   public function index()
   {
-    //
+    return new FuncionarioCollection(Funcionario::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class FuncionarioController extends Controller
    */
   public function show(Funcionario $funcionario)
   {
-    //
+    return new FuncionarioResource($funcionario);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class FuncionarioController extends Controller
    */
   public function destroy(Funcionario $funcionario)
   {
-    //
+    $funcionario->delete();
   }
 }

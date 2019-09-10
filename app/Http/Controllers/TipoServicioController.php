@@ -16,7 +16,7 @@ class TipoServicioController extends Controller
    */
   public function index()
   {
-    //
+    return new TipoServicioCollection(TipoServicio::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class TipoServicioController extends Controller
    */
   public function show(TipoServicio $tipoServicio)
   {
-    //
+    return new TipoServicioResource($tipoServicio);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class TipoServicioController extends Controller
    */
   public function destroy(TipoServicio $tipoServicio)
   {
-    //
+    $tipoServicio->delete();
   }
 }

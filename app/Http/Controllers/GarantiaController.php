@@ -16,7 +16,7 @@ class GarantiaController extends Controller
    */
   public function index()
   {
-    //
+    return new GarantiaCollection(Garantia::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class GarantiaController extends Controller
    */
   public function show(Garantia $garantia)
   {
-    //
+    return new GarantiaResource($garantia);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class GarantiaController extends Controller
    */
   public function destroy(Garantia $garantia)
   {
-    //
+    $garantia->delete();
   }
 }

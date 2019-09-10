@@ -16,7 +16,7 @@ class CiudadController extends Controller
    */
   public function index()
   {
-    //
+    return new CiudadCollection(Ciudad::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class CiudadController extends Controller
    */
   public function show(Ciudad $ciudad)
   {
-    //
+    return new CiudadResource($ciudad);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class CiudadController extends Controller
    */
   public function destroy(Ciudad $ciudad)
   {
-    //
+    $ciudad->delete();
   }
 }

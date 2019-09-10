@@ -16,7 +16,7 @@ class PaisController extends Controller
    */
   public function index()
   {
-    //
+    return new PaisCollection(Pais::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class PaisController extends Controller
    */
   public function show(Pais $pais)
   {
-    //
+    return new PaisResource($pais);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class PaisController extends Controller
    */
   public function destroy(Pais $pais)
   {
-    //
+    $pais->delete();
   }
 }

@@ -16,7 +16,7 @@ class InventarioController extends Controller
    */
   public function index()
   {
-    //
+    return new InventarioCollection(Inventario::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class InventarioController extends Controller
    */
   public function show(Inventario $inventario)
   {
-    //
+    return new InventarioResource($inventario);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class InventarioController extends Controller
    */
   public function destroy(Inventario $inventario)
   {
-    //
+    $inventario->delete();
   }
 }

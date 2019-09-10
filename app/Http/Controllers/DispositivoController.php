@@ -16,7 +16,7 @@ class DispositivoController extends Controller
    */
   public function index()
   {
-    //
+    return new DispositivoCollection(Dispositivo::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class DispositivoController extends Controller
    */
   public function show(Dispositivo $dispositivo)
   {
-    //
+    return new DispositivoResource($dispositivo);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class DispositivoController extends Controller
    */
   public function destroy(Dispositivo $dispositivo)
   {
-    //
+    $dispositivo->delete();
   }
 }

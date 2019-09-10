@@ -16,7 +16,7 @@ class CargoController extends Controller
    */
   public function index()
   {
-    //
+    return new CargoCollection(Cargo::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class CargoController extends Controller
    */
   public function show(Cargo $cargo)
   {
-    //
+    return new CargoResource($cargo);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class CargoController extends Controller
    */
   public function destroy(Cargo $cargo)
   {
-    //
+    $cargo->delete();
   }
 }

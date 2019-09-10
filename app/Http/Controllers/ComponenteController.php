@@ -16,7 +16,7 @@ class ComponenteController extends Controller
    */
   public function index()
   {
-    //
+    return new ComponenteCollection(Componente::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class ComponenteController extends Controller
    */
   public function show(Componente $componente)
   {
-    //
+    return new ComponenteResource($componente);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class ComponenteController extends Controller
    */
   public function destroy(Componente $componente)
   {
-    //
+    $componente->delete();
   }
 }

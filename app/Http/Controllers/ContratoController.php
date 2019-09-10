@@ -16,7 +16,7 @@ class ContratoController extends Controller
    */
   public function index()
   {
-    //
+    return new ContratoCollection(Contrato::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class ContratoController extends Controller
    */
   public function show(Contrato $contrato)
   {
-    //
+    return new ContratoResource($contrato);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class ContratoController extends Controller
    */
   public function destroy(Contrato $contrato)
   {
-    //
+    $contrato->delete();
   }
 }

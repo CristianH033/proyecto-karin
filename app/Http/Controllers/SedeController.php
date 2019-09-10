@@ -16,7 +16,7 @@ class SedeController extends Controller
    */
   public function index()
   {
-    //
+    return new SedeCollection(Sede::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class SedeController extends Controller
    */
   public function show(Sede $sede)
   {
-    //
+    return new SedeResource($sede);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class SedeController extends Controller
    */
   public function destroy(Sede $sede)
   {
-    //
+    $sede->delete();
   }
 }

@@ -10,9 +10,6 @@ use Illuminate\Http\Request;
  *
  * @package App\Http\Controllers
  */
-use App\Http\Resources\LoggedUserCollection;
-use App\Http\Resources\LoggedUser as LoggedUserResource;
-
 class LoggedUserController extends Controller
 {
   /**

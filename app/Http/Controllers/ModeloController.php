@@ -16,7 +16,7 @@ class ModeloController extends Controller
    */
   public function index()
   {
-    //
+    return new ModeloCollection(Modelo::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class ModeloController extends Controller
    */
   public function show(Modelo $modelo)
   {
-    //
+    return new ModeloResource($modelo);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class ModeloController extends Controller
    */
   public function destroy(Modelo $modelo)
   {
-    //
+    $modelo->delete();
   }
 }

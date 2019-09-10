@@ -16,7 +16,7 @@ class FabricanteController extends Controller
    */
   public function index()
   {
-    //
+    return new FabricanteCollection(Fabricante::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class FabricanteController extends Controller
    */
   public function show(Fabricante $fabricante)
   {
-    //
+    return new FabricanteResource($fabricante);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class FabricanteController extends Controller
    */
   public function destroy(Fabricante $fabricante)
   {
-    //
+    $fabricante->delete();
   }
 }

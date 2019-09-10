@@ -16,7 +16,7 @@ class InicidenciaController extends Controller
    */
   public function index()
   {
-    //
+    return new InicidenciaCollection(Inicidencia::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class InicidenciaController extends Controller
    */
   public function show(Inicidencia $inicidencia)
   {
-    //
+    return new InicidenciaResource($inicidencia);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class InicidenciaController extends Controller
    */
   public function destroy(Inicidencia $inicidencia)
   {
-    //
+    $inicidencia->delete();
   }
 }

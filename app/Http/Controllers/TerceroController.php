@@ -16,7 +16,7 @@ class TerceroController extends Controller
    */
   public function index()
   {
-    //
+    return new TerceroCollection(Tercero::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class TerceroController extends Controller
    */
   public function show(Tercero $tercero)
   {
-    //
+    return new TerceroResource($tercero);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class TerceroController extends Controller
    */
   public function destroy(Tercero $tercero)
   {
-    //
+    $tercero->delete();
   }
 }

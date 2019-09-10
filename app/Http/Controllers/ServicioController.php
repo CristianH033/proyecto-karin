@@ -16,7 +16,7 @@ class ServicioController extends Controller
    */
   public function index()
   {
-    //
+    return new ServicioCollection(Servicio::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class ServicioController extends Controller
    */
   public function show(Servicio $servicio)
   {
-    //
+    return new ServicioResource($servicio);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class ServicioController extends Controller
    */
   public function destroy(Servicio $servicio)
   {
-    //
+    $servicio->delete();
   }
 }

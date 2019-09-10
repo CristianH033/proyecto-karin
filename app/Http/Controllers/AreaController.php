@@ -16,7 +16,7 @@ class AreaController extends Controller
    */
   public function index()
   {
-    //
+    return new AreaCollection(Area::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class AreaController extends Controller
    */
   public function show(Area $area)
   {
-    //
+    return new AreaResource($area);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class AreaController extends Controller
    */
   public function destroy(Area $area)
   {
-    //
+    $area->delete();
   }
 }

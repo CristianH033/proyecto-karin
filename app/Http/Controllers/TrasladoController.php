@@ -16,7 +16,7 @@ class TrasladoController extends Controller
    */
   public function index()
   {
-    //
+    return new TrasladoCollection(Traslado::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class TrasladoController extends Controller
    */
   public function show(Traslado $traslado)
   {
-    //
+    return new TrasladoResource($traslado);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class TrasladoController extends Controller
    */
   public function destroy(Traslado $traslado)
   {
-    //
+    $traslado->delete();
   }
 }

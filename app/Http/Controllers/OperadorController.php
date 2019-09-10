@@ -16,7 +16,7 @@ class OperadorController extends Controller
    */
   public function index()
   {
-    //
+    return new OperadorCollection(Operador::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class OperadorController extends Controller
    */
   public function show(Operador $operador)
   {
-    //
+    return new OperadorResource($operador);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class OperadorController extends Controller
    */
   public function destroy(Operador $operador)
   {
-    //
+    $operador->delete();
   }
 }

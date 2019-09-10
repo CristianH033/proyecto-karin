@@ -16,7 +16,7 @@ class TipoTerceroController extends Controller
    */
   public function index()
   {
-    //
+    return new TipoTerceroCollection(TipoTercero::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class TipoTerceroController extends Controller
    */
   public function show(TipoTercero $tipoTercero)
   {
-    //
+    return new TipoTerceroResource($tipoTercero);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class TipoTerceroController extends Controller
    */
   public function destroy(TipoTercero $tipoTercero)
   {
-    //
+    $tipoTercero->delete();
   }
 }

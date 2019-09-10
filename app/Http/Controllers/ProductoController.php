@@ -16,7 +16,7 @@ class ProductoController extends Controller
    */
   public function index()
   {
-    //
+    return new ProductoCollection(Producto::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class ProductoController extends Controller
    */
   public function show(Producto $producto)
   {
-    //
+    return new ProductoResource($producto);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class ProductoController extends Controller
    */
   public function destroy(Producto $producto)
   {
-    //
+    $producto->delete();
   }
 }

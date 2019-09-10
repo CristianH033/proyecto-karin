@@ -16,7 +16,7 @@ class EstadoController extends Controller
    */
   public function index()
   {
-    //
+    return new EstadoCollection(Estado::all());
   }
 
   /**
@@ -38,10 +38,10 @@ class EstadoController extends Controller
    */
   public function show(Estado $estado)
   {
-    //
+    return new EstadoResource($estado);
   }
 
-    /**
+  /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -61,6 +61,6 @@ class EstadoController extends Controller
    */
   public function destroy(Estado $estado)
   {
-    //
+    $estado->delete();
   }
 }
