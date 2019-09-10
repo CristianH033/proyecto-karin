@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Ciudad;
 use Illuminate\Http\Request;
+use App\Http\Resources\CiudadCollection;
+use App\Http\Resources\Ciudad as CiudadResource;
 
 class CiudadController extends Controller
 {

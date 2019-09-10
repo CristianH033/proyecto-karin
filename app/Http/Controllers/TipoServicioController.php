@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\TipoServicio;
 use Illuminate\Http\Request;
+use App\Http\Resources\TipoServicioCollection;
+use App\Http\Resources\TipoServicio as TipoServicioResource;
 
 class TipoServicioController extends Controller
 {

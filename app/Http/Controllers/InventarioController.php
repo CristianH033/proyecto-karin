@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Inventario;
 use Illuminate\Http\Request;
+use App\Http\Resources\InventarioCollection;
+use App\Http\Resources\Inventario as InventarioResource;
 
 class InventarioController extends Controller
 {

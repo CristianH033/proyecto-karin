@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Persona;
 use Illuminate\Http\Request;
+use App\Http\Resources\PersonaCollection;
+use App\Http\Resources\Persona as PersonaResource;
 
 class PersonaController extends Controller
 {

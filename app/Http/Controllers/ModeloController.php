@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Modelo;
 use Illuminate\Http\Request;
+use App\Http\Resources\ModeloCollection;
+use App\Http\Resources\Modelo as ModeloResource;
 
 class ModeloController extends Controller
 {

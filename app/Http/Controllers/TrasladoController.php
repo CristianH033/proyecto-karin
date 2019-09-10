@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Traslado;
 use Illuminate\Http\Request;
+use App\Http\Resources\TrasladoCollection;
+use App\Http\Resources\Traslado as TrasladoResource;
 
 class TrasladoController extends Controller
 {

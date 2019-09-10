@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Sede;
 use Illuminate\Http\Request;
+use App\Http\Resources\SedeCollection;
+use App\Http\Resources\Sede as SedeResource;
 
 class SedeController extends Controller
 {

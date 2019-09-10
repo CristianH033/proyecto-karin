@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Cargo;
 use Illuminate\Http\Request;
+use App\Http\Resources\CargoCollection;
+use App\Http\Resources\Cargo as CargoResource;
 
 class CargoController extends Controller
 {

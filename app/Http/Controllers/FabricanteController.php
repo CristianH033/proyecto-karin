@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Fabricante;
 use Illuminate\Http\Request;
+use App\Http\Resources\FabricanteCollection;
+use App\Http\Resources\Fabricante as FabricanteResource;
 
 class FabricanteController extends Controller
 {

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Operador;
 use Illuminate\Http\Request;
+use App\Http\Resources\OperadorCollection;
+use App\Http\Resources\Operador as OperadorResource;
 
 class OperadorController extends Controller
 {

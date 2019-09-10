@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\TipoProducto;
 use Illuminate\Http\Request;
+use App\Http\Resources\TipoProductoCollection;
+use App\Http\Resources\TipoProducto as TipoProductoResource;
 
 class TipoProductoController extends Controller
 {

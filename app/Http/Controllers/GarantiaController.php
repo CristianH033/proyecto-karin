@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Garantia;
 use Illuminate\Http\Request;
+use App\Http\Resources\GarantiaCollection;
+use App\Http\Resources\Garantia as GarantiaResource;
 
 class GarantiaController extends Controller
 {

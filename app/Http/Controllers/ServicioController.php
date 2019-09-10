@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Servicio;
 use Illuminate\Http\Request;
+use App\Http\Resources\ServicioCollection;
+use App\Http\Resources\Servicio as ServicioResource;
 
 class ServicioController extends Controller
 {

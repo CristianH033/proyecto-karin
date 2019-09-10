@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Estado;
 use Illuminate\Http\Request;
+use App\Http\Resources\EstadoCollection;
+use App\Http\Resources\Estado as EstadoResource;
 
 class EstadoController extends Controller
 {

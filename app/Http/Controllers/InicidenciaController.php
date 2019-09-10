@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Inicidencia;
 use Illuminate\Http\Request;
+use App\Http\Resources\InicidenciaCollection;
+use App\Http\Resources\Inicidencia as InicidenciaResource;
 
 class InicidenciaController extends Controller
 {

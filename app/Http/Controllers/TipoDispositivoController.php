@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\TipoDispositivo;
 use Illuminate\Http\Request;
+use App\Http\Resources\TipoDispositivoCollection;
+use App\Http\Resources\TipoDispositivo as TipoDispositivoResource;
 
 class TipoDispositivoController extends Controller
 {
