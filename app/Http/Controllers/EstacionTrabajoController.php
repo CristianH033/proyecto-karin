@@ -10,7 +10,7 @@ use App\Http\Resources\EstacionTrabajo as EstacionTrabajoResource;
 class EstacionTrabajoController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class EstacionTrabajoController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Estaciones de Trabajo.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class EstacionTrabajoController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda una Estacion de Trabajo recién creada en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class EstacionTrabajoController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra la Estacion de Trabajo especificada.
    *
    * @param  \App\EstacionTrabajo  $estacionTrabajo
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class EstacionTrabajoController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza la Estacion de Trabajo especificada en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\EstacionTrabajo  $estacionTrabajo
@@ -64,7 +64,7 @@ class EstacionTrabajoController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina la Estacion de Trabajo especificada de la base de datos.
    *
    * @param  \App\EstacionTrabajo  $estacionTrabajo
    * @return \Illuminate\Http\Response

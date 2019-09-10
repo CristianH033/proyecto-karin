@@ -10,7 +10,7 @@ use App\Http\Resources\Contrato as ContratoResource;
 class ContratoController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class ContratoController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Contratos.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class ContratoController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Contrato recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class ContratoController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Contrato especificado.
    *
    * @param  \App\Contrato  $contrato
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class ContratoController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Contrato especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Contrato  $contrato
@@ -64,7 +64,7 @@ class ContratoController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Contrato especificado de la base de datos.
    *
    * @param  \App\Contrato  $contrato
    * @return \Illuminate\Http\Response

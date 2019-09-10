@@ -10,7 +10,7 @@ use App\Http\Resources\Servicio as ServicioResource;
 class ServicioController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class ServicioController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Servicios.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class ServicioController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Servicio recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class ServicioController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Servicio especificado.
    *
    * @param  \App\Servicio  $servicio
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class ServicioController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Servicio especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Servicio  $servicio
@@ -64,7 +64,7 @@ class ServicioController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Servicio especificado de la base de datos.
    *
    * @param  \App\Servicio  $servicio
    * @return \Illuminate\Http\Response

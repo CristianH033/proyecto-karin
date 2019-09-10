@@ -38,7 +38,7 @@ class ForgotPasswordController extends Controller
   }
 
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */

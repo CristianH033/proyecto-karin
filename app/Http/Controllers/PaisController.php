@@ -10,7 +10,7 @@ use App\Http\Resources\Pais as PaisResource;
 class PaisController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class PaisController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Paises.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class PaisController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Pais recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class PaisController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Pais especificado.
    *
    * @param  \App\Pais  $pais
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class PaisController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Pais especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Pais  $pais
@@ -64,7 +64,7 @@ class PaisController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Pais especificado de la base de datos.
    *
    * @param  \App\Pais  $pais
    * @return \Illuminate\Http\Response

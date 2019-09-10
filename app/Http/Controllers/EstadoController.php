@@ -10,7 +10,7 @@ use App\Http\Resources\Estado as EstadoResource;
 class EstadoController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class EstadoController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Estados.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class EstadoController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Estado recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class EstadoController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Estado especificado.
    *
    * @param  \App\Estado  $estado
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class EstadoController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Estado especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Estado  $estado
@@ -64,7 +64,7 @@ class EstadoController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Estado especificado de la base de datos.
    *
    * @param  \App\Estado  $estado
    * @return \Illuminate\Http\Response

@@ -10,7 +10,7 @@ use App\Http\Resources\Cargo as CargoResource;
 class CargoController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class CargoController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Cargos.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class CargoController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Cargo recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class CargoController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Cargo especificado.
    *
    * @param  \App\Cargo  $cargo
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class CargoController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Cargo especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Cargo  $cargo
@@ -64,7 +64,7 @@ class CargoController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Cargo especificado de la base de datos.
    *
    * @param  \App\Cargo  $cargo
    * @return \Illuminate\Http\Response

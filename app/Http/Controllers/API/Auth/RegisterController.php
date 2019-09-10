@@ -34,7 +34,7 @@ class RegisterController extends Controller
   protected $redirectTo = '/';
 
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */

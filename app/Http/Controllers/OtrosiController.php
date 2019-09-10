@@ -10,7 +10,7 @@ use App\Http\Resources\Otrosi as OtrosiResource;
 class OtrosiController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class OtrosiController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Otrosi.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class OtrosiController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Otrosi recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class OtrosiController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Otrosi especificado.
    *
    * @param  \App\Otrosi  $otrosi
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class OtrosiController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Otrosi especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Otrosi  $otrosi
@@ -64,7 +64,7 @@ class OtrosiController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Otrosi especificado de la base de datos.
    *
    * @param  \App\Otrosi  $otrosi
    * @return \Illuminate\Http\Response

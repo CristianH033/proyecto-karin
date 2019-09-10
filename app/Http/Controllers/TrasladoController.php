@@ -10,7 +10,7 @@ use App\Http\Resources\Traslado as TrasladoResource;
 class TrasladoController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class TrasladoController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Traslados.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class TrasladoController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Traslado recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class TrasladoController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Traslado especificado.
    *
    * @param  \App\Traslado  $traslado
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class TrasladoController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Traslado especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Traslado  $traslado
@@ -64,7 +64,7 @@ class TrasladoController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Traslado especificado de la base de datos.
    *
    * @param  \App\Traslado  $traslado
    * @return \Illuminate\Http\Response

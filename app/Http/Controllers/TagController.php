@@ -10,7 +10,7 @@ use App\Http\Resources\Tag as TagResource;
 class TagController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class TagController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Tags.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class TagController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Tag recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class TagController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Tag especificado.
    *
    * @param  \App\Tag  $tag
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class TagController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Tag especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Tag  $tag
@@ -64,7 +64,7 @@ class TagController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Tag especificado de la base de datos.
    *
    * @param  \App\Tag  $tag
    * @return \Illuminate\Http\Response

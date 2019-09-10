@@ -10,7 +10,7 @@ use App\Http\Resources\Modelo as ModeloResource;
 class ModeloController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class ModeloController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Modelos.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class ModeloController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Modelo recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class ModeloController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Modelo especificado.
    *
    * @param  \App\Modelo  $modelo
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class ModeloController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Modelo especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Modelo  $modelo
@@ -64,7 +64,7 @@ class ModeloController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Modelo especificado de la base de datos.
    *
    * @param  \App\Modelo  $modelo
    * @return \Illuminate\Http\Response

@@ -10,7 +10,7 @@ use App\Http\Resources\Sede as SedeResource;
 class SedeController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class SedeController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Sedes.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class SedeController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda una Sede recién creada en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class SedeController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra la Sede especificada.
    *
    * @param  \App\Sede  $sede
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class SedeController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza la Sede especificada en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Sede  $sede
@@ -64,7 +64,7 @@ class SedeController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina la Sede especificada de la base de datos.
    *
    * @param  \App\Sede  $sede
    * @return \Illuminate\Http\Response

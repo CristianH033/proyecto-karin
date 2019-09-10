@@ -10,7 +10,7 @@ use App\Http\Resources\Area as AreaResource;
 class AreaController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class AreaController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Areas.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class AreaController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Area recién creada en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class AreaController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Area especificada.
    *
    * @param  \App\Area  $area
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class AreaController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Area especificada en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Area  $area
@@ -64,7 +64,7 @@ class AreaController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Area especificada de la base de datos.
    *
    * @param  \App\Area  $area
    * @return \Illuminate\Http\Response

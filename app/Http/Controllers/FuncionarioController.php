@@ -10,7 +10,7 @@ use App\Http\Resources\Funcionario as FuncionarioResource;
 class FuncionarioController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class FuncionarioController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Funcionarios.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class FuncionarioController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Funcionario recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class FuncionarioController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Funcionario especificado.
    *
    * @param  \App\Funcionario  $funcionario
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class FuncionarioController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Funcionario especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Funcionario  $funcionario
@@ -64,7 +64,7 @@ class FuncionarioController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Funcionario especificado de la base de datos.
    *
    * @param  \App\Funcionario  $funcionario
    * @return \Illuminate\Http\Response

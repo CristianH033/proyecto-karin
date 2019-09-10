@@ -10,7 +10,7 @@ use App\Http\Resources\TipoServicio as TipoServicioResource;
 class TipoServicioController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class TipoServicioController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Tipos de Servicio.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class TipoServicioController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Tipo de Servicio recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class TipoServicioController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Tipo de Servicio especificado.
    *
    * @param  \App\TipoServicio  $tipoServicio
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class TipoServicioController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Tipo de Servicio especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\TipoServicio  $tipoServicio
@@ -64,7 +64,7 @@ class TipoServicioController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Tipo de Servicio especificado de la base de datos.
    *
    * @param  \App\TipoServicio  $tipoServicio
    * @return \Illuminate\Http\Response

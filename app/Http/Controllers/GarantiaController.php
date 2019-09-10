@@ -10,7 +10,7 @@ use App\Http\Resources\Garantia as GarantiaResource;
 class GarantiaController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class GarantiaController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Garantias.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class GarantiaController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda una Garantia recién creada en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class GarantiaController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra la Garantia especificada.
    *
    * @param  \App\Garantia  $garantia
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class GarantiaController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza la Garantia especificada en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Garantia  $garantia
@@ -64,7 +64,7 @@ class GarantiaController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina la Garantia especificada de la base de datos.
    *
    * @param  \App\Garantia  $garantia
    * @return \Illuminate\Http\Response

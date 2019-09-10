@@ -9,7 +9,7 @@ use App\Http\Resources\Home as HomeResource;
 class HomeController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -19,13 +19,12 @@ class HomeController extends Controller
   }
 
   /**
-   * Show the application dashboard.
+   * Retorna la vista Home (inicio)
    *
    * @return \Illuminate\Http\Response
    */
   public function index()
   {
-    // return view('layouts.app');
     return view('home');
   }
 }

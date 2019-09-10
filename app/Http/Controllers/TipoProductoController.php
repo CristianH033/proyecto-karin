@@ -10,7 +10,7 @@ use App\Http\Resources\TipoProducto as TipoProductoResource;
 class TipoProductoController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class TipoProductoController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Tipos de Producto.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class TipoProductoController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Tipo de Producto recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class TipoProductoController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Tipo de Producto especificado.
    *
    * @param  \App\TipoProducto  $tipoProducto
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class TipoProductoController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Tipo de Producto especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\TipoProducto  $tipoProducto
@@ -64,7 +64,7 @@ class TipoProductoController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Tipo de Producto especificado de la base de datos.
    *
    * @param  \App\TipoProducto  $tipoProducto
    * @return \Illuminate\Http\Response

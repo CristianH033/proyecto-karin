@@ -10,7 +10,7 @@ use App\Http\Resources\Inicidencia as InicidenciaResource;
 class InicidenciaController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class InicidenciaController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Inicidencias.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class InicidenciaController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda una Inicidencia recién creada en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class InicidenciaController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra la Inicidencia especificada.
    *
    * @param  \App\Inicidencia  $inicidencia
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class InicidenciaController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza la Inicidencia especificada en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Inicidencia  $inicidencia
@@ -64,7 +64,7 @@ class InicidenciaController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina la Inicidencia especificada de la base de datos.
    *
    * @param  \App\Inicidencia  $inicidencia
    * @return \Illuminate\Http\Response

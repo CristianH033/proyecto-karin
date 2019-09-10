@@ -10,7 +10,7 @@ use App\Http\Resources\Tercero as TerceroResource;
 class TerceroController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class TerceroController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Terceros.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class TerceroController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Tercero recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class TerceroController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Tercero especificado.
    *
    * @param  \App\Tercero  $tercero
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class TerceroController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Tercero especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Tercero  $tercero
@@ -64,7 +64,7 @@ class TerceroController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Tercero especificado de la base de datos.
    *
    * @param  \App\Tercero  $tercero
    * @return \Illuminate\Http\Response

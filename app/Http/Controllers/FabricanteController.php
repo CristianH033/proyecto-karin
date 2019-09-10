@@ -10,7 +10,7 @@ use App\Http\Resources\Fabricante as FabricanteResource;
 class FabricanteController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class FabricanteController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Fabricantes.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class FabricanteController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Fabricante recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class FabricanteController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Fabricante especificado.
    *
    * @param  \App\Fabricante  $fabricante
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class FabricanteController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Fabricante especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Fabricante  $fabricante
@@ -64,7 +64,7 @@ class FabricanteController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Fabricante especificado de la base de datos.
    *
    * @param  \App\Fabricante  $fabricante
    * @return \Illuminate\Http\Response

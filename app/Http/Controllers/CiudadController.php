@@ -10,7 +10,7 @@ use App\Http\Resources\Ciudad as CiudadResource;
 class CiudadController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class CiudadController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Ciudades.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class CiudadController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda una Ciudad recién creada en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class CiudadController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra la Ciudad especificada.
    *
    * @param  \App\Ciudad  $ciudad
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class CiudadController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza la Ciudad especificada en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Ciudad  $ciudad
@@ -64,7 +64,7 @@ class CiudadController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina la Ciudad especificada de la base de datos.
    *
    * @param  \App\Ciudad  $ciudad
    * @return \Illuminate\Http\Response

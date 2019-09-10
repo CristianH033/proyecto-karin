@@ -10,7 +10,7 @@ use App\Http\Resources\Producto as ProductoResource;
 class ProductoController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class ProductoController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Productos.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class ProductoController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Producto recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class ProductoController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Producto especificado.
    *
    * @param  \App\Producto  $producto
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class ProductoController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Producto especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Producto  $producto
@@ -64,7 +64,7 @@ class ProductoController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Producto especificado de la base de datos.
    *
    * @param  \App\Producto  $producto
    * @return \Illuminate\Http\Response

@@ -25,7 +25,7 @@ class ResetPasswordController extends Controller
   use ResetsPasswords;
 
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */

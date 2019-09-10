@@ -10,7 +10,7 @@ use App\Http\Resources\Dispositivo as DispositivoResource;
 class DispositivoController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class DispositivoController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Dispositivos.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class DispositivoController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Dispositivo recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class DispositivoController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Dispositivo especificado.
    *
    * @param  \App\Dispositivo  $dispositivo
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class DispositivoController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Dispositivo especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Dispositivo  $dispositivo
@@ -64,7 +64,7 @@ class DispositivoController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Dispositivo especificado de la base de datos.
    *
    * @param  \App\Dispositivo  $dispositivo
    * @return \Illuminate\Http\Response

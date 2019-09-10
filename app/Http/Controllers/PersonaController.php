@@ -10,7 +10,7 @@ use App\Http\Resources\Persona as PersonaResource;
 class PersonaController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class PersonaController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Personas.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class PersonaController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Persona recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class PersonaController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Persona especificado.
    *
    * @param  \App\Persona  $persona
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class PersonaController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Persona especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Persona  $persona
@@ -64,7 +64,7 @@ class PersonaController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Persona especificado de la base de datos.
    *
    * @param  \App\Persona  $persona
    * @return \Illuminate\Http\Response

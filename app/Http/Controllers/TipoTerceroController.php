@@ -10,7 +10,7 @@ use App\Http\Resources\TipoTercero as TipoTerceroResource;
 class TipoTerceroController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class TipoTerceroController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Tipos de Tercero.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class TipoTerceroController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Tipo de Tercero recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class TipoTerceroController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Tipo de Tercero especificado.
    *
    * @param  \App\TipoTercero  $tipoTercero
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class TipoTerceroController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Tipo de Tercero especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\TipoTercero  $tipoTercero
@@ -64,7 +64,7 @@ class TipoTerceroController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Tipo de Tercero especificado de la base de datos.
    *
    * @param  \App\TipoTercero  $tipoTercero
    * @return \Illuminate\Http\Response

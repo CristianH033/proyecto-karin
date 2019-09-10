@@ -10,7 +10,7 @@ use App\Http\Resources\TipoDispositivo as TipoDispositivoResource;
 class TipoDispositivoController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class TipoDispositivoController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Tipos de Dispositivo.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class TipoDispositivoController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Tipo de Dispositivo recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class TipoDispositivoController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Tipo de Dispositivo especificado.
    *
    * @param  \App\TipoDispositivo  $tipoDispositivo
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class TipoDispositivoController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Tipo de Dispositivo especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\TipoDispositivo  $tipoDispositivo
@@ -64,7 +64,7 @@ class TipoDispositivoController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Tipo de Dispositivo especificado de la base de datos.
    *
    * @param  \App\TipoDispositivo  $tipoDispositivo
    * @return \Illuminate\Http\Response

@@ -10,7 +10,7 @@ use App\Http\Resources\Operador as OperadorResource;
 class OperadorController extends Controller
 {
   /**
-   * Create a new controller instance.
+   * Constructor de la nueva instancia del controlador
    *
    * @return void
    */
@@ -20,7 +20,7 @@ class OperadorController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Devuelve una colección de Operadores.
    *
    * @return \Illuminate\Http\Response
    */
@@ -30,7 +30,7 @@ class OperadorController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Guarda un Operador recién creado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -41,7 +41,7 @@ class OperadorController extends Controller
   }
 
   /**
-   * Display the specified resource.
+   * Muestra el Operador especificado.
    *
    * @param  \App\Operador  $operador
    * @return \Illuminate\Http\Response
@@ -52,7 +52,7 @@ class OperadorController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
+   * Actualiza el Operador especificado en la base de datos.
    *
    * @param  \Illuminate\Http\Request  $request
    * @param  \App\Operador  $operador
@@ -64,7 +64,7 @@ class OperadorController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Elimina el Operador especificado de la base de datos.
    *
    * @param  \App\Operador  $operador
    * @return \Illuminate\Http\Response
