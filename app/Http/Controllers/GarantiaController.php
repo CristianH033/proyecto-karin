@@ -20,16 +20,6 @@ class GarantiaController extends Controller
   }
 
   /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function create()
-  {
-    //
-  }
-
-  /**
    * Store a newly created resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -51,18 +41,7 @@ class GarantiaController extends Controller
     //
   }
 
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  \App\Garantia  $garantia
-   * @return \Illuminate\Http\Response
-   */
-  public function edit(Garantia $garantia)
-  {
-    //
-  }
-
-  /**
+    /**
    * Update the specified resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
