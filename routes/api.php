@@ -51,7 +51,7 @@ Route::name('api.')->group(function () {
     'ciudades' => 'CiudadController',
     'contratos' => 'ContratoController',
     'dispositivos' => 'DispositivoController',
-    'estaciones de trabajo' => 'EstacionTrabajoController',
+    'estacion-trabajos' => 'EstacionTrabajoController',
     'estados' => 'EstadoController',
     'funcionarios' => 'FuncionarioController',
     'garantias' => 'GarantiaController',
@@ -65,8 +65,8 @@ Route::name('api.')->group(function () {
     'servicios' => 'ServicioController',
     'tags' => 'TagController',
     'terceros' => 'TerceroController',
-    'tipos de producto' => 'TipoProductoController',
-    'tipos de servicios' => 'TipoServicioController'
+    'tipo-productos' => 'TipoProductoController',
+    'tipo-servicios' => 'TipoServicioController'
   ]);
 });
 
