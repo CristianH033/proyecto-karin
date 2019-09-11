@@ -22,6 +22,7 @@ if (!mix.inProduction()) {
  */
 mix.alias({
   "@components": "/resources/js/components",
+  "@services": "/resources/js/services",
   "@plugins": "/resources/js/plugins",
   "@layouts": "/resources/js/layouts",
   "@routes": "/resources/js/routes",
