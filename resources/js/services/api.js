@@ -7,11 +7,18 @@
 
 const baseDomain = process.env.MIX_APP_URL;
 
-const apiVersion = "1.0";
+// const apiVersion = "1.0";
 
-const baseUrl = `${baseDomain}/${apiVersion}`;
+// const baseUrl = `${baseDomain}/${apiVersion}`;
+const baseUrl = `${baseDomain}`;
 
 const endpoints = {
+  // Auth
+  login: `${baseUrl}/login`,
+  logout: `${baseUrl}/logout`,
+  register: `${baseUrl}/register`,
+  passwordReset: `${baseUrl}/reset`,
+  // App
   cargos: `${baseUrl}/cargos`,
   ciudades: `${baseUrl}/ciudades`,
   contratos: `${baseUrl}/contratos`,
@@ -34,6 +41,12 @@ const endpoints = {
   tipoServicios: `${baseUrl}/tipo-servicios`
 };
 
+// Auth
+export const login = endpoints.login;
+export const logout = endpoints.logout;
+export const register = endpoints.register;
+export const passwordReset = endpoints.passwordReset;
+// APP
 export const cargos = endpoints.cargos;
 export const ciudades = endpoints.ciudades;
 export const contratos = endpoints.contratos;
