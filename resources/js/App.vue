@@ -6,6 +6,8 @@
 
 <script>
 import * as actions from "@js/store/action-types";
+import { EventBus } from "@services/event-bus";
+import axios from "axios";
 export default {
   name: "App",
   components: {},
@@ -15,23 +17,38 @@ export default {
   computed: {},
   created() {},
   mounted() {
+    // Interceptor de AXIOS
+    axios.interceptors.request.use(
+      config => {
+        let token = this.$store.getters.token;
+        if (token) {
+          config.headers["Authorization"] = `Bearer ${token}`;
+        }
+        return config;
+      },
+      error => {
+        return Promise.reject(error);
+      }
+    );
     // Evento global (login)
-    this.$globalEvent.$on("logged-in", () => {
+    EventBus.$on("logged-in", () => {
+      console.log("Evento logged en App.vue");
       let route = this.$route.query.redirect
         ? this.$route.query.redirect
         : { name: "home" };
-      this.$router.push(route);
+      console.log(route);
+      this.$router.push({ name: "home" });
     });
     // Evento global (logout)
-    this.$globalEvent.$on("logged-out", () => {
-      this.$store.dispatch(actions.FAKE_LOGOUT).then(() => {
+    EventBus.$on("logged-out", () => {
+      this.$store.dispatch(actions.LOGOUT).then(() => {
         this.$router.push({ name: "login" });
       });
     });
   },
   beforeDestroy() {
-    this.$globalEvent.$off("logged-in");
-    this.$globalEvent.$off("logged-out");
+    EventBus.$off("logged-in");
+    EventBus.$off("logged-out");
   },
   methods: {}
 };

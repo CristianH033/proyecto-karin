@@ -5,12 +5,11 @@
  * @Desc: Coleccion de endpoints API del aplicativo.
  */
 
-const baseDomain = process.env.MIX_APP_URL;
+const baseDomain = `http://${process.env.MIX_APP_URL}`;
 
-// const apiVersion = "1.0";
+const apiVersion = "api";
 
-// const baseUrl = `${baseDomain}/${apiVersion}`;
-const baseUrl = `${baseDomain}`;
+const baseUrl = `${baseDomain}/${apiVersion}`;
 
 const endpoints = {
   // Auth

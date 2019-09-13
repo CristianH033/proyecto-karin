@@ -65,16 +65,21 @@ export default {
   mounted() {},
   methods: {
     login() {
+      let credentials = {
+        email: this.email,
+        password: this.password
+      };
       this.loading = true;
       this.$store
-        .dispatch(actions.FAKE_LOGIN)
+        .dispatch(actions.LOGIN, credentials)
         .then(response => {
           console.log(response);
         })
         .catch(e => {
           console.log(e);
+          console.log(e.response);
         })
-        .then(() => {
+        .finally(() => {
           this.loading = false;
         });
     }

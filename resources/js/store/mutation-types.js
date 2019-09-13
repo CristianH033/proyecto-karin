@@ -1,5 +1,6 @@
 // AUTH
 export const LOGGED = "LOGGED";
+export const TOKEN = "TOKEN";
 export const USER = "USER";
 
 // FAKE AUTH

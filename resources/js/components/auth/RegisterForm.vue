@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import { EventBus } from "@services/event-bus";
 export default {
   data() {
     return {
@@ -60,7 +61,7 @@ export default {
   mounted() {},
   methods: {
     register() {
-      this.$globalEvent.$emit("logged-in");
+      EventBus.$emit("logged-in");
     }
   }
 };

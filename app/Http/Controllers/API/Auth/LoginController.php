@@ -84,8 +84,8 @@ class LoginController extends Controller
     $this->clearLoginAttempts($request);
 
     return response()->json([
-      'token' => $token
-      // 'user' => $user,
+      'token' => $token,
+      'user' => $user,
       // 'status' => 200
     ]);
   }

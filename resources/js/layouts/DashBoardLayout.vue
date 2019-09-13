@@ -115,6 +115,7 @@
 
 <script>
 let unregisterBeforeEach, unregisterBeforeResolve;
+import { EventBus } from "@services/event-bus";
 export default {
   name: "Dashboard",
   components: {},
@@ -155,7 +156,7 @@ export default {
   },
   methods: {
     salir() {
-      this.$globalEvent.$emit("logged-out");
+      EventBus.$emit("logged-out");
     }
   }
 };

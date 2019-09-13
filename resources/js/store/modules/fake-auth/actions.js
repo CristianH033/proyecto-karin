@@ -1,5 +1,6 @@
-import * as mutations from "../../mutation-types";
-import * as actions from "../../action-types";
+import * as mutations from "@store/mutation-types";
+import * as actions from "@store/action-types";
+import { EventBus } from "@services/event-bus";
 
 export default {
   [actions.FAKE_LOGIN](context) {
@@ -9,7 +10,7 @@ export default {
         switch (true) {
           case random > 5:
             context.commit(mutations.FAKE_LOGGED, true);
-            this._vm.$globalEvent.$emit("logged-in");
+            EventBus.$emit("logged-in");
             resolve();
             break;
           default:

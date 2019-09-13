@@ -16,9 +16,6 @@ import vuetify from "@plugins/vuetify";
 // Componente principal
 import App from "@js/App.vue";
 
-// Bus para eventos globales
-Vue.prototype.$globalEvent = new Vue();
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require("axios");
+import axios from "axios";
 
-window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
@@ -30,18 +30,8 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
 let token = document.head.querySelector('meta[name="csrf-token"]');
 
-if (token) {
-  window.axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
-} else {
-  console.error(
-    "CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token"
-  );
-}
-
-let userHeader = document.head.querySelector('meta[name="user"]');
-window.user = null;
-if (userHeader)
-  if (userHeader.content) window.user = JSON.parse(userHeader.content);
+axios.defaults.headers.post["Content-Type"] = "application/json";
+axios.defaults.headers.common["X-CSRF-TOKEN"] = token.content;
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

@@ -2,7 +2,6 @@
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
 export const REGISTER = "REGISTER";
-export const REMEMBER_PASSWORD = "REMEMBER_PASSWORD";
 export const RESET_PASSWORD = "RESET_PASSWORD";
 
 // FEKE AUTH MODULE
