@@ -11,9 +11,6 @@ return [
     | as the size rules. Feel free to tweak each of these messages here.
     |
     */
-  'exception' => [
-    'message' => 'The given data is invalid!'
-  ],
   'accepted' => 'The :attribute must be accepted.',
   'active_url' => 'The :attribute is not a valid URL.',
   'after' => 'The :attribute must be a date after :date.',
@@ -44,6 +41,9 @@ return [
   'distinct' => 'The :attribute field has a duplicate value.',
   'email' => 'The :attribute must be a valid email address.',
   'ends_with' => 'The :attribute must end with one of the following: :values',
+  'exception' => [
+    'message' => 'The given data is invalid!'
+  ],
   'exists' => 'The selected :attribute is invalid.',
   'file' => 'The :attribute must be a file.',
   'filled' => 'The :attribute field must have a value.',
