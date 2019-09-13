@@ -72,18 +72,25 @@
         </v-list-item-group>
       </v-list>
       <template v-slot:append>
-        <div class="pa-2">
-          <v-btn block @click="salir">Salir</v-btn>
-        </div>
+        <v-footer>
+          <div>Cristian Home</div>
+          <div class="flex-grow-1" />
+          <div>&copy; 2019</div>
+        </v-footer>
       </template>
     </v-navigation-drawer>
-    <v-navigation-drawer v-model="userDrawer" absolute temporary right>
+    <v-navigation-drawer v-model="userDrawer" app temporary right>
       <v-list-item>
         <v-list-item-avatar>
-          <v-img></v-img>
+          <v-avatar color="red">
+            <span class="white--text headline">{{ user.name[0] }}</span>
+            <!-- <v-icon dark>mdi-account-circle</v-icon> -->
+            <!-- <v-img></v-img> -->
+          </v-avatar>
         </v-list-item-avatar>
         <v-list-item-content>
-          <v-list-item-title>Cristian Home</v-list-item-title>
+          <v-list-item-title>{{ user.name }}</v-list-item-title>
+          <v-list-item-subtitle>{{ user.email }}</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
       <v-divider></v-divider>
@@ -99,7 +106,11 @@
       </v-list>
       <template v-slot:append>
         <div class="pa-2">
-          <v-btn block @click="salir">Salir</v-btn>
+          <v-btn block text color="error" @click="salir">
+            <v-icon>mdi-power</v-icon>
+            <div class="flex-grow-1" />
+            Salir
+          </v-btn>
         </div>
       </template>
     </v-navigation-drawer>
@@ -116,6 +127,7 @@
 <script>
 let unregisterBeforeEach, unregisterBeforeResolve;
 import { EventBus } from "@services/event-bus";
+import { mapGetters } from "vuex";
 export default {
   name: "Dashboard",
   components: {},
@@ -130,12 +142,9 @@ export default {
     };
   },
   computed: {
-    auth() {
-      return this.$store.getters.getAuth;
-    },
-    dato() {
-      return this.$store.getters.getDato;
-    }
+    ...mapGetters({
+      user: "user"
+    })
   },
   created() {},
   mounted() {
