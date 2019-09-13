@@ -11,7 +11,9 @@ return [
     | as the size rules. Feel free to tweak each of these messages.
     |
     */
-
+  'exception' => [
+    'message' => 'Los datos proporcionados no son válidos!'
+  ],
   'accepted' => ':attribute debe ser aceptado.',
   'active_url' => ':attribute no es una URL válida.',
   'after' => ':attribute debe ser una fecha posterior a :date.',
