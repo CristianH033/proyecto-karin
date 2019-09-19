@@ -32,7 +32,7 @@
         </v-avatar>
       </v-btn>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" app clipped>
+    <v-navigation-drawer v-model="drawer" width="300" app clipped>
       <v-list dense rounded>
         <v-list-item-group color="primary">
           <v-list-item :to="{ name: 'home' }">
@@ -43,6 +43,34 @@
               <v-list-item-title>Inicio</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
+          <v-divider dark class="my-4"></v-divider>
+          <v-subheader>Administración</v-subheader>
+          <v-list-group no-action>
+            <template v-slot:activator>
+              <v-list-item-action>
+                <v-icon>mdi-security</v-icon>
+              </v-list-item-action>
+              <v-list-item-content>
+                <v-list-item-title>Roles y Permisos</v-list-item-title>
+              </v-list-item-content>
+            </template>
+            <v-list-item link>
+              <v-list-item-action>
+                <v-icon>mdi-shield-account</v-icon>
+              </v-list-item-action>
+              <v-list-item-content>
+                <v-list-item-title>Usuarios</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item link>
+              <v-list-item-action>
+                <v-icon>mdi-account-key</v-icon>
+              </v-list-item-action>
+              <v-list-item-content>
+                <v-list-item-title>Roles</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-group>
           <v-divider dark class="my-4"></v-divider>
           <v-list-item :to="{ name: 'devices' }">
             <v-list-item-action>
@@ -79,7 +107,7 @@
         </v-footer>
       </template>
     </v-navigation-drawer>
-    <v-navigation-drawer v-model="userDrawer" app temporary right>
+    <v-navigation-drawer v-model="userDrawer" width="300" app temporary right>
       <v-list-item>
         <v-list-item-avatar>
           <v-avatar color="red">
