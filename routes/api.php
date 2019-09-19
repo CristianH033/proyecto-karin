@@ -47,6 +47,7 @@ Route::name('api.')->group(function () {
    * y su correspondiente verbo HTTP (POST, GET, PUT, DELETE)
    */
   Route::apiResources([
+    'users' => 'UserController',
     'cargos' => 'CargoController',
     'ciudades' => 'CiudadController',
     'contratos' => 'ContratoController',

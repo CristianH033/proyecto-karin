@@ -12,6 +12,14 @@
         </v-list-item>
         <v-divider dark class="my-4"></v-divider>
         <v-subheader>Administración</v-subheader>
+        <v-list-item :to="{ name: 'admin-users' }">
+          <v-list-item-action>
+            <v-icon>mdi-account</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Usuarios</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
         <v-list-group no-action>
           <template v-slot:activator>
             <v-list-item-action>

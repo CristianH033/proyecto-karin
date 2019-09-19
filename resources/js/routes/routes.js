@@ -12,6 +12,8 @@ const HeadQuartersPage = () =>
   );
 const AboutPage = () =>
   import(/* webpackChunkName: "js/pages/AboutPage" */ "@pages/About.vue");
+const UsersPage = () =>
+  import(/* webpackChunkName: "js/pages/UsersPage" */ "@pages/Users.vue");
 
 // Componenes de Autenticacion
 import AuthLayout from "@layouts/AuthLayout.vue";
@@ -85,6 +87,14 @@ const routes = [
         path: "/home",
         name: "home",
         component: HomePage,
+        meta: {
+          requiresAuth: true
+        }
+      },
+      {
+        path: "/admin/users",
+        name: "admin-users",
+        component: UsersPage,
         meta: {
           requiresAuth: true
         }

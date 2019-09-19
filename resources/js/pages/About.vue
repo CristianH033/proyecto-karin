@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center" align="center">
-    <v-col>
+    <v-col sm="10" lg="8">
       <h1>Acerca De Nosotros</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,

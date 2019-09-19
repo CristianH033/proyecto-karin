@@ -18,6 +18,7 @@ const endpoints = {
   register: `${baseUrl}/register`,
   passwordReset: `${baseUrl}/reset`,
   // App
+  users: `${baseUrl}/users`,
   cargos: `${baseUrl}/cargos`,
   ciudades: `${baseUrl}/ciudades`,
   contratos: `${baseUrl}/contratos`,
@@ -46,6 +47,7 @@ export const logout = endpoints.logout;
 export const register = endpoints.register;
 export const passwordReset = endpoints.passwordReset;
 // APP
+export const users = endpoints.users;
 export const cargos = endpoints.cargos;
 export const ciudades = endpoints.ciudades;
 export const contratos = endpoints.contratos;
