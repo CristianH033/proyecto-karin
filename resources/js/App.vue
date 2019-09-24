@@ -7,7 +7,6 @@
 <script>
 import * as actions from "@js/store/action-types";
 import { EventBus } from "@services/event-bus";
-import axios from "axios";
 export default {
   name: "App",
   components: {},
@@ -17,19 +16,6 @@ export default {
   computed: {},
   created() {},
   mounted() {
-    // Interceptor de AXIOS
-    axios.interceptors.request.use(
-      config => {
-        let token = this.$store.getters.token;
-        if (token) {
-          config.headers["Authorization"] = `Bearer ${token}`;
-        }
-        return config;
-      },
-      error => {
-        return Promise.reject(error);
-      }
-    );
     // Evento global (login)
     EventBus.$on("logged-in", () => {
       console.log("Evento logged en App.vue");

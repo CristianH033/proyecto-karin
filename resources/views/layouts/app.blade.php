@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  @include('partials.splash')
+  {{-- @include('partials.splash') --}}
   @yield('content')
 
   <!-- Styles -->

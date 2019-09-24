@@ -2,15 +2,15 @@
  * Función que se ejecuta cuando la página esté completamente cargada
  * y aplica transición "fade-out" al "splash" y remueve el elemento posteriormente
  */
-document.addEventListener("DOMContentLoaded", () => {
-  let splash = document.querySelector("#splash-loading");
-  let SplashListener = function() {
-    splash.removeEventListener("transitionend", SplashListener, false);
-    splash.remove();
-  };
-  splash.addEventListener("transitionend", SplashListener);
-  splash.classList.add("cargado");
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   let splash = document.querySelector("#splash-loading");
+//   let SplashListener = function() {
+//     splash.removeEventListener("transitionend", SplashListener, false);
+//     splash.remove();
+//   };
+//   splash.addEventListener("transitionend", SplashListener);
+//   splash.classList.add("cargado");
+// });
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
  */
 
 import axios from "axios";
+
+require("@services/request-interceptor");
+require("@services/response-interceptor");
 
 axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
