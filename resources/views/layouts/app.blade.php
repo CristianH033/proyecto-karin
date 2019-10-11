@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="user" content="{{ Auth::user() }}">
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="/mix-manifest.json">
   <title>{{ config('app.name', 'Laravel') }}</title>
   <link href="{{ mix('css/app.css') }}" rel="stylesheet">
   {{-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"> --}}
