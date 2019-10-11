@@ -41,5 +41,13 @@ return [
       'secret' => env('STRIPE_WEBHOOK_SECRET'),
       'tolerance' => env('STRIPE_WEBHOOK_TOLERANCE', 300)
     ]
+  ],
+
+  'oauth' => [
+    'endpoint' => env('OAUTH_ENDPOINT'),
+    'client' => [
+      'id' => env('OAUTH_CLIENT_ID'),
+      'secret' => env('OAUTH_CLIENT_SECRET')
+    ]
   ]
 ];
