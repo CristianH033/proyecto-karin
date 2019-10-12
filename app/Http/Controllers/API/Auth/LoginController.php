@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\API\Auth;
 
+use DB;
+use Cookie;
 use Illuminate\Http\Request;
+use App\Traits\Auth\OauthProxy;
 use App\Http\Controllers\Controller;
 use App\Traits\Auth\AuthenticatesUsers;
 
@@ -19,7 +22,7 @@ class LoginController extends Controller
     |
     */
 
-  use AuthenticatesUsers;
+  use AuthenticatesUsers, OauthProxy;
 
   /**
    * Constructor de la nueva instancia del controlador
@@ -28,8 +31,8 @@ class LoginController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('guest:api')->except(['logout', 'getCurrentUser']);
-    $this->middleware('auth:api')->only(['logout', 'getCurrentUser']);
+    $this->middleware('auth:api')->only(['logout']);
+    $this->middleware('guest:api')->except(['logout', 'refreshAccessToken']);
   }
 
   /**
@@ -54,7 +57,6 @@ class LoginController extends Controller
     // the IP address of the client making these requests into this application.
     if ($this->hasTooManyLoginAttempts($request)) {
       $this->fireLockoutEvent($request);
-
       return $this->sendLockoutResponse($request);
     }
 
@@ -78,15 +80,22 @@ class LoginController extends Controller
    */
   protected function sendLoginResponse(Request $request)
   {
-    $user = auth()->user();
-    $token = $user->createToken('Karim-APP')->accessToken;
+    return $this->proxy("password", [
+      'username' => $request->email,
+      'password' => $request->password
+    ]);
+  }
 
-    $this->clearLoginAttempts($request);
-
-    return response()->json([
-      'token' => $token,
-      'user' => $user,
-      // 'status' => 200
+  /**
+   * Renovar token de acceso y devolverlo.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @return \Illuminate\Http\Response
+   */
+  protected function refreshAccessToken(Request $request)
+  {
+    return $this->proxy("refresh_token", [
+      'refresh_token' => $request->cookie('refresh-token')
     ]);
   }
 
@@ -98,14 +107,20 @@ class LoginController extends Controller
    */
   public function logout(Request $request)
   {
-    $token = $request->user()->token();
-    $token->revoke();
-    // $this->guard()->logout();
-    return response()->json(null, 204);
-  }
-
-  public function getCurrentUser(Request $request)
-  {
-    return $request->user();
+    // Obtener el Access Token
+    $accessToken = $request->user()->token();
+    // Revocar refresh token correspondiente
+    DB::table('oauth_refresh_tokens')
+      ->where('access_token_id', $accessToken->id)
+      ->update([
+        'revoked' => true
+      ]);
+    // Revocar access token
+    $accessToken->revoke();
+    // Olvidar cookie de refresh token
+    $cookie = Cookie::forget('refresh-token');
+    return response()
+      ->json(null, 204)
+      ->withCookie($cookie);
   }
 }

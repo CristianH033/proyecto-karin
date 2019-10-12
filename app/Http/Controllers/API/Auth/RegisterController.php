@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Traits\Auth\RegistersUsers;
 use Illuminate\Auth\Events\Registered;
+use App\Traits\Auth\OauthProxy;
 
 class RegisterController extends Controller
 {
@@ -24,7 +25,7 @@ class RegisterController extends Controller
     |
     */
 
-  use RegistersUsers;
+  use RegistersUsers, OauthProxy;
 
   /**
    * Where to redirect users after registration.
@@ -62,12 +63,9 @@ class RegisterController extends Controller
 
     $this->guard()->login($user);
 
-    $token = $user->createToken('Karim-APP')->accessToken;
-
-    return response()->json([
-      'token' => $token,
-      'user' => $user,
-      'status' => 200
+    return $this->proxy("password", [
+      'username' => $request->email,
+      'password' => $request->password
     ]);
   }
 
@@ -110,5 +108,8 @@ class RegisterController extends Controller
    */
   protected function registered(Request $request, $user)
   {
+    activity()
+      ->performedOn($user)
+      ->log('edited');
   }
 }
