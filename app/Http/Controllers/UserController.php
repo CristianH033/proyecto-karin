@@ -9,58 +9,84 @@ use App\Http\Resources\User as UserResource;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-      return new UserCollection(User::all());
-    }
+  /**
+   * Constructor de la nueva instancia del controlador
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+    $this->middleware('auth:api');
+    $this->middleware('can:view-users')->only(['index', 'show']);
+    $this->middleware('create-users')->only('store');
+    $this->middleware('update-users')->only('update');
+    $this->middleware('delete-users')->only('destroy');
+  }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+  /**
+   * Display a listing of the resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function index()
+  {
+    return new UserCollection(User::paginate());
+  }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        //
-    }
+  /**
+   * Store a newly created resource in storage.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @return \Illuminate\Http\Response
+   */
+  public function store(Request $request)
+  {
+    //
+  }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, User $user)
-    {
-        //
-    }
+  /**
+   * Display the specified resource.
+   *
+   * @param  \App\User  $user
+   * @return \Illuminate\Http\Response
+   */
+  public function show(User $user)
+  {
+    //
+  }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
-    {
-        //
-    }
+  /**
+   * Update the specified resource in storage.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @param  \App\User  $user
+   * @return \Illuminate\Http\Response
+   */
+  public function update(Request $request, User $user)
+  {
+    //
+  }
+
+  /**
+   * Remove the specified resource from storage.
+   *
+   * @param  \App\User  $user
+   * @return \Illuminate\Http\Response
+   */
+  public function destroy(User $user)
+  {
+    //
+  }
+
+  /**
+   * Obtener usuario actual.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @return \Illuminate\Http\Response
+   */
+  public function getCurrentUser(Request $request)
+  {
+    $user = $request->user();
+    return new UserResource($user);
+  }
 }
