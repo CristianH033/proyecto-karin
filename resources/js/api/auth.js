@@ -1,5 +1,11 @@
 import axios from "axios";
-import { login, logout, register, passwordReset } from "@services/api.js";
+import {
+  login,
+  logout,
+  register,
+  refreshToken,
+  passwordReset
+} from "@services/api.js";
 
 export default {
   login(credentials) {
@@ -15,6 +21,9 @@ export default {
       password: user.password,
       password_confirmation: user.password_confirmation
     });
+  },
+  refreshToken() {
+    return axios.post(refreshToken);
   },
   reset(user) {
     return axios.post(passwordReset, {

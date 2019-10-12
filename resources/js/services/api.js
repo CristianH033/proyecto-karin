@@ -16,6 +16,7 @@ const endpoints = {
   login: `${baseUrl}/login`,
   logout: `${baseUrl}/logout`,
   register: `${baseUrl}/register`,
+  refreshToken: `${baseUrl}/refresh-token`,
   passwordReset: `${baseUrl}/reset`,
   // App
   users: `${baseUrl}/users`,
@@ -45,6 +46,7 @@ const endpoints = {
 export const login = endpoints.login;
 export const logout = endpoints.logout;
 export const register = endpoints.register;
+export const refreshToken = endpoints.refreshToken;
 export const passwordReset = endpoints.passwordReset;
 // APP
 export const users = endpoints.users;
