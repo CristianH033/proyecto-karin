@@ -25,8 +25,8 @@ Route::name('api.')->group(function () {
    * Controladores que se encuentran dentro de la carpeta API\Auh
    */
   Route::namespace('API\Auth')->group(function () {
-    Route::get('user', 'LoginController@getCurrentUser')->name('auth.user');
     Route::post('login', 'LoginController@login')->name('login');
+    Route::post('refresh-token', 'LoginController@refreshAccessToken')->name('refresh.token');
     Route::post('register', 'RegisterController@register')->name('register');
     Route::post('logout', 'LoginController@logout')->name('logout');
     Route::post(
@@ -41,6 +41,8 @@ Route::name('api.')->group(function () {
       'ResetPasswordController@checkValidToken'
     )->name('checkPasswordResetToken');
   });
+  /**Obtener usuario actualmente logeado */
+  Route::get('user', 'UserController@getCurrentUser')->name('auth.user');
   /**
    * Creación dínamica de rutas para todos los recursos (modelos-controladores)
    * Cada recurso creara una ruta para cada acción basica de CRUD
@@ -71,6 +73,27 @@ Route::name('api.')->group(function () {
   ]);
 });
 
-Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function () {
-  Route::put('/user', 'LoggedUserController@update');
+/* Inducir errores de cliente y servidor */
+Route::post('400', function () {
+  abort(404,"Error 400 a propósito");
+});
+
+Route::post('401', function () {
+  abort(404,"Error 401 a propósito");
+});
+
+Route::post('403', function () {
+  abort(404,"Error 403 a propósito");
+});
+
+Route::post('404', function () {
+  abort(404,"Error 404 a propósito");
+});
+
+Route::post('500', function () {
+  abort(500,"Error de servidor a próposito");
+});
+
+Route::post('500', function () {
+  abort(500,"Error de servidor a proposito");
 });
