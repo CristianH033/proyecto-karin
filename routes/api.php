@@ -29,6 +29,8 @@ Route::name('api.')->group(function () {
     Route::post('refresh-token', 'LoginController@refreshAccessToken')->name('refresh.token');
     Route::post('register', 'RegisterController@register')->name('register');
     Route::post('logout', 'LoginController@logout')->name('logout');
+    Route::get('current-user', 'LoggedUserController@getCurrentUser')->name('auth.user');
+    Route::get('auth-check', 'LoggedUserController@checkAuth')->name('auth.check');
     Route::post(
       'password/email',
       'ForgotPasswordController@sendResetLinkEmail'
@@ -41,8 +43,6 @@ Route::name('api.')->group(function () {
       'ResetPasswordController@checkValidToken'
     )->name('checkPasswordResetToken');
   });
-  /**Obtener usuario actualmente logeado */
-  Route::get('user', 'UserController@getCurrentUser')->name('auth.user');
   /**
    * Creación dínamica de rutas para todos los recursos (modelos-controladores)
    * Cada recurso creara una ruta para cada acción basica de CRUD

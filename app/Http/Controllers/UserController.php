@@ -77,16 +77,4 @@ class UserController extends Controller
   {
     //
   }
-
-  /**
-   * Obtener usuario actual.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
-  public function getCurrentUser(Request $request)
-  {
-    $user = $request->user();
-    return new UserResource($user);
-  }
 }
