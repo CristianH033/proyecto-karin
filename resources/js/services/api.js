@@ -18,6 +18,8 @@ const endpoints = {
   register: `${baseUrl}/register`,
   refreshToken: `${baseUrl}/refresh-token`,
   passwordReset: `${baseUrl}/reset`,
+  loggedUser: `${baseUrl}/current-user`,
+  checkAuth: `${baseUrl}/auth-check`,
   // App
   users: `${baseUrl}/users`,
   cargos: `${baseUrl}/cargos`,
@@ -48,6 +50,8 @@ export const logout = endpoints.logout;
 export const register = endpoints.register;
 export const refreshToken = endpoints.refreshToken;
 export const passwordReset = endpoints.passwordReset;
+export const loggedUser = endpoints.loggedUser;
+export const checkAuth = endpoints.checkAuth;
 // APP
 export const users = endpoints.users;
 export const cargos = endpoints.cargos;

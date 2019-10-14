@@ -1,6 +1,6 @@
 // AUTH
 export const LOGGED = "LOGGED";
-export const TOKEN = "TOKEN";
+export const ACCESS_TOKEN = "ACCESS_TOKEN";
 export const USER = "USER";
 
 // SNACKBAR

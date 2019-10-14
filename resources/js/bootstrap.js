@@ -20,6 +20,7 @@
 
 import axios from "axios";
 
+require("@services/refresh-token-interceptor");
 require("@services/request-interceptor");
 require("@services/response-interceptor");
 

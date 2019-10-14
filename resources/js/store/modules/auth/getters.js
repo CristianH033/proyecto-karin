@@ -1,6 +1,6 @@
 export default {
   logged: state => state.logged,
-  token: state => state.token,
+  accessToken: state => state.accessToken,
   user: state => state.user,
   roles: state => (state.user ? state.user.roles : [])
 };

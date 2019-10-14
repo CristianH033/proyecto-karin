@@ -1,13 +1,13 @@
-import * as types from "@store/mutation-types";
+import * as mutations from "@store/mutation-types";
 
 export default {
-  [types.LOGGED](state, logged) {
+  [mutations.LOGGED](state, logged) {
     state.logged = logged;
   },
-  [types.TOKEN](state, token) {
-    state.token = token;
+  [mutations.ACCESS_TOKEN](state, accessToken) {
+    state.accessToken = accessToken;
   },
-  [types.USER](state, user) {
+  [mutations.USER](state, user) {
     state.user = user;
   }
 };

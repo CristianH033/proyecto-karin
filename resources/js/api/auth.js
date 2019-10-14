@@ -4,7 +4,9 @@ import {
   logout,
   register,
   refreshToken,
-  passwordReset
+  passwordReset,
+  loggedUser,
+  checkAuth
 } from "@services/api.js";
 
 export default {
@@ -32,5 +34,11 @@ export default {
       password_confirmation: user.password_confirmation,
       token: user.token
     });
+  },
+  currentUser() {
+    return axios.get(loggedUser);
+  },
+  checkAuth() {
+    return axios.get(checkAuth);
   }
 };
