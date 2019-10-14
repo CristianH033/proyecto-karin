@@ -3,12 +3,12 @@
     <v-list-item>
       <v-list-item-avatar>
         <v-avatar color="red">
-          <span class="white--text headline">{{ user.name[0] }}</span>
+          <span class="white--text headline">{{ name[0] }}</span>
         </v-avatar>
       </v-list-item-avatar>
       <v-list-item-content>
-        <v-list-item-title>{{ user.name }}</v-list-item-title>
-        <v-list-item-subtitle>{{ user.email }}</v-list-item-subtitle>
+        <v-list-item-title>{{ name }}</v-list-item-title>
+        <v-list-item-subtitle>{{ email }}</v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
     <v-divider></v-divider>
@@ -39,15 +39,13 @@ import { EventBus } from "@services/event-bus";
 export default {
   name: "SidebarUserMenu",
   props: {
-    user: {
-      type: Object,
-      default: function() {
-        return {
-          id: null,
-          name: "",
-          email: ""
-        };
-      }
+    name: {
+      type: String,
+      default: "Cargando..."
+    },
+    email: {
+      type: String,
+      default: "Cargando..."
     }
   },
   data: function() {
