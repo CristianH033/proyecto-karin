@@ -16,7 +16,7 @@ class PaisController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
   }
 
   /**
@@ -37,7 +37,13 @@ class PaisController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    $request->validate([
+      'nombre' => 'required|max:255'
+    ]);
+
+    Pais::create([
+      "nombre" => $request->nombre
+    ]);
   }
 
   /**
@@ -60,7 +66,13 @@ class PaisController extends Controller
    */
   public function update(Request $request, Pais $pais)
   {
-    //
+    $request->validate([
+      'nombre' => 'required|max:255'
+    ]);
+
+    $pais->nombre = $request->nombre;
+
+    $pais->save();
   }
 
   /**

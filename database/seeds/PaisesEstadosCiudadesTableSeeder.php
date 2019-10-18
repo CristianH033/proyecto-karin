@@ -20,8 +20,8 @@ class PaisesEstadosCiudadesTableSeeder extends Seeder
         $pais->estados()->saveMany(factory(Estado::class, 10)->make());
       });
 
-      Estado::all()->each(function($estado){
-        $estado->ciudades()->saveMany(factory(Ciudad::class, 10)->make());
-      });
+    Estado::all()->each(function ($estado) {
+      $estado->ciudades()->saveMany(factory(Ciudad::class, 10)->make());
+    });
   }
 }
