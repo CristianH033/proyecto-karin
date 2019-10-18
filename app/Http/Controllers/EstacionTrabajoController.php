@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\EstacionTrabajo;
 use Illuminate\Http\Request;
 use App\Http\Resources\EstacionTrabajoCollection;
-use App\Http\Resources\EstacionTrabajo as EstacionTrabajoResource;
+use App\Http\Resources\EstacionTrabajoResource;
 
 class EstacionTrabajoController extends Controller
 {

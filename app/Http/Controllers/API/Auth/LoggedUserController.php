@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\User as UserResource;
+use App\Http\Resources\UserResource;
 
 class LoggedUserController extends Controller
 {

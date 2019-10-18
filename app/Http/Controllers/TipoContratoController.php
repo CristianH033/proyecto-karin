@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\TipoContrato;
 use Illuminate\Http\Request;
 use App\Http\Resources\TipoContratoCollection;
-use App\Http\Resources\TipoContrato as TipoContratoResource;
+use App\Http\Resources\TipoContratoResource;
 
 class TipoContratoController extends Controller
 {

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Dispositivo;
 use Illuminate\Http\Request;
 use App\Http\Resources\DispositivoCollection;
-use App\Http\Resources\Dispositivo as DispositivoResource;
+use App\Http\Resources\DispositivoResource;
 
 class DispositivoController extends Controller
 {

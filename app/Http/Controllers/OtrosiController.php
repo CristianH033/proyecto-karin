@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Otrosi;
 use Illuminate\Http\Request;
 use App\Http\Resources\OtrosiCollection;
-use App\Http\Resources\Otrosi as OtrosiResource;
+use App\Http\Resources\OtrosiResource;
 
 class OtrosiController extends Controller
 {

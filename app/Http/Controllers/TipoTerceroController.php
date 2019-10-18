@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\TipoTercero;
 use Illuminate\Http\Request;
 use App\Http\Resources\TipoTerceroCollection;
-use App\Http\Resources\TipoTercero as TipoTerceroResource;
+use App\Http\Resources\TipoTerceroResource;
 
 class TipoTerceroController extends Controller
 {

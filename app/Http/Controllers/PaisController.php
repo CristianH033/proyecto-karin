@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Pais;
 use Illuminate\Http\Request;
 use App\Http\Resources\PaisCollection;
-use App\Http\Resources\Pais as PaisResource;
+use App\Http\Resources\PaisResource;
 
 class PaisController extends Controller
 {

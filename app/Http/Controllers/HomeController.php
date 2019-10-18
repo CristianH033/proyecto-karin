@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Resources\HomeCollection;
-use App\Http\Resources\Home as HomeResource;
+use App\Http\Resources\HomeResource;
 
 class HomeController extends Controller
 {

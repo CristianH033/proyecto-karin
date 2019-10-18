@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Contrato;
 use Illuminate\Http\Request;
 use App\Http\Resources\ContratoCollection;
-use App\Http\Resources\Contrato as ContratoResource;
+use App\Http\Resources\ContratoResource;
 
 class ContratoController extends Controller
 {
