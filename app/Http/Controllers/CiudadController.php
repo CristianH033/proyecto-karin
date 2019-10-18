@@ -16,7 +16,7 @@ class CiudadController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
   }
 
   /**
@@ -37,7 +37,15 @@ class CiudadController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    $request->validate([
+      'nombre' => 'required|max:255',
+      'estado_id' => 'required|exists:estados,id'
+    ]);
+
+    Ciudad::create([
+      "nombre" => $request->nombre,
+      "estado_id" => $request->estado_id
+    ]);
   }
 
   /**
@@ -60,7 +68,15 @@ class CiudadController extends Controller
    */
   public function update(Request $request, Ciudad $ciudad)
   {
-    //
+    $request->validate([
+      'nombre' => 'required|max:255',
+      'estado_id' => 'required|exists:estados,id'
+    ]);
+
+    $ciudad->nombre = $request->nombre;
+    $ciudad->estado_id = $request->estado_id;
+
+    $ciudad->save();
   }
 
   /**
