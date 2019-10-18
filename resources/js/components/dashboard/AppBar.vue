@@ -1,7 +1,7 @@
 <template>
   <v-app-bar app clipped-left fixed elevate-on-scroll>
+    <v-app-bar-nav-icon @click.stop="togleSidebarMenu"></v-app-bar-nav-icon>
     <v-toolbar-title style="width: 300px">
-      <v-app-bar-nav-icon @click.stop="togleSidebarMenu"></v-app-bar-nav-icon>
       <v-icon>mdi-paw</v-icon>
       <span class="hidden-sm-and-down">Keemble</span>
     </v-toolbar-title>
@@ -10,7 +10,7 @@
       solo-inverted
       hide-details
       prepend-inner-icon="mdi-magnify"
-      label="Search"
+      label="Buscar"
       class="hidden-sm-and-down"
     ></v-text-field>
     <div class="flex-grow-1" />

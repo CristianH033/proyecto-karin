@@ -2,7 +2,7 @@
   <v-app id="kemble-app" app>
     <app-bar />
     <sidebar-menu />
-    <sidebar-user-menu :user="user" />
+    <sidebar-user-menu v-bind="user" />
     <v-content>
       <v-container fluid>
         <transition name="fade-transition" mode="out-in">

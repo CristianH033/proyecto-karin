@@ -12,14 +12,6 @@
         </v-list-item>
         <v-divider dark class="my-4"></v-divider>
         <v-subheader>Administración</v-subheader>
-        <v-list-item :to="{ name: 'admin-users' }">
-          <v-list-item-action>
-            <v-icon>mdi-account</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Usuarios</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
         <v-list-group no-action>
           <template v-slot:activator>
             <v-list-item-action>
@@ -29,7 +21,7 @@
               <v-list-item-title>Roles y Permisos</v-list-item-title>
             </v-list-item-content>
           </template>
-          <v-list-item link>
+          <v-list-item link :to="{ name: 'admin-users' }">
             <v-list-item-action>
               <v-icon>mdi-shield-account</v-icon>
             </v-list-item-action>
@@ -76,9 +68,14 @@
     </v-list>
     <template v-slot:append>
       <v-footer>
-        <div>Cristian Home</div>
+        <v-toolbar-title style="width: 300px">
+          <v-icon>mdi-paw</v-icon>
+          <span class="hidden-sm-and-down">Keemble</span>
+        </v-toolbar-title>
+
+        <!-- <div>Cristian Home</div>
         <div class="flex-grow-1" />
-        <div>&copy; 2019</div>
+        <div>&copy; 2019</div> -->
       </v-footer>
     </template>
   </v-navigation-drawer>
