@@ -1,3 +1,6 @@
+// APP MODULE
+export const SET_DARK_THEME = "SET_DARK_THEME";
+
 // AUTH
 export const LOGGED = "LOGGED";
 export const ACCESS_TOKEN = "ACCESS_TOKEN";

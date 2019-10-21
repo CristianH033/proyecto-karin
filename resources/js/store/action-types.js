@@ -1,3 +1,7 @@
+// APP MODULE
+export const SWITCH_DARK_THEME = "SWITCH_DARK_THEME";
+export const SET_DARK_THEME = "SET_DARK_THEME";
+
 // AUTH MODULE
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";

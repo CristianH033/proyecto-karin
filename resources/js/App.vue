@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import * as actions from "@js/store/action-types";
 import { EventBus } from "@services/event-bus";
 export default {
@@ -13,8 +14,22 @@ export default {
   data: function() {
     return {};
   },
-  computed: {},
-  created() {},
+  computed: {
+    ...mapGetters({
+      darkTheme: "getDarkTheme"
+    })
+  },
+  created() {
+    // Establecer tema oscuro según store
+    this.$vuetify.theme.dark = this.darkTheme;
+    // Vigilar valos tema oscuro en store
+    this.$store.watch(
+      (state, getters) => getters.getDarkTheme,
+      val => {
+        this.$vuetify.theme.dark = val;
+      }
+    );
+  },
   mounted() {
     // Evento global (login)
     EventBus.$on("logged-in", () => {

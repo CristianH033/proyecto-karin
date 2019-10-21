@@ -21,6 +21,20 @@
           <v-list-item-title>Configuraciones</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
+      <v-divider></v-divider>
+      <v-list-item>
+        <v-list-item-icon>
+          <v-icon>mdi-brightness-6</v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title>
+            Tema oscuro
+          </v-list-item-title>
+        </v-list-item-content>
+        <v-list-item-action>
+          <v-switch v-model="darkTheme"></v-switch>
+        </v-list-item-action>
+      </v-list-item>
     </v-list>
     <template v-slot:append>
       <div class="pa-2">
@@ -52,6 +66,16 @@ export default {
     return {
       drawer: null
     };
+  },
+  computed: {
+    darkTheme: {
+      get() {
+        return this.$store.getters.getDarkTheme;
+      },
+      set(value) {
+        this.$store.dispatch("SET_DARK_THEME", value);
+      }
+    }
   },
   mounted() {
     EventBus.$on("togleSidebarUserMenu", () => (this.drawer = !this.drawer));
