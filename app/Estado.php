@@ -6,10 +6,11 @@ use App\Pais;
 use App\Ciudad;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Estado extends Model
 {
-  use SoftDeletes;
+  use LogsActivity, SoftDeletes;
 
   /**
    * La tabla asociada al modelo.
@@ -24,6 +25,13 @@ class Estado extends Model
    * @var array
    */
   protected $guarded = [];
+
+  /**
+   * Atributos que se guardan en el log de cambios.
+   *
+   * @var string
+   */
+  protected static $logAttributes = ['*'];
 
   /**
    * Convertir nombre a minusculas al guardar en la BD

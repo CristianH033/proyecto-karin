@@ -4,10 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Tercero extends Model
 {
-  use SoftDeletes;
+  use LogsActivity, SoftDeletes;
 
   /**
    * La tabla asociada al modelo.
@@ -22,6 +23,13 @@ class Tercero extends Model
    * @var array
    */
   protected $guarded = [];
+
+  /**
+   * Atributos que se guardan en el log de cambios.
+   *
+   * @var string
+   */
+  protected static $logAttributes = ['*'];
   public function scopePersonaJuridica($query)
   {
     return $query->where('tipo_tercero_id', '1');

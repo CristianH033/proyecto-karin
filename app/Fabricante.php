@@ -4,10 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Fabricante extends Model
 {
-  use SoftDeletes;
+  use LogsActivity, SoftDeletes;
 
   /**
    * La tabla asociada al modelo.
@@ -22,4 +23,11 @@ class Fabricante extends Model
    * @var array
    */
   protected $guarded = [];
+
+  /**
+   * Atributos que se guardan en el log de cambios.
+   *
+   * @var string
+   */
+  protected static $logAttributes = ['*'];
 }
