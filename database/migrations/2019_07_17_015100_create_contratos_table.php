@@ -19,6 +19,7 @@ class CreateContratosTable extends Migration
       $table->bigInteger('proovedor_id')->unsigned();
       $table->bigInteger('cliente_id')->unsigned();
       $table->timestamps();
+      $table->softDeletes();
       // Llave Foranea
       $table
         ->foreign('tipo_contrato_id')

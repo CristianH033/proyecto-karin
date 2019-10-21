@@ -20,6 +20,7 @@ class CreateContratoServicioTable extends Migration
       $table->unsignedBigInteger('garantia_id')->nullable();
       $table->unsignedBigInteger('cantidad');
       $table->timestamps();
+      $table->softDeletes();
       // Foreign Keys
       $table
         ->foreign('contrato_id')

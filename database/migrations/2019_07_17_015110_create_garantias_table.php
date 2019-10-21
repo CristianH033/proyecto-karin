@@ -21,6 +21,7 @@ class CreateGarantiasTable extends Migration
       $table->date('fecha_inicio');
       $table->date('fecha_fin');
       $table->timestamps();
+      $table->softDeletes();
       // Llaves foraneas
       $table
         ->foreign('contrato_id')

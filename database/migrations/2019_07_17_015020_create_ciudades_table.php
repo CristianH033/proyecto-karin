@@ -18,6 +18,7 @@ class CreateCiudadesTable extends Migration
       $table->bigInteger('estado_id')->unsigned();
       $table->string('nombre');
       $table->timestamps();
+      $table->softDeletes();
       // Llave foranea
       $table
         ->foreign('estado_id')

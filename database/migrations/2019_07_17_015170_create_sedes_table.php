@@ -20,6 +20,7 @@ class CreateSedesTable extends Migration
       $table->string('nombre');
       $table->string('direccion');
       $table->timestamps();
+      $table->softDeletes();
       // Llaves foraneas
       $table
         ->foreign('tercero_id')

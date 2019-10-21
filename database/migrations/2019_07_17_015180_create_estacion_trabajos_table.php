@@ -18,6 +18,7 @@ class CreateEstacionTrabajosTable extends Migration
       $table->bigInteger('sede_id')->unsigned();
       $table->string('ubicacion');
       $table->timestamps();
+      $table->softDeletes();
       // Llaves foraneas
       $table
         ->foreign('sede_id')

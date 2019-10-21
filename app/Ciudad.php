@@ -7,11 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Ciudad extends Model
 {
   /**
-   * The attributes that are mass assignable.
+   * La tabla asociada al modelo.
+   *
+   * @var string
+   */
+  protected $table = 'ciudades';
+
+  /**
+   * Atributos que no son masivamente asignables.
    *
    * @var array
    */
-  protected $fillable = ['nombre', 'estado_id'];
+  protected $guarded = [];
 
   /**
    * Convertir nombre a minusculas al guardar en la BD

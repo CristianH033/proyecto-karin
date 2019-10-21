@@ -20,6 +20,7 @@ class CreateComponentesTable extends Migration
         ->unsigned()
         ->nullable();
       $table->timestamps();
+      $table->softDeletes();
       $table
         ->foreign('dispositivo_id')
         ->references('id')

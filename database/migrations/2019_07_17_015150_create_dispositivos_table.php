@@ -18,6 +18,7 @@ class CreateDispositivosTable extends Migration
       $table->unsignedBigInteger('tipo_dispositivo_id');
       $table->string('nombre');
       $table->timestamps();
+      $table->softDeletes();
       $table
         ->foreign('tipo_dispositivo_id')
         ->references('id')

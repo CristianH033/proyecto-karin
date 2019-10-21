@@ -18,6 +18,7 @@ class CreateServiciosTable extends Migration
       $table->bigInteger('tipo_servicio_id')->unsigned();
       $table->string('nombre');
       $table->timestamps();
+      $table->softDeletes();
       // Llave foranea
       $table
         ->foreign('tipo_servicio_id')

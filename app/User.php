@@ -4,30 +4,38 @@ namespace App;
 
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Silber\Bouncer\Database\HasRolesAndAbilities;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-  use HasApiTokens, Notifiable, HasRolesAndAbilities;
+  use HasApiTokens, Notifiable, HasRolesAndAbilities, SoftDeletes;
 
   /**
-   * The attributes that are mass assignable.
+   * La tabla asociada al modelo.
+   *
+   * @var string
+   */
+  protected $table = 'users';
+
+  /**
+   * Atributos masivamente asignables.
    *
    * @var array
    */
   protected $fillable = ['name', 'email', 'password'];
 
   /**
-   * The attributes that should be hidden for arrays.
+   * Atributos que deben ser ocultos de los arrays.
    *
    * @var array
    */
   protected $hidden = ['password', 'remember_token'];
 
   /**
-   * The attributes that should be cast to native types.
+   * Atributos que deben ser casteados a tipos nativos.
    *
    * @var array
    */

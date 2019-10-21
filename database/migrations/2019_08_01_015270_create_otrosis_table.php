@@ -16,6 +16,7 @@ class CreateOtrosisTable extends Migration
     Schema::create('otrosis', function (Blueprint $table) {
       $table->bigIncrements('id');
       $table->timestamps();
+      $table->softDeletes();
     });
   }
 

@@ -28,6 +28,7 @@ class CreateTercerosTable extends Migration
         ->unsigned()
         ->nullable();
       $table->timestamps();
+      $table->softDeletes();
       $table
         ->foreign('tipo_tercero_id')
         ->references('id')

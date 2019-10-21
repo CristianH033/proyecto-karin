@@ -16,6 +16,7 @@ class CreateInicidenciasTable extends Migration
     Schema::create('inicidencias', function (Blueprint $table) {
       $table->bigIncrements('id');
       $table->timestamps();
+      $table->softDeletes();
     });
   }
 

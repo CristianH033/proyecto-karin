@@ -23,6 +23,7 @@ class CreateFuncionariosTable extends Migration
       $table->bigInteger('cargo_id')->unsigned();
       $table->bigInteger('estacion_trabajo_id')->unsigned();
       $table->timestamps();
+      $table->softDeletes();
       // Llaves foraneas
       $table
         ->foreign('persona_id')

@@ -18,6 +18,7 @@ class CreateEstadosTable extends Migration
       $table->bigInteger('pais_id')->unsigned();
       $table->string('nombre');
       $table->timestamps();
+      $table->softDeletes();
       // llave foranea
       $table
         ->foreign('pais_id')

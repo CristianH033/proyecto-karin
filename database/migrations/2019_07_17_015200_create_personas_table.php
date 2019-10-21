@@ -25,6 +25,7 @@ class CreatePersonasTable extends Migration
       $table->string('segundo_apellido')->nullable();
       $table->date('fecha_nacimiento')->nullable();
       $table->timestamps();
+      $table->softDeletes();
       // Llaves foraneas
       $table
         ->foreign('user_id')

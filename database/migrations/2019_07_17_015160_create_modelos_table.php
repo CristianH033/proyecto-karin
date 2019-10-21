@@ -17,6 +17,7 @@ class CreateModelosTable extends Migration
       $table->bigIncrements('id');
       $table->json('componentes')->nullable();
       $table->timestamps();
+      $table->softDeletes();
     });
   }
 

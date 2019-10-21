@@ -17,6 +17,7 @@ class CreateTipoDispositivosTable extends Migration
       $table->bigIncrements('id');
       $table->string('nombre');
       $table->timestamps();
+      $table->softDeletes();
     });
   }
 
