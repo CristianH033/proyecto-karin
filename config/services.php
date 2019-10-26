@@ -45,9 +45,14 @@ return [
 
   'oauth' => [
     'endpoint' => env('OAUTH_ENDPOINT'),
-    'client' => [
-      'id' => env('OAUTH_CLIENT_ID'),
-      'secret' => env('OAUTH_CLIENT_SECRET')
+    'expire' => [
+      'access_token' => env('OAUTH_ACCESS_TOKEN_EXPIRE_MINUTES', 1),
+      'refresh_token' => env('OAUTH_REFRESH_TOKEN_EXPIRE_MINUTES', 60)
+    ],
+    'clients' => [
+      'web' => [
+        'name' => env('OAUTH_WEB_CLIENT_NAME')
+      ]
     ]
   ]
 ];

@@ -80,6 +80,9 @@ class LoginController extends Controller
    */
   protected function sendLoginResponse(Request $request)
   {
+    // Limpiar contador de intentos de incio de sesión
+    $this->clearLoginAttempts($request);
+    // Hacer petición al proxy y devolver los tokens
     return $this->proxy("password", [
       'username' => $request->email,
       'password' => $request->password
