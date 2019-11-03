@@ -26,11 +26,17 @@ Route::name('api.')->group(function () {
    */
   Route::namespace('API\Auth')->group(function () {
     Route::post('login', 'LoginController@login')->name('login');
-    Route::post('refresh-token', 'LoginController@refreshAccessToken')->name('refresh.token');
+    Route::post('refresh-token', 'LoginController@refreshAccessToken')->name(
+      'refresh.token'
+    );
     Route::post('register', 'RegisterController@register')->name('register');
     Route::post('logout', 'LoginController@logout')->name('logout');
-    Route::get('current-user', 'LoggedUserController@getCurrentUser')->name('auth.user');
-    Route::get('auth-check', 'LoggedUserController@checkAuth')->name('auth.check');
+    Route::get('current-user', 'LoggedUserController@getCurrentUser')->name(
+      'auth.user'
+    );
+    Route::get('auth-check', 'LoggedUserController@checkAuth')->name(
+      'auth.check'
+    );
     Route::post(
       'password/email',
       'ForgotPasswordController@sendResetLinkEmail'
@@ -75,25 +81,25 @@ Route::name('api.')->group(function () {
 
 /* Inducir errores de cliente y servidor */
 Route::post('400', function () {
-  abort(404,"Error 400 a propósito");
+  abort(404, "Error 400 a propósito");
 });
 
 Route::post('401', function () {
-  abort(404,"Error 401 a propósito");
+  abort(404, "Error 401 a propósito");
 });
 
 Route::post('403', function () {
-  abort(404,"Error 403 a propósito");
+  abort(404, "Error 403 a propósito");
 });
 
 Route::post('404', function () {
-  abort(404,"Error 404 a propósito");
+  abort(404, "Error 404 a propósito");
 });
 
 Route::post('500', function () {
-  abort(500,"Error de servidor a próposito");
+  abort(500, "Error de servidor a próposito");
 });
 
 Route::post('500', function () {
-  abort(500,"Error de servidor a proposito");
+  abort(500, "Error de servidor a proposito");
 });

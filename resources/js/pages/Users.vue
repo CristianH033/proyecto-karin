@@ -53,12 +53,11 @@ export default {
     fetchUsers() {
       users.fetch().then(response => {
         console.log(response);
-        this.users =  response.data.data;
+        this.users = response.data.data;
       });
     }
   }
 };
 </script>
 
-<style>
-</style>
+<style></style>

@@ -8,9 +8,7 @@ const refresLogic = request =>
   auth.refreshToken().then(response => {
     let accessToken = response.data.access_token;
     store.commit(mutations.ACCESS_TOKEN, accessToken);
-    request.response.config.headers[
-      "Authorization"
-    ] = `Bearer ${accessToken}`;
+    request.response.config.headers["Authorization"] = `Bearer ${accessToken}`;
     return Promise.resolve();
   });
 

@@ -80,7 +80,7 @@ export default {
     });
   },
   [actions.CHECK_AUTH]({ commit }) {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       auth
         .checkAuth()
         .then(() => {
