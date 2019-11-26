@@ -9,8 +9,6 @@
   <meta name="user" content="{{ Auth::user() }}">
   <link rel="manifest" href="/mix-manifest.json">
   <title>{{ config('app.name', 'Laravel') }}</title>
-  <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-  {{-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"> --}}
 </head>
 
 <body>
@@ -18,9 +16,11 @@
   @yield('content')
 
   <!-- Styles -->
-  <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+  {{-- <link href="{{ mix('css/app.css') }}" rel="stylesheet"> --}}
 
   <!-- Scripts -->
+  <script src="{{ mix('js/manifest.js') }}" defer></script>
+  <script src="{{ mix('js/vendor.js') }}" defer></script>
   <script src="{{ mix('js/app.js') }}" defer></script>
 </body>
 

@@ -6,6 +6,9 @@
 
 require("./bootstrap");
 
+// Scss
+import "@sass/app.scss";
+// Vue
 import Vue from "vue";
 // Router
 import router from "@js/routes";
