@@ -25,6 +25,7 @@ mix.alias({
   "@services": "/resources/js/services",
   "@plugins": "/resources/js/plugins",
   "@layouts": "/resources/js/layouts",
+  "@mixins": "/resources/js/mixins",
   "@routes": "/resources/js/routes",
   "@store": "/resources/js/store",
   "@utils": "/resources/js/utils",
