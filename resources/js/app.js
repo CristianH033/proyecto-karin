@@ -13,8 +13,16 @@ import router from "@js/routes";
 import store from "@js/store";
 // Vuetify
 import vuetify from "@plugins/vuetify";
+// VuetifyToast
+import VuetifyToast from "vuetify-toast-snackbar";
 // Componente principal
 import App from "@js/App.vue";
+
+// Use VuetifyToast
+Vue.use(VuetifyToast, {
+  x: false,
+  timeout: 10000
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
