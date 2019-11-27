@@ -5,8 +5,8 @@ namespace App;
 use App\Pais;
 use App\Ciudad;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Estado extends Model
 {

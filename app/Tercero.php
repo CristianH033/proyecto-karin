@@ -3,8 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Tercero extends Model
 {
@@ -30,6 +30,8 @@ class Tercero extends Model
    * @var string
    */
   protected static $logAttributes = ['*'];
+
+  /** Query Scopes */
   public function scopePersonaJuridica($query)
   {
     return $query->where('tipo_tercero_id', '1');
@@ -38,5 +40,16 @@ class Tercero extends Model
   public function scopePersonaNatural($query)
   {
     return $query->where('tipo_tercero_id', '2');
+  }
+
+  /**
+   * @Author: Cristian David Home
+   * @Date: 2019-10-28 09:52:51
+   * @Desc:  Obtener el tercero asociado a la enditad
+   * @return Illuminate\Database\Eloquent\Model
+   */
+  public function tercereable()
+  {
+    return $this->morphTo();
   }
 }

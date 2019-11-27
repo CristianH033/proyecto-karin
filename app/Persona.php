@@ -3,8 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Persona extends Model
 {
@@ -30,4 +30,20 @@ class Persona extends Model
    * @var string
    */
   protected static $logAttributes = ['*'];
+
+  public function user()
+  {
+    return $this->hasOne(User::class, 'persona_id', 'id');
+  }
+
+  /**
+   * @Author: Cristian David Home
+   * @Date: 2019-10-28 09:52:51
+   * @Desc:  Obtener el tercero asociado a la enditad
+   * @return \App\Tercero
+   */
+  public function tercero()
+  {
+    return $this->morphOne(Tercero::class, 'tercereable');
+  }
 }
