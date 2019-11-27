@@ -157,5 +157,7 @@ return [
     |
     */
 
-  'attributes' => []
+  'attributes' => [
+    'OTP' => 'verification code'
+  ]
 ];

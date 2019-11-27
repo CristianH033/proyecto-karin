@@ -187,6 +187,7 @@ return [
     'date' => 'fecha',
     'time' => 'hora',
     'subject' => 'asunto',
-    'message' => 'mensaje'
+    'message' => 'mensaje',
+    'OTP' => 'código de verificación'
   ]
 ];
