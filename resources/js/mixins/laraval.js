@@ -10,6 +10,7 @@ const laraval = {
     laraRules: {},
     laraLoading: false,
     errorMessage: null,
+    toastMessage: null,
     statusText: null,
     successMessage: null
   }),
@@ -21,13 +22,13 @@ const laraval = {
     laraToast() {
       // Mostrar toast success
       if (this.successMessage) {
-        this.$toast.success(this.successMessage, {
+        this.$toast.success(this.toastMessage, {
           icon: "mdi-check-circle-outline"
         });
       }
       // Mostrar toast error
       if (this.errorMessage) {
-        this.$toast.error(this.errorMessage, {
+        this.$toast.error(this.toastMessage, {
           icon: "mdi-alert-circle-outline"
         });
       }
@@ -40,25 +41,33 @@ const laraval = {
      * @param Boolean showToast
      */
     laravalValidate: function(response, formRef, showToast = true) {
+      // Status text
+      this.statusText = response.statusText;
       // Success response
       if (response.status >= 200 && response.status < 300) {
         this.successMessage = response.data.message;
-      }
-      // Validation error response
-      if (response.status == 422 && response.data.errors) {
-        Object.entries(response.data.errors).forEach(([key, value]) => {
-          this.laraRules[key] = [() => value[0]];
-        });
+        this.toastMessage = response.data.message;
       }
       // All errors response
       if (response.status >= 400) {
         this.errorMessage = response.data.message;
-        this.statusText = response.statusText;
-        if (!this.errorMessage) {
-          this.$toast.error(this.statusText, {
-            icon: "mdi-alert-circle-outline"
-          });
+        switch (response.status) {
+          case 401:
+          case 403:
+          case 422:
+            this.toastMessage = response.data.message;
+            break;
+          default:
+            showToast = true;
+            this.toastMessage = `<b>Error ${response.status}:</b> <br/> ${response.statusText} - ${response.data.message}`;
+            break;
         }
+      }
+      // Validar errores y crear reglas segun errores
+      if (response.data.errors) {
+        Object.entries(response.data.errors).forEach(([key, value]) => {
+          this.laraRules[key] = [() => value[0]];
+        });
       }
       // Validate vuetify form
       if (formRef) {
@@ -77,6 +86,7 @@ const laraval = {
       this.successMessage = null;
       this.errorMessage = null;
       this.statusText = null;
+      this.toastMessage = null;
       if (formRef) {
         this.$refs[formRef].validate();
       }
