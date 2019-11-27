@@ -15,6 +15,7 @@ class CreateInventariosTable extends Migration
   {
     Schema::create('inventarios', function (Blueprint $table) {
       $table->bigIncrements('id');
+      $table->string('serial', 256)->unique();
       $table->timestamps();
       $table->softDeletes();
     });

@@ -19,7 +19,6 @@ class CreateFuncionariosTable extends Migration
         ->bigInteger('persona_id')
         ->unsigned()
         ->unique();
-      $table->bigInteger('tercero_id')->unsigned();
       $table->bigInteger('cargo_id')->unsigned();
       $table->bigInteger('estacion_trabajo_id')->unsigned();
       $table->timestamps();
@@ -29,11 +28,6 @@ class CreateFuncionariosTable extends Migration
         ->foreign('persona_id')
         ->references('id')
         ->on('personas')
-        ->onDelete('cascade');
-      $table
-        ->foreign('tercero_id')
-        ->references('id')
-        ->on('terceros')
         ->onDelete('cascade');
       $table
         ->foreign('cargo_id')

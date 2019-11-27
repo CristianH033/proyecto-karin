@@ -17,6 +17,7 @@ class CreateProductosTable extends Migration
       $table->bigIncrements('id');
       $table->bigInteger('tipo_producto_id')->unsigned();
       $table->string('nombre');
+      $table->string('descripcion')->nullable();
       $table->timestamps();
       $table->softDeletes();
       // Llave foranea

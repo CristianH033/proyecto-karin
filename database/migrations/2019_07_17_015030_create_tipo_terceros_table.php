@@ -15,7 +15,7 @@ class CreateTipoTercerosTable extends Migration
   {
     Schema::create('tipo_terceros', function (Blueprint $table) {
       $table->bigIncrements('id');
-      $table->string('nombre');
+      $table->string('tipo');
       $table->timestamps();
       $table->softDeletes();
     });

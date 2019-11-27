@@ -15,8 +15,18 @@ class CreateOperadoresTable extends Migration
   {
     Schema::create('operadores', function (Blueprint $table) {
       $table->bigIncrements('id');
+      $table
+        ->bigInteger('persona_id')
+        ->unsigned()
+        ->unique();
       $table->timestamps();
       $table->softDeletes();
+      // Llaves foraneas
+      $table
+        ->foreign('persona_id')
+        ->references('id')
+        ->on('personas')
+        ->onDelete('cascade');
     });
   }
 

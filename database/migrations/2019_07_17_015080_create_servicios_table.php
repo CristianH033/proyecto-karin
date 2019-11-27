@@ -17,6 +17,7 @@ class CreateServiciosTable extends Migration
       $table->bigIncrements('id');
       $table->bigInteger('tipo_servicio_id')->unsigned();
       $table->string('nombre');
+      $table->string('descripcion')->nullable();
       $table->timestamps();
       $table->softDeletes();
       // Llave foranea
