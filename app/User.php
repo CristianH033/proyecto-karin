@@ -4,13 +4,15 @@ namespace App;
 
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Notifications\VerifyEmailNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Notifications\ResetPasswordNotification;
 use Silber\Bouncer\Database\HasRolesAndAbilities;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\Activitylog\Traits\LogsActivity;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
   use HasApiTokens, Notifiable, HasRolesAndAbilities, SoftDeletes, LogsActivity;
 
@@ -26,7 +28,7 @@ class User extends Authenticatable
    *
    * @var array
    */
-  protected $fillable = ['name', 'email', 'password'];
+  protected $fillable = ['email', 'password'];
 
   /**
    * Atributos que deben ser ocultos de los arrays.
@@ -50,4 +52,25 @@ class User extends Authenticatable
    * @var string
    */
   protected static $logAttributes = ['*'];
+
+  /**
+   * Send the email verification notification.
+   *
+   * @return void
+   */
+  public function sendEmailVerificationNotification()
+  {
+    $this->notify(new VerifyEmailNotification());
+  }
+
+  /**
+   * Send the password reset notification.
+   *
+   * @param  string  $token
+   * @return void
+   */
+  public function sendPasswordResetNotification($token)
+  {
+    $this->notify(new ResetPasswordNotification($token));
+  }
 }
