@@ -46,4 +46,23 @@ class Persona extends Model
   {
     return $this->morphOne(Tercero::class, 'tercereable');
   }
+
+  /**
+   * @Author: Cristian David Home
+   * @Date: 2019-11-27 08:42:39
+   * @Desc: Obtener nombre completo de la persona
+   * @return Strinng
+   */
+  public function fullName()
+  {
+    return implode(
+      " ",
+      array_filter([
+        $this->primer_nombre,
+        $this->segundo_nombre,
+        $this->primer_apellido,
+        $this->segundo_apellido
+      ])
+    );
+  }
 }

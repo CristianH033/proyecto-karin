@@ -3,11 +3,13 @@
     <v-list-item>
       <v-list-item-avatar>
         <v-avatar color="red">
-          <span class="white--text headline">{{ name[0] }}</span>
+          <span class="white--text headline">{{ nombre[0] }}</span>
         </v-avatar>
       </v-list-item-avatar>
       <v-list-item-content>
-        <v-list-item-title>{{ name }}</v-list-item-title>
+        <v-list-item-title class="text-capitalize">
+          {{ nombre }}
+        </v-list-item-title>
         <v-list-item-subtitle>{{ email }}</v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
@@ -53,7 +55,7 @@ import { EventBus } from "@services/event-bus";
 export default {
   name: "SidebarUserMenu",
   props: {
-    name: {
+    nombre: {
       type: String,
       default: "Cargando..."
     },

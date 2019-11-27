@@ -32,14 +32,14 @@ class User extends Authenticatable implements MustVerifyEmail
    *
    * @var array
    */
-  protected $fillable = ['persona_id','email', 'password'];
+  protected $fillable = ['persona_id', 'email', 'password'];
 
   /**
    * Atributos que deben ser ocultos de los arrays.
    *
    * @var array
    */
-  protected $hidden = ['password', 'remember_token'];
+  protected $hidden = ['persona_id', 'password', 'remember_token'];
 
   /**
    * Atributos que deben ser casteados a tipos nativos.
@@ -58,12 +58,31 @@ class User extends Authenticatable implements MustVerifyEmail
   protected static $logAttributes = ['*'];
 
   /**
+   * The accessors to append to the model's array form.
+   *
+   * @var array
+   */
+  protected $appends = ['nombre'];
+
+  /**
+   * Obtener nombre de persona.
+   *
+   * @return string
+   */
+  public function getNombreAttribute()
+  {
+    return $this->persona()
+      ->getResults()
+      ->fullName();
+  }
+
+  /**
    * Persona relacionada al usuario
    * @return \App\Persona
    */
   public function persona()
   {
-    return $this->belongsTo(Persona::class, 'id_persona', 'id');
+    return $this->belongsTo(Persona::class, 'persona_id', 'id');
   }
 
   /**
