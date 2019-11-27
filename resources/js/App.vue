@@ -6,14 +6,12 @@
 
 <script>
 import { mapGetters } from "vuex";
-import * as actions from "@js/store/action-types";
+import { LOGOUT, CHECK_AUTH } from "@js/store/action-types";
 import { EventBus } from "@services/event-bus";
 export default {
   name: "App",
   components: {},
-  data: function() {
-    return {};
-  },
+  data: () => ({}),
   computed: {
     ...mapGetters({
       darkTheme: "getDarkTheme"
@@ -22,11 +20,20 @@ export default {
   created() {
     // Establecer tema oscuro según store
     this.$vuetify.theme.dark = this.darkTheme;
+    // Cambiar color de fondo del documento segun tema
+    document.documentElement.style.setProperty(
+      "--kimblee-body-bg",
+      this.darkTheme ? "black" : "white"
+    );
     // Vigilar valos tema oscuro en store
     this.$store.watch(
       (state, getters) => getters.getDarkTheme,
       val => {
         this.$vuetify.theme.dark = val;
+        document.documentElement.style.setProperty(
+          "--kimblee-body-bg",
+          val ? "black" : "white"
+        );
       }
     );
   },
@@ -42,10 +49,15 @@ export default {
     });
     // Evento global (logout)
     EventBus.$on("logged-out", () => {
-      this.$store.dispatch(actions.LOGOUT).then(() => {
+      this.$store.dispatch(LOGOUT).then(() => {
         this.$router.push({ name: "login" });
       });
     });
+    // Check Auth
+    this.$store
+      .dispatch(CHECK_AUTH)
+      .then(() => {})
+      .catch(() => {});
   },
   beforeDestroy() {
     EventBus.$off("logged-in");
