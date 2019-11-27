@@ -17,7 +17,7 @@ trait SendsPasswordResetEmails
    * @param  string  $response
    * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
    */
-  protected function sendResetLinkResponse($response)
+  protected function sendResetLinkResponse(Request $request, $response)
   {
     if (request()->wantsJson()) {
       return response()->json(
@@ -40,12 +40,7 @@ trait SendsPasswordResetEmails
   protected function sendResetLinkFailedResponse(Request $request, $response)
   {
     if ($request->wantsJson()) {
-      return response()->json(
-        [
-          'message' => trans($response)
-        ],
-        404
-      );
+      return response()->json(['message' => trans($response)], 404);
       //return trans($response);
     }
     return back()->withErrors(['email' => trans($response)]);

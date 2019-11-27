@@ -2,8 +2,9 @@
 
 namespace App\Traits\Auth;
 
-use Illuminate\Foundation\Auth\AuthenticatesUsers as OriginalAuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers as OriginalAuthenticatesUsers;
 
 trait AuthenticatesUsers
 {
@@ -23,6 +24,20 @@ trait AuthenticatesUsers
       $this->username() => 'required|string',
       'password' => 'required|string'
     ]);
+  }
+
+  /**
+   * Attempt to log the user into the application.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @return bool
+   */
+  protected function attemptLogin(Request $request)
+  {
+    return Auth::guard('web')->attempt(
+      $this->credentials($request),
+      $request->filled('remember')
+    );
   }
 
   /**
