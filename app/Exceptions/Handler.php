@@ -4,7 +4,11 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Routing\Exceptions\InvalidSignatureException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Support\Facades\Lang;
 
 class Handler extends ExceptionHandler
 {
@@ -44,7 +48,21 @@ class Handler extends ExceptionHandler
    */
   public function render($request, Exception $exception)
   {
+    if ($exception instanceof InvalidSignatureException) {
+      $exception = new HttpException(
+        403,
+        __($exception->getMessage()),
+        $exception
+      );
+    }
     return parent::render($request, $exception);
+  }
+
+  protected function unauthenticated(
+    $request,
+    AuthenticationException $exception
+  ) {
+    return response()->json(['message' => Lang::get('Unauthenticated.')], 401);
   }
 
   protected function invalidJson($request, ValidationException $exception)
