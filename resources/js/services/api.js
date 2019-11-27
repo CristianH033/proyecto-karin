@@ -5,7 +5,7 @@
  * @Desc: Coleccion de endpoints API del aplicativo.
  */
 
-const baseDomain = `http://${process.env.MIX_APP_URL}`;
+const baseDomain = `${process.env.MIX_APP_URL}`;
 
 const apiVersion = "api";
 
@@ -14,12 +14,17 @@ const baseUrl = `${baseDomain}/${apiVersion}`;
 const endpoints = {
   // Auth
   login: `${baseUrl}/login`,
+  otpVerify: `${baseUrl}/otp/verify`,
+  otpResend: `${baseUrl}/otp/sendotp`,
   logout: `${baseUrl}/logout`,
   register: `${baseUrl}/register`,
   refreshToken: `${baseUrl}/refresh-token`,
-  passwordReset: `${baseUrl}/reset`,
+  requestPasswordReset: `${baseUrl}/password/email`,
+  passwordReset: `${baseUrl}/password/reset`,
   loggedUser: `${baseUrl}/current-user`,
   checkAuth: `${baseUrl}/auth-check`,
+  verifyEmail: `${baseDomain}/email/verify`,
+  resendEmail: `${baseUrl}/verification/resend`,
   // App
   users: `${baseUrl}/users`,
   cargos: `${baseUrl}/cargos`,
@@ -46,10 +51,14 @@ const endpoints = {
 
 // Auth
 export const login = endpoints.login;
+export const otpVerify = endpoints.otpVerify;
+export const otpResend = endpoints.otpResend;
 export const logout = endpoints.logout;
 export const register = endpoints.register;
 export const refreshToken = endpoints.refreshToken;
+export const requestPasswordReset = endpoints.requestPasswordReset;
 export const passwordReset = endpoints.passwordReset;
+export const resendEmail = endpoints.resendEmail;
 export const loggedUser = endpoints.loggedUser;
 export const checkAuth = endpoints.checkAuth;
 // APP
