@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\TipoProducto;
 use Illuminate\Http\Request;
-use App\Http\Resources\TipoProductoCollection;
 use App\Http\Resources\TipoProductoResource;
+use App\Http\Resources\TipoProductoCollection;
 
 class TipoProductoController extends Controller
 {
@@ -16,7 +16,9 @@ class TipoProductoController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

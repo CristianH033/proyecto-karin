@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Pais;
 use Illuminate\Http\Request;
-use App\Http\Resources\PaisCollection;
 use App\Http\Resources\PaisResource;
+use App\Http\Resources\PaisCollection;
 
 class PaisController extends Controller
 {
@@ -17,6 +17,8 @@ class PaisController extends Controller
   public function __construct()
   {
     $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

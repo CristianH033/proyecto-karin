@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Producto;
 use Illuminate\Http\Request;
-use App\Http\Resources\ProductoCollection;
 use App\Http\Resources\ProductoResource;
+use App\Http\Resources\ProductoCollection;
 
 class ProductoController extends Controller
 {
@@ -16,7 +16,9 @@ class ProductoController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

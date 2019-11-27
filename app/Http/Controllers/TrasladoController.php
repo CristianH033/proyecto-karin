@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Traslado;
 use Illuminate\Http\Request;
-use App\Http\Resources\TrasladoCollection;
 use App\Http\Resources\TrasladoResource;
+use App\Http\Resources\TrasladoCollection;
 
 class TrasladoController extends Controller
 {
@@ -16,7 +16,9 @@ class TrasladoController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

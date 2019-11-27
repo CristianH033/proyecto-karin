@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Tercero;
 use Illuminate\Http\Request;
-use App\Http\Resources\TerceroCollection;
 use App\Http\Resources\TerceroResource;
+use App\Http\Resources\TerceroCollection;
 
 class TerceroController extends Controller
 {
@@ -16,7 +16,9 @@ class TerceroController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

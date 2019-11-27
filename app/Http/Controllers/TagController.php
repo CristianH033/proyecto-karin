@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Tag;
 use Illuminate\Http\Request;
-use App\Http\Resources\TagCollection;
 use App\Http\Resources\TagResource;
+use App\Http\Resources\TagCollection;
 
 class TagController extends Controller
 {
@@ -16,7 +16,9 @@ class TagController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Operador;
 use Illuminate\Http\Request;
-use App\Http\Resources\OperadorCollection;
 use App\Http\Resources\OperadorResource;
+use App\Http\Resources\OperadorCollection;
 
 class OperadorController extends Controller
 {
@@ -16,7 +16,9 @@ class OperadorController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

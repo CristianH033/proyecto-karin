@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Fabricante;
 use Illuminate\Http\Request;
-use App\Http\Resources\FabricanteCollection;
 use App\Http\Resources\FabricanteResource;
+use App\Http\Resources\FabricanteCollection;
 
 class FabricanteController extends Controller
 {
@@ -16,7 +16,9 @@ class FabricanteController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

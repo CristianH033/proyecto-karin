@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Servicio;
 use Illuminate\Http\Request;
-use App\Http\Resources\ServicioCollection;
 use App\Http\Resources\ServicioResource;
+use App\Http\Resources\ServicioCollection;
 
 class ServicioController extends Controller
 {
@@ -16,7 +16,9 @@ class ServicioController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

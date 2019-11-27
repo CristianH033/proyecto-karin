@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\TipoContrato;
 use Illuminate\Http\Request;
-use App\Http\Resources\TipoContratoCollection;
 use App\Http\Resources\TipoContratoResource;
+use App\Http\Resources\TipoContratoCollection;
 
 class TipoContratoController extends Controller
 {
@@ -16,7 +16,9 @@ class TipoContratoController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

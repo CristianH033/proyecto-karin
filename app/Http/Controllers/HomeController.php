@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Resources\HomeCollection;
 use App\Http\Resources\HomeResource;
+use App\Http\Resources\HomeCollection;
 
 class HomeController extends Controller
 {
@@ -15,7 +15,9 @@ class HomeController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**

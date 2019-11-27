@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Garantia;
 use Illuminate\Http\Request;
-use App\Http\Resources\GarantiaCollection;
 use App\Http\Resources\GarantiaResource;
+use App\Http\Resources\GarantiaCollection;
 
 class GarantiaController extends Controller
 {
@@ -16,7 +16,9 @@ class GarantiaController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

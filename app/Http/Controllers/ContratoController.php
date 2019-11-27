@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Contrato;
 use Illuminate\Http\Request;
-use App\Http\Resources\ContratoCollection;
 use App\Http\Resources\ContratoResource;
+use App\Http\Resources\ContratoCollection;
 
 class ContratoController extends Controller
 {
@@ -16,7 +16,9 @@ class ContratoController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

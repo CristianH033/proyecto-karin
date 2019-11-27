@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Funcionario;
 use Illuminate\Http\Request;
-use App\Http\Resources\FuncionarioCollection;
 use App\Http\Resources\FuncionarioResource;
+use App\Http\Resources\FuncionarioCollection;
 
 class FuncionarioController extends Controller
 {
@@ -16,7 +16,9 @@ class FuncionarioController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

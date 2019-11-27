@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Otrosi;
 use Illuminate\Http\Request;
-use App\Http\Resources\OtrosiCollection;
 use App\Http\Resources\OtrosiResource;
+use App\Http\Resources\OtrosiCollection;
 
 class OtrosiController extends Controller
 {
@@ -16,7 +16,9 @@ class OtrosiController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

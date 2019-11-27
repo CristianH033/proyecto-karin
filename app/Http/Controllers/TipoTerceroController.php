@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\TipoTercero;
 use Illuminate\Http\Request;
-use App\Http\Resources\TipoTerceroCollection;
 use App\Http\Resources\TipoTerceroResource;
+use App\Http\Resources\TipoTerceroCollection;
 
 class TipoTerceroController extends Controller
 {
@@ -16,7 +16,9 @@ class TipoTerceroController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

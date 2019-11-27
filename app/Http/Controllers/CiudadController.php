@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Ciudad;
 use Illuminate\Http\Request;
-use App\Http\Resources\CiudadCollection;
 use App\Http\Resources\CiudadResource;
+use App\Http\Resources\CiudadCollection;
 
 class CiudadController extends Controller
 {
@@ -17,6 +17,8 @@ class CiudadController extends Controller
   public function __construct()
   {
     $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

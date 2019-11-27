@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Estado;
 use Illuminate\Http\Request;
-use App\Http\Resources\EstadoCollection;
 use App\Http\Resources\EstadoResource;
+use App\Http\Resources\EstadoCollection;
 
 class EstadoController extends Controller
 {
@@ -17,6 +17,8 @@ class EstadoController extends Controller
   public function __construct()
   {
     $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

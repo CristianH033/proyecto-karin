@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Modelo;
 use Illuminate\Http\Request;
-use App\Http\Resources\ModeloCollection;
 use App\Http\Resources\ModeloResource;
+use App\Http\Resources\ModeloCollection;
 
 class ModeloController extends Controller
 {
@@ -16,7 +16,9 @@ class ModeloController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Sede;
 use Illuminate\Http\Request;
-use App\Http\Resources\SedeCollection;
 use App\Http\Resources\SedeResource;
+use App\Http\Resources\SedeCollection;
 
 class SedeController extends Controller
 {
@@ -16,7 +16,9 @@ class SedeController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

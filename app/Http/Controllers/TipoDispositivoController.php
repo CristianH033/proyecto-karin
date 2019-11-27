@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\TipoDispositivo;
 use Illuminate\Http\Request;
-use App\Http\Resources\TipoDispositivoCollection;
 use App\Http\Resources\TipoDispositivoResource;
+use App\Http\Resources\TipoDispositivoCollection;
 
 class TipoDispositivoController extends Controller
 {
@@ -16,7 +16,9 @@ class TipoDispositivoController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

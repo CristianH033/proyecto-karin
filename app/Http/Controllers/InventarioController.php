@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Inventario;
 use Illuminate\Http\Request;
-use App\Http\Resources\InventarioCollection;
 use App\Http\Resources\InventarioResource;
+use App\Http\Resources\InventarioCollection;
 
 class InventarioController extends Controller
 {
@@ -16,7 +16,9 @@ class InventarioController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

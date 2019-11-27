@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\EstacionTrabajo;
 use Illuminate\Http\Request;
-use App\Http\Resources\EstacionTrabajoCollection;
 use App\Http\Resources\EstacionTrabajoResource;
+use App\Http\Resources\EstacionTrabajoCollection;
 
 class EstacionTrabajoController extends Controller
 {
@@ -16,7 +16,9 @@ class EstacionTrabajoController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

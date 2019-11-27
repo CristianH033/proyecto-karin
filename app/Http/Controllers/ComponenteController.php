@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Componente;
 use Illuminate\Http\Request;
-use App\Http\Resources\ComponenteCollection;
 use App\Http\Resources\ComponenteResource;
+use App\Http\Resources\ComponenteCollection;
 
 class ComponenteController extends Controller
 {
@@ -16,7 +16,9 @@ class ComponenteController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

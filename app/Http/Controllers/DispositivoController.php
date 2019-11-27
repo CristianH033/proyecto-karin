@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Dispositivo;
 use Illuminate\Http\Request;
-use App\Http\Resources\DispositivoCollection;
 use App\Http\Resources\DispositivoResource;
+use App\Http\Resources\DispositivoCollection;
 
 class DispositivoController extends Controller
 {
@@ -16,7 +16,9 @@ class DispositivoController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

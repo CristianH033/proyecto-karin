@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Cargo;
 use Illuminate\Http\Request;
-use App\Http\Resources\CargoCollection;
 use App\Http\Resources\CargoResource;
+use App\Http\Resources\CargoCollection;
 
 class CargoController extends Controller
 {
@@ -16,7 +16,9 @@ class CargoController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**

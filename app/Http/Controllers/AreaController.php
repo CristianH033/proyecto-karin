@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Area;
 use Illuminate\Http\Request;
-use App\Http\Resources\AreaCollection;
 use App\Http\Resources\AreaResource;
+use App\Http\Resources\AreaCollection;
 
 class AreaController extends Controller
 {
@@ -16,7 +16,9 @@ class AreaController extends Controller
    */
   public function __construct()
   {
-    // $this->middleware('auth');
+    $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**
