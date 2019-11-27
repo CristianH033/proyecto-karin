@@ -1,44 +1,80 @@
 import axios from "axios";
 import {
-  login,
-  logout,
-  register,
-  refreshToken,
-  passwordReset,
-  loggedUser,
-  checkAuth
+  login as loginAPI,
+  otpVerify as otpVerifyAPI,
+  otpResend as otpResendAPI,
+  logout as logoutAPI,
+  register as registerAPI,
+  refreshToken as refreshTokenAPI,
+  passwordReset as passwordResetAPI,
+  requestPasswordReset as requestPasswordResetAPI,
+  resendEmail as resendEmailAPI,
+  loggedUser as loggedUserAPI,
+  checkAuth as checkAuthAPI
 } from "@services/api.js";
 
-export default {
-  login(credentials) {
-    return axios.post(login, credentials);
+const auth = {
+  login: credentials => {
+    return axios.post(loginAPI, credentials);
   },
-  logout() {
-    return axios.post(logout);
-  },
-  register(user) {
-    return axios.post(register, {
-      name: user.name,
-      email: user.email,
-      password: user.password,
-      password_confirmation: user.password_confirmation
+  otpVerify: otp => {
+    return axios.post(otpVerifyAPI, {
+      OTP: otp
     });
   },
-  refreshToken() {
-    return axios.post(refreshToken);
+  otpResend: () => {
+    return axios.post(otpResendAPI);
   },
-  reset(user) {
-    return axios.post(passwordReset, {
+  logout: () => {
+    return axios.post(logoutAPI);
+  },
+  register: user => {
+    return axios.post(registerAPI, user);
+  },
+  refreshToken: () => {
+    return axios.post(refreshTokenAPI);
+  },
+  requestPwdReset: email => {
+    return axios.post(requestPasswordResetAPI, {
+      email: email
+    });
+  },
+  reset: user => {
+    return axios.post(passwordResetAPI, {
       email: user.email,
       password: user.password,
       password_confirmation: user.password_confirmation,
       token: user.token
     });
   },
-  currentUser() {
-    return axios.get(loggedUser);
+  verify: signedURL => {
+    return axios.get(signedURL);
   },
-  checkAuth() {
-    return axios.get(checkAuth);
+  resendEmail: email => {
+    return axios.post(resendEmailAPI, {
+      email: email
+    });
+  },
+  currentUser: () => {
+    return axios.get(loggedUserAPI);
+  },
+  checkAuth: () => {
+    console.log(checkAuthAPI);
+    return axios.get(checkAuthAPI);
   }
 };
+
+export const login = auth.login;
+export const otpVerify = auth.otpVerify;
+export const otpResend = auth.otpResend;
+export const logout = auth.logout;
+export const register = auth.register;
+export const refreshToken = auth.refreshToken;
+export const requestPwdReset = auth.requestPwdReset;
+export const reset = auth.reset;
+export const verify = auth.verify;
+export const resendEmail = auth.resendEmail;
+export const currentUser = auth.currentUser;
+export const checkAuth = auth.checkAuth;
+
+export default auth;
