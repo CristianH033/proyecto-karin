@@ -24,6 +24,10 @@ import App from "@js/App.vue";
 // Use VuetifyToast
 Vue.use(VuetifyToast, {
   x: false,
+  dismissable: true,
+  showClose: true,
+  closeIcon: 'mdi-close',
+  multiLine: true,
   timeout: 10000
 });
 
