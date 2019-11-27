@@ -1,5 +1,10 @@
 <template>
-  <div>Cargando...</div>
+  <v-card>
+    <v-card-text>
+      Cargando...
+      <v-progress-linear indeterminate />
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>

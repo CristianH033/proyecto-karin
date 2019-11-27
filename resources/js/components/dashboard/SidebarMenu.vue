@@ -85,11 +85,9 @@
 import { EventBus } from "../../services/event-bus";
 export default {
   name: "SidebarMenu",
-  data: function() {
-    return {
-      drawer: null
-    };
-  },
+  data: () => ({
+    drawer: null
+  }),
   mounted() {
     EventBus.$on("togleSidebarMenu", () => (this.drawer = !this.drawer));
   }

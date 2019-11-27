@@ -41,11 +41,9 @@
 import users from "@api/users";
 export default {
   name: "Users",
-  data: function() {
-    return {
-      users: []
-    };
-  },
+  data: () => ({
+    users: []
+  }),
   mounted() {
     this.fetchUsers();
   },

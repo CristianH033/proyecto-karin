@@ -1,14 +1,14 @@
 <template>
-  <login-form />
+  <login-window />
 </template>
 
 <script>
 import LoadingComponent from "@js/components/LoadingComponent.vue";
 import ErrorComponent from "@js/components/ErrorComponent.vue";
 
-const LoginForm = () => ({
+const LoginWindow = () => ({
   component: import(
-    /* webpackChunkName: "js/components/auth/LoginForm" */ "@js/components/auth/LoginForm.vue"
+    /* webpackChunkName: "js/components/auth/LoginWindow" */ "@js/components/auth/LoginWindow.vue"
   ),
   loading: LoadingComponent,
   error: ErrorComponent,
@@ -16,12 +16,8 @@ const LoginForm = () => ({
 });
 
 export default {
-  components: {
-    LoginForm
-  },
-  data() {
-    return {};
-  },
+  components: { LoginWindow },
+  data: () => ({}),
   mounted() {},
   methods: {}
 };

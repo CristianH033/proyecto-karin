@@ -22,9 +22,7 @@ import { mapGetters } from "vuex";
 export default {
   name: "Dashboard",
   components: { SidebarMenu, SidebarUserMenu, AppBar },
-  data: function() {
-    return {};
-  },
+  data: () => ({}),
   computed: {
     ...mapGetters({
       user: "user"

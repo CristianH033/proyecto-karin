@@ -8,7 +8,7 @@ import ErrorComponent from "@components/ErrorComponent.vue";
 
 const RecoveryPasswordForm = () => ({
   component: import(
-    /* webpackChunkName: "js/components/auth/RecoveryPwd" */ "@components/auth/RecoveryPwdForm.vue"
+    /* webpackChunkName: "js/components/auth/RecoveryPwdForm" */ "@components/auth/RecoveryPwdForm.vue"
   ),
   loading: LoadingComponent,
   error: ErrorComponent,
@@ -19,9 +19,7 @@ export default {
   components: {
     RecoveryPasswordForm
   },
-  data() {
-    return {};
-  },
+  data: () => ({}),
   mounted() {},
   methods: {}
 };

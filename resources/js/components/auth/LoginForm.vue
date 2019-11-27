@@ -1,87 +1,114 @@
 <template>
-  <v-card class="elevation-12">
-    <v-form v-model="valid" :novalidate="false" @submit.prevent="login">
-      <v-toolbar color="primary" dark flat>
-        <v-toolbar-title>Iniciar sesión</v-toolbar-title>
-        <v-spacer />
-        <v-tooltip bottom>
-          <template v-slot:activator="{ on }">
-            <v-btn icon large v-on="on">
-              <v-icon>mdi-paw</v-icon>
-            </v-btn>
-          </template>
-          <span>Source</span>
-        </v-tooltip>
-      </v-toolbar>
-      <v-card-text>
+  <v-window-item :value="value">
+    <v-card-text>
+      <v-form
+        id="loginForm"
+        ref="loginForm"
+        v-model="valid"
+        @submit.prevent="login"
+      >
         <v-text-field
-          v-model="email"
-          :disabled="loading"
+          v-model="credentials.email"
+          :disabled="laraLoading"
           label="Usuario"
-          name="login"
-          prepend-icon="mdi-account"
+          name="email"
+          prepend-icon="mdi-account-circle"
           type="email"
-          :rules="['Required']"
-          autofocus
+          :rules="laraRules.email"
           required
+          autofocus
         />
-        <v-text-field
-          id="password"
-          v-model="password"
-          :disabled="loading"
+        <password-input
+          v-model="credentials.password"
+          :disabled="laraLoading"
           label="Contraseña"
           name="password"
           prepend-icon="mdi-lock"
           type="password"
+          :rules="laraRules.password"
           required
         />
-      </v-card-text>
-      <v-card-actions>
-        <v-btn text :to="{ name: 'register' }" color="primary">
-          Registrarse
-        </v-btn>
-        <v-spacer />
-        <v-btn type="submit" color="primary" :loading="loading">
-          Iniciar sesión
-        </v-btn>
-      </v-card-actions>
-    </v-form>
-  </v-card>
+        <v-row>
+          <v-spacer />
+          <v-btn
+            text
+            :to="{ name: 'request-password-reset' }"
+            color="primary"
+            small
+            :disabled="laraLoading"
+          >
+            Olvido su contraseña?
+          </v-btn>
+        </v-row>
+      </v-form>
+    </v-card-text>
+    <v-card-actions>
+      <v-btn
+        text
+        :to="{ name: 'register' }"
+        color="primary"
+        :disabled="laraLoading"
+      >
+        Registrarse
+      </v-btn>
+      <v-spacer />
+      <v-btn
+        type="submit"
+        color="primary"
+        form="loginForm"
+        :loading="laraLoading"
+      >
+        Iniciar sesión
+      </v-btn>
+    </v-card-actions>
+  </v-window-item>
 </template>
 
 <script>
-import * as actions from "@js/store/action-types";
+import { LOGIN } from "@js/store/action-types";
+import laraval from "@mixins/laraval";
+import PasswordInput from "@components/inputs/PasswordInput";
 export default {
-  props: {},
-  data() {
-    return {
-      errors: [],
-      email: null,
-      password: null,
-      valid: false,
-      loading: false
-    };
+  components: {
+    PasswordInput
   },
-  mounted() {},
+  mixins: [laraval],
+  props: {
+    value: {
+      type: Number,
+      default: null
+    },
+    step: {
+      type: Number,
+      default: null
+    }
+  },
+  data: () => ({
+    credentials: {
+      email: null,
+      password: null
+    },
+    valid: false
+  }),
+  computed: {},
+  watch: {
+    step: function() {
+      this.checkStep();
+    }
+  },
+  mounted() {
+    this.checkStep();
+  },
   methods: {
+    checkStep() {
+      if (this.step == this.value) {
+        this.$emit("change-title", "Iniciar sesión");
+      }
+    },
     login() {
-      let credentials = {
-        email: this.email,
-        password: this.password
-      };
-      this.loading = true;
-      this.$store
-        .dispatch(actions.LOGIN, credentials)
-        .then(response => {
-          console.log(response);
-        })
-        .catch(e => {
-          console.log(e);
-          console.log(e.response);
-        })
-        .finally(() => {
-          this.loading = false;
-        });
+      this.laravalResquest(LOGIN, this.credentials, "loginForm", false)
+        .then(() => {})
+        .catch(() => {});
     }
   }
 };

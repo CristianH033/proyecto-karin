@@ -62,11 +62,9 @@ export default {
       default: "Cargando..."
     }
   },
-  data: function() {
-    return {
-      drawer: null
-    };
-  },
+  data: () => ({
+    drawer: null
+  }),
   computed: {
     darkTheme: {
       get() {

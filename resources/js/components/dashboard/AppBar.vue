@@ -37,9 +37,7 @@
 import { EventBus } from "@services/event-bus";
 export default {
   name: "AppBar",
-  data: function() {
-    return {};
-  },
+  data: () => ({}),
   methods: {
     togleSidebarMenu() {
       EventBus.$emit("togleSidebarMenu");

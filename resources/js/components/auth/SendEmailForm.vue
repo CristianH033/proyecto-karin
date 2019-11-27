@@ -1,8 +1,13 @@
 <template>
   <v-card class="elevation-12">
-    <v-form ref="recoveryForm" v-model="valid" @submit.prevent="enviar">
+    <v-form
+      ref="verifyForm"
+      v-model="valid"
+      autocomplete="off"
+      @submit.prevent="sendEmail"
+    >
       <v-toolbar color="primary" dark flat>
-        <v-toolbar-title>Recuperar contraseña</v-toolbar-title>
+        <v-toolbar-title>Enviar correo de verificación</v-toolbar-title>
         <v-spacer />
         <v-tooltip bottom>
           <template v-slot:activator="{ on }">
@@ -17,7 +22,7 @@
         <v-text-field
           v-model="email"
           :disabled="laraLoading"
-          label="Correo electrónico"
+          label="Correo"
           name="email"
           prepend-icon="mdi-email-outline"
           type="email"
@@ -33,7 +38,7 @@
           color="primary"
           :disabled="laraLoading"
         >
-          Iniciar sesión
+          Iniciar Sesión
         </v-btn>
         <v-spacer />
         <v-btn type="submit" color="primary" :loading="laraLoading">
@@ -45,7 +50,7 @@
 </template>
 
 <script>
-import { REQUEST_PWD_RESET } from "@store/action-types";
+import { RESEND_EMAIL } from "@store/action-types";
 import laraval from "@mixins/laraval";
 export default {
   mixins: [laraval],
@@ -53,10 +58,15 @@ export default {
     email: null,
     valid: false
   }),
+  computed: {
+    snackbar() {
+      return this.errorMessage || this.successMessage;
+    }
+  },
   mounted() {},
   methods: {
-    enviar() {
-      this.laravalResquest(REQUEST_PWD_RESET, this.email, "recoveryForm")
+    sendEmail() {
+      this.laravalResquest(RESEND_EMAIL, this.email, "verifyForm")
         .then(() => {})
         .catch(() => {});
     }

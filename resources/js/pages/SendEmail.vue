@@ -1,14 +1,14 @@
 <template>
-  <register-form />
+  <send-email-form />
 </template>
 
 <script>
 import LoadingComponent from "@js/components/LoadingComponent.vue";
 import ErrorComponent from "@js/components/ErrorComponent.vue";
 
-const RegisterForm = () => ({
+const SendEmailForm = () => ({
   component: import(
-    /* webpackChunkName: "js/components/auth/RegisterForm" */ "@js/components/auth/RegisterForm.vue"
+    /* webpackChunkName: "js/components/auth/SendEmailForm" */ "@js/components/auth/SendEmailForm.vue"
   ),
   loading: LoadingComponent,
   error: ErrorComponent,
@@ -17,7 +17,7 @@ const RegisterForm = () => ({
 
 export default {
   components: {
-    RegisterForm
+    SendEmailForm
   },
   data: () => ({}),
   mounted() {},

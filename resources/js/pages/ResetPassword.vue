@@ -19,9 +19,7 @@ export default {
   components: {
     ResetPasswordForm
   },
-  data() {
-    return {};
-  },
+  data: () => ({}),
   mounted() {},
   methods: {}
 };
