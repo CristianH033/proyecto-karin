@@ -19,6 +19,7 @@ class SpanishPluralizerServiceProvider extends ServiceProvider
      */
     Inflector::rules('plural', [
       'irregular' => [
+        "organizacion" => "organizaciones",
         "proovedor" => "proovedores",
         "estacion" => "estaciones",
         "operador" => "operadores",
