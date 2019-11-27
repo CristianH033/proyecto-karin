@@ -29,6 +29,19 @@ const ResetPasswordPage = () =>
   import(
     /* webpackChunkName: "js/pages/ResetPasswordPage" */ "@pages/ResetPassword.vue"
   );
+const VerifyEmailPage = () =>
+  import(
+    /* webpackChunkName: "js/pages/VerifyEmailPage" */ "@pages/VerifyEmail.vue"
+  );
+const SendEmailPage = () =>
+  import(
+    /* webpackChunkName: "js/pages/SendEmailPage" */ "@pages/SendEmail.vue"
+  );
+
+const Error404Page = () =>
+  import(
+    /* webpackChunkName: "js/pages/Error404Page" */ "@pages/errors/404.vue"
+  );
 
 const routes = [
   {
@@ -124,6 +137,28 @@ const routes = [
         }
       }
     ]
+  },
+  {
+    path: "/",
+    name: "especial",
+    component: AuthLayout,
+    children: [
+      {
+        path: "/email/verify",
+        name: "verify",
+        component: VerifyEmailPage
+      },
+      {
+        path: "/email/resend",
+        name: "resend-email",
+        component: SendEmailPage
+      }
+    ]
+  },
+  {
+    path: "*",
+    name: "notfound",
+    component: Error404Page
   }
 ];
 
