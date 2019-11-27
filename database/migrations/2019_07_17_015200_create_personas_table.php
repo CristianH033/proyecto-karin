@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use phpseclib\Math\BigInteger;
 
 class CreatePersonasTable extends Migration
 {
@@ -15,22 +16,20 @@ class CreatePersonasTable extends Migration
   {
     Schema::create('personas', function (Blueprint $table) {
       $table->bigIncrements('id');
-      $table
-        ->bigInteger('user_id')
-        ->unsigned()
-        ->unique();
+      $table->bigInteger('dni')->unique();
       $table->string('primer_nombre');
       $table->string('segundo_nombre')->nullable();
       $table->string('primer_apellido');
       $table->string('segundo_apellido')->nullable();
       $table->date('fecha_nacimiento')->nullable();
+      $table->bigInteger('genero_id');
       $table->timestamps();
       $table->softDeletes();
       // Llaves foraneas
       $table
-        ->foreign('user_id')
+        ->foreign('genero_id')
         ->references('id')
-        ->on('users')
+        ->on('generos')
         ->onDelete('cascade');
     });
   }
