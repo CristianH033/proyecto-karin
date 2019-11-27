@@ -3,6 +3,8 @@ export const SET_DARK_THEME = "SET_DARK_THEME";
 
 // AUTH
 export const LOGGED = "LOGGED";
+export const ATTEMPT_USER = "ATTEMPT_USER";
+export const OTP_VERIFIED = "OTP_VERIFIED";
 export const ACCESS_TOKEN = "ACCESS_TOKEN";
 export const USER = "USER";
 

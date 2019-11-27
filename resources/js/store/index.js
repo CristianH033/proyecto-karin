@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import VuexPersist from "vuex-persist";
-import app from "@store/modules/auth";
-import auth from "@store/modules/app";
+import app from "@store/modules/app";
+import auth from "@store/modules/auth";
 import snackbar from "@store/modules/snackbar";
 import users from "@store/modules/users";
 

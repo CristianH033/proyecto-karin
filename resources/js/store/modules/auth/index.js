@@ -4,8 +4,10 @@ import mutations from "./mutations";
 
 const state = {
   accessToken: null,
+  attemptUser: null,
   user: null,
-  logged: false
+  logged: false,
+  otpverified: false,
 };
 
 export default {

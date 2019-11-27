@@ -1,21 +1,27 @@
 import * as mutations from "@store/mutation-types";
 import * as actions from "@store/action-types";
-import auth from "@api/auth";
-import { EventBus } from "@services/event-bus";
-
+import {
+  login,
+  otpVerify,
+  otpResend,
+  logout,
+  register,
+  requestPwdReset,
+  reset,
+  currentUser,
+  checkAuth,
+  verify,
+  resendEmail
+} from "@api/auth";
 export default {
-  [actions.LOGIN]({ commit, dispatch }, credentials) {
+  [actions.LOGIN]({ commit }, credentials) {
     return new Promise((resolve, reject) => {
-      auth
-        .login(credentials)
+      login(credentials)
         .then(response => {
           if (response.data.access_token) {
-            console.log(response);
             commit(mutations.LOGGED, true);
+            commit(mutations.ATTEMPT_USER, { email: credentials.email });
             commit(mutations.ACCESS_TOKEN, response.data.access_token);
-            commit(mutations.USER, response.data.user);
-            dispatch(actions.SET_CURRENT_USER);
-            EventBus.$emit("logged-in");
             resolve(response);
           } else {
             reject("Token not provided");
@@ -26,14 +32,24 @@ export default {
         });
     });
   },
-  [actions.LOGOUT]({ commit }) {
+  [actions.VERIFY_OTP]({ commit, dispatch }, otp) {
     return new Promise((resolve, reject) => {
-      auth
-        .logout()
+      otpVerify(otp)
         .then(response => {
-          commit(mutations.LOGGED, false);
-          commit(mutations.ACCESS_TOKEN, null);
-          commit(mutations.USER, null);
+          commit(mutations.OTP_VERIFIED, true);
+          dispatch(actions.SET_CURRENT_USER);
+          resolve(response);
+        })
+        .catch(error => {
+          commit(mutations.OTP_VERIFIED, false);
+          reject(error);
+        });
+    });
+  },
+  [actions.RESEND_OTP]() {
+    return new Promise((resolve, reject) => {
+      otpResend()
+        .then(response => {
           resolve(response);
         })
         .catch(error => {
@@ -41,12 +57,40 @@ export default {
         });
     });
   },
+  [actions.LOGOUT]({ commit }) {
+    return new Promise((resolve, reject) => {
+      logout()
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        })
+        .finally(() => {
+          commit(mutations.ATTEMPT_USER, null);
+          commit(mutations.LOGGED, false);
+          commit(mutations.OTP_VERIFIED, false);
+          commit(mutations.ACCESS_TOKEN, null);
+          commit(mutations.USER, null);
+        });
+    });
+  },
   [actions.REGISTER]({ commit }, user) {
     return new Promise((resolve, reject) => {
-      auth
-        .register(user)
+      register(user)
         .then(response => {
           commit(mutations.LOGGED, false);
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+  [actions.REQUEST_PWD_RESET](context, email) {
+    return new Promise((resolve, reject) => {
+      requestPwdReset(email)
+        .then(response => {
           resolve(response);
         })
         .catch(error => {
@@ -56,8 +100,29 @@ export default {
   },
   [actions.RESET_PASSWORD](context, user) {
     return new Promise((resolve, reject) => {
-      auth
-        .reset(user)
+      reset(user)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+  [actions.VERIFY_EMAIL](context, signedURL) {
+    return new Promise((resolve, reject) => {
+      verify(signedURL)
+        .then(response => {
+          resolve(response);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  },
+  [actions.RESEND_EMAIL](context, email) {
+    return new Promise((resolve, reject) => {
+      resendEmail(email)
         .then(response => {
           resolve(response);
         })
@@ -68,8 +133,7 @@ export default {
   },
   [actions.SET_CURRENT_USER]({ commit }) {
     return new Promise((resolve, reject) => {
-      auth
-        .currentUser()
+      currentUser()
         .then(response => {
           commit(mutations.USER, response.data.data);
           resolve(response);
@@ -80,19 +144,19 @@ export default {
     });
   },
   [actions.CHECK_AUTH]({ commit }) {
-    return new Promise(resolve => {
-      auth
-        .checkAuth()
-        .then(() => {
+    return new Promise((resolve, reject) => {
+      checkAuth()
+        .then(response => {
           commit(mutations.LOGGED, true);
+          resolve(response);
         })
-        .catch(() => {
-          commit(mutations.LOGGED, false);
-          commit(mutations.ACCESS_TOKEN, null);
-          commit(mutations.USER, null);
-        })
-        .finally(() => {
-          resolve(true);
+        .catch(error => {
+          if (error.response.status == 401) {
+            commit(mutations.LOGGED, false);
+            commit(mutations.ACCESS_TOKEN, null);
+            commit(mutations.USER, null);
+          }
+          reject(error);
         });
     });
   }
