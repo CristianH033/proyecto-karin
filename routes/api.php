@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,29 +23,27 @@ Route::name('api.')->group(function () {
    * Controladores que se encuentran dentro de la carpeta API\Auh
    */
   Route::namespace('API\Auth')->group(function () {
+    // Authentication
     Route::post('login', 'LoginController@login')->name('login');
-    Route::post('refresh-token', 'LoginController@refreshAccessToken')->name(
-      'refresh.token'
-    );
+    Route::post('refresh-token', 'LoginController@refreshAccessToken')->name('refresh.token');
     Route::post('register', 'RegisterController@register')->name('register');
     Route::post('logout', 'LoginController@logout')->name('logout');
-    Route::get('current-user', 'LoggedUserController@getCurrentUser')->name(
-      'auth.user'
-    );
-    Route::get('auth-check', 'LoggedUserController@checkAuth')->name(
-      'auth.check'
-    );
-    Route::post(
-      'password/email',
-      'ForgotPasswordController@sendResetLinkEmail'
-    )->name('requestResetPasswordEmail');
-    Route::post('password/reset', 'ResetPasswordController@reset')->name(
-      'resetPassword'
-    );
-    Route::post(
-      'validate-pwdreset-token',
-      'ResetPasswordController@checkValidToken'
-    )->name('checkPasswordResetToken');
+
+    // Email Verification
+    Route::get('verification/verify', 'VerificationController@verify')->name('verification.verify');
+    Route::post('verification/resend', 'VerificationController@resend')->name('verification.resend');
+
+    // One Time Password (OTP)
+    Route::post('otp/sendotp', 'OTPController@sendOTP')->name('otp.send');
+    Route::post('otp/verify', 'OTPController@verifyOTP')->name('otp.verify');
+
+    // Reset Password
+    Route::post('password/email','ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+    Route::post('password/reset','ResetPasswordController@reset')->name('password.update');
+
+    // Check Authentication
+    Route::get('auth-check', 'LoggedUserController@checkAuth')->name('auth.check');
+    Route::get('current-user', 'LoggedUserController@getCurrentUser')->name('auth.user');
   });
   /**
    * Creación dínamica de rutas para todos los recursos (modelos-controladores)
@@ -82,24 +78,20 @@ Route::name('api.')->group(function () {
 /* Inducir errores de cliente y servidor */
 Route::post('400', function () {
   abort(404, "Error 400 a propósito");
-});
+})->name('response.error.400');
 
 Route::post('401', function () {
   abort(404, "Error 401 a propósito");
-});
+})->name('response.error.401');
 
 Route::post('403', function () {
   abort(404, "Error 403 a propósito");
-});
+})->name('response.error.403');
 
 Route::post('404', function () {
   abort(404, "Error 404 a propósito");
-});
+})->name('response.error.404');
 
 Route::post('500', function () {
   abort(500, "Error de servidor a próposito");
-});
-
-Route::post('500', function () {
-  abort(500, "Error de servidor a proposito");
-});
+})->name('response.error.500');
