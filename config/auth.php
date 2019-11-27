@@ -13,7 +13,7 @@ return [
     */
 
   'defaults' => [
-    'guard' => 'web',
+    'guard' => 'api',
     'passwords' => 'users'
   ],
 
@@ -97,5 +97,9 @@ return [
       'table' => 'password_resets',
       'expire' => 60
     ]
+  ],
+
+  'verification' => [
+    'expire' => env('EMAIL_VERIFICATION_EXPIRE', 60)
   ]
 ];
