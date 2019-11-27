@@ -54,5 +54,11 @@ return [
         'name' => env('OAUTH_WEB_CLIENT_NAME')
       ]
     ]
+  ],
+
+  '2fa' => [
+    'otp' => [
+      'lifetime' => env('OTP_LIFETIME', 15)
+    ]
   ]
 ];
