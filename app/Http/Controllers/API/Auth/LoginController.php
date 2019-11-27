@@ -4,9 +4,12 @@ namespace App\Http\Controllers\API\Auth;
 
 use DB;
 use Cookie;
+use App\User;
+use App\Traits\Auth\OTP;
 use Illuminate\Http\Request;
 use App\Traits\Auth\OauthProxy;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Lang;
 use App\Traits\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -22,7 +25,7 @@ class LoginController extends Controller
     |
     */
 
-  use AuthenticatesUsers, OauthProxy;
+  use AuthenticatesUsers, OauthProxy, OTP;
 
   /**
    * Constructor de la nueva instancia del controlador
@@ -82,6 +85,13 @@ class LoginController extends Controller
   {
     // Limpiar contador de intentos de incio de sesión
     $this->clearLoginAttempts($request);
+    // Enviar código OTP
+    $user = User::where('email', $request->email)->first();
+    if (!$user->ongoingOTP()) {
+      $this->sendOTP($user);
+    } else {
+      $user->SetOTPVerified(false);
+    }
     // Hacer petición al proxy y devolver los tokens
     return $this->proxy("password", [
       'username' => $request->email,
@@ -97,9 +107,16 @@ class LoginController extends Controller
    */
   protected function refreshAccessToken(Request $request)
   {
-    return $this->proxy("refresh_token", [
-      'refresh_token' => $request->cookie('refresh-token')
-    ]);
+    if ($request->hasCookie('refresh-token')) {
+      return $this->proxy("refresh_token", [
+        'refresh_token' => $request->cookie('refresh-token')
+      ]);
+    }
+
+    return response()->json(
+      ["message" => Lang::get("Invalid refresh token")],
+      401
+    );
   }
 
   /**
@@ -110,6 +127,8 @@ class LoginController extends Controller
    */
   public function logout(Request $request)
   {
+    // Establecer OTP verificado en falso
+    $this->revokeOTP();
     // Obtener el Access Token
     $accessToken = $request->user()->token();
     // Revocar refresh token correspondiente

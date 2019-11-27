@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\API\Auth;
 
 use App\User;
+use App\Persona;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Traits\Auth\RegistersUsers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use App\Traits\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Auth\Events\Registered;
-use App\Traits\Auth\OauthProxy;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -25,7 +25,7 @@ class RegisterController extends Controller
     |
     */
 
-  use RegistersUsers, OauthProxy;
+  use RegistersUsers;
 
   /**
    * Where to redirect users after registration.
@@ -61,12 +61,18 @@ class RegisterController extends Controller
 
     event(new Registered(($user = $this->create($request->all()))));
 
-    $this->guard()->login($user);
+    $this->registered($request, $user);
 
-    return $this->proxy("password", [
-      'username' => $request->email,
-      'password' => $request->password
+    return response()->json([
+      "message" => Lang::get("An email has been sent to :mail.", [
+        'mail' => $request->email
+      ])
     ]);
+
+    // return $this->proxy("password", [
+    //   'username' => $request->email,
+    //   'password' => $request->password
+    // ]);
   }
 
   /**
@@ -77,8 +83,21 @@ class RegisterController extends Controller
    */
   protected function validator(array $data)
   {
+    // Persona::where('dni', $data->dni)->firstOrFail
     return Validator::make($data, [
-      'name' => 'required|string|max:255',
+      'dni' => [
+        'required',
+        'numeric',
+        'exists:personas,dni',
+        function ($attribute, $value, $fail) {
+          $persona = Persona::where('dni', $value)->first();
+          if ($persona) {
+            if ($persona->user()->exists()) {
+              $fail(Lang::get("This person already has a user created."));
+            }
+          }
+        }
+      ],
       'email' => 'required|string|email|max:255|unique:users',
       'password' => 'required|string|min:6|confirmed'
     ]);
@@ -93,9 +112,9 @@ class RegisterController extends Controller
   protected function create(array $data)
   {
     return User::create([
-      'name' => $data['name'],
       'email' => $data['email'],
-      'password' => Hash::make($data['password'])
+      'password' => Hash::make($data['password']),
+      'persona_id' => Persona::where('dni', $data['dni'])->first()->id
     ]);
   }
 
@@ -108,8 +127,5 @@ class RegisterController extends Controller
    */
   protected function registered(Request $request, $user)
   {
-    activity()
-      ->performedOn($user)
-      ->log('edited');
   }
 }

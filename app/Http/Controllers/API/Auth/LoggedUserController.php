@@ -16,12 +16,14 @@ class LoggedUserController extends Controller
   public function __construct()
   {
     $this->middleware('auth:api');
+    $this->middleware('verified');
+    $this->middleware('otp');
   }
 
   /**
    * Checkear autenticación.
    *
-   * @param  \Illuminate\Http\Request  $request
+   * @param  \Illuminate\Http\Request $request
    * @return \Illuminate\Http\Response
    */
   public function checkAuth()

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\API\Auth;
 
+use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Traits\Auth\ResetsPasswords;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\User;
 
 class ResetPasswordController extends Controller
 {
@@ -36,7 +36,7 @@ class ResetPasswordController extends Controller
 
   public function checkValidToken(Request $request)
   {
-    $validatedData = $request->validate([
+    $request->validate([
       'token' => 'required',
       'user' => 'required'
     ]);
