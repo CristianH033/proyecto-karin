@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Persona;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Support\Facades\Cache;
 use App\Notifications\OTPNotification;
@@ -31,7 +32,7 @@ class User extends Authenticatable implements MustVerifyEmail
    *
    * @var array
    */
-  protected $fillable = ['email', 'password'];
+  protected $fillable = ['persona_id','email', 'password'];
 
   /**
    * Atributos que deben ser ocultos de los arrays.
@@ -55,6 +56,15 @@ class User extends Authenticatable implements MustVerifyEmail
    * @var string
    */
   protected static $logAttributes = ['*'];
+
+  /**
+   * Persona relacionada al usuario
+   * @return \App\Persona
+   */
+  public function persona()
+  {
+    return $this->belongsTo(Persona::class, 'id_persona', 'id');
+  }
 
   /**
    * Send the email verification notification.
