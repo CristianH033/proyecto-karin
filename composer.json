@@ -20,7 +20,8 @@
     "laravel/tinker": "^1.0",
     "pusher/pusher-php-server": "~3.0",
     "silber/bouncer": "v1.0.0-rc.6",
-    "spatie/laravel-activitylog": "^3.6"
+    "spatie/laravel-activitylog": "^3.6",
+    "ext-pdo_sqlite": "*"
   },
   "require-dev": {
     "beyondcode/laravel-dump-server": "^1.0",
