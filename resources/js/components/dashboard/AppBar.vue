@@ -30,6 +30,12 @@
         <v-icon>mdi-account-circle</v-icon>
       </v-avatar>
     </v-btn>
+    <v-progress-linear
+      :active="loading"
+      :indeterminate="true"
+      absolute
+      top
+    ></v-progress-linear>
   </v-app-bar>
 </template>
 
@@ -37,6 +43,9 @@
 import { EventBus } from "@services/event-bus";
 export default {
   name: "AppBar",
+  props: {
+    loading: Boolean
+  },
   data: () => ({}),
   methods: {
     togleSidebarMenu() {

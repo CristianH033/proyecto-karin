@@ -1,6 +1,6 @@
 <template>
   <v-app id="kemble-app" app>
-    <app-bar />
+    <app-bar :loading="loading" />
     <sidebar-menu />
     <sidebar-user-menu v-bind="user" />
     <v-content>
@@ -15,14 +15,16 @@
 
 <script>
 let unregisterBeforeEach, unregisterBeforeResolve;
-import AppBar from "@components/dashboard/AppBar";
+import AppBar from "@components/dashboard/AppBar.vue";
 import SidebarMenu from "@components/dashboard/SidebarMenu";
 import SidebarUserMenu from "@components/dashboard/SidebarUserMenu";
 import { mapGetters } from "vuex";
 export default {
   name: "Dashboard",
   components: { SidebarMenu, SidebarUserMenu, AppBar },
-  data: () => ({}),
+  data: () => ({
+    loading: false
+  }),
   computed: {
     ...mapGetters({
       user: "user"
@@ -33,10 +35,12 @@ export default {
     // Eventos de rutas
     unregisterBeforeEach = this.$router.beforeEach((to, from, next) => {
       // Ruta solicitada
+      this.loading = true;
       next();
     });
     unregisterBeforeResolve = this.$router.beforeResolve((to, from, next) => {
       // Ruta resuelta
+      this.loading = false;
       next();
     });
   },
