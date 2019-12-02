@@ -1,19 +1,23 @@
 <template>
   <v-navigation-drawer v-model="drawer" width="300" app temporary right>
-    <v-list-item>
-      <v-list-item-avatar>
-        <v-avatar color="red">
-          <span class="white--text headline">{{ nombre[0] }}</span>
-        </v-avatar>
-      </v-list-item-avatar>
-      <v-list-item-content>
-        <v-list-item-title class="text-capitalize">
-          {{ nombre }}
-        </v-list-item-title>
-        <v-list-item-subtitle>{{ email }}</v-list-item-subtitle>
-      </v-list-item-content>
-    </v-list-item>
-    <v-divider></v-divider>
+    <v-list>
+      <v-list-item>
+        <v-list-item-avatar>
+          <v-avatar color="red">
+            <span class="white--text headline text-capitalize">
+              {{ nombre[0] }}
+            </span>
+          </v-avatar>
+        </v-list-item-avatar>
+        <v-list-item-content>
+          <v-list-item-title class="text-capitalize">
+            {{ nombre }}
+          </v-list-item-title>
+          <v-list-item-subtitle>{{ email }}</v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+      <v-divider></v-divider>
+    </v-list>
     <v-list dense>
       <v-list-item link>
         <v-list-item-icon>
@@ -23,7 +27,6 @@
           <v-list-item-title>Configuraciones</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-      <v-divider></v-divider>
       <v-list-item>
         <v-list-item-icon>
           <v-icon>mdi-brightness-6</v-icon>
@@ -52,6 +55,7 @@
 
 <script>
 import { EventBus } from "@services/event-bus";
+import { LOGOUT } from "@store/action-types";
 export default {
   name: "SidebarUserMenu",
   props: {
@@ -82,7 +86,7 @@ export default {
   },
   methods: {
     salir() {
-      EventBus.$emit("logged-out");
+      this.$store.dispatch(LOGOUT);
     }
   }
 };
