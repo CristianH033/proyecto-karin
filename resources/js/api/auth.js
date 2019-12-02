@@ -59,7 +59,6 @@ const auth = {
     return axios.get(loggedUserAPI);
   },
   checkAuth: () => {
-    console.log(checkAuthAPI);
     return axios.get(checkAuthAPI);
   }
 };

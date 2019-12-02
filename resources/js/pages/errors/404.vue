@@ -20,6 +20,7 @@
 export default {
   name: "FourOhFour",
   props: {},
+  data: () => ({}),
   created() {}
 };
 </script>
