@@ -21,12 +21,12 @@
     "pusher/pusher-php-server": "~3.0",
     "silber/bouncer": "v1.0.0-rc.6",
     "spatie/laravel-activitylog": "^3.6",
-    "ext-pdo_sqlite": "*"
+    "ext-pdo_sqlite": "*",
+    "fzaninotto/faker": "^1.4"
   },
   "require-dev": {
     "beyondcode/laravel-dump-server": "^1.0",
     "filp/whoops": "^2.0",
-    "fzaninotto/faker": "^1.4",
     "mbezhanov/laravel-faker-provider-collection": "^1.1",
     "mockery/mockery": "^1.0",
     "nunomaduro/collision": "^3.0",
