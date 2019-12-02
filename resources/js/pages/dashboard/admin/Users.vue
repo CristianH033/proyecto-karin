@@ -19,11 +19,10 @@
           <v-list-item-group color="primary">
             <v-list-item v-for="user in users" :key="user.id">
               <v-list-item-avatar color="indigo">
-                <!-- <v-img :src="''"></v-img> -->
-                <span class="white--text">{{ user.name[0] }}</span>
+                <span class="white--text">{{ user.nombre[0] }}</span>
               </v-list-item-avatar>
               <v-list-item-content>
-                <v-list-item-title>{{ user.name }}</v-list-item-title>
+                <v-list-item-title>{{ user.nombre }}</v-list-item-title>
                 <v-list-item-subtitle>
                   <span class="text--primary">{{ user.email }}</span>
                   &mdash; Texto

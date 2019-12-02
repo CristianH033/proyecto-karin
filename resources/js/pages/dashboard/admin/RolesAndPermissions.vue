@@ -1,14 +1,15 @@
 <template>
   <v-row justify="center" align="center">
     <v-col class="shrink">
-      <h1>Sedes</h1>
+      <h1>Roles y permisos</h1>
     </v-col>
   </v-row>
 </template>
 
 <script>
 export default {
-  name: "HeadQuarters",
+  name: "RolesAndPermissions",
+  data: () => ({}),
   computed: {},
   methods: {}
 };
