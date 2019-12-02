@@ -69,6 +69,7 @@
 <script>
 export default {
   name: "About",
+  data: () => ({}),
   computed: {},
   methods: {}
 };
