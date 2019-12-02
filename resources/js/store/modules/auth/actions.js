@@ -1,5 +1,6 @@
 import * as mutations from "@store/mutation-types";
 import * as actions from "@store/action-types";
+import { EventBus } from "@services/event-bus";
 import {
   login,
   otpVerify,
@@ -67,11 +68,12 @@ export default {
           reject(error);
         })
         .finally(() => {
+          commit(mutations.USER, null);
           commit(mutations.ATTEMPT_USER, null);
-          commit(mutations.LOGGED, false);
           commit(mutations.OTP_VERIFIED, false);
           commit(mutations.ACCESS_TOKEN, null);
-          commit(mutations.USER, null);
+          commit(mutations.LOGGED, false);
+          EventBus.$emit("logged-out");
         });
     });
   },
@@ -143,18 +145,26 @@ export default {
         });
     });
   },
-  [actions.CHECK_AUTH]({ commit }) {
+  [actions.CHECK_AUTH]({ commit, dispatch }) {
     return new Promise((resolve, reject) => {
       checkAuth()
         .then(response => {
           commit(mutations.LOGGED, true);
+          dispatch(actions.SET_CURRENT_USER);
           resolve(response);
         })
         .catch(error => {
-          if (error.response.status == 401) {
-            commit(mutations.LOGGED, false);
-            commit(mutations.ACCESS_TOKEN, null);
-            commit(mutations.USER, null);
+          switch (error.response.status) {
+            case 401:
+              commit(mutations.LOGGED, true);
+              commit(mutations.USER, null);
+              commit(mutations.ATTEMPT_USER, null);
+              commit(mutations.OTP_VERIFIED, false);
+              commit(mutations.ACCESS_TOKEN, null);
+              commit(mutations.LOGGED, false);
+              break;
+            default:
+              break;
           }
           reject(error);
         });

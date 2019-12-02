@@ -6,7 +6,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { LOGOUT, CHECK_AUTH } from "@js/store/action-types";
+import { LOGOUT, CHECK_AUTH, LOGIN } from "@js/store/action-types";
 import { EventBus } from "@services/event-bus";
 export default {
   name: "App",
@@ -38,32 +38,48 @@ export default {
     );
   },
   mounted() {
-    // Evento global (login)
+    // Evento global (logedin)
     EventBus.$on("logged-in", () => {
-      console.log("Evento logged en App.vue");
-      let route = this.$route.query.redirect
-        ? this.$route.query.redirect
-        : { name: "home" };
-      console.log(route);
-      this.$router.push({ name: "home" });
+      console.log("Evento logged-in en App.vue");
+      this.loggedIn();
     });
-    // Evento global (logout)
+    // Evento global (loggedout)
     EventBus.$on("logged-out", () => {
-      this.$store.dispatch(LOGOUT).then(() => {
-        this.$router.push({ name: "login" });
-      });
+      console.log("Evento logged-out en App.vue");
+      this.loggedOut();
     });
     // Check Auth
     this.$store
       .dispatch(CHECK_AUTH)
       .then(() => {})
-      .catch(() => {});
+      .catch(error => {
+        switch (error.response.status) {
+          case 401:
+            this.loggedOut();
+            break;
+          default:
+            break;
+        }
+      });
   },
   beforeDestroy() {
     EventBus.$off("logged-in");
     EventBus.$off("logged-out");
   },
-  methods: {}
+  methods: {
+    loggedIn() {
+      console.log("X");
+      let route = this.$route.query.redirect
+        ? this.$route.query.redirect
+        : { name: "home" };
+      console.log(route);
+      this.$router.push({ name: "home" });
+    },
+    loggedOut() {
+      console.log("Y");
+      this.$router.push({ name: "login" }).catch(() => {});
+    }
+  }
 };
 </script>
 
