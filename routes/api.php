@@ -25,25 +25,40 @@ Route::name('api.')->group(function () {
   Route::namespace('API\Auth')->group(function () {
     // Authentication
     Route::post('login', 'LoginController@login')->name('login');
-    Route::post('refresh-token', 'LoginController@refreshAccessToken')->name('refresh.token');
+    Route::post('refresh-token', 'LoginController@refreshAccessToken')->name(
+      'refresh.token'
+    );
     Route::post('register', 'RegisterController@register')->name('register');
     Route::post('logout', 'LoginController@logout')->name('logout');
 
     // Email Verification
-    Route::get('verification/verify', 'VerificationController@verify')->name('verification.verify');
-    Route::post('verification/resend', 'VerificationController@resend')->name('verification.resend');
+    Route::get('verification/verify', 'VerificationController@verify')->name(
+      'verification.verify'
+    );
+    Route::post('verification/resend', 'VerificationController@resend')->name(
+      'verification.resend'
+    );
 
     // One Time Password (OTP)
     Route::post('otp/sendotp', 'OTPController@sendOTP')->name('otp.send');
     Route::post('otp/verify', 'OTPController@verifyOTP')->name('otp.verify');
 
     // Reset Password
-    Route::post('password/email','ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-    Route::post('password/reset','ResetPasswordController@reset')->name('password.update');
+    Route::post(
+      'password/email',
+      'ForgotPasswordController@sendResetLinkEmail'
+    )->name('password.email');
+    Route::post('password/reset', 'ResetPasswordController@reset')->name(
+      'password.update'
+    );
 
     // Check Authentication
-    Route::get('auth-check', 'LoggedUserController@checkAuth')->name('auth.check');
-    Route::get('current-user', 'LoggedUserController@getCurrentUser')->name('auth.user');
+    Route::get('auth-check', 'LoggedUserController@checkAuth')->name(
+      'auth.check'
+    );
+    Route::get('current-user', 'LoggedUserController@getCurrentUser')->name(
+      'auth.user'
+    );
   });
   /**
    * Creación dínamica de rutas para todos los recursos (modelos-controladores)

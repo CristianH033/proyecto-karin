@@ -18,7 +18,7 @@ return [
     'sended' => 'An email has been sent with the verification code.',
     'required' => 'verification code required.',
     'wrong' => 'Wrong verification code.',
-    'accepted' => 'Verification code accepted.',
+    'accepted' => 'Verification code accepted.'
   ],
   'throttle' => 'Too many login attempts. Please try again in :seconds seconds.'
 ];

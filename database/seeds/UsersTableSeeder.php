@@ -18,7 +18,12 @@ class UsersTableSeeder extends Seeder
       'email' => 'cristian_david033@hotmail.com'
     ]);
 
-    foreach (Persona::where('dni', '!=', 1057015139)->take(10)->get() as $persona) {
+    foreach (
+      Persona::where('dni', '!=', 1057015139)
+        ->take(10)
+        ->get()
+      as $persona
+    ) {
       factory(User::class)->create([
         'persona_id' => $persona->id
       ]);

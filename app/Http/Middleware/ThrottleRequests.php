@@ -131,7 +131,11 @@ class ThrottleRequests
       $retryAfter
     );
 
-    return new ThrottleRequestsException(Lang::get('Too Many Attempts.'), null, $headers);
+    return new ThrottleRequestsException(
+      Lang::get('Too Many Attempts.'),
+      null,
+      $headers
+    );
   }
 
   /**

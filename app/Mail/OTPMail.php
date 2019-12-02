@@ -31,7 +31,8 @@ class OTPMail extends Mailable implements ShouldQueue
    */
   public function build()
   {
-    return $this->markdown('emails.users.otp')
-      ->subject(Lang::get('Access code.'));
+    return $this->markdown('emails.users.otp')->subject(
+      Lang::get('Access code.')
+    );
   }
 }

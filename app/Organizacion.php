@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Organizacion extends Model
 {
   use LogsActivity, SoftDeletes;
-  
+
   /**
    * @Author: Cristian David Home
    * @Date: 2019-10-28 09:52:51

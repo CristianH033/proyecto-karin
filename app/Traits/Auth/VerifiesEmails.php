@@ -75,7 +75,6 @@ trait VerifiesEmails
    */
   public function resend(Request $request)
   {
-
     // Convertir el campo correo en minusculas
     if ($request->has('email')) {
       $request->merge(array('email' => strtolower($request->email)));
@@ -96,7 +95,9 @@ trait VerifiesEmails
     $user->sendEmailVerificationNotification();
 
     return response()->json([
-      "message" => __("An email has been sent to :mail.", ['mail' => $request->email])
+      "message" => __("An email has been sent to :mail.", [
+        'mail' => $request->email
+      ])
     ]);
   }
 

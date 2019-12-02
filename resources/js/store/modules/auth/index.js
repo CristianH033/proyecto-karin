@@ -7,7 +7,7 @@ const state = {
   attemptUser: null,
   user: null,
   logged: false,
-  otpverified: false,
+  otpverified: false
 };
 
 export default {

@@ -14,5 +14,9 @@
 Route::get('/', 'HomeController@index')->name('home');
 
 // SPA (Vue) Routes
-Route::get('/#/reset-password', 'HomeController@index')->name('spa.password.reset');
-Route::get('/#/email/verify', 'HomeController@index')->name('spa.verification.verify');
+Route::get('/#/reset-password', 'HomeController@index')->name(
+  'spa.password.reset'
+);
+Route::get('/#/email/verify', 'HomeController@index')->name(
+  'spa.verification.verify'
+);

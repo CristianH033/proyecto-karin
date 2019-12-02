@@ -15,7 +15,8 @@ return [
   'failed' => 'Estas credenciales no coinciden con nuestros registros.',
   'email' => 'No se ha verificado el correo electrónico.',
   'otp' => [
-    'sended' => 'Se ha enviado un correo electrónico con el código de verificación.',
+    'sended' =>
+      'Se ha enviado un correo electrónico con el código de verificación.',
     'required' => 'Se necesita código de verificación.',
     'wrong' => 'Código de verificación incorrecto.',
     'accepted' => 'Código de verificación aceptado.'
