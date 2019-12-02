@@ -2627,7 +2627,7 @@ __webpack_require__.r(__webpack_exports__);
  * @Date: 2019-09-09 22:06:17
  * @Desc: Coleccion de endpoints API del aplicativo.
  */
-var baseDomain = "".concat("http://www.kimblee.test");
+var baseDomain = "".concat("https://kimblee.herokuapp.com/");
 var apiVersion = "api";
 var baseUrl = "".concat(baseDomain, "/").concat(apiVersion);
 var endpoints = {
