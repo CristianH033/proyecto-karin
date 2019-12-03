@@ -41,6 +41,7 @@ class ClearAll extends Command
     $this->call('route:clear');
     $this->call('config:clear');
     $this->call('view:clear');
+    $this->call('clear-compiled');
     $this->call('migrate:fresh');
     $this->call('db:seed');
     $this->call('passport:install', ['--force' => 'default']);
