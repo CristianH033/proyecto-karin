@@ -6,7 +6,6 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { LOGOUT, CHECK_AUTH, LOGIN } from "@js/store/action-types";
 import { EventBus } from "@services/event-bus";
 export default {
   name: "App",
@@ -48,19 +47,6 @@ export default {
       console.log("Evento logged-out en App.vue");
       this.loggedOut();
     });
-    // Check Auth
-    this.$store
-      .dispatch(CHECK_AUTH)
-      .then(() => {})
-      .catch(error => {
-        switch (error.response.status) {
-          case 401:
-            this.loggedOut();
-            break;
-          default:
-            break;
-        }
-      });
   },
   beforeDestroy() {
     EventBus.$off("logged-in");
@@ -68,15 +54,12 @@ export default {
   },
   methods: {
     loggedIn() {
-      console.log("X");
       let route = this.$route.query.redirect
         ? this.$route.query.redirect
         : { name: "home" };
-      console.log(route);
-      this.$router.push({ name: "home" });
+      this.$router.push(route);
     },
     loggedOut() {
-      console.log("Y");
       this.$router.push({ name: "login" }).catch(() => {});
     }
   }
