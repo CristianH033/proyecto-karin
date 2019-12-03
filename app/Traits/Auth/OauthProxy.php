@@ -5,6 +5,7 @@ namespace App\Traits\Auth;
 use DB;
 use Cookie;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Validator;
 use GuzzleHttp\Exception\RequestException;
 
 trait OauthProxy
@@ -20,9 +21,20 @@ trait OauthProxy
    */
   private function proxy(string $grantType, array $data = [])
   {
+    // Obtener el nombre del cliente Oauth desde la configuración
+    $clientName = config('services.oauth.clients.web.name');
+
+    // Validar que el cliente exista
+    Validator::make(
+      ["cliente" => $clientName],
+      [
+        'cliente' => ['required', 'exists:oauth_clients,name']
+      ]
+    )->validate();
+
     // Obtener el ultimo cliente Oauth creado con el nombre proporcionado
     $client = DB::table('oauth_clients')
-      ->where('name', config('services.oauth.clients.web.name'))
+      ->where('name', $clientName)
       ->orderBy('created_at', 'desc')
       ->first();
 
