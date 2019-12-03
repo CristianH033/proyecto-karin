@@ -25,6 +25,7 @@ require("@services/request-interceptor");
 require("@services/response-interceptor");
 
 axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+axios.defaults.baseURL = `${process.env.MIX_APP_URL}`;
 
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
