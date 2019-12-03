@@ -23,6 +23,27 @@
   --kimblee-body-bg: white;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --kimblee-body-bg: #303030;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --kimblee-body-bg: #fafafa;
+  }
+}
+
+.day,
+.night {
+  display: inline-block;
+  padding: 1em;
+  width: 7em;
+  height: 2em;
+  vertical-align: middle;
+}
+
 body {
   background-color: var(--kimblee-body-bg);
 }

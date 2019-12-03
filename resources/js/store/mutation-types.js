@@ -1,5 +1,6 @@
 // APP MODULE
 export const SET_DARK_THEME = "SET_DARK_THEME";
+export const SET_USE_BROWSER_THEME = "SET_USE_BROWSER_THEME";
 
 // AUTH
 export const LOGGED = "LOGGED";

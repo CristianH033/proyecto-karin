@@ -12,9 +12,9 @@
             </v-list-item-content>
           </v-list-item>
           <v-divider
+            v-if="item.type == 'divider'"
             dark
             class="my-4"
-            v-if="item.type == 'divider'"
           ></v-divider>
           <v-subheader v-if="item.type == 'subheader'">
             {{ item.text }}

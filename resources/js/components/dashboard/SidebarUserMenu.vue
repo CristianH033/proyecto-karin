@@ -24,12 +24,25 @@
           <v-icon>mdi-settings</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title>Configuraciones</v-list-item-title>
+          <v-list-item-title>Configuración de la cuenta</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
       <v-list-item>
         <v-list-item-icon>
-          <v-icon>mdi-brightness-6</v-icon>
+          <v-icon>mdi-theme-light-dark</v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title>
+            Usar tema del navegador
+          </v-list-item-title>
+        </v-list-item-content>
+        <v-list-item-action>
+          <v-switch v-model="browserTheme"></v-switch>
+        </v-list-item-action>
+      </v-list-item>
+      <v-list-item :disabled="browserTheme">
+        <v-list-item-icon>
+          <v-icon :disabled="browserTheme">mdi-brightness-6</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title>
@@ -37,7 +50,7 @@
           </v-list-item-title>
         </v-list-item-content>
         <v-list-item-action>
-          <v-switch v-model="darkTheme"></v-switch>
+          <v-switch v-model="darkTheme" :disabled="browserTheme"></v-switch>
         </v-list-item-action>
       </v-list-item>
     </v-list>
@@ -55,7 +68,11 @@
 
 <script>
 import { EventBus } from "@services/event-bus";
-import { LOGOUT } from "@store/action-types";
+import {
+  LOGOUT,
+  SET_DARK_THEME,
+  SET_USE_BROWSER_THEME
+} from "@store/action-types";
 export default {
   name: "SidebarUserMenu",
   props: {
@@ -72,12 +89,20 @@ export default {
     drawer: null
   }),
   computed: {
+    browserTheme: {
+      get() {
+        return this.$store.getters.getUseBrowserTheme;
+      },
+      set(value) {
+        this.$store.dispatch(SET_USE_BROWSER_THEME, value);
+      }
+    },
     darkTheme: {
       get() {
         return this.$store.getters.getDarkTheme;
       },
       set(value) {
-        this.$store.dispatch("SET_DARK_THEME", value);
+        this.$store.dispatch(SET_DARK_THEME, value);
       }
     }
   },

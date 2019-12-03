@@ -1,7 +1,10 @@
-import * as mutations from "@store/mutation-types";
+import { SET_DARK_THEME, SET_USE_BROWSER_THEME } from "@store/mutation-types";
 
 export default {
-  [mutations.SET_DARK_THEME](state, val) {
+  [SET_DARK_THEME](state, val) {
     state.darkTheme = val;
+  },
+  [SET_USE_BROWSER_THEME](state, val) {
+    state.useBrowserTheme = val;
   }
 };

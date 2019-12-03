@@ -3,7 +3,8 @@ import actions from "./actions";
 import mutations from "./mutations";
 
 const state = {
-  darkTheme: false
+  darkTheme: false,
+  useBrowserTheme: true
 };
 
 export default {

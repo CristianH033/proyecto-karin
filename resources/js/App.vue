@@ -5,36 +5,39 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import { EventBus } from "@services/event-bus";
+import { SET_DARK_THEME } from "@store/action-types";
 export default {
   name: "App",
   components: {},
-  data: () => ({}),
+  data: () => ({
+    mq: window.matchMedia("(prefers-color-scheme: dark)")
+  }),
   computed: {
     ...mapGetters({
-      darkTheme: "getDarkTheme"
+      darkTheme: "getDarkTheme",
+      useBrowserTheme: "getUseBrowserTheme"
     })
   },
-  created() {
-    // Establecer tema oscuro según store
-    this.$vuetify.theme.dark = this.darkTheme;
-    // Cambiar color de fondo del documento segun tema
-    document.documentElement.style.setProperty(
-      "--kimblee-body-bg",
-      this.darkTheme ? "black" : "white"
-    );
-    // Vigilar valos tema oscuro en store
-    this.$store.watch(
-      (state, getters) => getters.getDarkTheme,
-      val => {
-        this.$vuetify.theme.dark = val;
-        document.documentElement.style.setProperty(
-          "--kimblee-body-bg",
-          val ? "black" : "white"
-        );
+  watch: {
+    useBrowserTheme: function(val) {
+      if (val) {
+        this.setBrowserTheme();
       }
-    );
+    }
+  },
+  created() {
+    if (this.useBrowserTheme) {
+      // Si está en modo oscuro activar el modo oscuro en la app
+      this.setBrowserTheme();
+      this.setVuetifyDarkTheme(this.browserIsDark());
+    } else {
+      this.setVuetifyDarkTheme(this.darkTheme);
+    }
+
+    // Reaccionar a cambios
+    this.listenBrowserTheme();
   },
   mounted() {
     // Evento global (logedin)
@@ -47,12 +50,21 @@ export default {
       console.log("Evento logged-out en App.vue");
       this.loggedOut();
     });
+    // Evento global (darkthemechanged)
+    EventBus.$on("dark-theme-changed", () => {
+      console.log("Evento dark-theme-changed en App.vue");
+      this.setVuetifyDarkTheme(this.darkTheme);
+      // this.$vuetify.theme.dark = this.darkTheme;
+    });
   },
   beforeDestroy() {
     EventBus.$off("logged-in");
     EventBus.$off("logged-out");
   },
   methods: {
+    ...mapActions({
+      setDarkTheme: SET_DARK_THEME
+    }),
     loggedIn() {
       let route = this.$route.query.redirect
         ? this.$route.query.redirect
@@ -61,6 +73,28 @@ export default {
     },
     loggedOut() {
       this.$router.push({ name: "login" }).catch(() => {});
+    },
+    setVuetifyDarkTheme(val) {
+      this.$vuetify.theme.dark = val;
+    },
+    browserIsDark() {
+      // Cosultar si el navegador está en modo oscuro
+      return this.mq.matches;
+    },
+    setBrowserTheme() {
+      this.setDarkTheme(this.browserIsDark());
+    },
+    listenBrowserTheme() {
+      // Reaccionar a los cambios de tema (light, dark) del navegador
+      this.mq.addEventListener("change", this.handlerBrowserTheme, false);
+    },
+    handlerBrowserTheme(e) {
+      if (this.useBrowserTheme) {
+        this.setDarkTheme(e.matches);
+      }
+    },
+    removeListenerBrowserTheme() {
+      this.mq.removeEventListener("change", this.handlerBrowserTheme, false);
     }
   }
 };
