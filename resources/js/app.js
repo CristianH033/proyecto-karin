@@ -21,6 +21,9 @@ import VuetifyToast from "vuetify-toast-snackbar";
 // Componente principal
 import App from "@js/App.vue";
 
+// Importar tipo de accion CHECK_AUTH
+import { CHECK_AUTH } from "@store/action-types";
+
 // Use VuetifyToast
 Vue.use(VuetifyToast, {
   x: false,
@@ -32,14 +35,21 @@ Vue.use(VuetifyToast, {
 });
 
 /**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
+ * Verificar autenticación con el servidor 
+ * y establecer datos en el store, una vez
+ * establecidos crear la instancia principal
+ * de Vue para la web app.
  */
 
-new Vue({
-  router: router,
-  store: store,
-  vuetify,
-  render: h => h(App)
-}).$mount("#keemble-app");
+store
+  .dispatch(CHECK_AUTH)
+  .then(() => {})
+  .catch(() => {})
+  .finally(() => {
+    new Vue({
+      router: router,
+      store: store,
+      vuetify,
+      render: h => h(App)
+    }).$mount("#keemble-app");
+  });
