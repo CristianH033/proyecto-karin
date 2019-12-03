@@ -156,12 +156,11 @@ export default {
         .catch(error => {
           switch (error.response.status) {
             case 401:
-              commit(mutations.LOGGED, true);
+              commit(mutations.LOGGED, false);
+              commit(mutations.OTP_VERIFIED, false);
               commit(mutations.USER, null);
               commit(mutations.ATTEMPT_USER, null);
-              commit(mutations.OTP_VERIFIED, false);
               commit(mutations.ACCESS_TOKEN, null);
-              commit(mutations.LOGGED, false);
               break;
             default:
               break;

@@ -7,7 +7,6 @@ import auth from "@api/auth";
  * @return {boolean}
  */
 export const isLogged = () => {
-  console.log("Llamando isLogged");
   return new Promise(resolve => {
     auth
       .checkAuth()
