@@ -26,3 +26,8 @@
 body {
   background-color: var(--kimblee-body-bg);
 }
+
+/** Fix fill height row */
+.container.fill-height > .row {
+  max-width: initial !important;
+}
