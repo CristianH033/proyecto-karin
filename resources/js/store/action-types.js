@@ -2,6 +2,8 @@
 export const SWITCH_DARK_THEME = "SWITCH_DARK_THEME";
 export const SET_DARK_THEME = "SET_DARK_THEME";
 export const SET_USE_BROWSER_THEME = "SET_USE_BROWSER_THEME";
+export const SET_APP_NAME = "SET_APP_NAME";
+export const SET_TITLE = "SET_TITLE";
 
 // AUTH MODULE
 export const LOGIN = "LOGIN";

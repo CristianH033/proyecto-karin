@@ -4,7 +4,9 @@ import mutations from "./mutations";
 
 const state = {
   darkTheme: false,
-  useBrowserTheme: true
+  useBrowserTheme: true,
+  appName: "Kimblee",
+  title: "Kimblee"
 };
 
 export default {

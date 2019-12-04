@@ -18,12 +18,12 @@ const routes = [
     children: [
       {
         path: "/email/verify",
-        name: "verify",
+        name: "Verificar correo",
         component: VerifyEmailPage
       },
       {
         path: "/email/resend",
-        name: "resend-email",
+        name: "Enviar correo de verificación",
         component: SendEmailPage
       }
     ]

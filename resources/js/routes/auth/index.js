@@ -23,7 +23,8 @@ const routes = [
     name: "auth",
     component: AuthLayout,
     meta: {
-      guest: true
+      guest: true,
+      title: ""
     },
     redirect: { name: "login" },
     children: [
@@ -32,7 +33,8 @@ const routes = [
         name: "login",
         component: LoginPage,
         meta: {
-          guest: true
+          guest: true,
+          title: "Iniciar sesión"
         }
       },
       {
@@ -40,7 +42,8 @@ const routes = [
         name: "register",
         component: RegisterPage,
         meta: {
-          guest: true
+          guest: true,
+          title: "Registro"
         }
       },
       {
@@ -48,7 +51,8 @@ const routes = [
         name: "request-password-reset",
         component: RecoveryPasswordPage,
         meta: {
-          guest: true
+          guest: true,
+          title: "Recuperar contraseña"
         }
       },
       {
@@ -56,7 +60,8 @@ const routes = [
         name: "reset-password",
         component: ResetPasswordPage,
         meta: {
-          guest: true
+          guest: true,
+          title: "Restablecer contraseña"
         }
       }
     ]

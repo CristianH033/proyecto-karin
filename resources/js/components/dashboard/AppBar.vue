@@ -1,22 +1,17 @@
 <template>
   <v-app-bar app clipped-left fixed elevate-on-scroll>
     <v-app-bar-nav-icon @click.stop="togleSidebarMenu"></v-app-bar-nav-icon>
-    <v-toolbar-title style="width: 300px">
+    <v-toolbar-title class="hidden-sm-and-down">
       <v-icon>mdi-paw</v-icon>
-      <span class="hidden-sm-and-down">Keemble</span>
+      <span>Keemble</span>
     </v-toolbar-title>
-    <v-text-field
-      flat
-      solo-inverted
-      hide-details
-      prepend-inner-icon="mdi-magnify"
-      label="Buscar"
-      class="hidden-sm-and-down"
-    ></v-text-field>
     <div class="flex-grow-1" />
-    <v-btn icon>
-      <v-icon>mdi-apps</v-icon>
-    </v-btn>
+    <v-toolbar-title>
+      <transition name="fade-transition" mode="out-in">
+        <span :key="appTitle" class="title">{{ appTitle }}</span>
+      </transition>
+    </v-toolbar-title>
+    <div class="flex-grow-1" />
     <v-btn icon>
       <v-badge overlap class="align-self-center">
         <template v-slot:badge>
@@ -41,12 +36,16 @@
 
 <script>
 import { EventBus } from "@services/event-bus";
+import { mapGetters } from "vuex";
 export default {
   name: "AppBar",
   props: {
     loading: Boolean
   },
   data: () => ({}),
+  computed: {
+    ...mapGetters({ appName: "getAppName", appTitle: "getTitle" })
+  },
   methods: {
     togleSidebarMenu() {
       EventBus.$emit("togleSidebarMenu");

@@ -60,7 +60,8 @@ const routes = [
         name: "home",
         component: HomePage,
         meta: {
-          requiresAuth: true
+          requiresAuth: true,
+          title: "Inicio"
         }
       },
       {
@@ -69,7 +70,8 @@ const routes = [
         redirect: { name: "admin-users" },
         component: UsersPage,
         meta: {
-          requiresAuth: true
+          requiresAuth: true,
+          title: "Administración"
         }
       },
       {
@@ -77,7 +79,8 @@ const routes = [
         name: "admin-users",
         component: UsersPage,
         meta: {
-          requiresAuth: true
+          requiresAuth: true,
+          title: "Usuarios"
         }
       },
       {
@@ -85,7 +88,8 @@ const routes = [
         name: "admin-roles",
         component: RolesAndPermissionsPage,
         meta: {
-          requiresAuth: true
+          requiresAuth: true,
+          title: "Roles"
         }
       },
       {
@@ -93,7 +97,8 @@ const routes = [
         name: "admin-permisions",
         component: UsersPage,
         meta: {
-          requiresAuth: true
+          requiresAuth: true,
+          title: "Permisos"
         }
       },
       {
@@ -101,7 +106,8 @@ const routes = [
         name: "devices",
         component: DevicesPage,
         meta: {
-          requiresAuth: true
+          requiresAuth: true,
+          title: "Dispositivos"
         }
       },
       {
@@ -109,7 +115,8 @@ const routes = [
         name: "headquarters",
         component: HeadQuartersPage,
         meta: {
-          requiresAuth: true
+          requiresAuth: true,
+          title: "Sedes"
         }
       },
       {
@@ -117,7 +124,8 @@ const routes = [
         name: "staff",
         component: StaffPage,
         meta: {
-          requiresAuth: true
+          requiresAuth: true,
+          title: "Personal"
         }
       },
       {
@@ -125,7 +133,8 @@ const routes = [
         name: "suppliers",
         component: SuppliersPage,
         meta: {
-          requiresAuth: true
+          requiresAuth: true,
+          title: "Proveedores"
         }
       },
       {
@@ -133,7 +142,8 @@ const routes = [
         name: "work-stations",
         component: WorkStationsPage,
         meta: {
-          requiresAuth: true
+          requiresAuth: true,
+          title: "Estaciones de trabajo"
         }
       },
 
@@ -142,7 +152,8 @@ const routes = [
         name: "about",
         component: AboutPage,
         meta: {
-          requiresAuth: true
+          requiresAuth: true,
+          title: "Acerca de nosotros"
         }
       }
     ]
