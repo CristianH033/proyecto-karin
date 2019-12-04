@@ -2,8 +2,8 @@ import axios from "axios";
 import { users as usersAPI } from "@services/api.js";
 
 const users = {
-  fetch: () => {
-    return axios.get(usersAPI);
+  fetch: (params = {}) => {
+    return axios.get(usersAPI, { params: params });
   },
   update: user => {
     return axios.put("/api/v1/user", {

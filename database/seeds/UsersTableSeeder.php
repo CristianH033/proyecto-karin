@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
     ]);
 
     foreach (
-      Persona::where('dni', '!=', 1057015139)
+      Persona::doesntHave('user')
         ->take(10)
         ->get()
       as $persona

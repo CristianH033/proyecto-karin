@@ -28,9 +28,23 @@ class UserController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-  public function index()
+  public function index(Request $request, User $usuarios)
   {
-    return new UserCollection(User::paginate());
+    $usuarios = $usuarios->newQuery();
+
+    // Filtrar por nombre o correo
+    if ($request->has("filter")) {
+      $filtro =  mb_strtolower($request->input('filter'));
+      $usuarios
+        ->with('persona')
+        ->where('email', 'LIKE', "%{$filtro}%")
+        ->orWhereHas('persona', function ($q) use ($filtro){
+          $q->where('primer_nombre', 'LIKE', "%{$filtro}%");
+        })
+        ->get();
+    }
+
+    return new UserCollection($usuarios->paginate(10));
   }
 
   /**
