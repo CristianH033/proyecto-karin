@@ -43,6 +43,8 @@ class ClearAll extends Command
     $this->call('view:clear');
     $this->call('clear-compiled');
     $this->call('migrate:fresh');
+    $this->call('scout:import', ['model' => 'App\\Persona']);
+    $this->call('scout:import', ['model' => 'App\\User']);
     $this->call('db:seed');
     $this->call('passport:install', ['--force' => 'default']);
   }
