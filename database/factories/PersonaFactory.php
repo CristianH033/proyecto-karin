@@ -16,7 +16,7 @@ $factory->define(Persona::class, function (Faker $faker) {
   $endDate = Carbon::now()->subYears(30)->timestamp;
 
   return [
-    'dni' => $faker->randomNumber(9),
+    'dni' => $faker->unique()->randomNumber(9),
     'primer_nombre' => mb_strtolower($faker->firstName($gender)),
     'segundo_nombre' => mb_strtolower($faker->firstName($gender)),
     'primer_apellido' => mb_strtolower($faker->lastName()),

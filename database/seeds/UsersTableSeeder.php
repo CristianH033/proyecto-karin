@@ -18,12 +18,7 @@ class UsersTableSeeder extends Seeder
       'email' => 'cristian_david033@hotmail.com'
     ]);
 
-    foreach (
-      Persona::doesntHave('user')
-        ->take(10)
-        ->get()
-      as $persona
-    ) {
+    foreach (Persona::doesntHave('user')->get() as $persona) {
       factory(User::class)->create([
         'persona_id' => $persona->id
       ]);
