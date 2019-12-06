@@ -48,6 +48,28 @@ class Persona extends Model
     return $array;
   }
 
+  /** scopes */
+  public function scopeBuscarPorNombre($query, $search)
+  {
+    if ($search == null) {
+      return $query;
+    }
+
+    return $query
+      ->whereRaw(
+        "concat(primer_nombre, ' ', segundo_nombre, ' ', primer_apellido, ' ', segundo_apellido) like '%{$search}%'"
+      )
+      ->orWhereRaw(
+        "concat(primer_nombre, ' ', segundo_nombre) like '%{$search}%'"
+      )
+      ->orWhereRaw(
+        "concat(primer_apellido, ' ', segundo_apellido) like '%{$search}%'"
+      )
+      ->orWhereRaw(
+        "concat(primer_nombre, ' ', primer_apellido) like '%{$search}%'"
+      );
+  }
+
   public function user()
   {
     return $this->hasOne(User::class, 'persona_id', 'id');

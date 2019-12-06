@@ -108,6 +108,17 @@ class User extends Authenticatable implements MustVerifyEmail
     return $array;
   }
 
+  /** Scopes */
+
+  public function scopeBuscarPorEmail($query, $search)
+  {
+    if ($search == null) {
+      return $query;
+    }
+
+    return $query->where('email', 'LIKE', "%{$search}%");
+  }
+
   /**
    * Persona relacionada al usuario
    * @return \App\Persona
