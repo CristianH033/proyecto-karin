@@ -18,6 +18,9 @@ import store from "@js/store";
 import vuetify from "@plugins/vuetify";
 // VuetifyToast
 import VuetifyToast from "vuetify-toast-snackbar";
+// Portal Vue
+import PortalVue from "portal-vue";
+
 // Componente principal
 import App from "@js/App.vue";
 
@@ -34,8 +37,11 @@ Vue.use(VuetifyToast, {
   timeout: 10000
 });
 
+// Usar PortalVue
+Vue.use(PortalVue);
+
 /**
- * Verificar autenticación con el servidor 
+ * Verificar autenticación con el servidor
  * y establecer datos en el store, una vez
  * establecidos crear la instancia principal
  * de Vue para la web app.
