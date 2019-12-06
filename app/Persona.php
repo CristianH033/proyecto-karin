@@ -2,13 +2,14 @@
 
 namespace App;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Persona extends Model
 {
-  use LogsActivity, SoftDeletes;
+  use LogsActivity, SoftDeletes, Searchable;
 
   /**
    * La tabla asociada al modelo.
@@ -30,6 +31,22 @@ class Persona extends Model
    * @var string
    */
   protected static $logAttributes = ['*'];
+
+  public $asYouType = true;
+
+  /**
+   * Get the indexable data array for the model.
+   *
+   * @return array
+   */
+  public function toSearchableArray()
+  {
+    $array = $this->toArray();
+
+    // Customize array...
+
+    return $array;
+  }
 
   public function user()
   {

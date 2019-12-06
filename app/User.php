@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Persona;
+use Laravel\Scout\Searchable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Support\Facades\Cache;
 use App\Notifications\OTPNotification;
@@ -18,7 +19,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-  use HasApiTokens, Notifiable, HasRolesAndAbilities, SoftDeletes, LogsActivity;
+  use HasApiTokens,
+    Notifiable,
+    HasRolesAndAbilities,
+    SoftDeletes,
+    LogsActivity,
+    Searchable;
 
   /**
    * La tabla asociada al modelo.
@@ -62,7 +68,7 @@ class User extends Authenticatable implements MustVerifyEmail
    *
    * @var array
    */
-  protected $appends = ['nombre'];
+  protected $appends = ['nombre', 'dni'];
 
   /**
    * Obtener nombre de persona.
@@ -74,6 +80,32 @@ class User extends Authenticatable implements MustVerifyEmail
     return $this->persona()
       ->getResults()
       ->fullName();
+  }
+
+  /**
+   * Obtener DNI de persona.
+   *
+   * @return string
+   */
+  public function getDniAttribute()
+  {
+    return $this->persona()->getResults()->dni;
+  }
+
+  public $asYouType = true;
+
+  /**
+   * Get the indexable data array for the model.
+   *
+   * @return array
+   */
+  public function toSearchableArray()
+  {
+    $array = $this->toArray();
+
+    // Customize array...
+
+    return $array;
   }
 
   /**
