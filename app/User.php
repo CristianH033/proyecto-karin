@@ -103,8 +103,7 @@ class User extends Authenticatable implements MustVerifyEmail
   {
     $array = $this->toArray();
 
-    // Customize array...
-
+    $array = array_merge($array, ['persona' => $this->persona]);
     return $array;
   }
 
