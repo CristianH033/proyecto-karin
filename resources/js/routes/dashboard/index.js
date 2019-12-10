@@ -10,7 +10,7 @@ const HomePage = () =>
 /** Admin */
 const UsersPage = () =>
   import(
-    /* webpackChunkName: "js/pages/UsersPage" */ "@pages/dashboard/admin/Users.vue"
+    /* webpackChunkName: "js/pages/UsersPage" */ "@pages/dashboard/admin/users/Users.vue"
   );
 const RolesAndPermissionsPage = () =>
   import(
