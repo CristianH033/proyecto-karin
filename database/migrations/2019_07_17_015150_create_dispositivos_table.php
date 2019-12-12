@@ -16,6 +16,7 @@ class CreateDispositivosTable extends Migration
     Schema::create('dispositivos', function (Blueprint $table) {
       $table->bigIncrements('id');
       $table->unsignedBigInteger('tipo_dispositivo_id');
+      $table->string('serial')->unique();
       $table->string('nombre');
       $table->timestamps();
       $table->softDeletes();

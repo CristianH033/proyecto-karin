@@ -15,6 +15,7 @@ class CreateModelosTable extends Migration
   {
     Schema::create('modelos', function (Blueprint $table) {
       $table->bigIncrements('id');
+      $table->string('nombre')->unique();
       $table->json('componentes')->nullable();
       $table->timestamps();
       $table->softDeletes();
