@@ -20,6 +20,12 @@ class CreateOrganizacionesTable extends Migration
       $table->unsignedBigInteger('representante_id')->nullable();
       $table->timestamps();
       $table->softDeletes();
+      // Llaves foráneas
+      $table
+        ->foreign('representante_id')
+        ->references('id')
+        ->on('personas')
+        ->onDelete('cascade');
     });
   }
 
