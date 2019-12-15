@@ -21,6 +21,7 @@ class SpanishPluralizerServiceProvider extends ServiceProvider
       'irregular' => [
         "organizacion" => "organizaciones",
         "proovedor" => "proovedores",
+        "ubicacion" => "ubicaciones",
         "estacion" => "estaciones",
         "operador" => "operadores",
         "sucursal" => "sucursales",
