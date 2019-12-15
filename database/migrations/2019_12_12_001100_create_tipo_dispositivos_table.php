@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInventariosTable extends Migration
+class CreateTipoDispositivosTable extends Migration
 {
   /**
    * Run the migrations.
@@ -13,9 +13,9 @@ class CreateInventariosTable extends Migration
    */
   public function up()
   {
-    Schema::create('inventarios', function (Blueprint $table) {
+    Schema::create('tipo_dispositivos', function (Blueprint $table) {
       $table->bigIncrements('id');
-      $table->string('serial', 256)->unique();
+      $table->string('tipo');
       $table->timestamps();
       $table->softDeletes();
     });
@@ -28,6 +28,6 @@ class CreateInventariosTable extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('inventarios');
+    Schema::dropIfExists('tipo_dispositivos');
   }
 }

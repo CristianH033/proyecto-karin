@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGarantiasTable extends Migration
+class CreateSedesTable extends Migration
 {
   /**
    * Run the migrations.
@@ -13,20 +13,24 @@ class CreateGarantiasTable extends Migration
    */
   public function up()
   {
-    Schema::create('garantias', function (Blueprint $table) {
+    Schema::create('sedes', function (Blueprint $table) {
       $table->bigIncrements('id');
-      $table->bigInteger('contrato_id')->unsigned();
+      $table->bigInteger('organizacion_id')->unsigned();
+      $table->bigInteger('ciudad_id')->unsigned();
       $table->string('nombre');
-      $table->text('descripcion')->nullable();
-      $table->date('fecha_inicio');
-      $table->date('fecha_fin');
+      $table->string('direccion');
       $table->timestamps();
       $table->softDeletes();
       // Llaves foraneas
       $table
-        ->foreign('contrato_id')
+        ->foreign('organizacion_id')
         ->references('id')
-        ->on('contratos')
+        ->on('organizaciones')
+        ->onDelete('cascade');
+      $table
+        ->foreign('ciudad_id')
+        ->references('id')
+        ->on('ciudades')
         ->onDelete('cascade');
     });
   }
@@ -38,6 +42,6 @@ class CreateGarantiasTable extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('garantias');
+    Schema::dropIfExists('sedes');
   }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDispositivosTable extends Migration
+class CreateGarantiasTable extends Migration
 {
   /**
    * Run the migrations.
@@ -13,18 +13,15 @@ class CreateDispositivosTable extends Migration
    */
   public function up()
   {
-    Schema::create('dispositivos', function (Blueprint $table) {
+    Schema::create('garantias', function (Blueprint $table) {
       $table->bigIncrements('id');
-      $table->unsignedBigInteger('tipo_dispositivo_id');
-      $table->string('serial')->unique();
+      $table->bigInteger('garantizable')->unsigned();
       $table->string('nombre');
+      $table->text('descripcion')->nullable();
+      $table->date('fecha_inicio');
+      $table->date('fecha_fin');
       $table->timestamps();
       $table->softDeletes();
-      $table
-        ->foreign('tipo_dispositivo_id')
-        ->references('id')
-        ->on('tipo_dispositivos')
-        ->onDelete('cascade');
     });
   }
 
@@ -35,6 +32,6 @@ class CreateDispositivosTable extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('dispositivos');
+    Schema::dropIfExists('garantias');
   }
 }

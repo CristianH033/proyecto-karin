@@ -20,7 +20,7 @@ class CreateFuncionariosTable extends Migration
         ->unsigned()
         ->unique();
       $table->bigInteger('cargo_id')->unsigned();
-      $table->bigInteger('estacion_trabajo_id')->unsigned();
+      $table->bigInteger('ubicacion_id')->unsigned();
       $table->timestamps();
       $table->softDeletes();
       // Llaves foraneas
@@ -35,9 +35,9 @@ class CreateFuncionariosTable extends Migration
         ->on('cargos')
         ->onDelete('cascade');
       $table
-        ->foreign('estacion_trabajo_id')
+        ->foreign('ubicacion_id')
         ->references('id')
-        ->on('estacion_trabajos')
+        ->on('ubicaciones')
         ->onDelete('cascade');
     });
   }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateModelosTable extends Migration
+class CreateAreasTable extends Migration
 {
   /**
    * Run the migrations.
@@ -13,12 +13,17 @@ class CreateModelosTable extends Migration
    */
   public function up()
   {
-    Schema::create('modelos', function (Blueprint $table) {
+    Schema::create('areas', function (Blueprint $table) {
       $table->bigIncrements('id');
-      $table->string('nombre')->unique();
-      $table->json('componentes')->nullable();
+      $table->unsignedBigInteger('organizacion_id');
       $table->timestamps();
       $table->softDeletes();
+      // Llaves foráneas
+      $table
+        ->foreign('organizacion_id')
+        ->references('id')
+        ->on('organizaciones')
+        ->onDelete('cascade');
     });
   }
 
@@ -29,6 +34,6 @@ class CreateModelosTable extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('modelos');
+    Schema::dropIfExists('areas');
   }
 }

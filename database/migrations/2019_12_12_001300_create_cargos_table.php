@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInicidenciasTable extends Migration
+class CreateCargosTable extends Migration
 {
   /**
    * Run the migrations.
@@ -13,8 +13,10 @@ class CreateInicidenciasTable extends Migration
    */
   public function up()
   {
-    Schema::create('inicidencias', function (Blueprint $table) {
+    Schema::create('cargos', function (Blueprint $table) {
       $table->bigIncrements('id');
+      $table->string('nombre');
+      $table->longText('descripcion')->nullable();
       $table->timestamps();
       $table->softDeletes();
     });
@@ -27,6 +29,6 @@ class CreateInicidenciasTable extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('inicidencias');
+    Schema::dropIfExists('cargos');
   }
 }
