@@ -15,12 +15,23 @@ class CreateComponentesTable extends Migration
   {
     Schema::create('componentes', function (Blueprint $table) {
       $table->bigIncrements('id');
-      $table
-        ->bigInteger('dispositivo_id')
-        ->unsigned()
-        ->nullable();
+      $table->unsignedBigInteger('modelo_id');
+      $table->unsignedBigInteger('tipo_componente_id');
+      $table->unsignedBigInteger('dispositivo_id')->nullable();
+      $table->string('serial')->unique();
       $table->timestamps();
       $table->softDeletes();
+      // Llaves foráneas
+      $table
+        ->foreign('modelo_id')
+        ->references('id')
+        ->on('modelos')
+        ->onDelete('cascade');
+      $table
+        ->foreign('tipo_componente_id')
+        ->references('id')
+        ->on('tipo_componentes')
+        ->onDelete('cascade');
       $table
         ->foreign('dispositivo_id')
         ->references('id')

@@ -16,6 +16,7 @@ class CreateAreasTable extends Migration
     Schema::create('areas', function (Blueprint $table) {
       $table->bigIncrements('id');
       $table->unsignedBigInteger('organizacion_id');
+      $table->string('nombre');
       $table->timestamps();
       $table->softDeletes();
       // Llaves foráneas
