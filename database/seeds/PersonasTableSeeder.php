@@ -23,6 +23,6 @@ class PersonasTableSeeder extends Seeder
       'genero_id' => 1
     ]);
 
-    factory(Persona::class, 100)->create();
+    factory(Persona::class, 10)->create();
   }
 }

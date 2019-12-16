@@ -1,5 +1,6 @@
 <?php
 
+use App\Traslado;
 use Illuminate\Database\Seeder;
 
 class TrasladosTableSeeder extends Seeder
@@ -11,6 +12,6 @@ class TrasladosTableSeeder extends Seeder
    */
   public function run()
   {
-    //
+    factory(Traslado::class)->create([]);
   }
 }

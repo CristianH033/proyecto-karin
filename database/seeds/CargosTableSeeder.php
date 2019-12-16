@@ -1,5 +1,6 @@
 <?php
 
+use App\Cargo;
 use Illuminate\Database\Seeder;
 
 class CargosTableSeeder extends Seeder
@@ -11,6 +12,9 @@ class CargosTableSeeder extends Seeder
    */
   public function run()
   {
-    //
+    factory(Cargo::class)->create([
+      "nombre" => "director ejecutivo",
+      "descripcion" => "director ejecutivo"
+    ]);
   }
 }

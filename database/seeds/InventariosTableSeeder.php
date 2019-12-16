@@ -1,5 +1,6 @@
 <?php
 
+use App\Inventario;
 use Illuminate\Database\Seeder;
 
 class InventariosTableSeeder extends Seeder
@@ -11,6 +12,6 @@ class InventariosTableSeeder extends Seeder
    */
   public function run()
   {
-    //
+    factory(Inventario::class)->create([]);
   }
 }

@@ -14,7 +14,7 @@ class CiudadesTableSeeder extends Seeder
   public function run()
   {
     Estado::all()->each(function ($pais) {
-      $pais->ciudades()->saveMany(factory(Ciudad::class, 20)->make());
+      $pais->ciudades()->saveMany(factory(Ciudad::class, 2)->make());
     });
   }
 }

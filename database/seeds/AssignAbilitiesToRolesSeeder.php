@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Silber\Bouncer\BouncerFacade as Bouncer;
 
 class AssignAbilitiesToRolesSeeder extends Seeder
 {

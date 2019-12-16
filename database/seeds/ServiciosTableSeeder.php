@@ -1,5 +1,6 @@
 <?php
 
+use App\Servicio;
 use Illuminate\Database\Seeder;
 
 class ServiciosTableSeeder extends Seeder
@@ -11,6 +12,10 @@ class ServiciosTableSeeder extends Seeder
    */
   public function run()
   {
-    //
+    factory(Servicio::class)->create([
+      "tipo_servicio_id" => 1,
+      "nombre" => "software contable",
+      "descripcion" => "lorem ipsum dolor"
+    ]);
   }
 }

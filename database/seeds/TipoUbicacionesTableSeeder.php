@@ -1,9 +1,9 @@
 <?php
 
-use App\Fabricante;
+use App\TipoUbicacion;
 use Illuminate\Database\Seeder;
 
-class FabricantesTableSeeder extends Seeder
+class TipoUbicacionesTableSeeder extends Seeder
 {
   /**
    * Run the database seeds.
@@ -12,8 +12,8 @@ class FabricantesTableSeeder extends Seeder
    */
   public function run()
   {
-    factory(Fabricante::class)->create([
-      "nombre" => "lenovo"
+    factory(TipoUbicacion::class)->create([
+      "tipo" => "Palito"
     ]);
   }
 }

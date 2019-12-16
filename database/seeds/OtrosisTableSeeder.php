@@ -1,5 +1,6 @@
 <?php
 
+use App\Otrosi;
 use Illuminate\Database\Seeder;
 
 class OtrosisTableSeeder extends Seeder
@@ -11,6 +12,6 @@ class OtrosisTableSeeder extends Seeder
    */
   public function run()
   {
-    //
+    factory(Otrosi::class)->create([]);
   }
 }

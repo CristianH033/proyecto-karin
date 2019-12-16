@@ -1,5 +1,6 @@
 <?php
 
+use App\TipoProducto;
 use Illuminate\Database\Seeder;
 
 class TipoProductosTableSeeder extends Seeder
@@ -11,6 +12,8 @@ class TipoProductosTableSeeder extends Seeder
    */
   public function run()
   {
-    //
+    factory(TipoProducto::class)->create([
+      "tipo" => "tipo"
+    ]);
   }
 }

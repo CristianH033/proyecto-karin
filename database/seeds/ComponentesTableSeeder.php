@@ -1,5 +1,6 @@
 <?php
 
+use App\Componente;
 use Illuminate\Database\Seeder;
 
 class ComponentesTableSeeder extends Seeder
@@ -11,6 +12,10 @@ class ComponentesTableSeeder extends Seeder
    */
   public function run()
   {
-    //
+    factory(Componente::class)->create([
+      "modelo_id" => 1,
+      "tipo_componente_id" => 1,
+      "serial" => "12a12312312a"
+    ]);
   }
 }

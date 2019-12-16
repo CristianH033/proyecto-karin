@@ -1,5 +1,6 @@
 <?php
 
+use App\Sede;
 use Illuminate\Database\Seeder;
 
 class SedesTableSeeder extends Seeder
@@ -11,6 +12,11 @@ class SedesTableSeeder extends Seeder
    */
   public function run()
   {
-    //
+    factory(Sede::class)->create([
+      "organizacion_id" => 1,
+      "ciudad_id" => 1,
+      "nombre" => "Compañia X",
+      "direccion" => "Carrera 34 # 13-24",
+    ]);
   }
 }

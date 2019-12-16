@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Silber\Bouncer\BouncerFacade as Bouncer;
 class AbilitiesTableSeeder extends Seeder
 {
   /**

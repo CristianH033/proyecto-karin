@@ -1,5 +1,6 @@
 <?php
 
+use App\Operador;
 use Illuminate\Database\Seeder;
 
 class OperadoresTableSeeder extends Seeder
@@ -11,6 +12,8 @@ class OperadoresTableSeeder extends Seeder
    */
   public function run()
   {
-    //
+    factory(Operador::class)->create([
+      "persona_id" => 1
+    ]);
   }
 }

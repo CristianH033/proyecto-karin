@@ -1,5 +1,6 @@
 <?php
 
+use App\Evento;
 use Illuminate\Database\Seeder;
 
 class EventosTableSeeder extends Seeder
@@ -11,6 +12,6 @@ class EventosTableSeeder extends Seeder
    */
   public function run()
   {
-    //
+    factory(Evento::class)->create([]);
   }
 }
