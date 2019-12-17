@@ -14,11 +14,16 @@ class Organizacion extends Model
   /**
    * @Author: Cristian David Home
    * @Date: 2019-10-28 09:52:51
-   * @Desc:  Obtener el tercero asociado a la enditad
+   * @Desc:  Obtener el representante legal (persona)
    * @return \App\Tercero
    */
-  public function tercero()
+  public function representante()
   {
-    return $this->morphOne(Tercero::class, 'tercereable');
+    return $this->belongsTo(Persona::class, 'representante_id', 'id');
+  }
+
+  public function sedes()
+  {
+    return $this->hasMany(Sede::class, 'organizacion_id', 'id');
   }
 }

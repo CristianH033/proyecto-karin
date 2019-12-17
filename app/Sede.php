@@ -30,4 +30,16 @@ class Sede extends Model
    * @var string
    */
   protected static $logAttributes = ['*'];
+
+  /** Relaciones */
+
+  public function organizacion()
+  {
+    return $this->belongsTo(Organizacion::class, 'organizacion_id', 'id');
+  }
+
+  public function ciudad()
+  {
+    return $this->belongsTo(Ciudad::class, 'ciudad_id', 'id');
+  }
 }

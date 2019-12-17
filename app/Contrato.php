@@ -30,4 +30,22 @@ class Contrato extends Model
    * @var string
    */
   protected static $logAttributes = ['*'];
+
+  /** Relaciones */
+
+  /**
+   * Obtener el modelo contratable.
+   */
+  public function contratable()
+  {
+    return $this->morphTo();
+  }
+
+  /**
+   * Obtener el modelo contratable.
+   */
+  public function contratante()
+  {
+    return $this->morphTo();
+  }
 }

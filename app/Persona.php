@@ -70,6 +70,22 @@ class Persona extends Model
       );
   }
 
+  /**
+   * Obtener todos los contratos relacionados.
+   */
+  public function contratados()
+  {
+    return $this->morphMany('App\Contrato', 'contratante');
+  }
+
+  /**
+   * Obtener todos los contratos relacionados.
+   */
+  public function contratos()
+  {
+    return $this->morphMany('App\Contrato', 'contratable');
+  }
+
   public function user()
   {
     return $this->hasOne(User::class, 'persona_id', 'id');

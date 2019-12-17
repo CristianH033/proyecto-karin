@@ -30,4 +30,10 @@ class Fabricante extends Model
    * @var string
    */
   protected static $logAttributes = ['*'];
+
+  /** Relaciones */
+  public function modelos()
+  {
+    return $this->hasMany(Modelo::class, 'fabricante_id', 'id');
+  }
 }

@@ -30,4 +30,30 @@ class Modelo extends Model
    * @var string
    */
   protected static $logAttributes = ['*'];
+
+  protected $casts = [
+    "caracteristicas_tecnicas" => "object"
+  ];
+
+  public function getCaracteristicasTecnicasAttribute($value)
+  {
+    return json_decode($value);
+  }
+
+  /** Relaciones */
+
+  public function fabricante()
+  {
+    return $this->belongsTo(Fabricante::class, 'fabricante_id', 'id');
+  }
+
+  public function dispositivos()
+  {
+    return $this->hasMany(Dispositivo::class, 'modelo_id', 'id');
+  }
+
+  public function componentes()
+  {
+    return $this->hasMany(Dispositivo::class, 'modelo_id', 'id');
+  }
 }
