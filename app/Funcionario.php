@@ -30,4 +30,9 @@ class Funcionario extends Model
    * @var string
    */
   protected static $logAttributes = ['*'];
+
+  public function cargo()
+  {
+    return $this->belongsTo(Cargo::class, 'cargo_id', 'id');
+  }
 }

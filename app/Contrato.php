@@ -48,4 +48,9 @@ class Contrato extends Model
   {
     return $this->morphTo();
   }
+
+  public function garantias()
+  {
+    return $this->morphMany(Garantia::class, 'garantizable');
+  }
 }

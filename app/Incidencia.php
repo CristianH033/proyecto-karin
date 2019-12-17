@@ -40,4 +40,13 @@ class Incidencia extends Model
   {
     return $this->morphTo();
   }
+
+  public function estado()
+  {
+    return $this->belongsTo(
+      EstadoIncidencia::class,
+      'estado_incidencia_id',
+      'id'
+    );
+  }
 }

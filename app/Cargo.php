@@ -30,4 +30,9 @@ class Cargo extends Model
    * @var string
    */
   protected static $logAttributes = ['*'];
+
+  public function funcionarios()
+  {
+    return $this->hasMany(Funcionario::class, 'cargo_id', 'id');
+  }
 }

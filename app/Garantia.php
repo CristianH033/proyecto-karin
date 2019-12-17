@@ -30,4 +30,12 @@ class Garantia extends Model
    * @var string
    */
   protected static $logAttributes = ['*'];
+
+  /**
+   * Obtener el modelo contratable.
+   */
+  public function garantizable()
+  {
+    return $this->morphTo();
+  }
 }

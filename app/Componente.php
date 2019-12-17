@@ -67,16 +67,23 @@ class Componente extends Model
     return $this->belongsTo(Modelo::class, 'modelo_id', 'id');
   }
 
+  public function ubicacion()
+  {
+    return $this->belongsTo(Ubicacion::class, 'ubicacion_id', 'id');
+  }
+
   public function dispositivo()
   {
     return $this->belongsTo(Dispositivo::class, 'dispositivo_id', 'id');
   }
 
-  /**
-   * Obtener todos los contratos relacionados.
-   */
   public function incidencias()
   {
     return $this->morphMany(Incidencia::class, 'incidenciable');
+  }
+
+  public function garantias()
+  {
+    return $this->morphMany(Garantia::class, 'garantizable');
   }
 }

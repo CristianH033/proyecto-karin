@@ -30,4 +30,7 @@ class EstacionTrabajo extends Model
    * @var string
    */
   protected static $logAttributes = ['*'];
+
+  /** Relaciones */
+  
 }
