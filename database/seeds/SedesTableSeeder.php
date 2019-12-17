@@ -15,7 +15,7 @@ class SedesTableSeeder extends Seeder
     factory(Sede::class)->create([
       "organizacion_id" => 1,
       "ciudad_id" => 1,
-      "nombre" => "Compañia X",
+      "nombre" => "Sede X",
       "direccion" => "Carrera 34 # 13-24",
     ]);
   }

@@ -14,7 +14,11 @@ class ModelosTableSeeder extends Seeder
   {
     factory(Modelo::class)->create([
       "nombre" => "inspiron 9438",
-      "caracteristicas_tecnicas" => json_encode(["procesador" => "i7"])
+      "fabricante_id" => 1,
+      "caracteristicas_tecnicas" => json_encode([
+        "procesador" => "i7",
+        "ram" => "4gb"
+      ])
     ]);
   }
 }

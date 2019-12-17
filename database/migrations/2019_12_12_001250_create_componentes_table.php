@@ -17,8 +17,10 @@ class CreateComponentesTable extends Migration
       $table->bigIncrements('id');
       $table->unsignedBigInteger('modelo_id');
       $table->unsignedBigInteger('tipo_componente_id');
+      $table->unsignedBigInteger('ubicacion_id')->nullable();
       $table->unsignedBigInteger('dispositivo_id')->nullable();
       $table->string('serial')->unique();
+      $table->json('caracteristicas_tecnicas')->nullable();
       $table->timestamps();
       $table->softDeletes();
       // Llaves foráneas

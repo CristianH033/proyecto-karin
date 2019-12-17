@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Modelo::class, function (Faker $faker) {
   return [
-      //
-    ];
+    "nombre" => $faker->unique()->word(),
+    "caracteristicas_tecnicas" => json_encode([])
+  ];
 });

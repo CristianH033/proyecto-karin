@@ -16,8 +16,10 @@ class CreateContratosTable extends Migration
     Schema::create('contratos', function (Blueprint $table) {
       $table->bigIncrements('id');
       $table->bigInteger('tipo_contrato_id')->unsigned();
-      $table->bigInteger('proovedor_id')->unsigned();
-      $table->bigInteger('cliente_id')->unsigned();
+      $table->bigInteger('contratable_id')->unsigned();
+      $table->string('contratable_type');
+      $table->bigInteger('contratante_id')->unsigned();
+      $table->string('contratante_type');
       $table->timestamps();
       $table->softDeletes();
       // Llave Foranea
@@ -25,16 +27,6 @@ class CreateContratosTable extends Migration
         ->foreign('tipo_contrato_id')
         ->references('id')
         ->on('tipo_contratos')
-        ->onDelete('cascade');
-      $table
-        ->foreign('proovedor_id')
-        ->references('id')
-        ->on('terceros')
-        ->onDelete('cascade');
-      $table
-        ->foreign('cliente_id')
-        ->references('id')
-        ->on('terceros')
         ->onDelete('cascade');
     });
   }

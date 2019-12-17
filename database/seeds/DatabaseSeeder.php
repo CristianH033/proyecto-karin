@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
     $this->call(TipoContratosTableSeeder::class);
     $this->call(ContratosTableSeeder::class);
     $this->call(GarantiasTableSeeder::class);
+    $this->call(FabricantesTableSeeder::class);
     $this->call(ModelosTableSeeder::class);
     $this->call(TipoDispositivosTableSeeder::class);
     $this->call(DispositivosTableSeeder::class);
@@ -40,11 +41,10 @@ class DatabaseSeeder extends Seeder
     $this->call(FuncionariosTableSeeder::class);
     $this->call(OperadoresTableSeeder::class);
     $this->call(TagsTableSeeder::class);
-    $this->call(FabricantesTableSeeder::class);
     $this->call(OtrosisTableSeeder::class);
     $this->call(TrasladosTableSeeder::class);
     $this->call(EstadoIncidenciasTableSeeder::class);
-    $this->call(InicidenciasTableSeeder::class);
+    $this->call(IncidenciasTableSeeder::class);
     $this->call(EventosTableSeeder::class);
     $this->call(RolesTableSeeder::class);
     $this->call(AbilitiesTableSeeder::class);

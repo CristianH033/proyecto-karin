@@ -15,10 +15,17 @@ class CreateModelosTable extends Migration
   {
     Schema::create('modelos', function (Blueprint $table) {
       $table->bigIncrements('id');
+      $table->unsignedBigInteger('fabricante_id');
       $table->string('nombre')->unique();
       $table->json('caracteristicas_tecnicas')->nullable();
       $table->timestamps();
       $table->softDeletes();
+      // Llaves foráneas
+      $table
+        ->foreign('fabricante_id')
+        ->references('id')
+        ->on('fabricantes')
+        ->onDelete('cascade');
     });
   }
 
