@@ -16,9 +16,9 @@ class OperadorController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class OperadorController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Operador::create($request->all());
   }
 
   /**
    * Muestra el Operador especificado.
    *
-   * @param  \App\Operador  $operador
+   * @param  \App\Operador $operador
    * @return \Illuminate\Http\Response
    */
   public function show(Operador $operador)
@@ -62,7 +62,7 @@ class OperadorController extends Controller
    */
   public function update(Request $request, Operador $operador)
   {
-    //
+    $operador->save();
   }
 
   /**

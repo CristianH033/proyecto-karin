@@ -16,9 +16,9 @@ class TrasladoController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class TrasladoController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Traslado::create($request->all());
   }
 
   /**
    * Muestra el Traslado especificado.
    *
-   * @param  \App\Traslado  $traslado
+   * @param  \App\Traslado $traslado
    * @return \Illuminate\Http\Response
    */
   public function show(Traslado $traslado)
@@ -62,7 +62,7 @@ class TrasladoController extends Controller
    */
   public function update(Request $request, Traslado $traslado)
   {
-    //
+    $traslado->save();
   }
 
   /**

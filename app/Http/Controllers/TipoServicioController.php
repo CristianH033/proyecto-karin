@@ -16,9 +16,9 @@ class TipoServicioController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class TipoServicioController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    TipoServicio::create($request->all());
   }
 
   /**
    * Muestra el Tipo de Servicio especificado.
    *
-   * @param  \App\TipoServicio  $tipoServicio
+   * @param  \App\TipoServicio $tipoServicio
    * @return \Illuminate\Http\Response
    */
   public function show(TipoServicio $tipoServicio)
@@ -62,7 +62,7 @@ class TipoServicioController extends Controller
    */
   public function update(Request $request, TipoServicio $tipoServicio)
   {
-    //
+    $tipoServicio->save();
   }
 
   /**

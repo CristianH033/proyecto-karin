@@ -16,9 +16,9 @@ class ServicioController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class ServicioController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Servicio::create($request->all());
   }
 
   /**
    * Muestra el Servicio especificado.
    *
-   * @param  \App\Servicio  $servicio
+   * @param  \App\Servicio $servicio
    * @return \Illuminate\Http\Response
    */
   public function show(Servicio $servicio)
@@ -62,7 +62,7 @@ class ServicioController extends Controller
    */
   public function update(Request $request, Servicio $servicio)
   {
-    //
+    $servicio->save();
   }
 
   /**

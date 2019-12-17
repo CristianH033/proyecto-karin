@@ -16,9 +16,9 @@ class InventarioController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class InventarioController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Inventario::create($request->all());
   }
 
   /**
    * Muestra el Inventario especificado.
    *
-   * @param  \App\Inventario  $inventario
+   * @param  \App\Inventario $inventario
    * @return \Illuminate\Http\Response
    */
   public function show(Inventario $inventario)
@@ -62,7 +62,7 @@ class InventarioController extends Controller
    */
   public function update(Request $request, Inventario $inventario)
   {
-    //
+    $inventario->save();
   }
 
   /**

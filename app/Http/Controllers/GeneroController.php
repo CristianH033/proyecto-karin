@@ -18,16 +18,6 @@ class GeneroController extends Controller
   }
 
   /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function create()
-  {
-    //
-  }
-
-  /**
    * Store a newly created resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -35,27 +25,16 @@ class GeneroController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Genero::create($request->all());
   }
 
   /**
    * Display the specified resource.
    *
-   * @param  \App\Genero  $genero
+   * @param  \App\Genero $genero
    * @return \Illuminate\Http\Response
    */
   public function show(Genero $genero)
-  {
-    //
-  }
-
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  \App\Genero  $genero
-   * @return \Illuminate\Http\Response
-   */
-  public function edit(Genero $genero)
   {
     //
   }
@@ -69,7 +48,7 @@ class GeneroController extends Controller
    */
   public function update(Request $request, Genero $genero)
   {
-    //
+    $genero->save();
   }
 
   /**
@@ -80,6 +59,6 @@ class GeneroController extends Controller
    */
   public function destroy(Genero $genero)
   {
-    //
+    $genero->delete();
   }
 }

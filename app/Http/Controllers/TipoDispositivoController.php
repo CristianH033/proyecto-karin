@@ -16,9 +16,9 @@ class TipoDispositivoController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class TipoDispositivoController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    TipoDispositivo::create($request->all());
   }
 
   /**
    * Muestra el Tipo de Dispositivo especificado.
    *
-   * @param  \App\TipoDispositivo  $tipoDispositivo
+   * @param  \App\TipoDispositivo $tipoDispositivo
    * @return \Illuminate\Http\Response
    */
   public function show(TipoDispositivo $tipoDispositivo)
@@ -62,7 +62,7 @@ class TipoDispositivoController extends Controller
    */
   public function update(Request $request, TipoDispositivo $tipoDispositivo)
   {
-    //
+    $tipoDispositivo->save();
   }
 
   /**

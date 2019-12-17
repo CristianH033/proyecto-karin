@@ -16,9 +16,9 @@ class TerceroController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class TerceroController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Tercero::create($request->all());
   }
 
   /**
    * Muestra el Tercero especificado.
    *
-   * @param  \App\Tercero  $tercero
+   * @param  \App\Tercero $tercero
    * @return \Illuminate\Http\Response
    */
   public function show(Tercero $tercero)
@@ -62,7 +62,7 @@ class TerceroController extends Controller
    */
   public function update(Request $request, Tercero $tercero)
   {
-    //
+    $tercero->save();
   }
 
   /**

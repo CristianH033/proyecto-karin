@@ -16,9 +16,9 @@ class PersonaController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class PersonaController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Persona::create($request->all());
   }
 
   /**
    * Muestra el Persona especificado.
    *
-   * @param  \App\Persona  $persona
+   * @param  \App\Persona $persona
    * @return \Illuminate\Http\Response
    */
   public function show(Persona $persona)
@@ -62,7 +62,7 @@ class PersonaController extends Controller
    */
   public function update(Request $request, Persona $persona)
   {
-    //
+    $persona->save();
   }
 
   /**

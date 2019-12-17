@@ -16,9 +16,9 @@ class GarantiaController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class GarantiaController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Garantia::create($request->all());
   }
 
   /**
    * Muestra la Garantia especificada.
    *
-   * @param  \App\Garantia  $garantia
+   * @param  \App\Garantia $garantia
    * @return \Illuminate\Http\Response
    */
   public function show(Garantia $garantia)
@@ -62,7 +62,7 @@ class GarantiaController extends Controller
    */
   public function update(Request $request, Garantia $garantia)
   {
-    //
+    $garantia->save();
   }
 
   /**

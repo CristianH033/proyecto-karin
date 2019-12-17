@@ -16,9 +16,9 @@ class ModeloController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class ModeloController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Modelo::create($request->all());
   }
 
   /**
    * Muestra el Modelo especificado.
    *
-   * @param  \App\Modelo  $modelo
+   * @param  \App\Modelo $modelo
    * @return \Illuminate\Http\Response
    */
   public function show(Modelo $modelo)
@@ -62,7 +62,7 @@ class ModeloController extends Controller
    */
   public function update(Request $request, Modelo $modelo)
   {
-    //
+    $modelo->save();
   }
 
   /**

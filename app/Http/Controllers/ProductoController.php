@@ -16,9 +16,9 @@ class ProductoController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class ProductoController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Producto::create($request->all());
   }
 
   /**
    * Muestra el Producto especificado.
    *
-   * @param  \App\Producto  $producto
+   * @param  \App\Producto $producto
    * @return \Illuminate\Http\Response
    */
   public function show(Producto $producto)
@@ -62,7 +62,7 @@ class ProductoController extends Controller
    */
   public function update(Request $request, Producto $producto)
   {
-    //
+    $producto->save();
   }
 
   /**

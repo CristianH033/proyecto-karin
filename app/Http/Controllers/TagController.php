@@ -16,9 +16,9 @@ class TagController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class TagController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Tag::create($request->all());
   }
 
   /**
    * Muestra el Tag especificado.
    *
-   * @param  \App\Tag  $tag
+   * @param  \App\Tag $tag
    * @return \Illuminate\Http\Response
    */
   public function show(Tag $tag)
@@ -62,7 +62,7 @@ class TagController extends Controller
    */
   public function update(Request $request, Tag $tag)
   {
-    //
+    $tag->save();
   }
 
   /**

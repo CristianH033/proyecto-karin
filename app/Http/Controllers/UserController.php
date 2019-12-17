@@ -49,13 +49,13 @@ class UserController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    User::create($request->all());
   }
 
   /**
    * Display the specified resource.
    *
-   * @param  \App\User  $user
+   * @param  \App\User $user
    * @return \Illuminate\Http\Response
    */
   public function show(User $user)
@@ -72,7 +72,7 @@ class UserController extends Controller
    */
   public function update(Request $request, User $user)
   {
-    //
+    $user->save();
   }
 
   /**
@@ -83,6 +83,6 @@ class UserController extends Controller
    */
   public function destroy(User $user)
   {
-    //
+    $user->delete();
   }
 }

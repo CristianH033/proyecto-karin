@@ -16,9 +16,9 @@ class OtrosiController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class OtrosiController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Otrosi::create($request->all());
   }
 
   /**
    * Muestra el Otrosi especificado.
    *
-   * @param  \App\Otrosi  $otrosi
+   * @param  \App\Otrosi $otrosi
    * @return \Illuminate\Http\Response
    */
   public function show(Otrosi $otrosi)
@@ -62,7 +62,7 @@ class OtrosiController extends Controller
    */
   public function update(Request $request, Otrosi $otrosi)
   {
-    //
+    $otrosi->save();
   }
 
   /**

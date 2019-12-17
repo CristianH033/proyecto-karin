@@ -16,9 +16,9 @@ class TipoContratoController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class TipoContratoController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    TipoContrato::create($request->all());
   }
 
   /**
    * Muestra el Tipo de Contrato especificado.
    *
-   * @param  \App\TipoContrato  $tipoContrato
+   * @param  \App\TipoContrato $tipoContrato
    * @return \Illuminate\Http\Response
    */
   public function show(TipoContrato $tipoContrato)
@@ -62,7 +62,7 @@ class TipoContratoController extends Controller
    */
   public function update(Request $request, TipoContrato $tipoContrato)
   {
-    //
+    $tipoContrato->save();
   }
 
   /**

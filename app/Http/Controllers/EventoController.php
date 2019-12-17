@@ -18,16 +18,6 @@ class EventoController extends Controller
   }
 
   /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function create()
-  {
-    //
-  }
-
-  /**
    * Store a newly created resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -35,27 +25,16 @@ class EventoController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Evento::create($request->all());
   }
 
   /**
    * Display the specified resource.
    *
-   * @param  \App\Evento  $evento
+   * @param  \App\Evento $evento
    * @return \Illuminate\Http\Response
    */
   public function show(Evento $evento)
-  {
-    //
-  }
-
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  \App\Evento  $evento
-   * @return \Illuminate\Http\Response
-   */
-  public function edit(Evento $evento)
   {
     //
   }
@@ -69,7 +48,7 @@ class EventoController extends Controller
    */
   public function update(Request $request, Evento $evento)
   {
-    //
+    $evento->save();
   }
 
   /**
@@ -80,6 +59,6 @@ class EventoController extends Controller
    */
   public function destroy(Evento $evento)
   {
-    //
+    $evento->delete();
   }
 }

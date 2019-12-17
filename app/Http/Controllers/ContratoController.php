@@ -16,9 +16,9 @@ class ContratoController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class ContratoController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Contrato::create($request->all());
   }
 
   /**
    * Muestra el Contrato especificado.
    *
-   * @param  \App\Contrato  $contrato
+   * @param  \App\Contrato $contrato
    * @return \Illuminate\Http\Response
    */
   public function show(Contrato $contrato)
@@ -62,7 +62,7 @@ class ContratoController extends Controller
    */
   public function update(Request $request, Contrato $contrato)
   {
-    //
+    $contrato->save();
   }
 
   /**

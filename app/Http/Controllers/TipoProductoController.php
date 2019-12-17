@@ -16,9 +16,9 @@ class TipoProductoController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class TipoProductoController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    TipoProducto::create($request->all());
   }
 
   /**
    * Muestra el Tipo de Producto especificado.
    *
-   * @param  \App\TipoProducto  $tipoProducto
+   * @param  \App\TipoProducto $tipoProducto
    * @return \Illuminate\Http\Response
    */
   public function show(TipoProducto $tipoProducto)
@@ -62,7 +62,7 @@ class TipoProductoController extends Controller
    */
   public function update(Request $request, TipoProducto $tipoProducto)
   {
-    //
+    $tipoProducto->save();
   }
 
   /**

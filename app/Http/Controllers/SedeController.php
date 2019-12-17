@@ -16,9 +16,9 @@ class SedeController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class SedeController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Sede::create($request->all());
   }
 
   /**
    * Muestra la Sede especificada.
    *
-   * @param  \App\Sede  $sede
+   * @param  \App\Sede $sede
    * @return \Illuminate\Http\Response
    */
   public function show(Sede $sede)
@@ -62,7 +62,7 @@ class SedeController extends Controller
    */
   public function update(Request $request, Sede $sede)
   {
-    //
+    $sede->save();
   }
 
   /**

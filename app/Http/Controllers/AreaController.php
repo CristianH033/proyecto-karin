@@ -16,9 +16,9 @@ class AreaController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class AreaController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Area::create($request->all());
   }
 
   /**
    * Muestra el Area especificada.
    *
-   * @param  \App\Area  $area
+   * @param  \App\Area $area
    * @return \Illuminate\Http\Response
    */
   public function show(Area $area)
@@ -62,7 +62,7 @@ class AreaController extends Controller
    */
   public function update(Request $request, Area $area)
   {
-    //
+    $area->save();
   }
 
   /**

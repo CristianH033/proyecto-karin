@@ -16,9 +16,9 @@ class FabricanteController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class FabricanteController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Fabricante::create($request->all());
   }
 
   /**
    * Muestra el Fabricante especificado.
    *
-   * @param  \App\Fabricante  $fabricante
+   * @param  \App\Fabricante $fabricante
    * @return \Illuminate\Http\Response
    */
   public function show(Fabricante $fabricante)
@@ -62,7 +62,7 @@ class FabricanteController extends Controller
    */
   public function update(Request $request, Fabricante $fabricante)
   {
-    //
+    $fabricante->save();
   }
 
   /**

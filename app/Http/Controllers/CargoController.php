@@ -16,9 +16,9 @@ class CargoController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class CargoController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Cargo::create($request->all());
   }
 
   /**
    * Muestra el Cargo especificado.
    *
-   * @param  \App\Cargo  $cargo
+   * @param  \App\Cargo $cargo
    * @return \Illuminate\Http\Response
    */
   public function show(Cargo $cargo)
@@ -62,7 +62,7 @@ class CargoController extends Controller
    */
   public function update(Request $request, Cargo $cargo)
   {
-    //
+    $cargo->save();
   }
 
   /**

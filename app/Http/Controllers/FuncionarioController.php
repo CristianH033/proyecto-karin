@@ -16,9 +16,9 @@ class FuncionarioController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class FuncionarioController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Funcionario::create($request->all());
   }
 
   /**
    * Muestra el Funcionario especificado.
    *
-   * @param  \App\Funcionario  $funcionario
+   * @param  \App\Funcionario $funcionario
    * @return \Illuminate\Http\Response
    */
   public function show(Funcionario $funcionario)
@@ -62,7 +62,7 @@ class FuncionarioController extends Controller
    */
   public function update(Request $request, Funcionario $funcionario)
   {
-    //
+    $funcionario->save();
   }
 
   /**

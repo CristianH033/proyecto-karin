@@ -16,9 +16,9 @@ class ComponenteController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class ComponenteController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    Componente::create($request->all());
   }
 
   /**
    * Muestra el Componente especificado.
    *
-   * @param  \App\Componente  $componente
+   * @param  \App\Componente $componente
    * @return \Illuminate\Http\Response
    */
   public function show(Componente $componente)
@@ -62,7 +62,7 @@ class ComponenteController extends Controller
    */
   public function update(Request $request, Componente $componente)
   {
-    //
+    $componente->save();
   }
 
   /**

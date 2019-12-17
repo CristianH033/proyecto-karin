@@ -16,9 +16,9 @@ class TipoTerceroController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth:api');
-    $this->middleware('verified');
-    $this->middleware('otp');
+    // $this->middleware('auth:api');
+    // $this->middleware('verified');
+    // $this->middleware('otp');
   }
 
   /**
@@ -39,13 +39,13 @@ class TipoTerceroController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    TipoTercero::create($request->all());
   }
 
   /**
    * Muestra el Tipo de Tercero especificado.
    *
-   * @param  \App\TipoTercero  $tipoTercero
+   * @param  \App\TipoTercero $tipoTercero
    * @return \Illuminate\Http\Response
    */
   public function show(TipoTercero $tipoTercero)
@@ -62,7 +62,7 @@ class TipoTerceroController extends Controller
    */
   public function update(Request $request, TipoTercero $tipoTercero)
   {
-    //
+    $tipoTercero->save();
   }
 
   /**
