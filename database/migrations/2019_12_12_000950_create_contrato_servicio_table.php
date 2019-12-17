@@ -17,7 +17,6 @@ class CreateContratoServicioTable extends Migration
       $table->bigIncrements('id');
       $table->unsignedBigInteger('contrato_id');
       $table->unsignedBigInteger('servicio_id');
-      $table->unsignedBigInteger('garantia_id')->nullable();
       $table->unsignedBigInteger('cantidad');
       $table->timestamps();
       $table->softDeletes();
@@ -31,11 +30,6 @@ class CreateContratoServicioTable extends Migration
         ->foreign('servicio_id')
         ->references('id')
         ->on('servicios')
-        ->onDelete('cascade');
-      $table
-        ->foreign('garantia_id')
-        ->references('id')
-        ->on('garantias')
         ->onDelete('cascade');
     });
   }

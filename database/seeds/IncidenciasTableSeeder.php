@@ -14,9 +14,9 @@ class IncidenciasTableSeeder extends Seeder
   public function run()
   {
     $dispositivo = Dispositivo::first();
-    
+
     $incidencia = factory(Incidencia::class)->make([
-      "estado_id" => 1,
+      "estado_incidencia_id" => 1,
       "solicitante_id" => 1,
       "responsable_id" => 1,
       "titulo" => "Nada sirve",
@@ -24,5 +24,6 @@ class IncidenciasTableSeeder extends Seeder
     ]);
 
     $incidencia->incidenciable()->associate($dispositivo);
+    $incidencia->save();
   }
 }

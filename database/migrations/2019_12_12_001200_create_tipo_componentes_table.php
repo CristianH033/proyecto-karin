@@ -17,6 +17,7 @@ class CreateTipoComponentesTable extends Migration
             $table->bigIncrements('id');
             $table->string('tipo')->unique();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

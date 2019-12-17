@@ -17,7 +17,6 @@ class CreateContratoProductoTable extends Migration
       $table->bigIncrements('id');
       $table->unsignedBigInteger('contrato_id');
       $table->unsignedBigInteger('producto_id');
-      $table->unsignedBigInteger('garantia_id')->nullable();
       $table->unsignedBigInteger('cantidad');
       $table->timestamps();
       $table->softDeletes();
@@ -31,11 +30,6 @@ class CreateContratoProductoTable extends Migration
         ->foreign('producto_id')
         ->references('id')
         ->on('productos')
-        ->onDelete('cascade');
-      $table
-        ->foreign('garantia_id')
-        ->references('id')
-        ->on('garantias')
         ->onDelete('cascade');
     });
   }

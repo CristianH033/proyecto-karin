@@ -20,6 +20,7 @@ class CreateUbicacionesTable extends Migration
       $table->string('ubicacion');
       $table->longText('descripcion')->nullable();
       $table->timestamps();
+      $table->softDeletes();
       // Llaves foráneas
       $table
         ->foreign('tipo_ubicacion_id')

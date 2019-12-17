@@ -15,18 +15,18 @@ class CreateIncidenciasTable extends Migration
   {
     Schema::create('incidencias', function (Blueprint $table) {
       $table->bigIncrements('id');
-      $table->unsignedBigInteger('estado_id');
+      $table->unsignedBigInteger('estado_incidencia_id');
       $table->unsignedBigInteger('solicitante_id');
       $table->unsignedBigInteger('responsable_id')->nullable();
       $table->unsignedBigInteger('incidenciable_id');
-      $table->unsignedBigInteger('incidenciable_type');
+      $table->string('incidenciable_type');
       $table->string('titulo');
       $table->longText('descripcion')->nullable();
       $table->timestamps();
       $table->softDeletes();
       // Llaves foráneas
       $table
-        ->foreign('estado_id')
+        ->foreign('estado_incidencia_id')
         ->references('id')
         ->on('estado_incidencias')
         ->onDelete('cascade');

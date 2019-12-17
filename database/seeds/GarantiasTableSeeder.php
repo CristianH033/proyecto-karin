@@ -1,5 +1,7 @@
 <?php
 
+use App\Componente;
+use App\Dispositivo;
 use App\Garantia;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
@@ -13,12 +15,17 @@ class GarantiasTableSeeder extends Seeder
    */
   public function run()
   {
-    factory(Garantia::class)->create([
-      "garantizable" => 1,
+    // $componente = Componente::first();
+    $dispositivo = Dispositivo::first();
+
+    $garantia = factory(Garantia::class)->make([
       "nombre" => "garantia de cumplimiento",
       "descripcion" => "bla bla bla bla",
       "fecha_inicio" => Carbon::now(),
       "fecha_fin" => Carbon::now()->addYear(1)
     ]);
+
+    $garantia->garantizable()->associate($dispositivo);
+    $garantia->save();
   }
 }

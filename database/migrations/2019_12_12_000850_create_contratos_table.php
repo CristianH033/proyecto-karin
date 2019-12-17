@@ -20,6 +20,7 @@ class CreateContratosTable extends Migration
       $table->string('contratable_type');
       $table->bigInteger('contratante_id')->unsigned();
       $table->string('contratante_type');
+      $table->longText('objeto');
       $table->timestamps();
       $table->softDeletes();
       // Llave Foranea

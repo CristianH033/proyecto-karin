@@ -29,13 +29,13 @@ class DatabaseSeeder extends Seeder
     $this->call(ServiciosTableSeeder::class);
     $this->call(TipoContratosTableSeeder::class);
     $this->call(ContratosTableSeeder::class);
-    $this->call(GarantiasTableSeeder::class);
     $this->call(FabricantesTableSeeder::class);
     $this->call(ModelosTableSeeder::class);
     $this->call(TipoDispositivosTableSeeder::class);
     $this->call(DispositivosTableSeeder::class);
     $this->call(TipoComponentesTableSeeder::class);
     $this->call(ComponentesTableSeeder::class);
+    $this->call(GarantiasTableSeeder::class);
     $this->call(CargosTableSeeder::class);
     $this->call(AreasTableSeeder::class);
     $this->call(FuncionariosTableSeeder::class);
