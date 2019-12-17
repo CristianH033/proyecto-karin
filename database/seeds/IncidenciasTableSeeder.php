@@ -1,9 +1,10 @@
 <?php
 
-use App\Inicidencia;
+use App\Dispositivo;
+use App\Incidencia;
 use Illuminate\Database\Seeder;
 
-class InicidenciasTableSeeder extends Seeder
+class IncidenciasTableSeeder extends Seeder
 {
   /**
    * Run the database seeds.
@@ -12,13 +13,16 @@ class InicidenciasTableSeeder extends Seeder
    */
   public function run()
   {
-    factory(Inicidencia::class)->create([
+    $dispositivo = Dispositivo::first();
+    
+    $incidencia = factory(Incidencia::class)->make([
       "estado_id" => 1,
       "solicitante_id" => 1,
       "responsable_id" => 1,
-      "item_incidenciable" => 1,
       "titulo" => "Nada sirve",
       "descripcion" => "Nada sirve"
     ]);
+
+    $incidencia->incidenciable()->associate($dispositivo);
   }
 }

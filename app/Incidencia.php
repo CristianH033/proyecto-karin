@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Inicidencia extends Model
+class Incidencia extends Model
 {
   use LogsActivity, SoftDeletes;
 
@@ -15,7 +15,7 @@ class Inicidencia extends Model
    *
    * @var string
    */
-  protected $table = 'inicidencias';
+  protected $table = 'incidencias';
 
   /**
    * Atributos que no son masivamente asignables.
@@ -30,4 +30,14 @@ class Inicidencia extends Model
    * @var string
    */
   protected static $logAttributes = ['*'];
+
+  /** Relaciones */
+
+  /**
+   * Obtener el modelo contratable.
+   */
+  public function incidenciable()
+  {
+    return $this->morphTo();
+  }
 }

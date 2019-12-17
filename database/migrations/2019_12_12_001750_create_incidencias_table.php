@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInicidenciasTable extends Migration
+class CreateIncidenciasTable extends Migration
 {
   /**
    * Run the migrations.
@@ -13,12 +13,13 @@ class CreateInicidenciasTable extends Migration
    */
   public function up()
   {
-    Schema::create('inicidencias', function (Blueprint $table) {
+    Schema::create('incidencias', function (Blueprint $table) {
       $table->bigIncrements('id');
       $table->unsignedBigInteger('estado_id');
       $table->unsignedBigInteger('solicitante_id');
       $table->unsignedBigInteger('responsable_id')->nullable();
-      $table->unsignedBigInteger('item_incidenciable');
+      $table->unsignedBigInteger('incidenciable_id');
+      $table->unsignedBigInteger('incidenciable_type');
       $table->string('titulo');
       $table->longText('descripcion')->nullable();
       $table->timestamps();
@@ -49,6 +50,6 @@ class CreateInicidenciasTable extends Migration
    */
   public function down()
   {
-    Schema::dropIfExists('inicidencias');
+    Schema::dropIfExists('incidencias');
   }
 }
