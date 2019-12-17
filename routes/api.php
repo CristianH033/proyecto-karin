@@ -66,27 +66,28 @@ Route::name('api.')->group(function () {
    * y su correspondiente verbo HTTP (POST, GET, PUT, DELETE)
    */
   Route::apiResources([
-    'users' => 'UserController',
-    'cargos' => 'CargoController',
-    'ciudades' => 'CiudadController',
-    'contratos' => 'ContratoController',
-    'dispositivos' => 'DispositivoController',
-    'estacion-trabajos' => 'EstacionTrabajoController',
-    'estados' => 'EstadoController',
-    'funcionarios' => 'FuncionarioController',
-    'garantias' => 'GarantiaController',
-    'modelos' => 'ModeloController',
-    'operadores' => 'OperadorController',
-    'paises' => 'PaisController',
-    'personas' => 'PersonaController',
-    'productos' => 'ProductoController',
-    'proovedores' => 'TerceroController',
-    'sedes' => 'SedeController',
-    'servicios' => 'ServicioController',
     'tags' => 'TagController',
+    'users' => 'UserController',
+    'sedes' => 'SedeController',
+    'paises' => 'PaisController',
+    'cargos' => 'CargoController',
+    'estados' => 'EstadoController',
+    'modelos' => 'ModeloController',
+    'ciudades' => 'CiudadController',
+    'personas' => 'PersonaController',
     'terceros' => 'TerceroController',
+    'contratos' => 'ContratoController',
+    'garantias' => 'GarantiaController',
+    'productos' => 'ProductoController',
+    'servicios' => 'ServicioController',
+    'operadores' => 'OperadorController',
+    'proovedores' => 'TerceroController',
+    'componentes' => 'ComponenteController',
+    'dispositivos' => 'DispositivoController',
+    'funcionarios' => 'FuncionarioController',
+    'tipo-servicios' => 'TipoServicioController',
     'tipo-productos' => 'TipoProductoController',
-    'tipo-servicios' => 'TipoServicioController'
+    'estacion-trabajos' => 'EstacionTrabajoController'
   ]);
 });
 
