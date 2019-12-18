@@ -35,4 +35,14 @@ class Funcionario extends Model
   {
     return $this->belongsTo(Cargo::class, 'cargo_id', 'id');
   }
+
+  public function ubicaciones()
+  {
+    return $this->belongsToMany(
+      Ubicacion::class,
+      'funcionario_ubicacion',
+      'funcionario_id',
+      'ubicacion_id'
+    );
+  }
 }

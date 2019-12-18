@@ -39,7 +39,15 @@ class CargoController extends Controller
    */
   public function store(Request $request)
   {
-    Cargo::create($request->all());
+    $request->validate([
+      'nombre' => 'bail|required|iunique:cargos|max:255',
+      'descripcion' => 'min:5'
+    ]);
+
+    Cargo::create([
+      "nombre" => $request->nombre,
+      "descripcion" => $request->descripcion,
+    ]);
   }
 
   /**

@@ -31,6 +31,11 @@ class Cargo extends Model
    */
   protected static $logAttributes = ['*'];
 
+  public function setNombreAttribute($value)
+  {
+    $this->attributes['nombre'] = strtolower($value);
+  }
+
   public function funcionarios()
   {
     return $this->hasMany(Funcionario::class, 'cargo_id', 'id');

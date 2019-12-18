@@ -20,7 +20,7 @@ class CreateFuncionariosTable extends Migration
         ->unsigned()
         ->unique();
       $table->bigInteger('cargo_id')->unsigned();
-      $table->bigInteger('ubicacion_id')->unsigned();
+      // $table->bigInteger('ubicacion_id')->unsigned();
       $table->timestamps();
       $table->softDeletes();
       // Llaves foraneas
@@ -34,11 +34,19 @@ class CreateFuncionariosTable extends Migration
         ->references('id')
         ->on('cargos')
         ->onDelete('cascade');
-      $table
-        ->foreign('ubicacion_id')
-        ->references('id')
-        ->on('ubicaciones')
-        ->onDelete('cascade');
+      // $table
+      //   ->foreign('ubicacion_id')
+      //   ->references('id')
+      //   ->on('ubicaciones')
+      //   ->onDelete('cascade');
+    });
+
+    /** Crear tabla pivote funcionarios ubicaciones */
+    Schema::create('funcionario_ubicacion', function (Blueprint $table) {
+      $table->unsignedBigInteger('funcionario_id');
+      $table->unsignedBigInteger('ubicacion_id');
+      $table->timestamps();
+      $table->softDeletes();
     });
   }
 

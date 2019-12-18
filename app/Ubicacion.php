@@ -51,4 +51,14 @@ class Ubicacion extends Model
   {
     return $this->hasMany(Dispositivo::class, 'ubicacion_id', 'id');
   }
+
+  public function funcionarios()
+  {
+    return $this->belongsToMany(
+      Funcionario::class,
+      'funcionario_ubicacion',
+      'funcionario_id',
+      'ubicacion_id'
+    );
+  }
 }
