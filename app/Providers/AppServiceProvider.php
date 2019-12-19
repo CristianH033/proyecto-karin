@@ -32,9 +32,20 @@ class AppServiceProvider extends ServiceProvider
       $validator
     ) {
       $query = DB::table($parameters[0]);
+
       $column = array_key_exists(1, $parameters)
         ? $query->getGrammar()->wrap($parameters[1])
         : $attribute;
+
+      $idToIgnore = array_key_exists(2, $parameters) ? $parameters[2] : null;
+
+      if ($idToIgnore) {
+        return !$query
+          ->whereRaw("lower({$column}) = lower(?)", [$value])
+          ->whereRaw("id != ?", [$idToIgnore])
+          ->count();
+      }
+
       return !$query
         ->whereRaw("lower({$column}) = lower(?)", [$value])
         ->count();
