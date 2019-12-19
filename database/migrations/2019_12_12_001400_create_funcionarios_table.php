@@ -19,8 +19,8 @@ class CreateFuncionariosTable extends Migration
         ->bigInteger('persona_id')
         ->unsigned()
         ->unique();
-      $table->bigInteger('cargo_id')->unsigned();
-      // $table->bigInteger('ubicacion_id')->unsigned();
+      $table->unsignedBigInteger('cargo_id');
+      // $table->unsignedBigInteger('ubicacion_id');
       $table->timestamps();
       $table->softDeletes();
       // Llaves foraneas

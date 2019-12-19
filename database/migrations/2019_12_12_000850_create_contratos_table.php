@@ -15,10 +15,10 @@ class CreateContratosTable extends Migration
   {
     Schema::create('contratos', function (Blueprint $table) {
       $table->bigIncrements('id');
-      $table->bigInteger('tipo_contrato_id')->unsigned();
-      $table->bigInteger('contratable_id')->unsigned();
+      $table->unsignedBigInteger('tipo_contrato_id');
+      $table->unsignedBigInteger('contratable_id');
       $table->string('contratable_type');
-      $table->bigInteger('contratante_id')->unsigned();
+      $table->unsignedBigInteger('contratante_id');
       $table->string('contratante_type');
       $table->longText('objeto');
       $table->timestamps();

@@ -16,13 +16,13 @@ class CreatePersonasTable extends Migration
   {
     Schema::create('personas', function (Blueprint $table) {
       $table->bigIncrements('id');
-      $table->bigInteger('dni')->unique();
+      $table->unsignedBigInteger('dni')->unique();
       $table->string('primer_nombre');
       $table->string('segundo_nombre')->nullable();
       $table->string('primer_apellido');
       $table->string('segundo_apellido')->nullable();
       $table->date('fecha_nacimiento')->nullable();
-      $table->bigInteger('genero_id');
+      $table->unsignedBigInteger('genero_id');
       $table->timestamps();
       $table->softDeletes();
       // Llaves foraneas
