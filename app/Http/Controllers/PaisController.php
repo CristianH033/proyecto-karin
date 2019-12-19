@@ -40,12 +40,10 @@ class PaisController extends Controller
   public function store(Request $request)
   {
     $request->validate([
-      'nombre' => 'required|max:255'
+      'nombre' => 'required|iunique:paises|max:255'
     ]);
 
-    Pais::create([
-      "nombre" => $request->nombre
-    ]);
+    Pais::create($request->only('nombre'));
   }
 
   /**
@@ -69,12 +67,11 @@ class PaisController extends Controller
   public function update(Request $request, Pais $pais)
   {
     $request->validate([
-      'nombre' => 'required|max:255'
+      'nombre' =>
+        'bail|required|iunique:paises,nombre,' . $pais->id . '|max:255'
     ]);
 
-    $pais->nombre = $request->nombre;
-
-    $pais->save();
+    $pais->update($request->only('nombre'));
   }
 
   /**

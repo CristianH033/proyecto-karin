@@ -44,10 +44,7 @@ class CargoController extends Controller
       'descripcion' => 'min:5'
     ]);
 
-    Cargo::create([
-      "nombre" => $request->nombre,
-      "descripcion" => $request->descripcion,
-    ]);
+    Cargo::create($request->only('nombre', 'descripcion'));
   }
 
   /**
@@ -70,7 +67,12 @@ class CargoController extends Controller
    */
   public function update(Request $request, Cargo $cargo)
   {
-    $cargo->save();
+    $request->validate([
+      'nombre' => 'iunique:cargos,nombre,' . $cargo->id . '|max:255',
+      'descripcion' => 'min:5'
+    ]);
+
+    $cargo->update($request->only('nombre', 'descripcion'));
   }
 
   /**
