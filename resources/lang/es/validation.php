@@ -125,7 +125,7 @@ return [
   'uploaded' => 'Subir :attribute ha fallado.',
   'url' => 'El formato :attribute es inválido.',
   'uuid' => 'El campo :attribute debe ser un UUID válido.',
-  'iunique' => 'El campo :attribute ya ha sido registrado.',
+  'iunique' => 'El :attribute ya ha sido registrado.',
 
   /*
     |--------------------------------------------------------------------------
