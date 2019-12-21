@@ -31,13 +31,11 @@ class Modelo extends Model
    */
   protected static $logAttributes = ['*'];
 
-  protected $casts = [
-    "caracteristicas_tecnicas" => "object"
-  ];
+  protected $casts = [];
 
   public function getCaracteristicasTecnicasAttribute($value)
   {
-    return json_decode($value);
+    return json_decode($value, false);
   }
 
   /** Relaciones */

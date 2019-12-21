@@ -31,9 +31,7 @@ class Dispositivo extends Model
    */
   protected static $logAttributes = ['*'];
 
-  protected $casts = [
-    "caracteristicas_tecnicas" => "object"
-  ];
+  protected $casts = [];
 
   /**
    * The accessors to append to the model's array form.
@@ -54,10 +52,16 @@ class Dispositivo extends Model
 
   public function getCaracteristicasTecnicasAttribute($value)
   {
+    // Obtener caracteristicas de modelo
     $modeloCT = $this->modelo()->getResults()->caracteristicas_tecnicas;
-    $modeloCT = json_decode($modeloCT, true);
-    $value = json_decode(json_decode($value), true);
-    return json_decode(json_encode(array_merge($modeloCT, $value)), false);
+    // Convertir objeto de ct modelo a array
+    $specsModel = (array) $modeloCT;
+    // Decodificar campo json de dispositivo
+    $specsDisp = json_decode($value, true);
+    // Crear json de datos combinado
+    $specs = json_encode(array_merge($specsModel, $specsDisp));
+    // Convertir json a un objeto php
+    return json_decode($specs, false);
   }
 
   /** Relaciones */
