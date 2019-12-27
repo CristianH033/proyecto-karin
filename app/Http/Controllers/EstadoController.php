@@ -40,14 +40,11 @@ class EstadoController extends Controller
   public function store(Request $request)
   {
     $request->validate([
-      'nombre' => 'required|max:255',
+      'nombre' => 'required|iunique:estados|max:255',
       'pais_id' => 'required|exists:paises,id'
     ]);
 
-    Estado::create([
-      "nombre" => $request->nombre,
-      "pais_id" => $request->pais_id
-    ]);
+    Estado::create($request->only('nombre', 'pais_id'));
   }
 
   /**
@@ -71,14 +68,11 @@ class EstadoController extends Controller
   public function update(Request $request, Estado $estado)
   {
     $request->validate([
-      'nombre' => 'required|max:255',
-      'pais_id' => 'required|exists:paises,id'
+      'nombre' => 'iunique:estados,nombre,' . $estado->id . '|max:255',
+      'pais_id' => 'exists:paises,id'
     ]);
 
-    $estado->nombre = $request->nombre;
-    $estado->pais_id = $request->pais_id;
-
-    $estado->save();
+    $estado->update($request->only('nombre', 'pais_id'));
   }
 
   /**
