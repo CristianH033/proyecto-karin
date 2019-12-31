@@ -1,0 +1,7044 @@
+{
+	"info": {
+		"_postman_id": "ecd08457-8a39-4686-9fb2-83ae8d9e3797",
+		"name": "kimblee",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API",
+			"item": [
+				{
+					"name": "OAUTH",
+					"item": [
+						{
+							"name": "oauth.token",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "grant_type",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "client_secret",
+											"value": "llnGLqr8wXKI7WyW4mrt6VCgOJ4I8zHEtTr4spxe",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "cristian_david033@hotmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "880731Cr",
+											"type": "text"
+										},
+										{
+											"key": "scope",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/oauth/token",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"oauth",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "oauth.refresh-token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e919796b-72c8-4033-aaa1-aba94f359757",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", jsonData.access_token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "grant_type",
+											"value": "refresh_token",
+											"type": "text"
+										},
+										{
+											"key": "refresh_token",
+											"value": "def50200e4bad7655909e5d0e69099ba4f826f62b66aad26af7de51141a7af576916dc4817e85f9d16dbf4151efdea67c3cb66c14c56fdd2e0374d1f672d1a037e57be76a4fdb3a854a7fea52690265d93b5fcaf8fbd7d66a853a75f9a4008e965001819fe5b36f1d6bdacac24c13e55932b5589b29932b2618d34531d0b2191046d64997601167892f7f5fba2e1ef0878036874bbcbae27f9fe9f7fac91a965d371f13d630a00e6d0d28804bdd0f594b945137cdc5b44567668076178f876a904fa1ba34ee067719dbc77ee765f6b7a040bcc47c9e10f7e9e02ec8a4b7810f2959b1eeecb15c4687cfd8c069f4af94c920ba690362738896bdb4a8151d122243dd1dc9cecb1379f5f93a2ab98bb454a4fe16dfab4d9d1bdd2dca1cbc9384f5fd4bed9ec2a77e55af5970848c7eff7e9d6961ee0964b09efc1a811cf25d1d03116d149f3b093f5f7882ff6dcce74f1debd71b4a4d74e1778ae866b83f5209fac59",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "client_secret",
+											"value": "llnGLqr8wXKI7WyW4mrt6VCgOJ4I8zHEtTr4spxe",
+											"type": "text"
+										},
+										{
+											"key": "scope",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/oauth/token/",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"oauth",
+										"token",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "autenticacion",
+					"item": [
+						{
+							"name": "auth.user",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/current-user",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"current-user"
+									]
+								},
+								"description": "usuario actual"
+							},
+							"response": []
+						},
+						{
+							"name": "auth.check",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/auth-check",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"auth-check"
+									]
+								},
+								"description": "usuario actual"
+							},
+							"response": []
+						},
+						{
+							"name": "auth.email.verify",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/verification/verify?expires=1574199369&hash=4f385f0485ba2fb81d80df7c5345ee6872903875&id=1&signature=8f43425af56c871c5bc4dcce3fd40613363c6ba13dd07711e8ad7d12b5fc9a4a",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"verification",
+										"verify"
+									],
+									"query": [
+										{
+											"key": "expires",
+											"value": "1574199369"
+										},
+										{
+											"key": "hash",
+											"value": "4f385f0485ba2fb81d80df7c5345ee6872903875"
+										},
+										{
+											"key": "id",
+											"value": "1"
+										},
+										{
+											"key": "signature",
+											"value": "8f43425af56c871c5bc4dcce3fd40613363c6ba13dd07711e8ad7d12b5fc9a4a"
+										}
+									]
+								},
+								"description": "usuario actual"
+							},
+							"response": []
+						},
+						{
+							"name": "auth.email.resend",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "cristian_david033@hotmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/verification/resend",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"verification",
+										"resend"
+									]
+								},
+								"description": "usuario actual"
+							},
+							"response": []
+						},
+						{
+							"name": "auth.register",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "54d1c19f-c68d-4407-8174-40203c5dff6b",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", jsonData.access_token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Cristian  Home",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "cristian_david033@hotmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "880731Cr",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "880731Cr",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/register",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "auth.login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d6d4cc80-1a43-4c0c-818a-70f38cfe7d87",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", jsonData.access_token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "cristian_david033@hotmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "880731Cr",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/login",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "auth.logout",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/logout",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "auth.refresh",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "eb5d9980-e710-44f0-a830-dd8ae643875a",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", jsonData.access_token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/refresh-token",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"refresh-token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "auth.otp.send",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "eb5d9980-e710-44f0-a830-dd8ae643875a",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/otp/sendotp",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"otp",
+										"sendotp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "auth.otp.verify",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "eb5d9980-e710-44f0-a830-dd8ae643875a",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "OTP",
+											"value": "975502",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/otp/verify",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"otp",
+										"verify"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "auth.pwd.email",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d6d4cc80-1a43-4c0c-818a-70f38cfe7d87",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", jsonData.access_token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "cristian_david033@hotmail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/password/email",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"password",
+										"email"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "auth.pwd.reset",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d6d4cc80-1a43-4c0c-818a-70f38cfe7d87",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", jsonData.access_token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "token",
+											"value": "45c05d55a62cc40ed9e30765598fc738e0737cf793684d9dd34fea076aa6e145",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "cristian_david033@hotmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "880731Cr",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "880731Cr",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/password/reset",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"password",
+										"reset"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e7f3c658-565e-4d07-8a1c-4ac094572025",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "56f8a795-251e-4c2a-a560-0e898ed85f3d",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "cargos",
+					"item": [
+						{
+							"name": "cargos.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/cargos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"cargos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cargos.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/cargos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"cargos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cargos.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nombre",
+											"value": "director ejecutivo",
+											"type": "text"
+										},
+										{
+											"key": "descripcion",
+											"value": "Subdirector",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/cargos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"cargos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cargos.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "nombre",
+											"value": "director ejecutiva",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/cargos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"cargos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cargos.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/cargos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"cargos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "users.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/users",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "users.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/users/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "users.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/users",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "users.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/users/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "users.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/users/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "paises",
+					"item": [
+						{
+							"name": "paises.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/paises",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"paises"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "paises.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/paises/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"paises",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "paises.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nombre",
+											"value": "Colombia",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/paises",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"paises"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "paises.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "nombre",
+											"value": "Test",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/paises/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"paises",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "paises.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/paises/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"paises",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "estados",
+					"item": [
+						{
+							"name": "estados.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/estados",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"estados"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "estados.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/estados/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"estados",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "estados.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nombre",
+											"value": "Cundinamarca",
+											"type": "text"
+										},
+										{
+											"key": "pais_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/estados",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"estados"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "estados.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "nombre",
+											"value": "Cocoro",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/estados/21",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"estados",
+										"21"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "estados.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/estados/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"estados",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "ciudades",
+					"item": [
+						{
+							"name": "ciudades.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/ciudades",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"ciudades"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ciudades.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/ciudades/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"ciudades",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ciudades.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nombre",
+											"value": "Mi Ciudad",
+											"type": "text"
+										},
+										{
+											"key": "estado_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/ciudades",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"ciudades"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ciudades.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "nombre",
+											"value": "Tuya",
+											"type": "text"
+										},
+										{
+											"key": "estado_id",
+											"value": "13",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/ciudades/514",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"ciudades",
+										"514"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ciudades.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/ciudades/515",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"ciudades",
+										"515"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "clientes",
+					"item": [
+						{
+							"name": "clientes.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/clientes",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"clientes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "clientes.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/clientes/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"clientes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "clientes.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/clientes",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"clientes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "clientes.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/clientes/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"clientes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "clientes.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/clientes/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"clientes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "contratos",
+					"item": [
+						{
+							"name": "contratos.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/contratos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"contratos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "contratos.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/contratos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"contratos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "contratos.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/contratos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"contratos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "contratos.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/contratos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"contratos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "contratos.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/contratos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"contratos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "dispositivos",
+					"item": [
+						{
+							"name": "dispositivos.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/dispositivos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"dispositivos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "dispositivos.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/dispositivos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"dispositivos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "dispositivos.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/dispositivos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"dispositivos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "dispositivos.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"caracteristicas_tecnicas\": {\n        \"procesador\": \"i9\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/dispositivos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"dispositivos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "dispositivos.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/dispositivos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"dispositivos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "componentes",
+					"item": [
+						{
+							"name": "componentes.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/componentes",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"componentes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "componentes.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/componentes/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"componentes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "componentes.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/componentes",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"componentes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "componentes.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"caracteristicas_tecnicas\": {\n        \"procesador\": \"i9\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{URL}}/api/componentes/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"componentes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "componentes.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/componentes/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"componentes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "etiquetas",
+					"item": [
+						{
+							"name": "etiquetas.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/etiquetas",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"etiquetas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "etiquetas.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/etiquetas/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"etiquetas",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "etiquetas.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/etiquetas",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"etiquetas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "etiquetas.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/etiquetas/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"etiquetas",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "etiquetas.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/etiquetas/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"etiquetas",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "funcionarios",
+					"item": [
+						{
+							"name": "funcionarios.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/funcionarios",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"funcionarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "funcionarios.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/funcionarios/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"funcionarios",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "funcionarios.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/funcionarios",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"funcionarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "funcionarios.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/funcionarios/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"funcionarios",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "funcionarios.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/funcionarios/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"funcionarios",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "personas",
+					"item": [
+						{
+							"name": "personas.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/personas",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"personas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "personas.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/personas/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"personas",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "personas.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/personas",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"personas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "personas.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/personas/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"personas",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "personas.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/personas/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"personas",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "proveedores",
+					"item": [
+						{
+							"name": "proveedores.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/proveedores",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"proveedores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "proveedores.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/proveedores/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"proveedores",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "proveedores.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/proveedores",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"proveedores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "proveedores.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/proveedores/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"proveedores",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "proveedores.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/proveedores/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"proveedores",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "reportes",
+					"item": [
+						{
+							"name": "reportes.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/reportes",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"reportes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reportes.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/reportes/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"reportes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reportes.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/reportes",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"reportes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reportes.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/reportes/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"reportes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "reportes.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/reportes/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"reportes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "sucursales",
+					"item": [
+						{
+							"name": "sucursales.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/sucursales",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"sucursales"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "sucursales.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/sucursales/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"sucursales",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "sucursales.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/sucursales",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"sucursales"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "sucursales.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/sucursales/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"sucursales",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "sucursales.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/sucursales/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"sucursales",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "estaciones de trabajo",
+					"item": [
+						{
+							"name": "estacion-trabajos.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/estacion-trabajos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"estacion-trabajos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "estacion-trabajos.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/estacion-trabajos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"estacion-trabajos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "estacion-trabajos.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/estacion-trabajos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"estacion-trabajos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "estacion-trabajos.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/estacion-trabajos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"estacion-trabajos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "estacion-trabajos.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/estacion-trabajos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"estacion-trabajos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "generos",
+					"item": [
+						{
+							"name": "generos.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/generos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"generos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "generos.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/generos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"generos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "generos.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/generos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"generos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "generos.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/generos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"generos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "generos.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/generos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"generos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "organizaciones",
+					"item": [
+						{
+							"name": "organizaciones.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/organizaciones",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"organizaciones"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "organizaciones.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/organizaciones/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"organizaciones",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "organizaciones.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/organizaciones",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"organizaciones"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "organizaciones.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/organizaciones/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"organizaciones",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "organizaciones.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/organizaciones/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"organizaciones",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "tipo ubicaciones",
+					"item": [
+						{
+							"name": "tipo ubicaciones.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo ubicaciones",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo ubicaciones"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo ubicaciones.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo ubicaciones/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo ubicaciones",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo ubicaciones.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/tipo ubicaciones",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo ubicaciones"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo ubicaciones.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/tipo ubicaciones/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo ubicaciones",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo ubicaciones.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo ubicaciones/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo ubicaciones",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "tipo terceros",
+					"item": [
+						{
+							"name": "tipo terceros.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo terceros",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo terceros"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo terceros.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo terceros/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo terceros",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo terceros.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/tipo terceros",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo terceros"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo terceros.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/tipo terceros/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo terceros",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo terceros.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo terceros/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo terceros",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "terceros",
+					"item": [
+						{
+							"name": "terceros.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/terceros",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"terceros"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "terceros.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/terceros/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"terceros",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "terceros.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/terceros",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"terceros"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "terceros.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/terceros/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"terceros",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "terceros.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/terceros/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"terceros",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "tipo productos",
+					"item": [
+						{
+							"name": "tipo productos.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo productos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo productos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo productos.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo productos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo productos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo productos.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/tipo productos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo productos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo productos.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/tipo productos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo productos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo productos.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo productos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo productos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "productos",
+					"item": [
+						{
+							"name": "productos.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/productos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"productos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "productos.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/productos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"productos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "productos.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/productos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"productos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "productos.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/productos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"productos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "productos.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/productos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"productos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "tipo servicios",
+					"item": [
+						{
+							"name": "tipo servicios.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo servicios",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo servicios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo servicios.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo servicios/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo servicios",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo servicios.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/tipo servicios",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo servicios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo servicios.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/tipo servicios/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo servicios",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo servicios.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo servicios/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo servicios",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "servicios",
+					"item": [
+						{
+							"name": "servicios.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/servicios",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"servicios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "servicios.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/servicios/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"servicios",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "servicios.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/servicios",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"servicios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "servicios.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/servicios/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"servicios",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "servicios.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/servicios/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"servicios",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "tipo contratos",
+					"item": [
+						{
+							"name": "tipo contratos.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo contratos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo contratos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo contratos.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo contratos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo contratos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo contratos.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/tipo contratos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo contratos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo contratos.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/tipo contratos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo contratos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo contratos.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo contratos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo contratos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "fabricantes",
+					"item": [
+						{
+							"name": "fabricantes.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/fabricantes",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"fabricantes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fabricantes.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/fabricantes/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"fabricantes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fabricantes.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/fabricantes",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"fabricantes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fabricantes.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/fabricantes/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"fabricantes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fabricantes.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/fabricantes/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"fabricantes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "modelos",
+					"item": [
+						{
+							"name": "modelos.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/modelos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"modelos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "modelos.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/modelos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"modelos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "modelos.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/modelos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"modelos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "modelos.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/modelos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"modelos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "modelos.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/modelos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"modelos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "tipo dispositivos",
+					"item": [
+						{
+							"name": "tipo dispositivos.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo dispositivos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo dispositivos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo dispositivos.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo dispositivos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo dispositivos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo dispositivos.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/tipo dispositivos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo dispositivos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo dispositivos.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/tipo dispositivos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo dispositivos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo dispositivos.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo dispositivos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo dispositivos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "tipo componentes",
+					"item": [
+						{
+							"name": "tipo componentes.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo componentes",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo componentes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo componentes.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo componentes/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo componentes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo componentes.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/tipo componentes",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo componentes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo componentes.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/tipo componentes/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo componentes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tipo componentes.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/tipo componentes/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"tipo componentes",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "areas",
+					"item": [
+						{
+							"name": "areas.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/areas",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"areas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "areas.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/areas/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"areas",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "areas.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/areas",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"areas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "areas.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/areas/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"areas",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "areas.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/areas/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"areas",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "operadores",
+					"item": [
+						{
+							"name": "operadores.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/operadores",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"operadores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "operadores.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/operadores/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"operadores",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "operadores.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/operadores",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"operadores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "operadores.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/operadores/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"operadores",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "operadores.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/operadores/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"operadores",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "otrosis",
+					"item": [
+						{
+							"name": "otrosis.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/otrosis",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"otrosis"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "otrosis.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/otrosis/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"otrosis",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "otrosis.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/otrosis",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"otrosis"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "otrosis.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/otrosis/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"otrosis",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "otrosis.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/otrosis/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"otrosis",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "traslados",
+					"item": [
+						{
+							"name": "traslados.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/traslados",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"traslados"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "traslados.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/traslados/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"traslados",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "traslados.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/traslados",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"traslados"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "traslados.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/traslados/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"traslados",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "traslados.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/traslados/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"traslados",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "estado incidencias",
+					"item": [
+						{
+							"name": "estado incidencias.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/estado incidencias",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"estado incidencias"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "estado incidencias.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/estado incidencias/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"estado incidencias",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "estado incidencias.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/estado incidencias",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"estado incidencias"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "estado incidencias.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/estado incidencias/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"estado incidencias",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "estado incidencias.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/estado incidencias/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"estado incidencias",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "incidencias",
+					"item": [
+						{
+							"name": "incidencias.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/incidencias",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"incidencias"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "incidencias.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/incidencias/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"incidencias",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "incidencias.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/incidencias",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"incidencias"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "incidencias.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/incidencias/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"incidencias",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "incidencias.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/incidencias/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"incidencias",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "eventos",
+					"item": [
+						{
+							"name": "eventos.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/eventos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"eventos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "eventos.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/eventos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"eventos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "eventos.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/eventos",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"eventos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "eventos.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/eventos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"eventos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "eventos.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/eventos/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"eventos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "garantias",
+					"item": [
+						{
+							"name": "garantias.index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/garantias",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"garantias"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "garantias.show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/garantias/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"garantias",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "garantias.store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/garantias",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"garantias"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "garantias.update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{URL}}/api/garantias/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"garantias",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "garantias.destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL}}/api/garantias/1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"garantias",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a2d3cf06-a00b-40cd-8e69-1e02513b3e00",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7efd862b-3f92-42d5-919d-3e8778470145",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "WEB",
+			"item": [],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1b98e308-b9c2-4be9-b955-d8d2475d2411",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "84ad7e5d-9a6c-4c5e-847c-466b63faea5c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
