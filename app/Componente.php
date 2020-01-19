@@ -34,11 +34,33 @@ class Componente extends Model
   protected $casts = [];
 
   /**
-   * The accessors to append to the model's array form.
+   * Los accesors a añadir al array del modelo.
    *
    * @var array
    */
   protected $appends = ['modelo'];
+
+  /**
+   * Obtener serial.
+   *
+   * @param  string  $value
+   * @return string
+   */
+  public function getSerialAttribute($value)
+  {
+    return mb_strtoupper($value);
+  }
+
+  /**
+   * Establecer serial.
+   *
+   * @param  string  $value
+   * @return void
+   */
+  public function setSerialAttribute($value)
+  {
+    $this->attributes['serial'] = strtolower($value);
+  }
 
   /**
    * Obtener modelo.

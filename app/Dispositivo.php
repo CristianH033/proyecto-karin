@@ -41,6 +41,28 @@ class Dispositivo extends Model
   protected $appends = ['modelo'];
 
   /**
+   * Obtener serial.
+   *
+   * @param  string  $value
+   * @return string
+   */
+  public function getSerialAttribute($value)
+  {
+    return mb_strtoupper($value);
+  }
+
+  /**
+   * Establecer serial.
+   *
+   * @param  string  $value
+   * @return void
+   */
+  public function setSerialAttribute($value)
+  {
+    $this->attributes['serial'] = strtolower($value);
+  }
+
+  /**
    * Obtener modelo.
    *
    * @return string
