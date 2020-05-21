@@ -44,6 +44,7 @@ return [
   ],
 
   'oauth' => [
+    'server' => env('OAUTH_SERVER'),
     'endpoint' => env('OAUTH_ENDPOINT'),
     'expire' => [
       'access_token' => env('OAUTH_ACCESS_TOKEN_EXPIRE_MINUTES', 1),
