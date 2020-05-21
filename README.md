@@ -1,3 +1,3 @@
-# Proyecto KARIM!
+# Proyecto KARIN!
 
-Repositorio del proyecto **KARIM**.
+Repositorio del proyecto **KARIN**.
