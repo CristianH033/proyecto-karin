@@ -22,5 +22,6 @@
   "Invalid refresh token": "Token de refresco no válido",
   "Too Many Attempts.": "Demasiados intentos",
   "Unauthenticated.": "Sin autenticar.",
-  "This person already has a user created.": "Esta persona ya tiene un usuario creado."
+  "This person already has a user created.": "Esta persona ya tiene un usuario creado.",
+  "The authentication server is not responding": "El servidor de autenticación no responde"
 }

@@ -59,7 +59,10 @@ trait OauthProxy
       ]);
     } catch (RequestException $error) {
       // Devolver el error response
-      return $error->getResponse();
+      if($error->hasResponse()){
+        return $error->getResponse();
+      }
+      abort(503, __("The authentication server is not responding"));
     }
 
     // Decodificar respuesta
