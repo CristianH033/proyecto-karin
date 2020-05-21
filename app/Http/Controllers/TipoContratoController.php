@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\TipoContrato;
 use Illuminate\Http\Request;
+use App\Http\Requests\TipoContratoCreateRequest;
+use App\Http\Requests\TipoContratoUpdateRequest;
 use App\Http\Resources\TipoContratoResource;
 use App\Http\Resources\TipoContratoCollection;
 
@@ -37,7 +39,7 @@ class TipoContratoController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(TipoContratoCreateRequest $request)
   {
     TipoContrato::create($request->all());
   }
@@ -60,7 +62,7 @@ class TipoContratoController extends Controller
    * @param  \App\TipoContrato  $tipoContrato
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, TipoContrato $tipoContrato)
+  public function update(TipoContratoUpdateRequest $request, TipoContrato $tipoContrato)
   {
     $tipoContrato->save();
   }

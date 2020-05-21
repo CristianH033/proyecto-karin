@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\TipoTercero;
 use Illuminate\Http\Request;
+use App\Http\Requests\TipoTerceroCreateRequest;
+use App\Http\Requests\TipoTerceroUpdateRequest;
 use App\Http\Resources\TipoTerceroResource;
 use App\Http\Resources\TipoTerceroCollection;
 
@@ -37,7 +39,7 @@ class TipoTerceroController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(TipoTerceroCreateRequest $request)
   {
     TipoTercero::create($request->all());
   }
@@ -60,7 +62,7 @@ class TipoTerceroController extends Controller
    * @param  \App\TipoTercero  $tipoTercero
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, TipoTercero $tipoTercero)
+  public function update(TipoTerceroUpdateRequest $request, TipoTercero $tipoTercero)
   {
     $tipoTercero->save();
   }

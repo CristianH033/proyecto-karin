@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Genero;
 use Illuminate\Http\Request;
+use App\Http\Requests\GeneroCreateRequest;
+use App\Http\Requests\GeneroUpdateRequest;
+use App\Http\Resources\GeneroResource;
+use App\Http\Resources\GeneroCollection;
 
 class GeneroController extends Controller
 {
@@ -23,7 +27,7 @@ class GeneroController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(GeneroCreateRequest $request)
   {
     Genero::create($request->all());
   }
@@ -46,7 +50,7 @@ class GeneroController extends Controller
    * @param  \App\Genero  $genero
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Genero $genero)
+  public function update(GeneroUpdateRequest $request, Genero $genero)
   {
     $genero->save();
   }

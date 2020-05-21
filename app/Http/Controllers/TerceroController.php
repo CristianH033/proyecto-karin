@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Tercero;
 use Illuminate\Http\Request;
+use App\Http\Requests\TerceroCreateRequest;
+use App\Http\Requests\TerceroUpdateRequest;
 use App\Http\Resources\TerceroResource;
 use App\Http\Resources\TerceroCollection;
 
@@ -37,7 +39,7 @@ class TerceroController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(TerceroCreateRequest $request)
   {
     Tercero::create($request->all());
   }
@@ -60,7 +62,7 @@ class TerceroController extends Controller
    * @param  \App\Tercero  $tercero
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Tercero $tercero)
+  public function update(TerceroUpdateRequest $request, Tercero $tercero)
   {
     $tercero->save();
   }

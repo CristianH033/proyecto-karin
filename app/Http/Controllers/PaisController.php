@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Pais;
 use Illuminate\Http\Request;
+use App\Http\Requests\PaisCreateRequest;
+use App\Http\Requests\PaisUpdateRequest;
 use App\Http\Resources\PaisResource;
 use App\Http\Resources\PaisCollection;
 

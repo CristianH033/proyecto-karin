@@ -6,6 +6,8 @@ use App\Ciudad;
 use Illuminate\Http\Request;
 use App\Http\Resources\CiudadResource;
 use App\Http\Resources\CiudadCollection;
+use App\Http\Requests\CiudadCreateRequest;
+use App\Http\Requests\CiudadUpdateRequest;
 
 class CiudadController extends Controller
 {
@@ -37,13 +39,8 @@ class CiudadController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(CiudadCreateRequest $request)
   {
-    $request->validate([
-      'nombre' => 'required|iunique:ciudades|max:255',
-      'estado_id' => 'required|exists:estados,id'
-    ]);
-
     Ciudad::create($request->only('nombre', 'estado_id'));
   }
 
@@ -65,13 +62,8 @@ class CiudadController extends Controller
    * @param  \App\Ciudad  $ciudad
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Ciudad $ciudad)
+  public function update(CiudadUpdateRequest $request, Ciudad $ciudad)
   {
-    $request->validate([
-      'nombre' => 'iunique:ciudades,nombre,' . $ciudad->id . '|max:255',
-      'estado_id' => 'exists:estados,id'
-    ]);
-
     $ciudad->update($request->only('nombre', 'estado_id'));
   }
 

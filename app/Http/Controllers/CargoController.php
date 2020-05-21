@@ -6,6 +6,8 @@ use App\Cargo;
 use Illuminate\Http\Request;
 use App\Http\Resources\CargoResource;
 use App\Http\Resources\CargoCollection;
+use App\Http\Requests\CargoCreateRequest;
+use App\Http\Requests\CargoUpdateRequest;
 
 class CargoController extends Controller
 {
@@ -37,13 +39,8 @@ class CargoController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(CargoCreateRequest $request)
   {
-    $request->validate([
-      'nombre' => 'bail|required|iunique:cargos|max:255',
-      'descripcion' => 'min:5'
-    ]);
-
     Cargo::create($request->only('nombre', 'descripcion'));
   }
 
@@ -65,13 +62,8 @@ class CargoController extends Controller
    * @param  \App\Cargo  $cargo
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Cargo $cargo)
+  public function update(CargoUpdateRequest $request, Cargo $cargo)
   {
-    $request->validate([
-      'nombre' => 'iunique:cargos,nombre,' . $cargo->id . '|max:255',
-      'descripcion' => 'min:5'
-    ]);
-
     $cargo->update($request->only('nombre', 'descripcion'));
   }
 

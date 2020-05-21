@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Otrosi;
 use Illuminate\Http\Request;
+use App\Http\Requests\OtrosiCreateRequest;
+use App\Http\Requests\OtrosiUpdateRequest;
 use App\Http\Resources\OtrosiResource;
 use App\Http\Resources\OtrosiCollection;
 
@@ -37,7 +39,7 @@ class OtrosiController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(OtrosiCreateRequest $request)
   {
     Otrosi::create($request->all());
   }
@@ -60,7 +62,7 @@ class OtrosiController extends Controller
    * @param  \App\Otrosi  $otrosi
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Otrosi $otrosi)
+  public function update(OtrosiUpdateRequest $request, Otrosi $otrosi)
   {
     $otrosi->save();
   }

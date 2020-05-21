@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Sede;
 use Illuminate\Http\Request;
+use App\Http\Requests\SedeCreateRequest;
+use App\Http\Requests\SedeUpdateRequest;
 use App\Http\Resources\SedeResource;
 use App\Http\Resources\SedeCollection;
 
@@ -37,7 +39,7 @@ class SedeController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(SedeCreateRequest $request)
   {
     Sede::create($request->all());
   }
@@ -60,7 +62,7 @@ class SedeController extends Controller
    * @param  \App\Sede  $sede
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Sede $sede)
+  public function update(SedeUpdateRequest $request, Sede $sede)
   {
     $sede->save();
   }

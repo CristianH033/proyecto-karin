@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Traslado;
 use Illuminate\Http\Request;
+use App\Http\Requests\TrasladoCreateRequest;
+use App\Http\Requests\TrasladoUpdateRequest;
 use App\Http\Resources\TrasladoResource;
 use App\Http\Resources\TrasladoCollection;
 
@@ -37,7 +39,7 @@ class TrasladoController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(TrasladoCreateRequest $request)
   {
     Traslado::create($request->all());
   }
@@ -60,7 +62,7 @@ class TrasladoController extends Controller
    * @param  \App\Traslado  $traslado
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Traslado $traslado)
+  public function update(TrasladoUpdateRequest $request, Traslado $traslado)
   {
     $traslado->save();
   }

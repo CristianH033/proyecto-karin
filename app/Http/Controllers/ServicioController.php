@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Servicio;
 use Illuminate\Http\Request;
+use App\Http\Requests\ServicioCreateRequest;
+use App\Http\Requests\ServicioUpdateRequest;
 use App\Http\Resources\ServicioResource;
 use App\Http\Resources\ServicioCollection;
 
@@ -37,7 +39,7 @@ class ServicioController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(ServicioCreateRequest $request)
   {
     Servicio::create($request->all());
   }
@@ -60,7 +62,7 @@ class ServicioController extends Controller
    * @param  \App\Servicio  $servicio
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Servicio $servicio)
+  public function update(ServicioUpdateRequest $request, Servicio $servicio)
   {
     $servicio->save();
   }

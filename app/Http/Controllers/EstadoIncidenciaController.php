@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\EstadoIncidencia;
 use Illuminate\Http\Request;
+use App\Http\Requests\EstadoIncidenciaCreateRequest;
+use App\Http\Requests\EstadoIncidenciaUpdateRequest;
+use App\Http\Resources\EstadoIncidenciaResource;
+use App\Http\Resources\EstadoIncidenciaCollection;
 
 class EstadoIncidenciaController extends Controller
 {
@@ -23,7 +27,7 @@ class EstadoIncidenciaController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(EstadoIncidenciaCreateRequest $request)
   {
     EstadoIncidencia::create($request->all());
   }
@@ -46,7 +50,7 @@ class EstadoIncidenciaController extends Controller
    * @param  \App\EstadoIncidencia  $estadoIncidencia
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, EstadoIncidencia $estadoIncidencia)
+  public function update(EstadoIncidenciaUpdateRequest $request, EstadoIncidencia $estadoIncidencia)
   {
     $estadoIncidencia->save();
   }

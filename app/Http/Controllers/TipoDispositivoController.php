@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\TipoDispositivo;
 use Illuminate\Http\Request;
+use App\Http\Requests\TipoDispositivoCreateRequest;
+use App\Http\Requests\TipoDispositivoUpdateRequest;
 use App\Http\Resources\TipoDispositivoResource;
 use App\Http\Resources\TipoDispositivoCollection;
 
@@ -37,7 +39,7 @@ class TipoDispositivoController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(TipoDispositivoCreateRequest $request)
   {
     TipoDispositivo::create($request->all());
   }
@@ -60,7 +62,7 @@ class TipoDispositivoController extends Controller
    * @param  \App\TipoDispositivo  $tipoDispositivo
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, TipoDispositivo $tipoDispositivo)
+  public function update(TipoDispositivoUpdateRequest $request, TipoDispositivo $tipoDispositivo)
   {
     $tipoDispositivo->save();
   }

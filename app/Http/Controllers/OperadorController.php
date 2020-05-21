@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Operador;
 use Illuminate\Http\Request;
+use App\Http\Requests\OperadorCreateRequest;
+use App\Http\Requests\OperadorUpdateRequest;
 use App\Http\Resources\OperadorResource;
 use App\Http\Resources\OperadorCollection;
 
@@ -37,7 +39,7 @@ class OperadorController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(OperadorCreateRequest $request)
   {
     Operador::create($request->all());
   }
@@ -60,7 +62,7 @@ class OperadorController extends Controller
    * @param  \App\Operador  $operador
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Operador $operador)
+  public function update(OperadorUpdateRequest $request, Operador $operador)
   {
     $operador->save();
   }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Producto;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductoCreateRequest;
+use App\Http\Requests\ProductoUpdateRequest;
 use App\Http\Resources\ProductoResource;
 use App\Http\Resources\ProductoCollection;
 
@@ -37,7 +39,7 @@ class ProductoController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(ProductoCreateRequest $request)
   {
     Producto::create($request->all());
   }
@@ -60,7 +62,7 @@ class ProductoController extends Controller
    * @param  \App\Producto  $producto
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Producto $producto)
+  public function update(ProductoUpdateRequest $request, Producto $producto)
   {
     $producto->save();
   }

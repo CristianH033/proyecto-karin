@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Organizacion;
 use Illuminate\Http\Request;
+use App\Http\Requests\OrganizacionCreateRequest;
+use App\Http\Requests\OrganizacionUpdateRequest;
+use App\Http\Resources\OrganizacionResource;
+use App\Http\Resources\OrganizacionCollection;
 
 class OrganizacionController extends Controller
 {
@@ -23,7 +27,7 @@ class OrganizacionController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(OrganizacionCreateRequest $request)
   {
     Organizacion::create($request->all());
   }
@@ -46,7 +50,7 @@ class OrganizacionController extends Controller
    * @param  \App\Organizacion  $organizacion
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Organizacion $organizacion)
+  public function update(OrganizacionUpdateRequest $request, Organizacion $organizacion)
   {
     $organizacion->save();
   }

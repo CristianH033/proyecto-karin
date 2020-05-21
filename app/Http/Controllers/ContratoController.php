@@ -6,6 +6,8 @@ use App\Contrato;
 use Illuminate\Http\Request;
 use App\Http\Resources\ContratoResource;
 use App\Http\Resources\ContratoCollection;
+use App\Http\Requests\ContratoCreateRequest;
+use App\Http\Requests\ContratoUpdateRequest;
 
 class ContratoController extends Controller
 {
@@ -37,7 +39,7 @@ class ContratoController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(ContratoCreateRequest $request)
   {
     Contrato::create($request->all());
   }
@@ -60,7 +62,7 @@ class ContratoController extends Controller
    * @param  \App\Contrato  $contrato
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Contrato $contrato)
+  public function update(ContratoUpdateRequest $request, Contrato $contrato)
   {
     $contrato->save();
   }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Inventario;
 use Illuminate\Http\Request;
+use App\Http\Requests\InventarioCreateRequest;
+use App\Http\Requests\InventarioUpdateRequest;
 use App\Http\Resources\InventarioResource;
 use App\Http\Resources\InventarioCollection;
 
@@ -37,7 +39,7 @@ class InventarioController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(InventarioCreateRequest $request)
   {
     Inventario::create($request->all());
   }
@@ -60,7 +62,7 @@ class InventarioController extends Controller
    * @param  \App\Inventario  $inventario
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Inventario $inventario)
+  public function update(InventarioUpdateRequest $request, Inventario $inventario)
   {
     $inventario->save();
   }

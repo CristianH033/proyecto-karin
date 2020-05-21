@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Incidencia;
 use Illuminate\Http\Request;
+use App\Http\Requests\IncidenciaCreateRequest;
+use App\Http\Requests\IncidenciaUpdateRequest;
 use App\Http\Resources\IncidenciaResource;
 use App\Http\Resources\IncidenciaCollection;
 
@@ -37,7 +39,7 @@ class IncidenciaController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(IncidenciaCreateRequest $request)
   {
     Incidencia::create($request->all());
   }
@@ -60,7 +62,7 @@ class IncidenciaController extends Controller
    * @param  \App\Incidencia  $incidencia
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Incidencia $incidencia)
+  public function update(IncidenciaUpdateRequest $request, Incidencia $incidencia)
   {
     $incidencia->save();
   }

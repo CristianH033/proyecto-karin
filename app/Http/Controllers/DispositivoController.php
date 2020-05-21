@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Dispositivo;
 use Illuminate\Http\Request;
+use App\Http\Requests\DispositivoCreateRequest;
+use App\Http\Requests\DispositivoUpdateRequest;
 use App\Http\Resources\DispositivoResource;
 use App\Http\Resources\DispositivoCollection;
 
@@ -37,7 +39,7 @@ class DispositivoController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(DispositivoCreateRequest $request)
   {
     Dispositivo::create($request->all());
   }

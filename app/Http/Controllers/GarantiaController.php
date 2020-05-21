@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Garantia;
 use Illuminate\Http\Request;
+use App\Http\Requests\GarantiaCreateRequest;
+use App\Http\Requests\GarantiaUpdateRequest;
 use App\Http\Resources\GarantiaResource;
 use App\Http\Resources\GarantiaCollection;
 
@@ -37,7 +39,7 @@ class GarantiaController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(GarantiaCreateRequest $request)
   {
     Garantia::create($request->all());
   }
@@ -60,7 +62,7 @@ class GarantiaController extends Controller
    * @param  \App\Garantia  $garantia
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Garantia $garantia)
+  public function update(GarantiaUpdateRequest $request, Garantia $garantia)
   {
     $garantia->save();
   }

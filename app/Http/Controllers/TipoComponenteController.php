@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\TipoComponente;
 use Illuminate\Http\Request;
+use App\Http\Requests\TipoComponenteCreateRequest;
+use App\Http\Requests\TipoComponenteUpdateRequest;
+use App\Http\Resources\TipoComponenteResource;
+use App\Http\Resources\TipoComponenteCollection;
 
 class TipoComponenteController extends Controller
 {
@@ -23,7 +27,7 @@ class TipoComponenteController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(TipoComponenteCreateRequest $request)
   {
     TipoComponente::create($request->all());
   }
@@ -46,7 +50,7 @@ class TipoComponenteController extends Controller
    * @param  \App\TipoComponente  $tipoComponente
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, TipoComponente $tipoComponente)
+  public function update(TipoComponenteUpdateRequest $request, TipoComponente $tipoComponente)
   {
     $tipoComponente->save();
   }

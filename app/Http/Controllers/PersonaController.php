@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Persona;
 use Illuminate\Http\Request;
+use App\Http\Requests\PersonaCreateRequest;
+use App\Http\Requests\PersonaUpdateRequest;
 use App\Http\Resources\PersonaResource;
 use App\Http\Resources\PersonaCollection;
 
@@ -37,7 +39,7 @@ class PersonaController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(PersonaCreateRequest $request)
   {
     Persona::create($request->all());
   }
@@ -60,7 +62,7 @@ class PersonaController extends Controller
    * @param  \App\Persona  $persona
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Persona $persona)
+  public function update(PersonaUpdateRequest $request, Persona $persona)
   {
     $persona->save();
   }

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Componente;
-use Illuminate\Http\Request;
 use App\Http\Resources\ComponenteResource;
 use App\Http\Resources\ComponenteCollection;
+use App\Http\Requests\ComponenteCreateRequest;
+use App\Http\Requests\ComponenteUpdateRequest;
 
 class ComponenteController extends Controller
 {
@@ -37,9 +38,18 @@ class ComponenteController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(ComponenteCreateRequest $request)
   {
-    Componente::create($request->all());
+    Componente::create(
+      $request->only(
+        'modelo_id',
+        'tipo_componente_id',
+        'ubicacion_id',
+        'dispositivo_id',
+        'serial',
+        'caracteristicas_tecnicas'
+      )
+    );
   }
 
   /**
@@ -60,9 +70,20 @@ class ComponenteController extends Controller
    * @param  \App\Componente  $componente
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Componente $componente)
-  {
-    $componente->save();
+  public function update(
+    ComponenteUpdateRequest $request,
+    Componente $componente
+  ) {
+    $componente->update(
+      $request->only(
+        'modelo_id',
+        'tipo_componente_id',
+        'ubicacion_id',
+        'dispositivo_id',
+        'serial',
+        'caracteristicas_tecnicas'
+      )
+    );
   }
 
   /**

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Funcionario;
 use Illuminate\Http\Request;
+use App\Http\Requests\FuncionarioCreateRequest;
+use App\Http\Requests\FuncionarioUpdateRequest;
 use App\Http\Resources\FuncionarioResource;
 use App\Http\Resources\FuncionarioCollection;
 
@@ -37,7 +39,7 @@ class FuncionarioController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(FuncionarioCreateRequest $request)
   {
     Funcionario::create($request->all());
   }
@@ -60,7 +62,7 @@ class FuncionarioController extends Controller
    * @param  \App\Funcionario  $funcionario
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Funcionario $funcionario)
+  public function update(FuncionarioUpdateRequest $request, Funcionario $funcionario)
   {
     $funcionario->save();
   }

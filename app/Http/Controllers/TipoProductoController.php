@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\TipoProducto;
 use Illuminate\Http\Request;
+use App\Http\Requests\TipoProductoCreateRequest;
+use App\Http\Requests\TipoProductoUpdateRequest;
 use App\Http\Resources\TipoProductoResource;
 use App\Http\Resources\TipoProductoCollection;
 
@@ -37,7 +39,7 @@ class TipoProductoController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(TipoProductoCreateRequest $request)
   {
     TipoProducto::create($request->all());
   }
@@ -60,7 +62,7 @@ class TipoProductoController extends Controller
    * @param  \App\TipoProducto  $tipoProducto
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, TipoProducto $tipoProducto)
+  public function update(TipoProductoUpdateRequest $request, TipoProducto $tipoProducto)
   {
     $tipoProducto->save();
   }

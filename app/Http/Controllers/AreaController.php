@@ -6,6 +6,8 @@ use App\Area;
 use Illuminate\Http\Request;
 use App\Http\Resources\AreaResource;
 use App\Http\Resources\AreaCollection;
+use App\Http\Requests\AreaCreateRequest;
+use App\Http\Requests\AreaUpdateRequest;
 
 class AreaController extends Controller
 {
@@ -37,9 +39,9 @@ class AreaController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(AreaCreateRequest $request)
   {
-    Area::create($request->all());
+    Area::create($request->only('organizacion_id', 'nombre'));
   }
 
   /**
@@ -60,9 +62,9 @@ class AreaController extends Controller
    * @param  \App\Area  $area
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Area $area)
+  public function update(AreaUpdateRequest $request, Area $area)
   {
-    $area->save();
+    $area->update($request->only('organizacion_id', 'nombre'));
   }
 
   /**

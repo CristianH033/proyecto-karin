@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Ubicacion;
 use Illuminate\Http\Request;
+use App\Http\Requests\UbicacionCreateRequest;
+use App\Http\Requests\UbicacionUpdateRequest;
 use App\Http\Resources\UbicacionResource;
 use App\Http\Resources\UbicacionCollection;
 
@@ -37,7 +39,7 @@ class UbicacionController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(UbicacionCreateRequest $request)
   {
     Ubicacion::create($request->all());
   }
@@ -60,7 +62,7 @@ class UbicacionController extends Controller
    * @param  \App\Ubicacion  $ubicacion
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Ubicacion $ubicacion)
+  public function update(UbicacionUpdateRequest $request, Ubicacion $ubicacion)
   {
     $ubicacion->save();
   }

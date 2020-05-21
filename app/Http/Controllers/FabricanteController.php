@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Fabricante;
 use Illuminate\Http\Request;
+use App\Http\Requests\FabricanteCreateRequest;
+use App\Http\Requests\FabricanteUpdateRequest;
 use App\Http\Resources\FabricanteResource;
 use App\Http\Resources\FabricanteCollection;
 
@@ -37,7 +39,7 @@ class FabricanteController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(FabricanteCreateRequest $request)
   {
     Fabricante::create($request->all());
   }
@@ -60,7 +62,7 @@ class FabricanteController extends Controller
    * @param  \App\Fabricante  $fabricante
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Fabricante $fabricante)
+  public function update(FabricanteUpdateRequest $request, Fabricante $fabricante)
   {
     $fabricante->save();
   }

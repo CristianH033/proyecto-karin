@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Modelo;
 use Illuminate\Http\Request;
+use App\Http\Requests\ModeloCreateRequest;
+use App\Http\Requests\ModeloUpdateRequest;
 use App\Http\Resources\ModeloResource;
 use App\Http\Resources\ModeloCollection;
 
@@ -37,7 +39,7 @@ class ModeloController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(ModeloCreateRequest $request)
   {
     Modelo::create($request->all());
   }
@@ -60,7 +62,7 @@ class ModeloController extends Controller
    * @param  \App\Modelo  $modelo
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Modelo $modelo)
+  public function update(ModeloUpdateRequest $request, Modelo $modelo)
   {
     $modelo->save();
   }

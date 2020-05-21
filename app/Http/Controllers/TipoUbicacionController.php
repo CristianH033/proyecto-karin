@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\TipoUbicacion;
 use Illuminate\Http\Request;
+use App\Http\Requests\TipoUbicacionCreateRequest;
+use App\Http\Requests\TipoUbicacionUpdateRequest;
 use App\Http\Resources\TipoUbicacionResource;
 use App\Http\Resources\TipoUbicacionCollection;
 
-class TipoTipoUbicacionController extends Controller
+class TipoUbicacionController extends Controller
 {
   /**
    * Constructor de la nueva instancia del controlador
@@ -37,7 +39,7 @@ class TipoTipoUbicacionController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(TipoUbicacionCreateRequest $request)
   {
     TipoUbicacion::create($request->all());
   }
@@ -60,7 +62,7 @@ class TipoTipoUbicacionController extends Controller
    * @param  \App\TipoUbicacion  $tipoUbicacion
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, TipoUbicacion $tipoUbicacion)
+  public function update(TipoUbicacionUpdateRequest $request, TipoUbicacion $tipoUbicacion)
   {
     $tipoUbicacion->save();
   }

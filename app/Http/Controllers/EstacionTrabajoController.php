@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\EstacionTrabajo;
 use Illuminate\Http\Request;
+use App\Http\Requests\EstacionTrabajoCreateRequest;
+use App\Http\Requests\EstacionTrabajoUpdateRequest;
 use App\Http\Resources\EstacionTrabajoResource;
 use App\Http\Resources\EstacionTrabajoCollection;
 
@@ -37,7 +39,7 @@ class EstacionTrabajoController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(EstacionTrabajoCreateRequest $request)
   {
     EstacionTrabajo::create($request->all());
   }
@@ -60,7 +62,7 @@ class EstacionTrabajoController extends Controller
    * @param  \App\EstacionTrabajo  $estacionTrabajo
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, EstacionTrabajo $estacionTrabajo)
+  public function update(EstacionTrabajoUpdateRequest $request, EstacionTrabajo $estacionTrabajo)
   {
     $estacionTrabajo->save();
   }

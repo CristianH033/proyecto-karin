@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Tag;
 use Illuminate\Http\Request;
+use App\Http\Requests\TagCreateRequest;
+use App\Http\Requests\TagUpdateRequest;
 use App\Http\Resources\TagResource;
 use App\Http\Resources\TagCollection;
 
@@ -37,7 +39,7 @@ class TagController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(TagCreateRequest $request)
   {
     Tag::create($request->all());
   }
@@ -60,7 +62,7 @@ class TagController extends Controller
    * @param  \App\Tag  $tag
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Tag $tag)
+  public function update(TagUpdateRequest $request, Tag $tag)
   {
     $tag->save();
   }

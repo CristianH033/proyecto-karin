@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\TipoServicio;
 use Illuminate\Http\Request;
+use App\Http\Requests\TipoServicioCreateRequest;
+use App\Http\Requests\TipoServicioUpdateRequest;
 use App\Http\Resources\TipoServicioResource;
 use App\Http\Resources\TipoServicioCollection;
 
@@ -37,7 +39,7 @@ class TipoServicioController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(TipoServicioCreateRequest $request)
   {
     TipoServicio::create($request->all());
   }
@@ -60,7 +62,7 @@ class TipoServicioController extends Controller
    * @param  \App\TipoServicio  $tipoServicio
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, TipoServicio $tipoServicio)
+  public function update(TipoServicioUpdateRequest $request, TipoServicio $tipoServicio)
   {
     $tipoServicio->save();
   }
