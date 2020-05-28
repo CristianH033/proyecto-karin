@@ -243,6 +243,7 @@ class User extends Authenticatable implements MustVerifyEmail
   public function sendOTP()
   {
     $OTP = $this->cacheNewOTP();
+    // abort(500, $OTP);
     $this->notify(new OTPNotification($OTP));
   }
 }

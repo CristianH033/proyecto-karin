@@ -62,8 +62,10 @@ class TipoProductoController extends Controller
    * @param  \App\TipoProducto  $tipoProducto
    * @return \Illuminate\Http\Response
    */
-  public function update(TipoProductoUpdateRequest $request, TipoProducto $tipoProducto)
-  {
+  public function update(
+    TipoProductoUpdateRequest $request,
+    TipoProducto $tipoProducto
+  ) {
     $tipoProducto->save();
   }
 

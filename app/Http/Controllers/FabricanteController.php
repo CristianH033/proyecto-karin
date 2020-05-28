@@ -62,8 +62,10 @@ class FabricanteController extends Controller
    * @param  \App\Fabricante  $fabricante
    * @return \Illuminate\Http\Response
    */
-  public function update(FabricanteUpdateRequest $request, Fabricante $fabricante)
-  {
+  public function update(
+    FabricanteUpdateRequest $request,
+    Fabricante $fabricante
+  ) {
     $fabricante->save();
   }
 

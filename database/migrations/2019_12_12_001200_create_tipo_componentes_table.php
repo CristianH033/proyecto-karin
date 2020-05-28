@@ -6,28 +6,28 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTipoComponentesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('tipo_componentes', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('tipo')->unique();
-            $table->timestamps();
-            $table->softDeletes();
-        });
-    }
+  /**
+   * Run the migrations.
+   *
+   * @return void
+   */
+  public function up()
+  {
+    Schema::create('tipo_componentes', function (Blueprint $table) {
+      $table->bigIncrements('id');
+      $table->string('tipo')->unique();
+      $table->timestamps();
+      $table->softDeletes();
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('tipo_componentes');
-    }
+  /**
+   * Reverse the migrations.
+   *
+   * @return void
+   */
+  public function down()
+  {
+    Schema::dropIfExists('tipo_componentes');
+  }
 }

@@ -62,8 +62,10 @@ class FuncionarioController extends Controller
    * @param  \App\Funcionario  $funcionario
    * @return \Illuminate\Http\Response
    */
-  public function update(FuncionarioUpdateRequest $request, Funcionario $funcionario)
-  {
+  public function update(
+    FuncionarioUpdateRequest $request,
+    Funcionario $funcionario
+  ) {
     $funcionario->save();
   }
 

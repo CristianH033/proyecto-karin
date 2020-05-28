@@ -62,8 +62,10 @@ class TipoContratoController extends Controller
    * @param  \App\TipoContrato  $tipoContrato
    * @return \Illuminate\Http\Response
    */
-  public function update(TipoContratoUpdateRequest $request, TipoContrato $tipoContrato)
-  {
+  public function update(
+    TipoContratoUpdateRequest $request,
+    TipoContrato $tipoContrato
+  ) {
     $tipoContrato->save();
   }
 

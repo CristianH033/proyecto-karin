@@ -62,8 +62,10 @@ class IncidenciaController extends Controller
    * @param  \App\Incidencia  $incidencia
    * @return \Illuminate\Http\Response
    */
-  public function update(IncidenciaUpdateRequest $request, Incidencia $incidencia)
-  {
+  public function update(
+    IncidenciaUpdateRequest $request,
+    Incidencia $incidencia
+  ) {
     $incidencia->save();
   }
 

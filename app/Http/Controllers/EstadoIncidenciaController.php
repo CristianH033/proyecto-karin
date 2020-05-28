@@ -50,8 +50,10 @@ class EstadoIncidenciaController extends Controller
    * @param  \App\EstadoIncidencia  $estadoIncidencia
    * @return \Illuminate\Http\Response
    */
-  public function update(EstadoIncidenciaUpdateRequest $request, EstadoIncidencia $estadoIncidencia)
-  {
+  public function update(
+    EstadoIncidenciaUpdateRequest $request,
+    EstadoIncidencia $estadoIncidencia
+  ) {
     $estadoIncidencia->save();
   }
 

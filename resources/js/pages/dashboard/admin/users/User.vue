@@ -13,7 +13,7 @@ export default {
   name: "User",
   data: () => ({}),
   computed: {},
-  methods: {},
+  methods: {}
 };
 </script>
 

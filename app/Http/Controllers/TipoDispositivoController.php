@@ -62,8 +62,10 @@ class TipoDispositivoController extends Controller
    * @param  \App\TipoDispositivo  $tipoDispositivo
    * @return \Illuminate\Http\Response
    */
-  public function update(TipoDispositivoUpdateRequest $request, TipoDispositivo $tipoDispositivo)
-  {
+  public function update(
+    TipoDispositivoUpdateRequest $request,
+    TipoDispositivo $tipoDispositivo
+  ) {
     $tipoDispositivo->save();
   }
 

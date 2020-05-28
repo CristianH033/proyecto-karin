@@ -62,8 +62,10 @@ class TipoTerceroController extends Controller
    * @param  \App\TipoTercero  $tipoTercero
    * @return \Illuminate\Http\Response
    */
-  public function update(TipoTerceroUpdateRequest $request, TipoTercero $tipoTercero)
-  {
+  public function update(
+    TipoTerceroUpdateRequest $request,
+    TipoTercero $tipoTercero
+  ) {
     $tipoTercero->save();
   }
 

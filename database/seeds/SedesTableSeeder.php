@@ -16,7 +16,7 @@ class SedesTableSeeder extends Seeder
       "organizacion_id" => 1,
       "ciudad_id" => 1,
       "nombre" => "Sede X",
-      "direccion" => "Carrera 34 # 13-24",
+      "direccion" => "Carrera 34 # 13-24"
     ]);
   }
 }

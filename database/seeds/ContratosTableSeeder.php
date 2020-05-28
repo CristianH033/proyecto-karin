@@ -17,7 +17,7 @@ class ContratosTableSeeder extends Seeder
 
     $contrato = factory(Contrato::class)->make([
       "tipo_contrato_id" => 1,
-      "objeto" => "Bla bla bla bla",
+      "objeto" => "Bla bla bla bla"
     ]);
 
     $contrato->contratable()->associate($persona);

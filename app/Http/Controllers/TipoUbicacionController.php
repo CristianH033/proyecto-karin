@@ -62,8 +62,10 @@ class TipoUbicacionController extends Controller
    * @param  \App\TipoUbicacion  $tipoUbicacion
    * @return \Illuminate\Http\Response
    */
-  public function update(TipoUbicacionUpdateRequest $request, TipoUbicacion $tipoUbicacion)
-  {
+  public function update(
+    TipoUbicacionUpdateRequest $request,
+    TipoUbicacion $tipoUbicacion
+  ) {
     $tipoUbicacion->save();
   }
 

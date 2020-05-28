@@ -62,8 +62,10 @@ class TipoServicioController extends Controller
    * @param  \App\TipoServicio  $tipoServicio
    * @return \Illuminate\Http\Response
    */
-  public function update(TipoServicioUpdateRequest $request, TipoServicio $tipoServicio)
-  {
+  public function update(
+    TipoServicioUpdateRequest $request,
+    TipoServicio $tipoServicio
+  ) {
     $tipoServicio->save();
   }
 

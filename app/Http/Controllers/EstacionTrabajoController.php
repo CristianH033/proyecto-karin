@@ -62,8 +62,10 @@ class EstacionTrabajoController extends Controller
    * @param  \App\EstacionTrabajo  $estacionTrabajo
    * @return \Illuminate\Http\Response
    */
-  public function update(EstacionTrabajoUpdateRequest $request, EstacionTrabajo $estacionTrabajo)
-  {
+  public function update(
+    EstacionTrabajoUpdateRequest $request,
+    EstacionTrabajo $estacionTrabajo
+  ) {
     $estacionTrabajo->save();
   }
 

@@ -62,8 +62,10 @@ class InventarioController extends Controller
    * @param  \App\Inventario  $inventario
    * @return \Illuminate\Http\Response
    */
-  public function update(InventarioUpdateRequest $request, Inventario $inventario)
-  {
+  public function update(
+    InventarioUpdateRequest $request,
+    Inventario $inventario
+  ) {
     $inventario->save();
   }
 

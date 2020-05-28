@@ -50,8 +50,10 @@ class OrganizacionController extends Controller
    * @param  \App\Organizacion  $organizacion
    * @return \Illuminate\Http\Response
    */
-  public function update(OrganizacionUpdateRequest $request, Organizacion $organizacion)
-  {
+  public function update(
+    OrganizacionUpdateRequest $request,
+    Organizacion $organizacion
+  ) {
     $organizacion->save();
   }
 

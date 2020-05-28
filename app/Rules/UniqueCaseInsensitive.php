@@ -30,7 +30,9 @@ class UniqueCaseInsensitive implements Rule
   {
     exit($attribute);
     $query = DB::table($parameters[0]);
-    $column = array_key_exists(1, $parameters) ? $query->getGrammar()->wrap($parameters[1]) : "";
+    $column = array_key_exists(1, $parameters)
+      ? $query->getGrammar()->wrap($parameters[1])
+      : "";
     return !$query->whereRaw("lower({$column}) = lower(?)", [$value])->count();
   }
 

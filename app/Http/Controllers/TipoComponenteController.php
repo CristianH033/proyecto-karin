@@ -50,8 +50,10 @@ class TipoComponenteController extends Controller
    * @param  \App\TipoComponente  $tipoComponente
    * @return \Illuminate\Http\Response
    */
-  public function update(TipoComponenteUpdateRequest $request, TipoComponente $tipoComponente)
-  {
+  public function update(
+    TipoComponenteUpdateRequest $request,
+    TipoComponente $tipoComponente
+  ) {
     $tipoComponente->save();
   }
 
