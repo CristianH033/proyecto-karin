@@ -40,7 +40,12 @@ const laraval = {
      * @param String formRef
      * @param Boolean showToast
      */
-    laravalValidate: function(response, formRef, showToast = true) {
+    laravalValidate: function(
+      response,
+      formRef,
+      showToast = true,
+      fields = []
+    ) {
       // Status text
       this.statusText = response.statusText;
       // Success response
@@ -55,6 +60,7 @@ const laraval = {
           case 401:
           case 403:
           case 422:
+          case 429:
             this.toastMessage = response.data.message;
             break;
           default:
@@ -66,6 +72,10 @@ const laraval = {
       // Validar errores y crear reglas segun errores
       if (response.data.errors) {
         Object.entries(response.data.errors).forEach(([key, value]) => {
+          if (!fields.includes(key) && fields.length > 0) {
+            showToast = true;
+            this.toastMessage = value[0];
+          }
           this.laraRules[key] = [() => value[0]];
         });
       }
@@ -99,18 +109,24 @@ const laraval = {
      * @param String formRef
      * @param Boolean showToast
      */
-    laravalResquest: function(action, params, formRef, showToast) {
+    laravalResquest: function(
+      action,
+      params,
+      formRef,
+      showToast = true,
+      fields = []
+    ) {
       return new Promise((resolve, reject) => {
         this.laravalClear();
         this.laraLoading = true;
         this.$store
           .dispatch(action, params)
           .then(response => {
-            this.laravalValidate(response, formRef, showToast);
+            this.laravalValidate(response, formRef, showToast, fields);
             resolve(response);
           })
           .catch(error => {
-            this.laravalValidate(error.response, formRef, showToast);
+            this.laravalValidate(error.response, formRef, showToast, fields);
             reject(error);
           })
           .finally(() => {

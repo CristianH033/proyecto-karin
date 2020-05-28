@@ -106,7 +106,8 @@ export default {
       }
     },
     login() {
-      this.laravalResquest(LOGIN, this.credentials, "loginForm", false)
+      var campos = ["email", "password"];
+      this.laravalResquest(LOGIN, this.credentials, "loginForm", false, campos)
         .then(() => {})
         .catch(() => {});
     }
