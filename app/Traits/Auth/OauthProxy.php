@@ -28,7 +28,11 @@ trait OauthProxy
     Validator::make(
       ["cliente" => $clientName],
       [
-        'cliente' => ['required', 'exists:oauth_clients,name']
+        'cliente' => 'required|exists:oauth_clients,name'
+      ],
+      [
+        'required' => __("No authentication client specified"),
+        'exists' => __("Invalid authentication client")
       ]
     )->validate();
 
@@ -46,7 +50,12 @@ trait OauthProxy
     ]);
 
     // Cliente GuzzleHttp\Client
-    $http = new Client();
+    $http = new Client([
+      'base_uri' => config('services.oauth.server'),
+      'defaults' => [
+        'exceptions' => false
+      ]
+    ]);
 
     // Hacer petición al servidor OAuth
     try {
@@ -59,7 +68,7 @@ trait OauthProxy
       ]);
     } catch (RequestException $error) {
       // Devolver el error response
-      if($error->hasResponse()){
+      if ($error->hasResponse()) {
         return $error->getResponse();
       }
       abort(503, __("The authentication server is not responding"));
