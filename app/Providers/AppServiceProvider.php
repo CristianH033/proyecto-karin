@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Database\Eloquent\Relations\Relation;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -68,7 +70,7 @@ class AppServiceProvider extends ServiceProvider
       $parameters,
       $validator
     ) {
-      if (!($type = array_get($validator->getData(), $parameters[0], false))) {
+      if (!($type = Arr::get($validator->getData(), $parameters[0], false))) {
         return false;
       }
 

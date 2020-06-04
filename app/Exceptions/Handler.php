@@ -9,6 +9,7 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Support\Facades\Lang;
+use Throwable;
 
 class Handler extends ExceptionHandler
 {
@@ -34,7 +35,7 @@ class Handler extends ExceptionHandler
    * @param  \Exception  $exception
    * @return void
    */
-  public function report(Exception $exception)
+  public function report(Throwable $exception)
   {
     parent::report($exception);
   }
@@ -46,7 +47,7 @@ class Handler extends ExceptionHandler
    * @param  \Exception  $exception
    * @return \Illuminate\Http\Response
    */
-  public function render($request, Exception $exception)
+  public function render($request, Throwable $exception)
   {
     if ($exception instanceof InvalidSignatureException) {
       $exception = new HttpException(

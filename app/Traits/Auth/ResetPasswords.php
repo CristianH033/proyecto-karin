@@ -6,6 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Foundation\Auth\RedirectsUsers;
@@ -125,7 +126,7 @@ trait ResetsPasswords
    * @param  string  $password
    * @return void
    */
-  protected function resetPassword($user, $password)
+  protected function resetPassword(User $user, $password)
   {
     $this->setUserPassword($user, $password);
 
