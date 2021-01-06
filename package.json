@@ -32,7 +32,7 @@
     "@mdi/font": "^5.3.45",
     "@mdi/js": "^5.3.45",
     "@mdi/svg": "^5.3.45",
-    "axios": "^0.19",
+    "axios": "^0.21",
     "axios-auth-refresh": "^2.2.6",
     "laravel-echo": "^1.8.0",
     "lodash": "^4.17.15",
